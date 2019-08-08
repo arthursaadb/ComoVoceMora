@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">como_voce_mora</string>
+    <string name="bt_continue">Continuar</string>
+    <string name="start">Começar</string>
+    <string name="instruction">Instruções</string>
+    <string name="credit">Créditos</string>
+    <string name="send_answers">Enviar Respostas</string>
+</resources>
