@@ -7,6 +7,9 @@
     <color name="colorBlueLight">#8097db</color>
     <color name="colorGray">#75716B</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackWith75Opacity">#BF000000</color>
+    <color name="colorTransparent">#00000000</color>
 
     <!-- Hex Opacity Values-->
     <!-- 100% — FF -->

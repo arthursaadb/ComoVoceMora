@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBlueLight">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_bottom_bar"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/rl_bottom_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin">
+
+        <ImageButton
+            android:padding="@dimen/default_padding"
+            android:scaleType="center"
+            android:background="@android:color/transparent"
+            android:id="@+id/ib_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_speaker_off" />
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/iv_footer"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/bg_footer" />
+    </LinearLayout>
+
+</RelativeLayout>

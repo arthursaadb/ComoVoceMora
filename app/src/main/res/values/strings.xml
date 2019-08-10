@@ -5,4 +5,8 @@
     <string name="instruction">Instruções</string>
     <string name="credit">Créditos</string>
     <string name="send_answers">Enviar Respostas</string>
+    <string name="description_info_save">Se você não responder todas as perguntas, seus dados não poderão ser utilizados na pesquisa.</string>
+    <string name="ok">Ok</string>
+    <string name="description_what_is_this_research">Este ambiente digital foi elaborado com o intuito de avaliar COMO VOCÊ MORA de forma mais lúdica e interativa. Pretendemos através dessa ferramenta digítal. compreender questões relativas ao seu modo de vida e maneira de morar nas diversas escalas de sua moradia: desde o bairro até sua casa. As informações coletas irão compor um bando de dados sobre o morar contemporâneo. alimentando novos projetos e ações rumo à elevação da qualidade das moradias em nossas cidades.</string>
+    <string name="title_what_is_this_research">O QUE É ESTÁ PESQUISA?</string>
 </resources>

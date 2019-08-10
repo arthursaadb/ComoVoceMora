@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlueLight"
+    android:paddingTop="@dimen/default_padding">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_what_is_this_research"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/title_text_size" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginEnd="70dp"
+        android:text="@string/description_what_is_this_research"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/default_text_size" />
+
+    <ImageButton
+        android:id="@+id/ib_next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginRight="@dimen/default_margin"
+        android:background="@android:color/black" />
+
+</RelativeLayout>

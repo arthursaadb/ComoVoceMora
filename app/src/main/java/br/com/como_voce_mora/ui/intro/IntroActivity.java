@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.intro;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.ImageButton;
@@ -37,5 +38,11 @@ public class IntroActivity extends AppCompatActivity {
         mMediaPlayer = MediaPlayer.create(this, R.raw.sound);
         mMediaPlayer.start();
         mIbSound.setImageResource(R.drawable.ic_speaker_on);
+    }
+
+    @OnClick(R.id.bt_start)
+    public void start() {
+        Intent intent = new Intent(this, InfoSaveDataActivity.class);
+        startActivity(intent);
     }
 }
