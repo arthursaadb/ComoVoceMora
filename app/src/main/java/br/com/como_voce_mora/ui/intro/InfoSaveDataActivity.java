@@ -16,5 +16,6 @@ public class InfoSaveDataActivity extends BaseActivity {
     public void onClickOk() {
         Intent intent = new Intent(this, WhatIsThisResearchActivty.class);
         startActivity(intent);
+        finish();
     }
 }

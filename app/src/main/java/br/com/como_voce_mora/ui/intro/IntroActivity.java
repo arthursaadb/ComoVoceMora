@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import br.com.como_voce_mora.AppController;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
 import butterknife.BindView;
@@ -18,8 +19,6 @@ public class IntroActivity extends BaseActivity {
     @BindView(R.id.ib_sound)
     ImageButton mIbSound;
 
-    private MediaPlayer mMediaPlayer;
-
     @Override
     public int getResLayout() {
         return R.layout.activity_intro;
@@ -27,15 +26,21 @@ public class IntroActivity extends BaseActivity {
 
     @OnClick(R.id.ib_sound)
     public void playSound() {
-        if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
-            mMediaPlayer.stop();
+        if (AppController.getInstance().mMediaPlayer.isPlaying()) {
+            AppController.getInstance().mMediaPlayer.pause();
             mIbSound.setImageResource(R.drawable.ic_speaker_off);
             return;
         }
 
-        mMediaPlayer = MediaPlayer.create(this, R.raw.sound);
-        mMediaPlayer.start();
+        AppController.getInstance().mMediaPlayer.start();
         mIbSound.setImageResource(R.drawable.ic_speaker_on);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mIbSound.setImageResource(AppController.getInstance().mMediaPlayer.isPlaying() ? R.drawable.ic_speaker_on : R.drawable.ic_speaker_off);
     }
 
     @OnClick(R.id.bt_start)

@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlackWith75Opacity"
-    android:paddingStart="60dp"
-    android:paddingBottom="20dp"
-    android:paddingTop="20dp"
+    android:background="@color/colorGrayDark"
     android:gravity="center_vertical"
-    android:paddingEnd="60dp">
+    android:paddingStart="60dp"
+    android:paddingTop="20dp"
+    android:paddingEnd="60dp"
+    android:paddingBottom="20dp">
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -28,7 +28,6 @@
         android:textSize="@dimen/default_text_size" />
 
     <Button
-        android:textColor="@color/colorWhite"
         android:id="@+id/bt_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,6 +36,7 @@
         android:layout_marginTop="@dimen/default_margin"
         android:background="@color/colorTransparent"
         android:drawableTop="@drawable/ic_checked"
-        android:text="@string/ok" />
+        android:text="@string/ok"
+        android:textColor="@color/colorWhite" />
 
 </RelativeLayout>

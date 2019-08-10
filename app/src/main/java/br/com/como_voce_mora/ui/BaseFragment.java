@@ -21,6 +21,8 @@ public abstract class BaseFragment extends Fragment {
         View view = inflater.inflate(getResLayout(), container, false);
         mUnBinder = ButterKnife.bind(this, view);
 
+        init();
+
         return view;
     }
 
