@@ -9,22 +9,20 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.ui.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class IntroActivity extends AppCompatActivity {
+public class IntroActivity extends BaseActivity {
     @BindView(R.id.ib_sound)
     ImageButton mIbSound;
 
     private MediaPlayer mMediaPlayer;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_intro);
-        ButterKnife.bind(this);
+    public int getResLayout() {
+        return R.layout.activity_intro;
     }
 
     @OnClick(R.id.ib_sound)

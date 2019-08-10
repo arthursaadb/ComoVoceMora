@@ -1,30 +1,17 @@
 package br.com.como_voce_mora.ui.intro;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import br.com.como_voce_mora.R;
-import butterknife.ButterKnife;
+import br.com.como_voce_mora.ui.BaseFragment;
 import butterknife.OnClick;
 
-public class TermsFragment extends Fragment {
+public class TermsFragment extends BaseFragment {
     public static TermsFragment newInstance() {
         return new TermsFragment();
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_terms, container, false);
-        ButterKnife.bind(this, view);
-
-        return view;
+    public int getResLayout() {
+        return R.layout.fragment_terms;
     }
 
     @OnClick(R.id.ib_back)

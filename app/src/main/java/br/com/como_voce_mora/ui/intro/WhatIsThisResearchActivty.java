@@ -1,19 +1,20 @@
 package br.com.como_voce_mora.ui.intro;
 
-import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.ui.BaseActivity;
 
-public class WhatIsThisResearchActivty extends AppCompatActivity {
+public class WhatIsThisResearchActivty extends BaseActivity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public int getResLayout() {
+        return R.layout.activity_what_is_this_research;
+    }
 
-        setContentView(R.layout.activity_what_is_this_research);
+    @Override
+    public void init() {
+        super.init();
+
         replaceFragment(WhatIsThisResearchFragment.newInstance());
     }
 

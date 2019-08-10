@@ -6,15 +6,30 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity {
+    private Unbinder mUnBinder;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(getResLayout());
-        ButterKnife.bind(this);
+        mUnBinder = ButterKnife.bind(this);
+
+        init();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mUnBinder.unbind();
+        super.onDestroy();
     }
 
     public abstract int getResLayout();
+
+    public void init() {
+
+    }
 }
