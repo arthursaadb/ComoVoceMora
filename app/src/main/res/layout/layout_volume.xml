@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="50dp"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPurpleLight">
+
+    <TextView
+        android:id="@+id/tv_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:fontFamily="@font/mkm232"
+        android:text="A"
+        android:textColor="@color/colorBlack" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="1dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/tv_min"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorBlack" />
+
+    <View
+        android:id="@+id/view_line_fake"
+        android:layout_width="20dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/tv_min"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tv_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fontFamily="@font/mkm232"
+        android:text="Z"
+        android:textColor="@color/colorBlack" />
+
+    <View
+        android:id="@+id/view_circle"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/bg_circle_volume" />
+
+</RelativeLayout>
