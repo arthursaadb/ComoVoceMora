@@ -1,6 +1,8 @@
 package br.com.como_voce_mora.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,6 +14,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class Volume extends RelativeLayout implements View.OnTouchListener {
+    @BindView(R.id.rl_root_view)
+    RelativeLayout mRlRootView;
     @BindView(R.id.tv_min)
     TextView mTvMin;
     @BindView(R.id.tv_max)
@@ -20,6 +24,8 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
     View mViewCircle;
     @BindView(R.id.view_line_fake)
     View mViewLineFake;
+    @BindView(R.id.view_line)
+    View mViewLine;
 
     private float mMinRange;
     private float mMaxRange;
@@ -31,16 +37,16 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
     public Volume(Context context) {
         super(context);
 
-        init();
+        init(context, null);
     }
 
     public Volume(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        init();
+        init(context, attrs);
     }
 
-    private void init() {
+    private void init(Context context, AttributeSet attrs) {
         View view = inflate(getContext(), R.layout.layout_volume, this);
         ButterKnife.bind(view, this);
 
@@ -52,6 +58,23 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
             mMaxRange = mViewLineFake.getHeight() + mViewLineFake.getY() - mViewCircle.getHeight();
             mHeightRange = mMaxRange - mMinRange;
         });
+
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomVolume, 0, 0);
+        int background = typedArray.getColor(R.styleable.CustomVolume_backgroundVolume, getResources().getColor(R.color.colorPrimary));
+        int lineColor = typedArray.getColor(R.styleable.CustomVolume_lineColorVolume, getResources().getColor(R.color.colorBlack));
+        int textColor = typedArray.getColor(R.styleable.CustomVolume_textColorVolume, getResources().getColor(R.color.colorBlack));
+        int resCircleSelected = typedArray.getResourceId(R.styleable.CustomVolume_circleSelectedVolume, R.drawable.bg_circle_volume);
+        String textMin = getResources().getString(typedArray.getResourceId(R.styleable.CustomVolume_textMin, R.string.a));
+        String textMax = getResources().getString(typedArray.getResourceId(R.styleable.CustomVolume_textMax, R.string.z));
+
+        mRlRootView.setBackgroundColor(background);
+        mViewLine.setBackgroundColor(lineColor);
+        mTvMin.setTextColor(textColor);
+        mTvMax.setTextColor(textColor);
+        mViewCircle.setBackgroundResource(resCircleSelected);
+
+        mTvMin.setText(textMin);
+        mTvMax.setText(textMax);
     }
 
     @Override
@@ -71,9 +94,6 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
                 case MotionEvent.ACTION_DOWN:
                     break;
                 case MotionEvent.ACTION_UP:
-                    mViewCircle.setY(y);
-                    updatePosition(y);
-                    break;
                 case MotionEvent.ACTION_MOVE:
                     mViewCircle.setY(y);
                     updatePosition(y);
@@ -85,8 +105,15 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
     }
 
     private void updatePosition(int y) {
-        int position = Math.round(y / mHeightRange);
-        mListener.positionVolume(position);
+        int position = Math.round((y / mHeightRange) * mMax);
+
+        if (mListener != null) {
+            mListener.positionVolume(position);
+        }
+    }
+
+    public void setMax(int max) {
+        mMax = max;
     }
 
     public interface OnListener {

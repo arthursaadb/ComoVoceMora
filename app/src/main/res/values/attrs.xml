@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomVolume">
+        <attr name="backgroundVolume" format="color" />
+        <attr name="lineColorVolume" format="color" />
+        <attr name="textColorVolume" format="color" />
+        <attr name="circleSelectedVolume" format="reference" />
+        <attr name="textMin" format="reference"> </attr>
+        <attr name="textMax" format="reference"> </attr>
+    </declare-styleable>
+</resources>
