@@ -1,9 +1,11 @@
 package br.com.como_voce_mora.ui.intro;
 
+import android.content.Intent;
 import android.webkit.WebView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.SplashAboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -38,7 +40,9 @@ public class TermsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_yes)
     public void onClickYes() {
-        // TODO: 2019-08-08 - Next Activity Or Fragment
+        Intent intent = new Intent(getActivity(), SplashAboutYouActivity.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 
     @OnClick(R.id.bt_no)

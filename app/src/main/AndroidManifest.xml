@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="br.com.como_voce_mora"
-    tools:ignore="GoogleAppIndexingWarning">
+    package="br.com.como_voce_mora">
 
     <application
         android:name=".AppController"
@@ -12,9 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.aboutyou.AboutYouActivity"></activity>
+
+        <activity
+            android:name=".ui.aboutyou.AboutYouActivity"
+            android:screenOrientation="landscape" />
+
         <activity
             android:name=".ui.PlayGroundActivity"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".ui.MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,17 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.MainActivity"
-            android:screenOrientation="landscape">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
         <activity
             android:name=".ui.intro.IntroActivity"
             android:screenOrientation="landscape" />
@@ -41,6 +37,10 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".ui.intro.WhatIsThisResearchActivty"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".ui.aboutyou.SplashAboutYouActivity"
             android:screenOrientation="landscape" />
     </application>
 
