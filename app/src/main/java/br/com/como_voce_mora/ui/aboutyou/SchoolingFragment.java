@@ -72,6 +72,9 @@ public class SchoolingFragment extends BaseFragment implements Volume.OnListener
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) getActivity()).replaceFragment(WithWhomYouLiveFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)

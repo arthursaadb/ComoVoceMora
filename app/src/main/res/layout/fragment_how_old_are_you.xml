@@ -68,12 +68,6 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_next" />
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
     <br.com.como_voce_mora.widget.Volume
         android:id="@+id/volume"
         android:layout_width="wrap_content"
@@ -89,5 +83,25 @@
         app:textColorVolume="@color/colorBlack"
         app:textMax="@string/down"
         app:textMin="@string/up" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btPreviousSession"
+        style="@style/SessionBackButton"
+        android:layout_above="@id/progress_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btHelp"
+        style="@style/HelpButton"
+        android:layout_above="@id/progress_bar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

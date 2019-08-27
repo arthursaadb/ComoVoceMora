@@ -14,70 +14,6 @@
         android:layout_marginLeft="@dimen/default_margin"
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
-
-    <RadioButton
-        android:id="@+id/btYes"
-        style="@style/SmallCustomRadioButton"
-        android:layout_below="@id/tv_question"
-        android:layout_marginTop="20dp"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:gravity="center"
-        android:text="Sim"
-        android:textSize="@dimen/default_text_size" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_question"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_toStartOf="@id/bt_next"
-        android:layout_toLeftOf="@id/bt_next"
-        android:layout_toEndOf="@id/btYes"
-        android:layout_toRightOf="@id/btYes"
-        android:visibility="invisible"
-        tools:visibility="visible">
-
-        <RadioButton
-            android:id="@+id/btMens"
-            style="@style/SmallCustomRadioButton"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Mensalista"
-            android:textSize="@dimen/default_text_size" />
-
-        <RadioButton
-            android:id="@+id/btBouth"
-            style="@style/SmallCustomRadioButton"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@id/btMens"
-            android:layout_toRightOf="@id/btMens"
-            android:gravity="center"
-            android:text="Ambos"
-            android:textSize="@dimen/default_text_size" />
-
-        <RadioButton
-            style="@style/SmallCustomRadioButton"
-            android:layout_below="@id/btMens"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Diarista"
-            android:textSize="@dimen/default_text_size" />
-    </RelativeLayout>
-
-    <RadioButton
-        style="@style/SmallCustomRadioButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_marginBottom="20dp"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:gravity="center"
-        android:text="Não"
-        android:textSize="@dimen/default_text_size" />
-
     <TextView
         android:id="@+id/tv_question"
         android:layout_width="wrap_content"
@@ -92,10 +28,48 @@
         android:paddingStart="50dp"
         android:paddingLeft="50dp"
         android:paddingEnd="60dp"
-        android:text="Trabalha algum funcionário em sua moradia?"
+        android:paddingRight="60dp"
+        android:text="Qual é a sua atividade principal?"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size"
-        android:paddingRight="60dp" />
+        android:textSize="@dimen/default_text_size" />
+
+    <TextView
+        android:id="@+id/tvDigitHere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_question"
+        android:layout_marginTop="50dp"
+        android:layout_toEndOf="@id/iv_mr_clipboard"
+        android:layout_toRightOf="@id/iv_mr_clipboard"
+        android:text="Digite aqui:"
+        android:textColor="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/etJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_question"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toStartOf="@id/bt_next"
+        android:layout_toLeftOf="@id/bt_next"
+        android:layout_toEndOf="@id/tvDigitHere"
+        android:layout_toRightOf="@id/tvDigitHere"
+        android:background="@color/colorWhite"
+        android:textColor="@color/colorBlack" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etJob"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@id/tvDigitHere"
+        android:layout_toRightOf="@id/tvDigitHere"
+        android:text="@string/please"
+        android:textColor="@color/colorWhite" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/bt_back"

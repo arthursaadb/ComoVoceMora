@@ -11,7 +11,7 @@ import br.com.como_voce_mora.widget.Volume;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SchoolingFragment extends BaseFragment implements Volume.OnListener {
+public class FamilyIncomeFragment extends BaseFragment implements Volume.OnListener {
     @BindView(R.id.volume)
     Volume mVolume;
     @BindView(R.id.iv_age)
@@ -19,13 +19,13 @@ public class SchoolingFragment extends BaseFragment implements Volume.OnListener
 
     private List<Integer> images;
 
-    public static SchoolingFragment newInstance() {
-        return new SchoolingFragment();
+    public static FamilyIncomeFragment newInstance() {
+        return new FamilyIncomeFragment();
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_schooling;
+        return R.layout.fragment_family_income;
     }
 
     @Override
@@ -33,33 +33,25 @@ public class SchoolingFragment extends BaseFragment implements Volume.OnListener
         super.init();
 
         images = new ArrayList<>();
-        images.add(R.drawable.ic_escola_nunca_fui);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_1);
-        images.add(R.drawable.ic_escola_fundamental_completo_1);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_2);
-        images.add(R.drawable.ic_escola_fundamental_completo_2);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_3);
-        images.add(R.drawable.ic_escola_fundamental_completo_3);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_4);
-        images.add(R.drawable.ic_escola_fundamental_completo_4);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_5);
-        images.add(R.drawable.ic_escola_fundamental_completo_5);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_6);
-        images.add(R.drawable.ic_escola_fundamental_completo_6);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_7);
-        images.add(R.drawable.ic_escola_fundamental_completo_7);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_8);
-        images.add(R.drawable.ic_escola_fundamental_completo_8);
-        images.add(R.drawable.ic_escola_fundamental_incompleto_9);
-        images.add(R.drawable.ic_escola_fundamental_completo_9);
-        images.add(R.drawable.ic_escola_medio_incompleto_1);
-        images.add(R.drawable.ic_escola_media_completo_1);
-        images.add(R.drawable.ic_escola_medio_incompleto_2);
-        images.add(R.drawable.ic_escola_media_completo_2);
-        images.add(R.drawable.ic_escola_medio_incompleto_3);
-        images.add(R.drawable.ic_escola_media_completo_3);
-        images.add(R.drawable.ic_escola_superior_incompleto);
-        images.add(R.drawable.ic_escola_superior_completo);
+        images.add(R.drawable.ic_1);
+        images.add(R.drawable.ic_1_5);
+        images.add(R.drawable.ic_2);
+        images.add(R.drawable.ic_2_5);
+        images.add(R.drawable.ic_3);
+        images.add(R.drawable.ic_3_5);
+        images.add(R.drawable.ic_4);
+        images.add(R.drawable.ic_4_5);
+        images.add(R.drawable.ic_5);
+        images.add(R.drawable.ic_5_5);
+        images.add(R.drawable.ic_6);
+        images.add(R.drawable.ic_6_5);
+        images.add(R.drawable.ic_7);
+        images.add(R.drawable.ic_7_5);
+        images.add(R.drawable.ic_8);
+        images.add(R.drawable.ic_8_5);
+        images.add(R.drawable.ic_9);
+        images.add(R.drawable.ic_9_5);
+        images.add(R.drawable.ic_10_ou_mais);
 
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
@@ -73,7 +65,7 @@ public class SchoolingFragment extends BaseFragment implements Volume.OnListener
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).replaceFragment(WithWhomYouLiveFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(YourProfessionFragment.newInstance());
         }
     }
 

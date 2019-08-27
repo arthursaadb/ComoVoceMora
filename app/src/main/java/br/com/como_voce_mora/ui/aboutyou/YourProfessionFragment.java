@@ -1,17 +1,19 @@
 package br.com.como_voce_mora.ui.aboutyou;
 
+import android.widget.Toast;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import butterknife.OnClick;
 
-public class WorkForYouFragment extends BaseFragment {
-    public static WorkForYouFragment newInstance() {
-        return new WorkForYouFragment();
+public class YourProfessionFragment extends BaseFragment {
+    public static YourProfessionFragment newInstance() {
+        return new YourProfessionFragment();
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_work_for_you;
+        return R.layout.fragment_your_profession;
     }
 
     @Override
@@ -22,7 +24,8 @@ public class WorkForYouFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(FamilyIncomeFragment.newInstance());
+//            ((AboutYouActivity) getActivity()).addFragment(FamilyIncomeFragment.newInstance());
+            Toast.makeText(getContext(), "Em Desenvolvimento!", Toast.LENGTH_LONG).show();
         }
     }
 

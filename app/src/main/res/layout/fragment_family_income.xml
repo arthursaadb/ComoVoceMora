@@ -21,15 +21,17 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:src="@drawable/ic_escola_nunca_fui" />
+        android:src="@drawable/ic_500" />
 
     <TextView
         android:id="@+id/tv_question"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="-30dp"
         android:layout_marginLeft="-30dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@id/volume"
+        android:layout_toLeftOf="@id/volume"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:background="@drawable/bg_ballon"
@@ -38,7 +40,8 @@
         android:paddingLeft="50dp"
         android:paddingEnd="20dp"
         android:paddingRight="20dp"
-        android:text="@string/schooling_question"
+        android:paddingBottom="20dp"
+        android:text="@string/family_incoming"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/default_text_size" />
 

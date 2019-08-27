@@ -24,29 +24,25 @@
         android:layout_height="80dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:layout_toEndOf="@id/btBack"
         android:layout_toRightOf="@id/btBack"
         android:src="@drawable/ic_prancheta_circular" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvQuestion"
+    <TextView
+        android:id="@+id/tv_question"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_toStartOf="@id/btNext"
-        android:layout_toLeftOf="@id/btNext"
+        android:layout_height="70dp"
+        android:layout_marginTop="60dp"
         android:layout_toEndOf="@id/ivMister"
         android:layout_toRightOf="@id/ivMister"
         android:background="@drawable/bg_ballon"
+        android:gravity="center_vertical"
         android:paddingStart="50dp"
         android:paddingLeft="50dp"
-        android:paddingEnd="15dp"
-        android:paddingRight="15dp"
         android:text="@string/whomyoulive_question"
-        android:textColor="@color/colorBlack" />
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/default_text_size" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btNext"
@@ -62,10 +58,25 @@
         android:src="@drawable/ic_doublenext" />
 
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btPreviousSession"
+        style="@style/SessionBackButton"
+        android:layout_above="@id/progress_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btHelp"
+        style="@style/HelpButton"
+        android:layout_above="@id/progress_bar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+
     <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
-
 
 </RelativeLayout>

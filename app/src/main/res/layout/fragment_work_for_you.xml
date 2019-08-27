@@ -91,12 +91,14 @@
         android:gravity="center_vertical"
         android:paddingStart="50dp"
         android:paddingLeft="50dp"
-        android:text="Qual é o seu gënero?"
+        android:paddingEnd="60dp"
+        android:text="Trabalha algum funcionário em sua moradia?"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size" />
+        android:textSize="@dimen/default_text_size"
+        android:paddingRight="60dp" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btBack"
+        android:id="@+id/bt_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
@@ -124,14 +126,14 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btPreviousSession"
-        style="@style/PreviousSessionButtton"
+        style="@style/SessionBackButton"
         android:layout_above="@id/progress_bar"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btHelp"
-        style="@style/HelpButtton"
+        style="@style/HelpButton"
         android:layout_above="@id/progress_bar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true" />

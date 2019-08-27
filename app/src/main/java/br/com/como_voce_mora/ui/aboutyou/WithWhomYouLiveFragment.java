@@ -24,7 +24,9 @@ public class WithWhomYouLiveFragment extends BaseFragment {
 
     @OnClick(R.id.btNext)
     public void onBtNextClicked() {
-        Toast.makeText(getContext(), "In Pogress", Toast.LENGTH_LONG).show();
+        if (getActivity() != null) {
+            ((AboutYouActivity) getActivity()).addFragment(WorkForYouFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.btBack)

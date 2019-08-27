@@ -17,8 +17,11 @@
     <string name="secondplace">2°Lugar</string>
     <string name="thirdplace">3°Lugar</string>
     <string name="forthplace">4°Lugar</string>
-    <string name="whomyoulive_question">Selecione quem mora com você e clique em avançar. Se você mora só, apenas clique em avançar.</string>
+    <string name="whomyoulive_question">Selecione quem mora com você e clique em avançar.\n Se você mora só, apenas clique em avançar.</string>
     <string name="touch_next">Toque para Avançar</string>
     <string name="up">+</string>
     <string name="down">-</string>
+    <string name="schooling_question">Até que ano da escola você cursou?</string>
+    <string name="family_incoming"><![CDATA[Qual sua renda familiar em reais? Lembre-se que é a renda de todos os moradores somada. Se você não souber ou quiser responder,apenas clique em avançar.]]></string>
+    <string name="please">Por favor, não abreviar e não acentuar!</string>
 </resources>
