@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPurpleLight">
+
+    <ImageView
+        android:id="@+id/iv_mr_clipboard"
+        android:layout_width="180dp"
+        android:layout_height="350dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:src="@drawable/ic_mr_clipboard_half_body" />
+
+
+    <RadioButton
+        android:id="@+id/btYes"
+        style="@style/SmallCustomRadioButton"
+        android:layout_below="@id/tv_question"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/iv_mr_clipboard"
+        android:layout_toRightOf="@id/iv_mr_clipboard"
+        android:gravity="center"
+        android:text="Sim"
+        android:textSize="@dimen/default_text_size" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_question"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toStartOf="@id/bt_next"
+        android:layout_toLeftOf="@id/bt_next"
+        android:layout_toEndOf="@id/btYes"
+        android:layout_toRightOf="@id/btYes"
+        android:visibility="invisible"
+        tools:visibility="visible">
+
+        <RadioButton
+            android:id="@+id/btMens"
+            style="@style/SmallCustomRadioButton"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Mensalista"
+            android:textSize="@dimen/default_text_size" />
+
+        <RadioButton
+            android:id="@+id/btBouth"
+            style="@style/SmallCustomRadioButton"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/btMens"
+            android:layout_toRightOf="@id/btMens"
+            android:gravity="center"
+            android:text="Ambos"
+            android:textSize="@dimen/default_text_size" />
+
+        <RadioButton
+            style="@style/SmallCustomRadioButton"
+            android:layout_below="@id/btMens"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Diarista"
+            android:textSize="@dimen/default_text_size" />
+    </RelativeLayout>
+
+    <RadioButton
+        style="@style/SmallCustomRadioButton"
+        android:layout_above="@id/progress_bar"
+        android:layout_marginBottom="20dp"
+        android:layout_toEndOf="@id/iv_mr_clipboard"
+        android:layout_toRightOf="@id/iv_mr_clipboard"
+        android:gravity="center"
+        android:text="Não"
+        android:textSize="@dimen/default_text_size" />
+
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="-30dp"
+        android:layout_marginLeft="-30dp"
+        android:layout_marginTop="60dp"
+        android:layout_toEndOf="@id/iv_mr_clipboard"
+        android:layout_toRightOf="@id/iv_mr_clipboard"
+        android:background="@drawable/bg_ballon"
+        android:gravity="center_vertical"
+        android:paddingStart="50dp"
+        android:paddingLeft="50dp"
+        android:text="Qual é o seu gënero?"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/default_text_size" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@color/colorTransparent"
+        android:rotation="180"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_next" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/bt_next"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorTransparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_doublenext" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btPreviousSession"
+        style="@style/PreviousSessionButtton"
+        android:layout_above="@id/progress_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btHelp"
+        style="@style/HelpButtton"
+        android:layout_above="@id/progress_bar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
