@@ -24,12 +24,27 @@ Thumbs.db
 bin/
 gen/
 
+# Built application files
+/*/build/
+
 # Gradle files
 .gradle/
-build/
+
+# User-specific configurations
 .idea/workspace.xml
-.idea/libraries
 .idea/
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+*.iml
 
 # Local configuration file (sdk path, etc)
 local.properties
