@@ -11,6 +11,7 @@
     <color name="colorTransparent">#00000000</color>
     <color name="colorPurpleLight">#88679C</color>
     <color name="colorGrayDark">#464646</color>
+    <color name="colorBackgroundVolume">#EDE0C1</color>
 
 
     <!-- Hex Opacity Values-->

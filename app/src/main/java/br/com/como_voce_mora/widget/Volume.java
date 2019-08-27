@@ -116,6 +116,10 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
         mMax = max;
     }
 
+    public void setListener(OnListener listener) {
+        mListener = listener;
+    }
+
     public interface OnListener {
         void positionVolume(int position);
     }
