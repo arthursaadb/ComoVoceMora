@@ -14,4 +14,10 @@
         android:background="@color/colorTransparent" />
 
 
+    <br.com.como_voce_mora.ui.custom.CustomPodium
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/progress" />
+
+
 </RelativeLayout>
