@@ -6,13 +6,16 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:background="@color/colorTransparent"
         android:rotation="180"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_next" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -27,16 +30,36 @@
         android:src="@drawable/ic_prancheta_circular" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
+        android:layout_toStartOf="@id/btNext"
+        android:layout_toLeftOf="@id/btNext"
         android:layout_toEndOf="@id/ivMister"
         android:layout_toRightOf="@id/ivMister"
         android:background="@drawable/bg_ballon"
-        android:paddingStart="30dp"
-        android:paddingLeft="30dp"
-        android:text="aaaaaaa"
+        android:paddingStart="50dp"
+        android:paddingLeft="50dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/whomyoulive_question"
         android:textColor="@color/colorBlack" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btNext"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorTransparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_doublenext" />
 
 
     <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
