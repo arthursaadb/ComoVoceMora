@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.com.como_voce_mora.R;
 import butterknife.BindView;
@@ -105,6 +106,7 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
     }
 
     private void updatePosition(int y) {
+        y = (int) (y - mMinRange);
         int position = Math.round((y / mHeightRange) * mMax);
 
         if (mListener != null) {
