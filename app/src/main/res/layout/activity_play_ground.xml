@@ -15,6 +15,7 @@
 
 
     <br.com.como_voce_mora.ui.custom.CustomPodium
+        android:id="@+id/customPodium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/progress" />

@@ -48,7 +48,9 @@ public class CustomPodium extends RelativeLayout {
     @BindView(R.id.btTenOption)
     Button btTenOption;
 
-    String firstPos, secPos, thridPos, fourthPos;
+    boolean firstPos = false, secPos = false, thridPos = false, fourthPos = false;
+    String step;
+    Button optionClicked;
     List<String> options;
 
 
@@ -72,8 +74,9 @@ public class CustomPodium extends RelativeLayout {
         ButterKnife.bind(this, v);
     }
 
-    private void setOptions(List<String> options) {
+    public void setOptions(List<String> options) {
         initClick();
+        initPodiumClick();
         this.options = options;
         if (this.options.size() > 8) {
             btFirstOption.setText(options.get(0));
@@ -86,6 +89,16 @@ public class CustomPodium extends RelativeLayout {
             btEightOption.setText(options.get(7));
             btNineOption.setText(options.get(8));
             btTenOption.setText(options.get(9));
+            btFirstOption.setVisibility(VISIBLE);
+            btSecondOption.setVisibility(VISIBLE);
+            btThirdOption.setVisibility(VISIBLE);
+            btForthOption.setVisibility(VISIBLE);
+            btFifthOption.setVisibility(VISIBLE);
+            btSixOption.setVisibility(VISIBLE);
+            btSevenOption.setVisibility(VISIBLE);
+            btEightOption.setVisibility(VISIBLE);
+            btNineOption.setVisibility(VISIBLE);
+            btTenOption.setVisibility(VISIBLE);
         } else {
             btFirstOption.setText(options.get(0));
             btSecondOption.setText(options.get(1));
@@ -95,13 +108,120 @@ public class CustomPodium extends RelativeLayout {
             btSixOption.setText(options.get(5));
             btSevenOption.setText(options.get(6));
             btEightOption.setText(options.get(7));
-            btNineOption.setVisibility(View.INVISIBLE);
-            btTenOption.setVisibility(View.INVISIBLE);
+            btFirstOption.setVisibility(VISIBLE);
+            btSecondOption.setVisibility(VISIBLE);
+            btThirdOption.setVisibility(VISIBLE);
+            btForthOption.setVisibility(VISIBLE);
+            btFifthOption.setVisibility(VISIBLE);
+            btSixOption.setVisibility(VISIBLE);
+            btSevenOption.setVisibility(VISIBLE);
+            btEightOption.setVisibility(VISIBLE);
         }
     }
 
     private void initClick() {
+        btFirstOption.setOnClickListener(view -> {
+            step = btFirstOption.getText().toString();
+            optionClicked = btFirstOption;
+            btFirstOption.setVisibility(INVISIBLE);
+        });
+        btSecondOption.setOnClickListener(view -> {
+            step = btSecondOption.getText().toString();
+            optionClicked = btSecondOption;
+            btSecondOption.setVisibility(INVISIBLE);
+        });
+        btThirdOption.setOnClickListener(view -> {
+            step = btThirdOption.getText().toString();
+            optionClicked = btThirdOption;
+            btThirdOption.setVisibility(INVISIBLE);
+        });
+        btForthOption.setOnClickListener(view -> {
+            step = btForthOption.getText().toString();
+            optionClicked = btForthOption;
+            btForthOption.setVisibility(INVISIBLE);
+        });
+        btFifthOption.setOnClickListener(view -> {
+            step = btFifthOption.getText().toString();
+            optionClicked = btFifthOption;
+            btFifthOption.setVisibility(INVISIBLE);
+        });
+        btSixOption.setOnClickListener(view -> {
+            step = btSixOption.getText().toString();
+            optionClicked = btSixOption;
+            btSixOption.setVisibility(INVISIBLE);
+        });
+        btSevenOption.setOnClickListener(view -> {
+            step = btSevenOption.getText().toString();
+            optionClicked = btSevenOption;
+            btSevenOption.setVisibility(INVISIBLE);
+        });
 
+        btEightOption.setOnClickListener(view -> {
+            step = btEightOption.getText().toString();
+            optionClicked = btEightOption;
+            btEightOption.setVisibility(INVISIBLE);
+        });
+        btNineOption.setOnClickListener(view -> {
+            step = btNineOption.getText().toString();
+            optionClicked = btNineOption;
+            btNineOption.setVisibility(INVISIBLE);
+        });
+        btTenOption.setOnClickListener(view -> {
+            step = btTenOption.getText().toString();
+            optionClicked = btTenOption;
+            btTenOption.setVisibility(INVISIBLE);
+        });
+    }
+
+    private void initPodiumClick() {
+        btFirstPlace.setOnClickListener(view -> {
+            if (!firstPos) {
+                btFirstPlace.setText(step);
+                btFirstPlace.setVisibility(VISIBLE);
+                step = "";
+                firstPos = true;
+            } else {
+                optionClicked.setVisibility(VISIBLE);
+                firstPos = false;
+                btFirstPlace.setText("");
+            }
+
+        });
+        btSecondPlace.setOnClickListener(view -> {
+            if (!secPos) {
+                btSecondPlace.setText(step);
+                btSecondPlace.setVisibility(VISIBLE);
+                step = "";
+                secPos = true;
+            } else {
+                optionClicked.setVisibility(VISIBLE);
+                secPos = false;
+                btSecondPlace.setText("");
+            }
+        });
+        btThirdPlace.setOnClickListener(view -> {
+            if (!thridPos) {
+                btThirdPlace.setText(step);
+                btThirdPlace.setVisibility(VISIBLE);
+                step = "";
+                thridPos = true;
+            } else {
+                optionClicked.setVisibility(VISIBLE);
+                thridPos = false;
+                btThirdPlace.setText("");
+            }
+        });
+        btFourthPlace.setOnClickListener(view -> {
+            if (!fourthPos) {
+                btFourthPlace.setText(step);
+                btFourthPlace.setVisibility(VISIBLE);
+                step = "";
+            } else {
+                optionClicked.setVisibility(VISIBLE);
+                fourthPos = false;
+                btFourthPlace.setText("");
+            }
+        });
     }
 
 }

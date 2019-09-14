@@ -133,7 +133,6 @@
                 android:id="@+id/btFirstPlace"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:visibility="invisible"
                 tools:visibility="visible" />
 
             <FrameLayout
@@ -170,7 +169,6 @@
                 android:id="@+id/btSecondPlace"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:visibility="invisible"
                 tools:visibility="visible" />
 
             <FrameLayout
@@ -207,7 +205,6 @@
                 android:id="@+id/btThirdPlace"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:visibility="invisible"
                 tools:visibility="visible" />
 
             <FrameLayout
@@ -244,7 +241,6 @@
                 android:id="@+id/btFourthPlace"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:visibility="invisible"
                 tools:visibility="visible" />
 
             <FrameLayout
