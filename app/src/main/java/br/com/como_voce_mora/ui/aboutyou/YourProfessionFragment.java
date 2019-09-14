@@ -1,9 +1,8 @@
 package br.com.como_voce_mora.ui.aboutyou;
 
-import android.widget.Toast;
-
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeFragment;
 import butterknife.OnClick;
 
 public class YourProfessionFragment extends BaseFragment {
@@ -24,8 +23,7 @@ public class YourProfessionFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-//            ((AboutYouActivity) getActivity()).addFragment(FamilyIncomeFragment.newInstance());
-            Toast.makeText(getContext(), "Em Desenvolvimento!", Toast.LENGTH_LONG).show();
+            ((AboutYouActivity) getActivity()).addFragment(PreviousHomeFragment.newInstance());
         }
     }
 

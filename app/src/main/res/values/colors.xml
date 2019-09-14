@@ -14,6 +14,8 @@
     <color name="colorBackgroundVolume">#EDE0C1</color>
     <color name="clorBlueLight2">#8E94C4</color>
     <color name="colorBackgroundMultiSelect">#E8DBB2</color>
+    <color name="colorOrange">#D3924B</color>
+
 
     <!-- Hex Opacity Values-->
     <!-- 100% — FF -->

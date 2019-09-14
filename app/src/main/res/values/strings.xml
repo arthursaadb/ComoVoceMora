@@ -39,4 +39,7 @@
     <string name="brother">Irmão</string>
     <string name="other_relatives">Outro parente</string>
     <string name="pets">Animal estimação</string>
+
+    <string name="house">Casa</string>
+    <string name="apartament">Apartamento</string>
 </resources>
