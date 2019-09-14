@@ -13,7 +13,7 @@
     <color name="colorGrayDark">#464646</color>
     <color name="colorBackgroundVolume">#EDE0C1</color>
     <color name="clorBlueLight2">#8E94C4</color>
-
+    <color name="colorBackgroundMultiSelect">#E8DBB2</color>
 
     <!-- Hex Opacity Values-->
     <!-- 100% — FF -->

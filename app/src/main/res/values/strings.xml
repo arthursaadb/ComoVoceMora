@@ -25,4 +25,18 @@
     <string name="family_incoming"><![CDATA[Qual sua renda familiar em reais? Lembre-se que é a renda de todos os moradores somada. Se você não souber ou quiser responder,apenas clique em avançar.]]></string>
     <string name="please">Por favor, não abreviar e não acentuar!</string>
     <string name="country_question">Muito bem. Agora vamos falar sobre sua moradia atual. Em qual estado você mora?</string>
+    <string name="name_default">name</string>
+    <string name="wife">Esposa/Parceira</string>
+    <string name="daughter">Filha</string>
+    <string name="mother">Mae</string>
+    <string name="grandmother">Avó</string>
+    <string name="sister">Irmã</string>
+    <string name="friends">Amigo(a)/colega</string>
+    <string name="husband">Marido/Parceiro</string>
+    <string name="son">Filho</string>
+    <string name="father">Pai</string>
+    <string name="grandfather">Avô</string>
+    <string name="brother">Irmão</string>
+    <string name="other_relatives">Outro parente</string>
+    <string name="pets">Animal estimação</string>
 </resources>

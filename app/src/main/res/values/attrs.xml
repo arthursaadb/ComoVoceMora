@@ -5,7 +5,13 @@
         <attr name="lineColorVolume" format="color" />
         <attr name="textColorVolume" format="color" />
         <attr name="circleSelectedVolume" format="reference" />
-        <attr name="textMin" format="reference"> </attr>
-        <attr name="textMax" format="reference"> </attr>
+        <attr name="textMin" format="reference" />
+        <attr name="textMax" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomMultiSelect">
+        <attr name="name" format="reference" />
+        <attr name="image" format="reference" />
+        <attr name="textColor" format="color" />
     </declare-styleable>
 </resources>
