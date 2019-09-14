@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
+import br.com.como_voce_mora.ui.atualresidence.CurrentHomeFragment;
 
 public class AboutYouActivity extends BaseActivity {
 
@@ -15,7 +16,7 @@ public class AboutYouActivity extends BaseActivity {
     @Override
     public void init() {
         super.init();
-        replaceFragment(WhatYourGenderFragment.newInstance());
+        replaceFragment(CurrentHomeFragment.newInstance());
     }
 
 
@@ -31,6 +32,6 @@ public class AboutYouActivity extends BaseActivity {
                 .beginTransaction()
                 .addToBackStack(fragment.getClass().getSimpleName())
                 .add(R.id.container, fragment)
-                .commit();
+                .commitAllowingStateLoss();
     }
 }

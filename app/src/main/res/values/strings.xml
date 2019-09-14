@@ -24,4 +24,5 @@
     <string name="schooling_question">Até que ano da escola você cursou?</string>
     <string name="family_incoming"><![CDATA[Qual sua renda familiar em reais? Lembre-se que é a renda de todos os moradores somada. Se você não souber ou quiser responder,apenas clique em avançar.]]></string>
     <string name="please">Por favor, não abreviar e não acentuar!</string>
+    <string name="country_question">Muito bem. Agora vamos falar sobre sua moradia atual. Em qual estado você mora?</string>
 </resources>
