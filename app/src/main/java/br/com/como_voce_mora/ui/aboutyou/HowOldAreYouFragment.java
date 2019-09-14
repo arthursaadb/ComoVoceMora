@@ -54,7 +54,7 @@ public class HowOldAreYouFragment extends BaseFragment implements Volume.OnListe
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).replaceFragment(SchoolingFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(SchoolingFragment.newInstance());
         }
     }
 

@@ -16,7 +16,7 @@ public class AboutYouActivity extends BaseActivity {
     @Override
     public void init() {
         super.init();
-        replaceFragment(HowOldAreYouFragment.newInstance());
+        replaceFragment(WhatYourGenderFragment.newInstance());
     }
 
 
