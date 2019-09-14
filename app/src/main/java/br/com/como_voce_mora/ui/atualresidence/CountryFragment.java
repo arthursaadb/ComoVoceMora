@@ -10,6 +10,7 @@ import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.aboutyou.YourProfessionFragment;
+import br.com.como_voce_mora.ui.housegroup.HabitationTypeFragment;
 import br.com.como_voce_mora.widget.Volume;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -79,7 +80,7 @@ public class CountryFragment extends BaseFragment implements Volume.OnListener{
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(YourProfessionFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(HabitationTypeFragment.newInstance());
         }
     }
 
