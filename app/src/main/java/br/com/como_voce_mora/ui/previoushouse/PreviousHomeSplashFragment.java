@@ -1,4 +1,4 @@
-package br.com.como_voce_mora.ui.atualresidence;
+package br.com.como_voce_mora.ui.previoushouse;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,23 +9,24 @@ import androidx.annotation.Nullable;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.atualresidence.CountryFragment;
 import butterknife.OnClick;
 
-public class CurrentHomeFragment extends BaseFragment {
+public class PreviousHomeSplashFragment extends BaseFragment {
 
 
-    public static CurrentHomeFragment newInstance() {
+    public static PreviousHomeSplashFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        CurrentHomeFragment fragment = new CurrentHomeFragment();
+        PreviousHomeSplashFragment fragment = new PreviousHomeSplashFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_splash_atual;
+        return R.layout.fragment_splash_previous;
     }
 
     @Override
@@ -41,6 +42,6 @@ public class CurrentHomeFragment extends BaseFragment {
 
     @OnClick(R.id.bt_touch_next)
     public void onClickedBtNext() {
-        ((AboutYouActivity) getActivity()).addFragment(CountryFragment.newInstance());
+        ((AboutYouActivity) getActivity()).addFragment(PreviousHomeFragment.newInstance());
     }
 }

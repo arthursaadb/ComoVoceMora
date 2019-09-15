@@ -3,6 +3,7 @@ package br.com.como_voce_mora.ui.aboutyou;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.previoushouse.PreviousHomeFragment;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.OnClick;
 
 public class YourProfessionFragment extends BaseFragment {
@@ -23,7 +24,7 @@ public class YourProfessionFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(PreviousHomeFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
         }
     }
 
