@@ -42,4 +42,20 @@
 
     <string name="house">Casa</string>
     <string name="apartament">Apartamento</string>
+    <string name="address_question">Seu endereço:</string>
+    <string name="address_please">Por favor, não abreviar e não acentuar!</string>
+    <string name="equipaments_question">Indique quais dos equipamentos urbanos abaixo estão presentes no seu bairro:</string>
+    <string name="saude">Saúde</string>
+    <string name="escola">Escola</string>
+    <string name="cultura">Cultura</string>
+    <string name="lazer">Lazer</string>
+    <string name="esporte">Esporte</string>
+    <string name="seguranca">Segurança</string>
+    <string name="comercial_question2">De qual tipo de estabelecimento comercial/serviço você sente falta no seu bairro?</string>
+    <string name="comercial_question">Em relação a presença de comércios, seu bairro é:</string>
+    <string name="pleaseno">Por favor, não abreviar e não acentuar!</string>
+    <string name="praça">Praca</string>
+    <string name="academia_livre">Academia Livre</string>
+    <string name="parque">Parque</string>
+    <string name="quadra">Quadra</string>
 </resources>

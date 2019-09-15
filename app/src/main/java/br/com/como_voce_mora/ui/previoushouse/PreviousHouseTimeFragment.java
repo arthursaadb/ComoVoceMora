@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.atualresidence.CurrentHomeFragment;
 import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,7 +32,7 @@ public class PreviousHouseTimeFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            Toast.makeText(getContext(), "Em Desenvolvimento!", Toast.LENGTH_SHORT).show();
+            ( (AboutYouActivity)getActivity()).addFragment(CurrentHomeFragment.newInstance());
         }
     }
 

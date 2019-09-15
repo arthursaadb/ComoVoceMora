@@ -21,7 +21,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:src="@drawable/estado_acre" />
+        android:background="@drawable/bg_circle_gray"
+        android:src="@drawable/ic_ruim" />
 
     <TextView
         android:id="@+id/tv_question"

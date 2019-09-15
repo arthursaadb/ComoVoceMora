@@ -14,14 +14,6 @@
         android:layout_marginLeft="@dimen/default_margin"
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
-    <ImageView
-        android:id="@+id/iv_age"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/estado_acre" />
 
     <TextView
         android:id="@+id/tv_question"
@@ -30,8 +22,8 @@
         android:layout_marginStart="-30dp"
         android:layout_marginLeft="-30dp"
         android:layout_marginTop="20dp"
-        android:layout_toStartOf="@id/volume"
-        android:layout_toLeftOf="@id/volume"
+        android:layout_toStartOf="@id/bt_next"
+        android:layout_toLeftOf="@id/bt_next"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:background="@drawable/bg_ballon"
@@ -44,6 +36,74 @@
         android:text="@string/country_question"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/default_text_size" />
+
+    <LinearLayout
+        android:id="@+id/rbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_question"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                style="@style/SmallCustomRadioButton"
+                android:gravity="center"
+                android:text="Sim"
+                android:textSize="@dimen/default_text_size" />
+
+            <RadioButton
+                style="@style/SmallCustomRadioButton"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Não"
+                android:textSize="@dimen/default_text_size" />
+
+            <RadioButton
+                style="@style/SmallCustomRadioButton"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Não sei"
+                android:textSize="@dimen/default_text_size" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lltext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rbs"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Digite Aqui:"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp" />
+
+        <EditText
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@color/colorWhite" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lltext"
+        android:layout_centerHorizontal="true"
+        android:text="@string/pleaseno"
+        android:textColor="@color/colorWhite" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/bt_next"
@@ -72,21 +132,6 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_next" />
 
-    <br.com.como_voce_mora.widget.Volume
-        android:id="@+id/volume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="50dp"
-        app:backgroundVolume="@color/colorBackgroundVolume"
-        app:circleSelectedVolume="@drawable/bg_circle_volume"
-        app:lineColorVolume="@color/colorBlack"
-        app:textColorVolume="@color/colorBlack"
-        app:textMax="@string/down"
-        app:textMin="@string/up" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btPreviousSession"

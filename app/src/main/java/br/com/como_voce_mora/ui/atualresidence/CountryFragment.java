@@ -9,23 +9,26 @@ import java.util.List;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.aboutyou.YourProfessionFragment;
+import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.widget.Volume;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class CountryFragment extends BaseFragment implements Volume.OnListener{
+public class CountryFragment extends BaseFragment implements Volume.OnListener {
     @BindView(R.id.volume)
     Volume mVolume;
     @BindView(R.id.iv_age)
     ImageView mIvAge;
 
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar progressBar;
+
     private List<Integer> images;
 
     public static CountryFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         CountryFragment fragment = new CountryFragment();
         fragment.setArguments(args);
         return fragment;
@@ -39,6 +42,7 @@ public class CountryFragment extends BaseFragment implements Volume.OnListener{
     @Override
     public void init() {
         super.init();
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
         images = new ArrayList<>();
         images.add(R.drawable.estado_acre);
         images.add(R.drawable.estado_alagoas);
@@ -79,7 +83,7 @@ public class CountryFragment extends BaseFragment implements Volume.OnListener{
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(YourProfessionFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(WhatsYourAddressFragment.newInstance());
         }
     }
 

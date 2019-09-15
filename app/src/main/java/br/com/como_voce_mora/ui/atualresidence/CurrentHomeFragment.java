@@ -15,9 +15,6 @@ import butterknife.OnClick;
 
 public class CurrentHomeFragment extends BaseFragment {
 
-    @BindView(R.id.progress)
-    HowYouLiveProgressBar progressBar;
-
 
     public static CurrentHomeFragment newInstance() {
 
@@ -41,7 +38,6 @@ public class CurrentHomeFragment extends BaseFragment {
     @Override
     public void init() {
         super.init();
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
 
     }
 
