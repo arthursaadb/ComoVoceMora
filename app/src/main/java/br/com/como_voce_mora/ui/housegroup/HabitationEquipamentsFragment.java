@@ -1,4 +1,4 @@
-package br.com.como_voce_mora.ui.previoushouse;
+package br.com.como_voce_mora.ui.housegroup;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,31 +9,27 @@ import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
-import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.atualresidence.CurrentHomeFragment;
 import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class PreviousHouseTimeFragment extends BaseFragment {
+public class HabitationEquipamentsFragment extends BaseFragment {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
 
-    public static PreviousHouseTimeFragment newInstance() {
-        return new PreviousHouseTimeFragment();
+    public static HabitationEquipamentsFragment newInstance() {
+        return new HabitationEquipamentsFragment();
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_previous_house_time;
+        return R.layout.fragment_habitation_equipaments;
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(CurrentHomeFragment.newInstance());
-        }
+        Toast.makeText(getContext(), "Em Desenvolvimento!", Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.bt_back)

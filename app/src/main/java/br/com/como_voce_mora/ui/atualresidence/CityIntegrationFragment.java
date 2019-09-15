@@ -6,6 +6,7 @@ import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.housegroup.HabitationTypeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -37,7 +38,7 @@ public class CityIntegrationFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-//            ((AboutYouActivity) getActivity()).addFragment(ComercialFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(HabitationTypeFragment.newInstance());
         }
     }
 

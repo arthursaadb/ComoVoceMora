@@ -9,6 +9,8 @@ import java.util.List;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.aboutyou.YourProfessionFragment;
+import br.com.como_voce_mora.ui.housegroup.HabitationTypeFragment;
 import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.widget.Volume;
 import butterknife.BindView;
