@@ -14,12 +14,12 @@
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
     <RadioGroup
+        android:layout_below="@id/tv_question"
         android:id="@+id/rg_house"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/tv_question"
         android:layout_toStartOf="@id/bt_next"
         android:layout_above="@id/progress_bar"
         android:layout_toEndOf="@id/iv_mr_clipboard"
@@ -27,21 +27,18 @@
         android:orientation="horizontal"
         android:layout_toLeftOf="@id/bt_next">
 
-        <RadioButton
-            style="@style/CustomRadioButton"
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
             android:id="@+id/rb_house"
-            android:text="Casa"
-            android:scaleType="centerInside"
+            style="@style/CustomRadioButton"
             android:drawableTop="@drawable/casa_casa"
             android:gravity="center"
             android:textSize="@dimen/default_text_size" />
 
-        <RadioButton
-            style="@style/CustomRadioButton"
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
             android:id="@+id/rb_apartament"
+            style="@style/CustomRadioButton"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:text="Apartamento"
             android:scaleType="center"
             android:drawableTop="@drawable/apartamento_apartamento"
             android:gravity="center"

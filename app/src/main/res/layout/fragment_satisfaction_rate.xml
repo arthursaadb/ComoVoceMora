@@ -14,10 +14,11 @@
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
     <RadioGroup
+        android:id="@+id/rg_satisfaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_below="@id/tv_question"
+        android:layout_marginTop="10dp"
         android:layout_above="@id/progress_bar"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@id/bt_next"
@@ -31,26 +32,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_1"
                 style="@style/SmallCustomRadioButton"
-                android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:text="Muito Bom"
-                android:gravity="center"
                 android:textSize="@dimen/default_text_size" />
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_2"
                 style="@style/SmallCustomRadioButton"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
                 android:text="Bom"
-                android:gravity="center"
                 android:textSize="@dimen/default_text_size" />
 
-            <RadioButton
-
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_3"
                 style="@style/SmallCustomRadioButton"
-                android:layout_marginTop="10dp"
-                android:text="Regular"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:text="Regular"
                 android:textSize="@dimen/default_text_size" />
 
         </LinearLayout>
@@ -58,22 +60,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
             android:orientation="vertical">
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_4"
                 style="@style/SmallCustomRadioButton"
-                android:layout_marginTop="10dp"
-                android:text="Regular"
                 android:gravity="center"
+                android:text="Regular"
                 android:textSize="@dimen/default_text_size" />
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_5"
                 style="@style/SmallCustomRadioButton"
-                android:layout_marginTop="10dp"
-                android:text="Muiro Ruim"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:text="Muiro Ruim"
                 android:textSize="@dimen/default_text_size" />
 
         </LinearLayout>

@@ -23,7 +23,6 @@
     <style name="CustomRadioButton">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:background">@drawable/bg_custom_radio_button</item>
         <item name="android:button">@android:color/transparent</item>
         <item name="android:padding">24dp</item>
     </style>
