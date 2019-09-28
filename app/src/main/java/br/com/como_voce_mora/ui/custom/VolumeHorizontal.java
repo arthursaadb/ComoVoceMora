@@ -1,20 +1,18 @@
-package br.com.como_voce_mora.widget;
+package br.com.como_voce_mora.ui.custom;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import br.com.como_voce_mora.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Volume extends RelativeLayout implements View.OnTouchListener {
+public class VolumeHorizontal extends RelativeLayout implements View.OnTouchListener {
     @BindView(R.id.rl_root_view)
     RelativeLayout mRlRootView;
     @BindView(R.id.tv_min)
@@ -30,34 +28,34 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
 
     private float mMinRange;
     private float mMaxRange;
-    private float mHeightRange;
+    private float mWidthRange;
     private int mMax;
 
     private OnListener mListener;
 
-    public Volume(Context context) {
+    public VolumeHorizontal(Context context) {
         super(context);
 
         init(context, null);
     }
 
-    public Volume(Context context, AttributeSet attrs) {
+    public VolumeHorizontal(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
-        View view = inflate(getContext(), R.layout.layout_volume, this);
+        View view = inflate(getContext(), R.layout.layout_volume_horizontal, this);
         ButterKnife.bind(view, this);
 
         mViewLineFake.setOnTouchListener(this);
-        mViewCircle.setY(mViewLineFake.getY());
+        mViewCircle.setX(mViewLineFake.getX());
 
         mViewLineFake.post(() -> {
-            mMinRange = mViewLineFake.getY();
-            mMaxRange = mViewLineFake.getHeight() + mViewLineFake.getY() - mViewCircle.getHeight();
-            mHeightRange = mMaxRange - mMinRange;
+            mMinRange = mViewLineFake.getX();
+            mMaxRange = mViewLineFake.getWidth() + mViewLineFake.getX() - mViewCircle.getWidth();
+            mWidthRange = mMaxRange - mMinRange;
         });
 
         TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomVolume, 0, 0);
@@ -80,24 +78,24 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        int y = (int) (motionEvent.getY() + mViewLineFake.getY());
+        int x = (int) (motionEvent.getX() + mViewLineFake.getX());
 
-        if (y < mMinRange) {
-            y = (int) mMinRange;
+        if (x < mMinRange) {
+            x = (int) mMinRange;
         }
 
-        if (y > mMaxRange) {
-            y = (int) mMaxRange;
+        if (x > mMaxRange) {
+            x = (int) mMaxRange;
         }
 
-        if (y >= mMinRange && y <= mMaxRange) {
+        if (x >= mMinRange && x <= mMaxRange) {
             switch (motionEvent.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     break;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_MOVE:
-                    mViewCircle.setY(y);
-                    updatePosition(y);
+                    mViewCircle.setX(x);
+                    updatePosition(x);
                     break;
             }
         }
@@ -105,9 +103,9 @@ public class Volume extends RelativeLayout implements View.OnTouchListener {
         return true;
     }
 
-    private void updatePosition(int y) {
-        y = (int) (y - mMinRange);
-        int position = Math.round((y / mHeightRange) * mMax);
+    private void updatePosition(int x) {
+        x = (int) (x - mMinRange);
+        int position = Math.round((x / mWidthRange) * mMax);
 
         if (mListener != null) {
             mListener.positionVolume(position);

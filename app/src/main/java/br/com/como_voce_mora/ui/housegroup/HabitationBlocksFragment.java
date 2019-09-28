@@ -14,14 +14,14 @@ import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
-import br.com.como_voce_mora.widget.Volume;
+import br.com.como_voce_mora.ui.custom.VolumeVertical;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class HabitationBlocksFragment extends BaseFragment implements Volume.OnListener {
+public class HabitationBlocksFragment extends BaseFragment implements VolumeVertical.OnListener {
 
     @BindView(R.id.volume)
-    Volume mVolume;
+    VolumeVertical mVolume;
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.iv_blocks)

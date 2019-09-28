@@ -68,7 +68,7 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_next" />
 
-    <br.com.como_voce_mora.widget.Volume
+    <br.com.como_voce_mora.ui.custom.VolumeVertical
         android:id="@+id/volume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
