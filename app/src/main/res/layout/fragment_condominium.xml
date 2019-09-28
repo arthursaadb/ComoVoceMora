@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorOrange">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorOrange">
 
     <ImageView
         android:id="@+id/iv_mr_clipboard"
         android:layout_width="180dp"
         android:layout_height="350dp"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginLeft="@dimen/default_margin"
+        android:layout_alignParentBottom="true"
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@id/bt_next"
+        android:layout_below="@id/tv_question"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_toLeftOf="@id/bt_next">
 
         <br.com.como_voce_mora.ui.custom.CustomRadioButton
             style="@style/CustomRadioButton"
-            android:gravity="center"
             android:text="Sim"
+            android:gravity="center"
             android:textSize="@dimen/default_text_size" />
 
         <br.com.como_voce_mora.ui.custom.CustomRadioButton
             style="@style/CustomRadioButton"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:gravity="center"
             android:text="Não"
+            android:gravity="center"
             android:textSize="@dimen/default_text_size" />
     </RadioGroup>
 
@@ -43,6 +47,7 @@
         android:layout_marginStart="-30dp"
         android:layout_marginLeft="-30dp"
         android:layout_marginTop="60dp"
+        android:text="Você residia em condomínio?"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:background="@drawable/bg_ballon"
@@ -53,7 +58,6 @@
         android:paddingEnd="70dp"
         android:paddingRight="20dp"
         android:paddingBottom="20dp"
-        android:text="Você residia em condomínio?"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/default_text_size" />
 
@@ -61,11 +65,11 @@
         android:id="@+id/bt_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:background="@color/colorTransparent"
         android:rotation="180"
         android:scaleType="centerInside"
@@ -75,11 +79,11 @@
         android:id="@+id/bt_next"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:background="@color/colorTransparent"
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />
