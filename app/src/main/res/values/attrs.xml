@@ -14,4 +14,9 @@
         <attr name="image" format="reference" />
         <attr name="textColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="CustomSelectedView">
+        <attr name="nameItem" format="reference" />
+        <attr name="imageItem" format="reference" />
+    </declare-styleable>
 </resources>

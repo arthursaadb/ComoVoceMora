@@ -17,7 +17,7 @@ import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class AcquisitionStateFragment extends BaseFragment implements CompoundButton.OnCheckedChangeListener {
+public class AcquisitionStateFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.rb_1)
@@ -57,27 +57,42 @@ public class AcquisitionStateFragment extends BaseFragment implements CompoundBu
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
+
+                    updateRbs();
                     break;
                 case R.id.rb_2:
                     mRb1.setChecked(false);
                     mRb2.setChecked(true);
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
+
+                    updateRbs();
                     break;
                 case R.id.rb_3:
                     mRb1.setChecked(false);
                     mRb2.setChecked(false);
                     mRb3.setChecked(true);
                     mRb4.setChecked(false);
+
+                    updateRbs();
                     break;
                 case R.id.rb_4:
                     mRb1.setChecked(false);
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);
                     mRb4.setChecked(true);
+
+                    updateRbs();
                     break;
             }
         }
+    }
+
+    private void updateRbs() {
+        mRb1.updateView();
+        mRb2.updateView();
+        mRb3.updateView();
+        mRb4.updateView();
     }
 
     @OnClick(R.id.bt_next)

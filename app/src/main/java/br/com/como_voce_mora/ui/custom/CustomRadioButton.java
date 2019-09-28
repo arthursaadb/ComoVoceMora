@@ -27,6 +27,10 @@ public class CustomRadioButton extends RadioButton implements CompoundButton.OnC
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        updateView();
+    }
+
+    public void updateView() {
         setBackground(getResources().getDrawable(isChecked() ?
                 R.drawable.bg_radio_button_selected :
                 R.drawable.bg_radio_button_normal));

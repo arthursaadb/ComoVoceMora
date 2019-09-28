@@ -85,7 +85,17 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
                     mRb5.setChecked(true);
                     break;
             }
+
+            updateRbs();
         }
+    }
+
+    private void updateRbs() {
+        mRb1.updateView();
+        mRb2.updateView();
+        mRb3.updateView();
+        mRb4.updateView();
+        mRb5.updateView();
     }
 
     @Override

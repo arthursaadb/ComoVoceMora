@@ -39,7 +39,6 @@
     <string name="brother">Irmão</string>
     <string name="other_relatives">Outro parente</string>
     <string name="pets">Animal estimação</string>
-
     <string name="house">Casa</string>
     <string name="apartament">Apartamento</string>
     <string name="address_question">Seu endereço:</string>
@@ -58,4 +57,9 @@
     <string name="academia_livre">Academia Livre</string>
     <string name="parque">Parque</string>
     <string name="quadra">Quadra</string>
+    <string name="zero_a_um">0 a 1 ano</string>
+    <string name="um_a_dois">1 a 2 anos</string>
+    <string name="dois_a_tres">2 a 3 anos</string>
+    <string name="tres_a_quatro">3 a 4 anos</string>
+    <string name="mais_de_cinco">5 anos ou mais</string>
 </resources>
