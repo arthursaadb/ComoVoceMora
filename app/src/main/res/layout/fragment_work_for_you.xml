@@ -14,32 +14,48 @@
         android:layout_marginLeft="@dimen/default_margin"
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
-
-    <RadioButton
-        android:id="@+id/btYes"
-        style="@style/SmallCustomRadioButton"
+    <RadioGroup
+        android:id="@+id/rg_yes_or_no"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/progress_bar"
         android:layout_below="@id/tv_question"
-        android:layout_marginTop="20dp"
+        android:layout_centerVertical="true"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:gravity="center"
-        android:text="Sim"
-        android:textSize="@dimen/default_text_size" />
+        android:orientation="vertical">
 
-    <RelativeLayout
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
+            android:id="@+id/btYes"
+            style="@style/SmallCustomRadioButton"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Sim"
+            android:textSize="@dimen/default_text_size" />
+
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
+            style="@style/SmallCustomRadioButton"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Não"
+            android:textSize="@dimen/default_text_size" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:orientation="horizontal"
+        android:id="@+id/rg_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_question"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_toStartOf="@id/bt_next"
-        android:layout_toLeftOf="@id/bt_next"
-        android:layout_toEndOf="@id/btYes"
-        android:layout_toRightOf="@id/btYes"
+        android:layout_toEndOf="@id/rg_yes_or_no"
+        android:layout_toRightOf="@id/rg_yes_or_no"
         android:visibility="invisible"
         tools:visibility="visible">
 
-        <RadioButton
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
             android:id="@+id/btMens"
             style="@style/SmallCustomRadioButton"
             android:layout_marginTop="20dp"
@@ -47,7 +63,7 @@
             android:text="Mensalista"
             android:textSize="@dimen/default_text_size" />
 
-        <RadioButton
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
             android:id="@+id/btBouth"
             style="@style/SmallCustomRadioButton"
             android:layout_marginStart="5dp"
@@ -59,24 +75,15 @@
             android:text="Ambos"
             android:textSize="@dimen/default_text_size" />
 
-        <RadioButton
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
             style="@style/SmallCustomRadioButton"
             android:layout_below="@id/btMens"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="Diarista"
             android:textSize="@dimen/default_text_size" />
-    </RelativeLayout>
+    </RadioGroup>
 
-    <RadioButton
-        style="@style/SmallCustomRadioButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_marginBottom="20dp"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:gravity="center"
-        android:text="Não"
-        android:textSize="@dimen/default_text_size" />
 
     <TextView
         android:id="@+id/tv_question"
@@ -92,10 +99,10 @@
         android:paddingStart="50dp"
         android:paddingLeft="50dp"
         android:paddingEnd="60dp"
+        android:paddingRight="60dp"
         android:text="Trabalha algum funcionário em sua moradia?"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size"
-        android:paddingRight="60dp" />
+        android:textSize="@dimen/default_text_size" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/bt_back"

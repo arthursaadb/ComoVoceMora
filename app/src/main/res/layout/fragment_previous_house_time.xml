@@ -14,6 +14,7 @@
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
     <RadioGroup
+        android:id="@+id/rg_previous_house"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -26,14 +27,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_1"
                 style="@style/CustomRadioButton"
                 android:drawableTop="@drawable/um_ano"
                 android:gravity="center"
                 android:text="0 a 1 ano"
                 android:textSize="@dimen/default_text_size" />
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_2"
                 style="@style/CustomRadioButton"
                 android:layout_marginTop="30dp"
                 android:drawableTop="@drawable/um_ano_meio"
@@ -50,14 +53,16 @@
             android:layout_marginLeft="30dp"
             android:orientation="vertical">
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_3"
                 style="@style/CustomRadioButton"
                 android:drawableTop="@drawable/dois_anos_meio"
                 android:gravity="center"
                 android:text="2 a 3 anos"
                 android:textSize="@dimen/default_text_size" />
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_4"
                 style="@style/CustomRadioButton"
                 android:layout_marginTop="30dp"
                 android:drawableTop="@drawable/tres_anos_meio"
@@ -67,7 +72,8 @@
 
         </LinearLayout>
 
-        <RadioButton
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
+            android:id="@+id/rb_5"
             style="@style/CustomRadioButton"
             android:layout_margin="30dp"
             android:drawableTop="@drawable/cinco_anos"

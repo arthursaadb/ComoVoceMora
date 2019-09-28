@@ -15,7 +15,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class PreviousHomeTypeFragment extends BaseFragment {
-
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.rg_house)

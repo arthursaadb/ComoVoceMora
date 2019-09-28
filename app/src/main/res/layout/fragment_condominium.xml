@@ -21,13 +21,13 @@
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:orientation="horizontal">
 
-        <RadioButton
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
             style="@style/CustomRadioButton"
             android:gravity="center"
             android:text="Sim"
             android:textSize="@dimen/default_text_size" />
 
-        <RadioButton
+        <br.com.como_voce_mora.ui.custom.CustomRadioButton
             style="@style/CustomRadioButton"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"

@@ -14,10 +14,12 @@
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
     <RadioGroup
+        android:id="@+id/rg_satisfaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_question"
         android:layout_centerVertical="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:orientation="horizontal">
@@ -27,21 +29,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_1"
                 style="@style/CustomRadioButton"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="Muito Bom"
                 android:textSize="@dimen/default_text_size" />
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_2"
                 style="@style/CustomRadioButton"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="Bom"
                 android:textSize="@dimen/default_text_size" />
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_3"
                 style="@style/CustomRadioButton"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
@@ -58,14 +62,15 @@
             android:layout_marginLeft="30dp"
             android:orientation="vertical">
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_4"
                 style="@style/CustomRadioButton"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="Regular"
                 android:textSize="@dimen/default_text_size" />
 
-            <RadioButton
+            <br.com.como_voce_mora.ui.custom.CustomRadioButton
+                android:id="@+id/rb_5"
                 style="@style/CustomRadioButton"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
