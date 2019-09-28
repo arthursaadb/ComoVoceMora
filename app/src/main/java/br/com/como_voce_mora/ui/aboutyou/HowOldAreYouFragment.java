@@ -3,6 +3,7 @@ package br.com.como_voce_mora.ui.aboutyou;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -41,6 +42,7 @@ public class HowOldAreYouFragment extends BaseFragment implements Volume.OnListe
         ages.add(R.drawable.ic_mr_clipboard_51a60);
         ages.add(R.drawable.ic_mr_clipboard_61a70);
         ages.add(R.drawable.ic_mr_clipboard_up_70);
+        Collections.reverse(ages);
 
         mVolume.setListener(this);
         mVolume.setMax(ages.size() - 1);

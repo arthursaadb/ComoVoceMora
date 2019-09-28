@@ -3,6 +3,7 @@ package br.com.como_voce_mora.ui.aboutyou;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -60,6 +61,8 @@ public class SchoolingFragment extends BaseFragment implements Volume.OnListener
         images.add(R.drawable.ic_escola_media_completo_3);
         images.add(R.drawable.ic_escola_superior_incompleto);
         images.add(R.drawable.ic_escola_superior_completo);
+        Collections.reverse(images);
+
 
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);

@@ -3,6 +3,7 @@ package br.com.como_voce_mora.ui.aboutyou;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -52,6 +53,7 @@ public class FamilyIncomeFragment extends BaseFragment implements Volume.OnListe
         images.add(R.drawable.ic_9);
         images.add(R.drawable.ic_9_5);
         images.add(R.drawable.ic_10_ou_mais);
+        Collections.reverse(images);
 
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
