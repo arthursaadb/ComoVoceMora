@@ -15,7 +15,7 @@ import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class PreviousHouseTimeFragment extends BaseFragment{
+public class PreviousHouseTimeFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.view_1)
@@ -35,7 +35,7 @@ public class PreviousHouseTimeFragment extends BaseFragment{
 
 
     @OnClick({R.id.view_1, R.id.view_2, R.id.view_3, R.id.view_4, R.id.view_5})
-    public void onClickViews(View view){
+    public void onClickViews(View view) {
         switch (view.getId()) {
             case R.id.view_1:
                 mView1.setChecked(true);

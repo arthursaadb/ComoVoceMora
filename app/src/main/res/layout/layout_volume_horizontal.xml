@@ -4,7 +4,7 @@
     android:id="@+id/rl_root_view"
     android:layout_width="wrap_content"
     android:layout_height="50dp"
-    tools:background="@color/colorPurpleLight">
+    tools:background="@color/colorBege">
 
     <TextView
         android:id="@+id/tv_min"
@@ -14,7 +14,7 @@
         android:layout_marginEnd="@dimen/small_margin"
         android:layout_marginRight="@dimen/small_margin"
         android:fontFamily="@font/mkm232"
-        tools:text="A"
+        tools:text="-"
         tools:textColor="@color/colorBlack" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_toEndOf="@id/view_line"
         android:layout_toRightOf="@id/view_line"
         android:fontFamily="@font/mkm232"
-        tools:text="Z"
+        tools:text="+"
         tools:textColor="@color/colorBlack" />
 
     <View

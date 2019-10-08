@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.custom.CustomSelectedView;
 import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -17,8 +18,10 @@ import butterknife.OnClick;
 public class PreviousHomeTypeFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rg_house)
-    RadioGroup mRadioGroup;
+    @BindView(R.id.csvHouse)
+    CustomSelectedView csvHouse;
+    @BindView(R.id.csvApartament)
+    CustomSelectedView csvApartment;
 
     public static PreviousHomeTypeFragment newInstance() {
         return new PreviousHomeTypeFragment();
@@ -31,16 +34,8 @@ public class PreviousHomeTypeFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        switch (mRadioGroup.getCheckedRadioButtonId()) {
-            case R.id.rb_house:
-                if (getActivity() != null)
-                    ((AboutYouActivity) getActivity()).addFragment(WhichHouseFragment.newInstance());
-                break;
-            case R.id.rb_apartament:
-                if (getActivity() != null)
-                    ((AboutYouActivity) getActivity()).addFragment(WhichApartamentFragment.newInstance());
-                break;
-        }
+        csvHouse.setOnClickListener(view -> ((AboutYouActivity) getActivity()).addFragment(WhichHouseFragment.newInstance()));
+        csvApartment.setOnClickListener(view -> ((AboutYouActivity) getActivity()).addFragment(WhichApartamentFragment.newInstance()));
     }
 
     @OnClick(R.id.bt_back)

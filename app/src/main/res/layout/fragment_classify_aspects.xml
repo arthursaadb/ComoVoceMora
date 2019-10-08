@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBlueLight2">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBlueLight2">
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:background="@color/colorTransparent"
         android:rotation="180"
         android:scaleType="centerInside"
@@ -35,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_marginTop="30dp"
+        android:text="Classifique os seguintes aspectos em relação ao seu BAIRRO:"
         android:layout_toStartOf="@id/btNext"
         android:layout_toLeftOf="@id/btNext"
         android:layout_toEndOf="@id/ivMister"
@@ -43,34 +44,138 @@
         android:gravity="center_vertical"
         android:paddingStart="50dp"
         android:paddingLeft="50dp"
-        android:text="Classifique os seguintes aspectos em relação ao seu BAIRRO:"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/default_text_size" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@id/ivMister"
+        android:layout_below="@id/tv_question"
+        android:layout_toRightOf="@id/ivMister"
+        android:layout_toStartOf="@id/btNext"
+        android:layout_toLeftOf="@id/btNext"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/llVolume1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_question"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Agradabilidade"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlack" />
+
+
+            <br.com.como_voce_mora.ui.custom.VolumeHorizontal
+                android:id="@+id/volume1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llVolume2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/tv_question"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Relação de \nConvivio"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlack" />
+
+
+            <br.com.como_voce_mora.ui.custom.VolumeHorizontal
+                android:id="@+id/volume2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llVolume3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/tv_question"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Acessibilidade\ndas Calçadas"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlack" />
+
+
+            <br.com.como_voce_mora.ui.custom.VolumeHorizontal
+                android:id="@+id/volume3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btNext"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:background="@color/colorTransparent"
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />
 
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btPreviousSession"
         style="@style/SessionBackButton"
+        android:id="@+id/btPreviousSession"
         android:layout_above="@id/progress_bar"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btHelp"
         style="@style/HelpButton"
+        android:id="@+id/btHelp"
         android:layout_above="@id/progress_bar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true" />

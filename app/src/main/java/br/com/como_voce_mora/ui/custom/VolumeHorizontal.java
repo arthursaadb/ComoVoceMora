@@ -59,7 +59,7 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
         });
 
         TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomVolume, 0, 0);
-        int background = typedArray.getColor(R.styleable.CustomVolume_backgroundVolume, getResources().getColor(R.color.colorPrimary));
+        int background = typedArray.getColor(R.styleable.CustomVolume_backgroundVolume, getResources().getColor(R.color.colorBege));
         int lineColor = typedArray.getColor(R.styleable.CustomVolume_lineColorVolume, getResources().getColor(R.color.colorBlack));
         int textColor = typedArray.getColor(R.styleable.CustomVolume_textColorVolume, getResources().getColor(R.color.colorBlack));
         int resCircleSelected = typedArray.getResourceId(R.styleable.CustomVolume_circleSelectedVolume, R.drawable.bg_circle_volume);

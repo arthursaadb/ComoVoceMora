@@ -54,4 +54,12 @@ public class CustomSelectedView extends RelativeLayout {
     public boolean isChecked() {
         return selected;
     }
+
+    public void setImage(int image) {
+        mIvImage.setImageResource(image);
+    }
+
+    public void setText(int text) {
+        mTvName.setText(text);
+    }
 }

@@ -1,121 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorGrayLight">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorGrayLight">
 
     <ImageView
         android:id="@+id/iv_mr_clipboard"
         android:layout_width="180dp"
         android:layout_height="350dp"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginLeft="@dimen/default_margin"
+        android:layout_alignParentBottom="true"
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
-    <RadioGroup
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:orientation="horizontal">
+        android:layout_below="@id/tv_question"
+        android:layout_toStartOf="@id/bt_next"
+        android:orientation="horizontal"
+        android:layout_toLeftOf="@id/bt_next"
+        android:layout_marginRight="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RadioButton
-                style="@style/CustomRadioButtonWithImage"
-                android:drawableTop="@drawable/game_room"
-                android:gravity="center"
-                android:text="Salão de jogos"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvGamesRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/games_room"
+                app:imageItem="@drawable/game_room" />
 
-            <RadioButton
-                style="@style/CustomRadioButtonWithImage"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/gym"
-                android:gravity="center"
-                android:text="Academia"
-                android:textSize="@dimen/default_text_size" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:orientation="vertical">
-
-            <RadioButton
-                style="@style/CustomRadioButtonWithImage"
-                android:drawableTop="@drawable/party_room"
-                android:gravity="center"
-                android:text="Salão de festas"
-                android:textSize="@dimen/default_text_size" />
-
-            <RadioButton
-                style="@style/CustomRadioButtonWithImage"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/adultpool"
-                android:gravity="center"
-                android:text="Piscina Adulto"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvGym"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/games_room"
+                app:imageItem="@drawable/game_room" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
             android:orientation="vertical">
 
-            <RadioButton
-                style="@style/CustomRadioButtonWithImage"
-                android:drawableTop="@drawable/gourmet_space"
-                android:gravity="center"
-                android:text="Espaço gourmet"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvPartyRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/party_room"
+                app:imageItem="@drawable/party_room" />
 
-            <RadioButton
-                style="@style/CustomRadioButtonWithImage"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/playground"
-                android:gravity="center"
-                android:text="Playground"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvPoolPlusEighteen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/piscinapluseighteen"
+                app:imageItem="@drawable/adultpool" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
             android:orientation="vertical">
 
-            <RadioButton
-                style="@style/CustomRadioButtonWithImage"
-                android:drawableTop="@drawable/court"
-                android:gravity="center"
-                android:text="Quadra"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvGourmet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/gourment_space"
+                app:imageItem="@drawable/gourmet_space" />
 
-            <RadioButton
-                style="@style/CustomRadioButtonWithImage"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/kids_pool"
-                android:gravity="center"
-                android:text="Piscina infantil"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvPlayGround"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/playground"
+                app:imageItem="@drawable/playground" />
 
         </LinearLayout>
 
-    </RadioGroup>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvSqaure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/games_room"
+                app:imageItem="@drawable/game_room" />
+
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvChildPool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/child_pool"
+                app:imageItem="@drawable/kids_pool" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tv_question"
@@ -124,6 +147,7 @@
         android:layout_marginStart="-30dp"
         android:layout_marginLeft="-30dp"
         android:layout_marginTop="60dp"
+        android:text="Selecione os equipamentos de uso coletivo que existem no seu condomínio. Se não houver, clique em avançar."
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:background="@drawable/bg_ballon"
@@ -134,7 +158,6 @@
         android:paddingEnd="70dp"
         android:paddingRight="20dp"
         android:paddingBottom="20dp"
-        android:text="Selecione os equipamentos de uso coletivo que existem no seu condomínio. Se não houver, clique em avançar."
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/default_text_size" />
 
@@ -142,11 +165,11 @@
         android:id="@+id/bt_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:background="@color/colorTransparent"
         android:rotation="180"
         android:scaleType="centerInside"
@@ -156,11 +179,11 @@
         android:id="@+id/bt_next"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:background="@color/colorTransparent"
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />

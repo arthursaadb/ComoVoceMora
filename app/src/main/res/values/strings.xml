@@ -62,4 +62,22 @@
     <string name="dois_a_tres">2 a 3 anos</string>
     <string name="tres_a_quatro">3 a 4 anos</string>
     <string name="mais_de_cinco">5 anos ou mais</string>
+    <string name="games_room">Salão de jogos</string>
+    <string name="gym">Academia</string>
+    <string name="party_room">Salão de festas</string>
+    <string name="piscinapluseighteen">Piscina Adulto</string>
+    <string name="gourment_space">Espaço gourmet</string>
+    <string name="playground">Playground</string>
+    <string name="square">Quadra</string>
+    <string name="child_pool">Piscina infantil</string>
+    <string name="casagerminada">Casa germinada</string>
+    <string name="sobrado">Sobrado</string>
+    <string name="vila">Casa de vila</string>
+    <string name="terrea">Casa Térrea</string>
+    <string name="duplex">Duplex</string>
+    <string name="triplex">Triplex</string>
+    <string name="quitinete">Quitinete</string>
+    <string name="loft">Loft</string>
+    <string name="convencional">Convencional</string>
+    <string name="cobertura">Cobertura</string>
 </resources>

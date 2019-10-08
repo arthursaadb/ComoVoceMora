@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorOrange">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorOrange">
 
     <ImageView
         android:id="@+id/iv_mr_clipboard"
         android:layout_width="180dp"
         android:layout_height="350dp"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginLeft="@dimen/default_margin"
+        android:layout_alignParentBottom="true"
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
-    <RadioGroup
-        android:layout_below="@id/tv_question"
+    <LinearLayout
         android:id="@+id/rg_previous_house"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tv_question"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
@@ -34,15 +34,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:nameItem="@string/zero_a_um"
-                app:imageItem="@drawable/um_ano"/>
+                app:imageItem="@drawable/um_ano" />
 
             <br.com.como_voce_mora.ui.custom.CustomSelectedView
                 android:id="@+id/view_2"
-                android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 app:nameItem="@string/um_a_dois"
-                app:imageItem="@drawable/um_ano_meio"/>
+                app:imageItem="@drawable/um_ano_meio" />
 
         </LinearLayout>
 
@@ -58,26 +58,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:nameItem="@string/dois_a_tres"
-                app:imageItem="@drawable/dois_anos_meio"/>
+                app:imageItem="@drawable/dois_anos_meio" />
 
             <br.com.como_voce_mora.ui.custom.CustomSelectedView
                 android:id="@+id/view_4"
-                android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 app:nameItem="@string/tres_a_quatro"
-                app:imageItem="@drawable/tres_anos_meio"/>
+                app:imageItem="@drawable/tres_anos_meio" />
         </LinearLayout>
 
         <br.com.como_voce_mora.ui.custom.CustomSelectedView
             android:id="@+id/view_5"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
             app:nameItem="@string/mais_de_cinco"
-            app:imageItem="@drawable/cinco_anos"/>
-    </RadioGroup>
+            app:imageItem="@drawable/cinco_anos" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_question"
@@ -86,6 +86,7 @@
         android:layout_marginStart="-30dp"
         android:layout_marginLeft="-30dp"
         android:layout_marginTop="60dp"
+        android:text="Qual o tempo de permanência na moradia anterior?"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:background="@drawable/bg_ballon"
@@ -96,7 +97,6 @@
         android:paddingEnd="70dp"
         android:paddingRight="20dp"
         android:paddingBottom="20dp"
-        android:text="Qual o tempo de permanência na moradia anterior?"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/default_text_size" />
 
@@ -104,11 +104,11 @@
         android:id="@+id/bt_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:background="@color/colorTransparent"
         android:rotation="180"
         android:scaleType="centerInside"
@@ -118,11 +118,11 @@
         android:id="@+id/bt_next"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:background="@color/colorTransparent"
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />

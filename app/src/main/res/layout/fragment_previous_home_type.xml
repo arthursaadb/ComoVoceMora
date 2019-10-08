@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorOrange">
@@ -13,12 +14,12 @@
         android:layout_alignParentBottom="true"
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
-    <RadioGroup
-        android:layout_below="@id/tv_question"
+    <LinearLayout
         android:id="@+id/rg_house"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_below="@id/tv_question"
         android:layout_centerHorizontal="true"
         android:layout_toStartOf="@id/bt_next"
         android:layout_above="@id/progress_bar"
@@ -27,23 +28,27 @@
         android:orientation="horizontal"
         android:layout_toLeftOf="@id/bt_next">
 
-        <br.com.como_voce_mora.ui.custom.CustomRadioButton
-            android:id="@+id/rb_house"
-            style="@style/CustomRadioButton"
-            android:drawableTop="@drawable/casa_casa"
-            android:gravity="center"
-            android:textSize="@dimen/default_text_size" />
+        <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            android:id="@+id/csvHouse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            app:nameItem="@string/house"
+            app:imageItem="@drawable/casa_casa"
+            android:layout_marginLeft="20dp" />
 
-        <br.com.como_voce_mora.ui.custom.CustomRadioButton
-            android:id="@+id/rb_apartament"
-            style="@style/CustomRadioButton"
+        <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            android:id="@+id/csvApartament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:scaleType="center"
-            android:drawableTop="@drawable/apartamento_apartamento"
-            android:gravity="center"
-            android:textSize="@dimen/default_text_size" />
-    </RadioGroup>
+            android:layout_gravity="center"
+            app:nameItem="@string/apartament"
+            app:imageItem="@drawable/apartamento_apartamento" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_question"

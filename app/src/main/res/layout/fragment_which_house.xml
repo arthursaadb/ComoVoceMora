@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorOrange">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="@color/colorOrange">
 
     <ImageView
         android:id="@+id/iv_mr_clipboard"
@@ -13,7 +14,7 @@
         android:layout_marginLeft="@dimen/default_margin"
         android:src="@drawable/ic_mr_clipboard_half_body" />
 
-    <RadioGroup
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_question"
@@ -22,65 +23,70 @@
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:orientation="horizontal">
 
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_1"
-                style="@style/CustomRadioButton"
-                android:drawableTop="@drawable/casa_germinada"
-                android:gravity="center"
-                android:text="Casa germinada"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvCasaGerminada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/casagerminada"
+                app:imageItem="@drawable/casa_germinada" />
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_2"
-                style="@style/CustomRadioButton"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/casa_sobrado"
-                android:gravity="center"
-                android:text="Sobrado"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvSobrado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/sobrado"
+                app:imageItem="@drawable/casa_sobrado" />
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_3"
-                style="@style/CustomRadioButton"
-                android:drawableTop="@drawable/casa_casa_de_vila"
-                android:gravity="center"
-                android:text="Casa de vila"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvVila"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/vila"
+                app:imageItem="@drawable/casa_casa_de_vila" />
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_4"
-                style="@style/CustomRadioButton"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/casa_terrea"
-                android:gravity="center"
-                android:text="Casa Térrea"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+                android:id="@+id/csvTerrea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/terrea"
+                app:imageItem="@drawable/casa_terrea" />
 
         </LinearLayout>
+        <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            android:id="@+id/csvFundo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            app:nameItem="@string/terrea"
+            app:imageItem="@drawable/casa_terrea" />
 
-        <br.com.como_voce_mora.ui.custom.CustomRadioButton
-            android:id="@+id/rb_5"
-            style="@style/CustomRadioButton"
-            android:layout_margin="30dp"
-            android:drawableTop="@drawable/casa_fundo"
-            android:gravity="center"
-            android:text="Casa Fundo"
-            android:textSize="@dimen/default_text_size" />
-    </RadioGroup>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_question"
