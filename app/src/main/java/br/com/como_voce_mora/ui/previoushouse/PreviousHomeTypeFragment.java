@@ -32,10 +32,15 @@ public class PreviousHomeTypeFragment extends BaseFragment {
         return R.layout.fragment_previous_home_type;
     }
 
-    @OnClick(R.id.bt_next)
-    public void onBtNextClicked() {
+    @Override
+    public void init() {
         csvHouse.setOnClickListener(view -> ((AboutYouActivity) getActivity()).addFragment(WhichHouseFragment.newInstance()));
         csvApartment.setOnClickListener(view -> ((AboutYouActivity) getActivity()).addFragment(WhichApartamentFragment.newInstance()));
+    }
+
+    @OnClick(R.id.bt_next)
+    public void onBtNextClicked() {
+
     }
 
     @OnClick(R.id.bt_back)

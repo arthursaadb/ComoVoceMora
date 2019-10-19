@@ -3,7 +3,6 @@ package br.com.como_voce_mora.ui.previoushouse;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,26 +10,26 @@ import androidx.annotation.Nullable;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.custom.CustomRadioButton;
+import br.com.como_voce_mora.ui.custom.CustomSelectedView;
 import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class WhichApartamentFragment extends BaseFragment implements CompoundButton.OnCheckedChangeListener {
+public class WhichApartamentFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rb_1)
-    CustomRadioButton mRb1;
-    @BindView(R.id.rb_2)
-    CustomRadioButton mRb2;
-    @BindView(R.id.rb_3)
-    CustomRadioButton mRb3;
-    @BindView(R.id.rb_4)
-    CustomRadioButton mRb4;
-    @BindView(R.id.rb_5)
-    CustomRadioButton mRb5;
-    @BindView(R.id.rb_6)
-    CustomRadioButton mRb6;
+    @BindView(R.id.csvDuplex)
+    CustomSelectedView csvDuplex;
+    @BindView(R.id.csvTiplex)
+    CustomSelectedView csvTiplex;
+    @BindView(R.id.csvQuintinete)
+    CustomSelectedView csvQuintinete;
+    @BindView(R.id.csvLoft)
+    CustomSelectedView csvLoft;
+    @BindView(R.id.csvConvencional)
+    CustomSelectedView csvConvencional;
+    @BindView(R.id.csvCobertura)
+    CustomSelectedView csvCobertura;
 
     public static WhichApartamentFragment newInstance() {
         return new WhichApartamentFragment();
@@ -40,80 +39,62 @@ public class WhichApartamentFragment extends BaseFragment implements CompoundBut
     public void init() {
         super.init();
 
-        mRb1.setOnCheckedChangeListener(this);
-        mRb2.setOnCheckedChangeListener(this);
-        mRb3.setOnCheckedChangeListener(this);
-        mRb4.setOnCheckedChangeListener(this);
-        mRb5.setOnCheckedChangeListener(this);
-        mRb6.setOnCheckedChangeListener(this);
     }
 
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-            switch (buttonView.getId()) {
-                case R.id.rb_1:
-                    mRb1.setChecked(true);
-                    mRb2.setChecked(false);
-                    mRb3.setChecked(false);
-                    mRb4.setChecked(false);
-                    mRb5.setChecked(false);
-                    mRb6.setChecked(false);
+    @OnClick({R.id.csvDuplex, R.id.csvTiplex, R.id.csvQuintinete, R.id.csvLoft, R.id.csvConvencional, R.id.csvCobertura})
+    public void onCheckedChanged(View view) {
+            switch (view.getId()) {
+                case R.id.csvDuplex:
+                    csvDuplex.setChecked(true);
+                    csvTiplex.setChecked(false);
+                    csvQuintinete.setChecked(false);
+                    csvLoft.setChecked(false);
+                    csvConvencional.setChecked(false);
+                    csvCobertura.setChecked(false);
                     break;
-                case R.id.rb_2:
-                    mRb1.setChecked(false);
-                    mRb2.setChecked(true);
-                    mRb3.setChecked(false);
-                    mRb4.setChecked(false);
-                    mRb5.setChecked(false);
-                    mRb6.setChecked(false);
+                case R.id.csvTiplex:
+                    csvDuplex.setChecked(false);
+                    csvTiplex.setChecked(true);
+                    csvQuintinete.setChecked(false);
+                    csvLoft.setChecked(false);
+                    csvConvencional.setChecked(false);
+                    csvCobertura.setChecked(false);
                     break;
-                case R.id.rb_3:
-                    mRb1.setChecked(false);
-                    mRb2.setChecked(false);
-                    mRb3.setChecked(true);
-                    mRb4.setChecked(false);
-                    mRb5.setChecked(false);
-                    mRb6.setChecked(false);
+                case R.id.csvQuintinete:
+                    csvDuplex.setChecked(false);
+                    csvTiplex.setChecked(false);
+                    csvQuintinete.setChecked(true);
+                    csvLoft.setChecked(false);
+                    csvConvencional.setChecked(false);
+                    csvCobertura.setChecked(false);
                     break;
-                case R.id.rb_4:
-                    mRb1.setChecked(false);
-                    mRb2.setChecked(false);
-                    mRb3.setChecked(false);
-                    mRb4.setChecked(true);
-                    mRb5.setChecked(false);
-                    mRb6.setChecked(false);
+                case R.id.csvLoft:
+                    csvDuplex.setChecked(false);
+                    csvTiplex.setChecked(false);
+                    csvQuintinete.setChecked(false);
+                    csvLoft.setChecked(true);
+                    csvConvencional.setChecked(false);
+                    csvCobertura.setChecked(false);
                     break;
-                case R.id.rb_5:
-                    mRb1.setChecked(false);
-                    mRb2.setChecked(false);
-                    mRb3.setChecked(false);
-                    mRb4.setChecked(false);
-                    mRb5.setChecked(true);
-                    mRb6.setChecked(false);
+                case R.id.csvConvencional:
+                    csvDuplex.setChecked(false);
+                    csvTiplex.setChecked(false);
+                    csvQuintinete.setChecked(false);
+                    csvLoft.setChecked(false);
+                    csvConvencional.setChecked(true);
+                    csvCobertura.setChecked(false);
                     break;
-                case R.id.rb_6:
-                    mRb1.setChecked(false);
-                    mRb2.setChecked(false);
-                    mRb3.setChecked(false);
-                    mRb4.setChecked(false);
-                    mRb5.setChecked(false);
-                    mRb6.setChecked(true);
+                case R.id.csvCobertura:
+                    csvDuplex.setChecked(false);
+                    csvTiplex.setChecked(false);
+                    csvQuintinete.setChecked(false);
+                    csvLoft.setChecked(false);
+                    csvConvencional.setChecked(true);
+                    csvCobertura.setChecked(true);
                     break;
             }
-
-            updateRbs();
-        }
     }
 
-    private void updateRbs() {
-        mRb1.updateView();
-        mRb2.updateView();
-        mRb3.updateView();
-        mRb4.updateView();
-        mRb5.updateView();
-        mRb6.updateView();
-    }
 
     @Override
     public int getResLayout() {
