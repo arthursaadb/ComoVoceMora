@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import br.com.como_voce_mora.AppController;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
+import br.com.como_voce_mora.ui.PlayGroundActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -46,6 +47,12 @@ public class IntroActivity extends BaseActivity {
     @OnClick(R.id.bt_start)
     public void start() {
         Intent intent = new Intent(this, InfoSaveDataActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.bt_send_answers)
+    public void openSendAnswers() {
+        Intent intent = new Intent(this, PlayGroundActivity.class);
         startActivity(intent);
     }
 }

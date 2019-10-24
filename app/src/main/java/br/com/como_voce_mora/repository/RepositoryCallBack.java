@@ -1,6 +1,6 @@
 package br.com.como_voce_mora.repository;
 
-import br.com.como_voce_mora.ResponseError;
+import br.com.como_voce_mora.model.ResponseError;
 
 public interface RepositoryCallback<T> {
     void onSuccess(T response);

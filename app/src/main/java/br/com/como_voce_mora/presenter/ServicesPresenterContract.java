@@ -4,12 +4,17 @@ public class ServicesPresenterContract {
 
     public interface Presenter {
         void getDwellerId();
+
+        void postAnswers();
     }
 
     public interface View {
         void showId(String dwellerId);
 
         void showError(String azedou);
+
+        void advice();
+
     }
 
 }

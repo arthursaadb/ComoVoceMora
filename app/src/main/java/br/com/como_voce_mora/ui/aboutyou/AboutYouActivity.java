@@ -16,7 +16,6 @@ public class AboutYouActivity extends BaseActivity {
     public void init() {
         super.init();
         replaceFragment(WhatYourGenderFragment.newInstance());
-//        replaceFragment(CountryFragment.newInstance());
     }
 
 

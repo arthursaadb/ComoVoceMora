@@ -5,6 +5,7 @@ import br.com.como_voce_mora.ui.BaseFragment;
 import butterknife.OnClick;
 
 public class WhatYourGenderFragment extends BaseFragment {
+
     public static WhatYourGenderFragment newInstance() {
         return new WhatYourGenderFragment();
     }

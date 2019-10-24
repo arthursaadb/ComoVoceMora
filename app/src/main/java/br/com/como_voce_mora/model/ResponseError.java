@@ -1,4 +1,4 @@
-package br.com.como_voce_mora;
+package br.com.como_voce_mora.model;
 
 
 import com.google.gson.Gson;

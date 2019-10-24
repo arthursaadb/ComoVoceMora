@@ -1,6 +1,6 @@
 package br.com.como_voce_mora.api;
 
-import br.com.como_voce_mora.ResponseError;
+import br.com.como_voce_mora.model.ResponseError;
 import br.com.como_voce_mora.repository.RepositoryCallback;
 import retrofit2.Call;
 import retrofit2.Response;
