@@ -80,14 +80,14 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
         mIvAge.setImageResource(images.get(position));
     }
 
-    @OnClick(R.id.bt_next)
+    @OnClick(R.id.btNext)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(WhatsYourAddressFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.bt_back)
+    @OnClick(R.id.btBack)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

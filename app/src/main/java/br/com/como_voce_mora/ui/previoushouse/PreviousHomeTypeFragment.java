@@ -38,12 +38,12 @@ public class PreviousHomeTypeFragment extends BaseFragment {
         csvApartment.setOnClickListener(view -> ((AboutYouActivity) getActivity()).addFragment(WhichApartamentFragment.newInstance()));
     }
 
-    @OnClick(R.id.bt_next)
+    @OnClick(R.id.btNext)
     public void onBtNextClicked() {
 
     }
 
-    @OnClick(R.id.bt_back)
+    @OnClick(R.id.btBack)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

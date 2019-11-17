@@ -33,13 +33,13 @@ public class HabitationTypeFragment extends BaseFragment {
         return R.layout.fragment_habitation_type;
     }
 
-    @OnClick(R.id.bt_next)
+    @OnClick(R.id.btNext)
     public void onBtNextClicked() {
         if (getActivity() != null)
             ((AboutYouActivity) getActivity()).addFragment(HabitationCondominiumFragment.newInstance());
     }
 
-    @OnClick(R.id.bt_back)
+    @OnClick(R.id.btBack)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

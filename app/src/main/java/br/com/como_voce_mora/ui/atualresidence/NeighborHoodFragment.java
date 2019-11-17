@@ -59,14 +59,14 @@ public class NeighborHoodFragment extends BaseFragment implements VolumeVertical
         mIvAge.setImageResource(images.get(position));
     }
 
-    @OnClick(R.id.bt_next)
+    @OnClick(R.id.btNext)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(EquipamentsFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.bt_back)
+    @OnClick(R.id.btBack)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

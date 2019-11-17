@@ -23,9 +23,9 @@
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:layout_below="@id/tv_question"
-        android:layout_toStartOf="@id/bt_next"
+        android:layout_toStartOf="@id/btNext"
         android:orientation="horizontal"
-        android:layout_toLeftOf="@id/bt_next"
+        android:layout_toLeftOf="@id/btNext"
         android:layout_marginRight="10dp">
 
         <LinearLayout
@@ -162,7 +162,7 @@
         android:textSize="@dimen/default_text_size" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_back"
+        android:id="@+id/btBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
@@ -176,7 +176,7 @@
         android:src="@drawable/ic_next" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_next"
+        android:id="@+id/btNext"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="5dp"

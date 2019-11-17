@@ -38,7 +38,7 @@
         android:layout_toLeftOf="@id/volume" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_back"
+        android:id="@+id/btBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
@@ -52,7 +52,7 @@
         android:src="@drawable/ic_next" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_next"
+        android:id="@+id/btNext"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="5dp"
@@ -85,8 +85,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_toStartOf="@id/bt_next"
-        android:layout_toLeftOf="@id/bt_next"
+        android:layout_toStartOf="@id/btNext"
+        android:layout_toLeftOf="@id/btNext"
         app:backgroundVolume="@color/colorBackgroundVolume"
         app:circleSelectedVolume="@drawable/bg_circle_volume"
         app:lineColorVolume="@color/colorBlack"

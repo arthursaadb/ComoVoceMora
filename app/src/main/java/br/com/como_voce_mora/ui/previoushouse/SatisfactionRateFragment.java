@@ -103,14 +103,14 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
         return R.layout.fragment_satisfaction_rate;
     }
 
-    @OnClick(R.id.bt_next)
+    @OnClick(R.id.btNext)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(PreviousHouseTimeFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.bt_back)
+    @OnClick(R.id.btBack)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

@@ -22,8 +22,8 @@
         android:layout_marginStart="-30dp"
         android:layout_marginLeft="-30dp"
         android:layout_marginTop="20dp"
-        android:layout_toStartOf="@id/bt_next"
-        android:layout_toLeftOf="@id/bt_next"
+        android:layout_toStartOf="@id/btNext"
+        android:layout_toLeftOf="@id/btNext"
         android:layout_toEndOf="@id/iv_mr_clipboard"
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:background="@drawable/bg_ballon"
@@ -106,7 +106,7 @@
         android:textColor="@color/colorWhite" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_next"
+        android:id="@+id/btNext"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
@@ -119,7 +119,7 @@
         android:src="@drawable/ic_doublenext" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_back"
+        android:id="@+id/btBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"

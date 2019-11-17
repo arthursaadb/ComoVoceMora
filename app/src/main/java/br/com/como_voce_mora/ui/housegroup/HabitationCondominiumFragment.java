@@ -28,14 +28,14 @@ public class HabitationCondominiumFragment extends BaseFragment {
         return R.layout.fragment_habitation_condominium;
     }
 
-    @OnClick(R.id.bt_next)
+    @OnClick(R.id.btNext)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(HabitationBlocksFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.bt_back)
+    @OnClick(R.id.btBack)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
