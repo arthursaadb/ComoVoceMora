@@ -20,7 +20,7 @@ class DatabaseContext extends ContextWrapper {
     public File getDatabasePath(String name)
     {
         File sdcard = Environment.getExternalStorageDirectory();
-        String dbfile = sdcard.getAbsolutePath() + File.separator+ "databases" + File.separator + name;
+        String dbfile = sdcard.getAbsolutePath() + File.separator+ "database-como-voce-mora" + File.separator + name;
         if (!dbfile.endsWith(".db"))
         {
             dbfile += ".db" ;

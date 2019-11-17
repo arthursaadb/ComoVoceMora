@@ -7,8 +7,13 @@ public class PostContract {
     }
 
     public static class PostEntry implements BaseColumns {
-        public static final String TABLE_NAME = "post";
-        public static final String COLUMN_NAME_TITLE = "titulo";
-        public static final String COLUMN_NAME_SUBTITLE = "subtitulo";
+        public static final String TABLE_NAME_MORADOR = "morador";
+        public static final String TABLE_NAME_APO = "apo";
+        public static final String COLUMN_NAME_MORADOR_ID = "morador_id";
+        public static final String COLUMN_NAME_PERGUNTA_ID = "pergunta_id";
+        public static final String COLUMN_NAME_RESPOSTA = "resposta";
+        public static final String COLUMN_NAME_COMODO_ID = "comodo_id";
+        public static final String COLUMN_NAME_CONCEITO_ID = "conceito_id";
+        public static final String COLUMN_NAME_ATRIBUTO_ID = "atributo_id";
     }
 }
