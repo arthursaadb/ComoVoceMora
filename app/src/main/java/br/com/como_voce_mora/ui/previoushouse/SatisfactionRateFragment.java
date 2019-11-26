@@ -3,7 +3,6 @@ package br.com.como_voce_mora.ui.previoushouse;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,13 +10,13 @@ import androidx.annotation.Nullable;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.custom.CustomRadioButton;
-import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.custom.CustomRadioButton;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class SatisfactionRateFragment extends BaseFragment implements CompoundButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
+    @BindView(R.id.progressBar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.rb_1)
     CustomRadioButton mRb1;

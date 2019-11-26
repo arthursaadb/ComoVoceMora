@@ -1,268 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
+
     <LinearLayout
-        android:id="@+id/llButtons"
-        android:layout_width="wrap_content"
+        android:id="@+id/llFirstPlace"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/leftContainer"
+        <Button
+            android:id="@+id/btFirstPlace"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="50dp"
+            tools:visibility="visible"
+            android:visibility="invisible"/>
 
-            <Button
-                android:id="@+id/btFirstOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
 
-            <Button
-                android:id="@+id/btThirdOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/colorGray" />
 
-            <Button
-                android:id="@+id/btFifthOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/firstplace"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
 
-            <Button
-                android:id="@+id/btSevenOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-            <Button
-                android:id="@+id/btNineOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:id="@+id/rightContainer"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btSecondOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-            <Button
-                android:id="@+id/btForthOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-            <Button
-                android:id="@+id/btSixOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-            <Button
-                android:id="@+id/btEightOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-
-            <Button
-                android:id="@+id/btTenOption"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:visibility="invisible"
-                tools:visibility="visible" />
-        </LinearLayout>
-
+        </FrameLayout>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/rlPodium"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/llSecondPlace"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_toEndOf="@id/llButtons"
-        android:layout_toRightOf="@id/llButtons">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/llFirstPlace"
+        app:layout_constraintStart_toEndOf="@id/llFirstPlace">
 
-        <LinearLayout
-            android:id="@+id/llFirstPlace"
+        <Button
+            android:id="@+id/btSecondPlace"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@id/llSecondPlace"
-            android:layout_toLeftOf="@id/llSecondPlace"
-            android:orientation="vertical">
+            android:layout_height="50dp"
+            tools:visibility="visible"
+            android:visibility="invisible"/>
 
-            <Button
-                android:id="@+id/btFirstPlace"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                tools:visibility="visible" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
 
-            <FrameLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="150dp"
+                android:background="@color/colorGray" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="@color/colorGray" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/secondplace"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/firstplace"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
+        </FrameLayout>
+    </LinearLayout>
 
-            </FrameLayout>
-        </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llThirdPlace"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/llSecondPlace"
+        app:layout_constraintStart_toEndOf="@id/llSecondPlace">
 
-        <LinearLayout
-            android:id="@+id/llSecondPlace"
+        <Button
+            android:id="@+id/btThirdPlace"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@id/llThirdPlace"
-            android:layout_toLeftOf="@id/llThirdPlace"
-            android:orientation="vertical">
+            android:layout_height="50dp"
+            tools:visibility="visible"
+            android:visibility="invisible"/>
 
-            <Button
-                android:id="@+id/btSecondPlace"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                tools:visibility="visible" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
 
-            <FrameLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
+                android:layout_height="100dp"
+                android:background="@color/colorGray" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@color/colorGray" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/thirdplace"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/secondplace"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
+        </FrameLayout>
+    </LinearLayout>
 
-            </FrameLayout>
-        </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llFourthPlace"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/llThirdPlace"
+        app:layout_constraintStart_toEndOf="@id/llThirdPlace">
 
-        <LinearLayout
-            android:id="@+id/llThirdPlace"
+        <Button
+            android:id="@+id/btFourthPlace"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@id/llFourthPlace"
-            android:layout_toLeftOf="@id/llFourthPlace"
-            android:orientation="vertical">
+            android:layout_height="50dp"
+            tools:visibility="visible"
+            android:visibility="invisible"/>
 
-            <Button
-                android:id="@+id/btThirdPlace"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                tools:visibility="visible" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
 
-            <FrameLayout
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@color/colorGray" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/thirdplace"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
-
-            </FrameLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llFourthPlace"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btFourthPlace"
-                android:layout_width="100dp"
                 android:layout_height="50dp"
-                tools:visibility="visible" />
+                android:background="@color/colorGray" />
 
-            <FrameLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/forthplace"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@color/colorGray" />
+        </FrameLayout>
+    </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/forthplace"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
-
-            </FrameLayout>
-        </LinearLayout>
-    </RelativeLayout>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

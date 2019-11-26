@@ -25,13 +25,13 @@
         android:orientation="horizontal"
         android:layout_toLeftOf="@id/btNext">
 
-        <br.com.como_voce_mora.ui.custom.CustomRadioButton
+        <br.com.como_voce_mora.custom.CustomRadioButton
             style="@style/CustomRadioButton"
             android:text="Sim"
             android:gravity="center"
             android:textSize="@dimen/default_text_size" />
 
-        <br.com.como_voce_mora.ui.custom.CustomRadioButton
+        <br.com.como_voce_mora.custom.CustomRadioButton
             style="@style/CustomRadioButton"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
@@ -88,8 +88,8 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

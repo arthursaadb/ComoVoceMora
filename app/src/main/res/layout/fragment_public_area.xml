@@ -48,7 +48,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/progress_bar"
+        android:layout_above="@id/progressBar"
         android:layout_below="@id/tv_question"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
@@ -61,14 +61,14 @@
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:image="@drawable/praca"
                 app:name="@string/praça"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -90,14 +90,14 @@
             android:layout_toRightOf="@id/ivMister"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:image="@drawable/academia"
                 app:name="@string/academia_livre"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -128,20 +128,20 @@
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btPreviousSession"
         style="@style/SessionBackButton"
-        android:layout_above="@id/progress_bar"
+        android:layout_above="@id/progressBar"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btHelp"
         style="@style/HelpButton"
-        android:layout_above="@id/progress_bar"
+        android:layout_above="@id/progressBar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true" />
 
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

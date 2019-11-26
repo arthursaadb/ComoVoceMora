@@ -29,14 +29,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/view_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:nameItem="@string/zero_a_um"
                 app:imageItem="@drawable/um_ano" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/view_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,14 +53,14 @@
             android:layout_marginLeft="30dp"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/view_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:nameItem="@string/dois_a_tres"
                 app:imageItem="@drawable/dois_anos_meio" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/view_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 app:imageItem="@drawable/tres_anos_meio" />
         </LinearLayout>
 
-        <br.com.como_voce_mora.ui.custom.CustomSelectedView
+        <br.com.como_voce_mora.custom.CustomSelectedView
             android:id="@+id/view_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,8 +127,8 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

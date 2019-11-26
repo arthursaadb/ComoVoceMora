@@ -74,7 +74,7 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/blocos_1" />
 
-    <br.com.como_voce_mora.ui.custom.VolumeVertical
+    <br.com.como_voce_mora.custom.VolumeVertical
         android:id="@+id/volume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,8 +94,8 @@
         app:textMax="@string/down"
         app:textMin="@string/up" />
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

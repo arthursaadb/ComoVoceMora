@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvCasaGerminada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 app:nameItem="@string/casagerminada"
                 app:imageItem="@drawable/casa_germinada" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvSobrado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvVila"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 app:nameItem="@string/vila"
                 app:imageItem="@drawable/casa_casa_de_vila" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvTerreo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
 
         </LinearLayout>
 
-        <br.com.como_voce_mora.ui.custom.CustomSelectedView
+        <br.com.como_voce_mora.custom.CustomSelectedView
             android:id="@+id/csvFundo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,8 +140,8 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

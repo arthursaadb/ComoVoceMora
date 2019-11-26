@@ -9,14 +9,13 @@ import androidx.annotation.Nullable;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
-import br.com.como_voce_mora.ui.previoushouse.PreviousHomeTypeFragment;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class HabitationCondominiumFragment extends BaseFragment {
 
-    @BindView(R.id.progress_bar)
+    @BindView(R.id.progressBar)
     HowYouLiveProgressBar mProgress;
 
     public static HabitationCondominiumFragment newInstance() {

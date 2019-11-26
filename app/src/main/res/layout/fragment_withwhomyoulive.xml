@@ -72,14 +72,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:image="@drawable/moradores_01"
                 app:name="@string/wife"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -88,7 +88,7 @@
                 app:name="@string/daughter"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -97,7 +97,7 @@
                 app:name="@string/mother"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -106,7 +106,7 @@
                 app:name="@string/grandmother"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -115,7 +115,7 @@
                 app:name="@string/sister"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -130,14 +130,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:image="@drawable/moradores_07"
                 app:name="@string/husband"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -146,7 +146,7 @@
                 app:name="@string/son"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -155,7 +155,7 @@
                 app:name="@string/father"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -164,7 +164,7 @@
                 app:name="@string/grandfather"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -173,7 +173,7 @@
                 app:name="@string/brother"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -182,7 +182,7 @@
                 app:name="@string/other_relatives"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.MultiSelect
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -197,20 +197,20 @@
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btPreviousSession"
         style="@style/SessionBackButton"
-        android:layout_above="@id/progress_bar"
+        android:layout_above="@id/progressBar"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btHelp"
         style="@style/HelpButton"
-        android:layout_above="@id/progress_bar"
+        android:layout_above="@id/progressBar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true" />
 
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

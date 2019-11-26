@@ -2,21 +2,22 @@ package br.com.como_voce_mora.ui.housegroup;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
-import br.com.como_voce_mora.ui.custom.CustomSelectedView;
-import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.RateBuildingFragment;
+import br.com.como_voce_mora.custom.CustomSelectedView;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class HabitationEquipamentsFragment extends BaseFragment {
 
-    @BindView(R.id.progress_bar)
+    @BindView(R.id.progressBar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvGamesRoom)
     CustomSelectedView csvGamesRoom;
@@ -47,7 +48,7 @@ public class HabitationEquipamentsFragment extends BaseFragment {
 
     @OnClick(R.id.btNext)
     public void onBtNextClicked() {
-        Toast.makeText(getContext(), "Em Desenvolvimento!", Toast.LENGTH_SHORT).show();
+        ((AboutYouActivity) getActivity()).addFragment(RateBuildingFragment.newInstance());
     }
 
     @OnClick(R.id.btBack)

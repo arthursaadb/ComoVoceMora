@@ -5,24 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.com.como_voce_mora.R;
-import br.com.como_voce_mora.model.Answer;
-import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.presenter.ServicesPresenter;
 import br.com.como_voce_mora.presenter.ServicesPresenterContract;
-import br.com.como_voce_mora.ui.custom.CustomPodium;
-import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar.*;
 
 public class PlayGroundActivity extends AppCompatActivity implements ServicesPresenterContract.View {
 

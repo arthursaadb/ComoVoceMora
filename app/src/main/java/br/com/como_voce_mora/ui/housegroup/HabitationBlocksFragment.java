@@ -13,8 +13,8 @@ import java.util.List;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
-import br.com.como_voce_mora.ui.custom.VolumeVertical;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.custom.VolumeVertical;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -22,7 +22,7 @@ public class HabitationBlocksFragment extends BaseFragment implements VolumeVert
 
     @BindView(R.id.volume)
     VolumeVertical mVolume;
-    @BindView(R.id.progress_bar)
+    @BindView(R.id.progressBar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.iv_blocks)
     ImageView mIvBlocks;

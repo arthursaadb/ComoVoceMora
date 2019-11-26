@@ -23,7 +23,7 @@
         android:layout_below="@id/tv_question"
         android:orientation="horizontal">
 
-        <br.com.como_voce_mora.ui.custom.CustomSelectedView
+        <br.com.como_voce_mora.custom.CustomSelectedView
             android:id="@+id/csvHouse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             app:nameItem="@string/house"
             app:imageItem="@drawable/casa_casa" />
 
-        <br.com.como_voce_mora.ui.custom.CustomSelectedView
+        <br.com.como_voce_mora.custom.CustomSelectedView
             android:id="@+id/csvApartament"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,8 +95,8 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

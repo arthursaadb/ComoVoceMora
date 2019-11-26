@@ -8,7 +8,7 @@ import java.util.List;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
-import br.com.como_voce_mora.ui.custom.VolumeVertical;
+import br.com.como_voce_mora.custom.VolumeVertical;
 import butterknife.BindView;
 import butterknife.OnClick;
 

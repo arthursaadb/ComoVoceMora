@@ -1,4 +1,4 @@
-package br.com.como_voce_mora.ui.custom;
+package br.com.como_voce_mora.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -33,7 +33,7 @@ public class HowYouLiveProgressBar extends RelativeLayout {
 
     private void init(Context context) {
         View v = inflate(context, R.layout.custom_howyoulive_progressbar, this);
-        ButterKnife.bind(this,v);
+        ButterKnife.bind(this, v);
         ivProgress.setImageDrawable(context.getResources().getDrawable(HowYouLive.ABOUT_YOU.resource));
     }
 
@@ -41,12 +41,12 @@ public class HowYouLiveProgressBar extends RelativeLayout {
         ivProgress.setImageDrawable(getContext().getResources().getDrawable(howYouLive.resource));
     }
 
-   public  enum HowYouLive {
+    public enum HowYouLive {
         ABOUT_YOU(R.drawable.sobre_voce),
         BEFORE_RESIDENCE(R.drawable.moradia_anterior),
         ATUAL_RESIDENCE(R.drawable.moradia_atual),
         GROUP(R.drawable.conjunto),
-        BUILDING(R.drawable.larissa),
+        BUILDING(R.drawable.avaliar_moradia),
         UNITY(R.drawable.avaliar_unidade),
         HABITS(R.drawable.habitos_sustentaveis);
 

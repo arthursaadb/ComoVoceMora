@@ -1,4 +1,4 @@
-package br.com.como_voce_mora.ui.custom;
+package br.com.como_voce_mora.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;

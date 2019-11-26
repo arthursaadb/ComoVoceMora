@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
+import br.com.como_voce_mora.ui.building.RateBuildingFragment;
 
 public class AboutYouActivity extends BaseActivity {
 
@@ -16,6 +17,7 @@ public class AboutYouActivity extends BaseActivity {
     public void init() {
         super.init();
         replaceFragment(WhatYourGenderFragment.newInstance());
+//        replaceFragment(RateBuildingFragment.newInstance());
     }
 
 

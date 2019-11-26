@@ -83,7 +83,7 @@
                 android:textColor="@color/colorBlack" />
 
 
-            <br.com.como_voce_mora.ui.custom.VolumeHorizontal
+            <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -112,7 +112,7 @@
                 android:textColor="@color/colorBlack" />
 
 
-            <br.com.como_voce_mora.ui.custom.VolumeHorizontal
+            <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -142,7 +142,7 @@
                 android:textColor="@color/colorBlack" />
 
 
-            <br.com.como_voce_mora.ui.custom.VolumeHorizontal
+            <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -172,7 +172,7 @@
                 android:textColor="@color/colorBlack" />
 
 
-            <br.com.como_voce_mora.ui.custom.VolumeHorizontal
+            <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -200,20 +200,20 @@
     <androidx.appcompat.widget.AppCompatImageButton
         style="@style/SessionBackButton"
         android:id="@+id/btPreviousSession"
-        android:layout_above="@id/progress_bar"
+        android:layout_above="@id/progressBar"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         style="@style/HelpButton"
         android:id="@+id/btHelp"
-        android:layout_above="@id/progress_bar"
+        android:layout_above="@id/progressBar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true" />
 
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

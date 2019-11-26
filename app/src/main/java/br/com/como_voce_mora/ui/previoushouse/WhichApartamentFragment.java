@@ -2,7 +2,6 @@ package br.com.como_voce_mora.ui.previoushouse;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,13 +9,13 @@ import androidx.annotation.Nullable;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.custom.CustomSelectedView;
-import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.custom.CustomSelectedView;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class WhichApartamentFragment extends BaseFragment {
-    @BindView(R.id.progress_bar)
+    @BindView(R.id.progressBar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvDuplex)
     CustomSelectedView csvDuplex;

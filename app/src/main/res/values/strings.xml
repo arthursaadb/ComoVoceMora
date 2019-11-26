@@ -81,4 +81,12 @@
     <string name="convencional">Convencional</string>
     <string name="cobertura">Cobertura</string>
     <string name="previous_home">Qual era o tipo da sua moradia anterior?</string>
+    <string name="hadchoose_question">Você escolheu viver nessa moradia ou não teve escolha?</string>
+    <string name="hadchoose_choose">Escolhi</string>
+    <string name="hadchoose_nope">Não tive escolha</string>
+    <string name="division_wall">Muro</string>
+    <string name="division_viva">Cerca Viva</string>
+    <string name="division_grades">Grades</string>
+    <string name="division_none">Nenhuma</string>
+
 </resources>

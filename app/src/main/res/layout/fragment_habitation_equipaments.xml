@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvGamesRoom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 app:nameItem="@string/games_room"
                 app:imageItem="@drawable/game_room" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvGym"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvPartyRoom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 app:nameItem="@string/party_room"
                 app:imageItem="@drawable/party_room" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvPoolPlusEighteen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvGourmet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                 app:nameItem="@string/gourment_space"
                 app:imageItem="@drawable/gourmet_space" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvPlayGround"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvSqaure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
                 app:nameItem="@string/games_room"
                 app:imageItem="@drawable/game_room" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvChildPool"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -188,8 +188,8 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvDuplex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                 app:nameItem="@string/duplex"
                 app:imageItem="@drawable/apartamento_duplex" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvTiplex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvQuintinete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                 app:nameItem="@string/quitinete"
                 app:imageItem="@drawable/apartamento_quitinete" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvLoft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvConvencional"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                 app:nameItem="@string/convencional"
                 app:imageItem="@drawable/apartamento_convencional" />
 
-            <br.com.como_voce_mora.ui.custom.CustomSelectedView
+            <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvCobertura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -155,8 +155,8 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_doublenext" />
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

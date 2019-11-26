@@ -9,8 +9,8 @@ import java.util.List;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
-import br.com.como_voce_mora.ui.custom.VolumeVertical;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.custom.VolumeVertical;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -20,7 +20,7 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
     @BindView(R.id.iv_age)
     ImageView mIvAge;
 
-    @BindView(R.id.progress_bar)
+    @BindView(R.id.progressBar)
     HowYouLiveProgressBar progressBar;
 
     private List<Integer> images;
