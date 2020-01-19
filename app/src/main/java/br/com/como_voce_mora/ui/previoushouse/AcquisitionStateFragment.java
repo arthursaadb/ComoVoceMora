@@ -16,15 +16,15 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class AcquisitionStateFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rb_1)
+    @BindView(R.id.rbRent)
     CustomRadioButton mRb1;
-    @BindView(R.id.rb_2)
+    @BindView(R.id.rbFinanced)
     CustomRadioButton mRb2;
-    @BindView(R.id.rb_3)
+    @BindView(R.id.rbOwn)
     CustomRadioButton mRb3;
-    @BindView(R.id.rb_4)
+    @BindView(R.id.rbBorrowed)
     CustomRadioButton mRb4;
 
     public static AcquisitionStateFragment newInstance() {
@@ -39,6 +39,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
     @Override
     public void init() {
         super.init();
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
 
         mRb1.setOnCheckedChangeListener(this);
         mRb2.setOnCheckedChangeListener(this);
@@ -50,7 +51,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             switch (buttonView.getId()) {
-                case R.id.rb_1:
+                case R.id.rbRent:
                     mRb1.setChecked(true);
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);
@@ -58,7 +59,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
 
                     updateRbs();
                     break;
-                case R.id.rb_2:
+                case R.id.rbFinanced:
                     mRb1.setChecked(false);
                     mRb2.setChecked(true);
                     mRb3.setChecked(false);
@@ -66,7 +67,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
 
                     updateRbs();
                     break;
-                case R.id.rb_3:
+                case R.id.rbOwn:
                     mRb1.setChecked(false);
                     mRb2.setChecked(false);
                     mRb3.setChecked(true);
@@ -74,7 +75,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
 
                     updateRbs();
                     break;
-                case R.id.rb_4:
+                case R.id.rbOther:
                     mRb1.setChecked(false);
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);
@@ -93,23 +94,17 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
         mRb4.updateView();
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(SatisfactionRateFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
         }
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
     }
 }
