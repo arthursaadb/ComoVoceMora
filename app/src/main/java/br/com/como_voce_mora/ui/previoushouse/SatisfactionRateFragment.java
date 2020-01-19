@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class SatisfactionRateFragment extends BaseFragment implements CompoundButton.OnCheckedChangeListener {
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.rb_1)
     CustomRadioButton mRb1;
@@ -36,6 +36,7 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
     @Override
     public void init() {
         super.init();
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
 
         mRb1.setOnCheckedChangeListener(this);
         mRb2.setOnCheckedChangeListener(this);
@@ -102,23 +103,18 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
         return R.layout.fragment_satisfaction_rate;
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(PreviousHouseTimeFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
         }
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
-    }
 }
