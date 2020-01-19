@@ -8,13 +8,15 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import br.com.como_voce_mora.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class VolumeVertical extends RelativeLayout implements View.OnTouchListener {
     @BindView(R.id.rl_root_view)
-    RelativeLayout mRlRootView;
+    ConstraintLayout mRlRootView;
     @BindView(R.id.tv_min)
     TextView mTvMin;
     @BindView(R.id.tv_max)

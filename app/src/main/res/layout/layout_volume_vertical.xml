@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_root_view"
     android:layout_width="50dp"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:background="@color/colorPurpleLight">
 
     <TextView
         android:id="@+id/tv_min"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/small_margin"
         android:fontFamily="@font/mkm232"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="A"
         tools:textColor="@color/colorBlack" />
 
@@ -20,26 +24,32 @@
         android:id="@+id/tv_max"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_line"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/small_margin"
         android:fontFamily="@font/mkm232"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="Z"
         tools:textColor="@color/colorBlack" />
 
     <View
         android:id="@+id/view_line_fake"
         android:layout_width="20dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/tv_min"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_max"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_min" />
 
     <View
         android:id="@+id/view_line"
         android:layout_width="1dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/tv_min"
-        android:layout_centerHorizontal="true"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_max"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_min"
         tools:background="@color/colorBlack" />
 
     <View
@@ -48,6 +58,10 @@
         android:layout_height="12dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
         tools:background="@drawable/bg_circle_volume" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
