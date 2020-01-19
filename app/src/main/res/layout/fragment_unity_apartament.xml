@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <ImageView
+        android:id="@+id/iv_mr_clipboard"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:src="@drawable/ic_mr_clipboard_half_body"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/btBack"
+        app:layout_constraintTop_toBottomOf="@id/tv_question" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tv_question"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintEnd_toStartOf="@id/btNext"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintBottom_toTopOf="@id/progressBar">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvDuplex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/duplex"
+                app:imageItem="@drawable/apartamento_duplex" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvTiplex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/triplex"
+                app:imageItem="@drawable/apartamento_triplex" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvQuintinete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/quitinete"
+                app:imageItem="@drawable/apartamento_quitinete" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvLoft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/loft"
+                app:imageItem="@drawable/apartamento_loft" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvConvencional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/convencional"
+                app:imageItem="@drawable/apartamento_convencional" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvCobertura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/cobertura"
+                app:imageItem="@drawable/apartamento_cobertura" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Qual é o tipo do seu apartamento?"
+        android:background="@drawable/bg_ballon"
+        android:paddingStart="70dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="70dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btNext"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@color/colorTransparent"
+        android:rotation="180"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_next"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btNext"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@color/colorTransparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_doublenext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        style="@style/SessionBackButton"
+        android:id="@+id/btPreviousSession"
+        android:layout_above="@id/progressBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        app:layout_constraintBottom_toTopOf="@id/progressBar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        style="@style/HelpButton"
+        android:id="@+id/btHelp"
+        android:layout_above="@id/progressBar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progressBar" />
+
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -88,5 +88,12 @@
     <string name="division_viva">Cerca Viva</string>
     <string name="division_grades">Grades</string>
     <string name="division_none">Nenhuma</string>
+    <string name="resident_partner">Parcerio(a)</string>
+    <string name="resident_son">Filho(a)</string>
+    <string name="resident_father">Mãe/Pai</string>
+    <string name="resident_grandfather">Avô(ó)</string>
+    <string name="resident_sister">Irmã(ão)</string>
+    <string name="resident_other">Outro</string>
+
 
 </resources>
