@@ -16,17 +16,19 @@
         android:gravity="center"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/micro_text_size"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/iv_age"
         app:layout_constraintEnd_toStartOf="@id/volume"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toBottomOf="@id/tv_question"
-        tools:text="Teste" />
+        tools:text="Teste"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/iv_age"
-        android:layout_width="@dimen/image_age_size"
-        android:layout_height="@dimen/image_age_size"
+        android:layout_width="@dimen/image_selected_size"
+        android:layout_height="@dimen/image_selected_size"
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_circle_gray"
         android:src="@drawable/ic_mr_clipboard_down_15"

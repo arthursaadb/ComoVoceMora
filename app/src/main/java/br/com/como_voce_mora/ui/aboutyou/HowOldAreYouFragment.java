@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.aboutyou;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,12 +59,15 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
 
         mVolume.setListener(this);
         mVolume.setMax(agesImage.size() - 1);
+
+        mIvAge.setImageResource(agesImage.get(agesImage.size() / 2));
     }
 
     @Override
     public void positionVolume(int position) {
         mIvAge.setImageResource(agesImage.get(position));
         mTvAge.setText(agesText.get(position));
+        mTvAge.setVisibility(View.VISIBLE);
     }
 
     @OnClick(R.id.bt_next)

@@ -17,11 +17,22 @@
     <dimen name="logo_info_save_size">300dp</dimen>
 
     <!-- Image Selected -->
-    <dimen name="image_age_size">300dp</dimen>
+    <dimen name="image_selected_size">300dp</dimen>
 
     <!--Custom Selected View-->
     <dimen name="selected_view_image_width">240dp</dimen>
     <dimen name="selected_view_image_height">100dp</dimen>
     <dimen name="selected_view_text_height">60dp</dimen>
     <dimen name="selected_size">200dp</dimen>
+
+    <!-- Mr Clipboard Ball -->
+    <dimen name="image_mr_clipboard_ball">150dp</dimen>
+
+    <!-- Multi Select -->
+    <dimen name="multi_select_text_height">60dp</dimen>
+    <dimen name="multi_select_text_width">160dp</dimen>
+    <dimen name="multi_select_image_height">160dp</dimen>
+    <dimen name="multi_select_image_width">160dp</dimen>
+    <dimen name="multi_select_value_text_size">22sp</dimen>
+    <dimen name="multi_select_value_size">30dp</dimen>
 </resources>
