@@ -73,7 +73,7 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
         }
     }
 
-    @OnClick(R.id.bt_next)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

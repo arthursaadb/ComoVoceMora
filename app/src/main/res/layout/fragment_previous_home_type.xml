@@ -1,107 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorOrange">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="@color/colorOrange">
 
-    <ImageView
-        android:id="@+id/iv_mr_clipboard"
-        android:layout_width="180dp"
-        android:layout_height="350dp"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/ic_mr_clipboard_half_body" />
+    <include layout="@layout/fragment_mr_clipboard_full" />
 
-    <LinearLayout
-        android:id="@+id/rg_house"
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/csvHouse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/tv_question"
-        android:layout_centerHorizontal="true"
-        android:layout_toStartOf="@id/btNext"
-        android:layout_above="@id/progressBar"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:orientation="horizontal"
-        android:layout_toLeftOf="@id/btNext">
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center"
+        app:nameItem="@string/house"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:imageItem="@drawable/casa_casa" />
 
-        <br.com.como_voce_mora.custom.CustomSelectedView
-            android:id="@+id/csvHouse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_gravity="center"
-            app:nameItem="@string/house"
-            app:imageItem="@drawable/casa_casa"
-            android:layout_marginLeft="20dp" />
-
-        <br.com.como_voce_mora.custom.CustomSelectedView
-            android:id="@+id/csvApartament"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="center"
-            app:nameItem="@string/apartament"
-            app:imageItem="@drawable/apartamento_apartamento" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_question"
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/csvApartament"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/previous_home"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:background="@drawable/bg_ballon"
-        android:layout_toStartOf="@id/btNext"
-        android:gravity="center_vertical"
-        android:paddingStart="70dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="20dp"
-        android:paddingEnd="70dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="20dp"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size"
-        android:layout_toLeftOf="@id/btNext" />
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toEndOf="@id/csvHouse"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:nameItem="@string/apartament"
+        app:imageItem="@drawable/apartamento_apartamento" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btNext"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext" />
-
-    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

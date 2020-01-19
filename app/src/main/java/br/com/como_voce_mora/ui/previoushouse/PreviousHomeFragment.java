@@ -15,7 +15,7 @@ import butterknife.OnClick;
 
 public class PreviousHomeFragment extends BaseFragment {
 
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
 
     public static PreviousHomeFragment newInstance() {
@@ -27,14 +27,14 @@ public class PreviousHomeFragment extends BaseFragment {
         return R.layout.fragment_previous_home;
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(CondominiumFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

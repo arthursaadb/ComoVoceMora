@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
@@ -15,12 +16,14 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class PreviousHomeTypeFragment extends BaseFragment {
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvHouse)
     CustomSelectedView csvHouse;
     @BindView(R.id.csvApartament)
     CustomSelectedView csvApartment;
+
+    Fragment nextFragment;
 
     public static PreviousHomeTypeFragment newInstance() {
         return new PreviousHomeTypeFragment();
@@ -33,25 +36,40 @@ public class PreviousHomeTypeFragment extends BaseFragment {
 
     @Override
     public void init() {
-        csvHouse.setOnClickListener(view -> ((AboutYouActivity) getActivity()).addFragment(WhichHouseFragment.newInstance()));
-        csvApartment.setOnClickListener(view -> ((AboutYouActivity) getActivity()).addFragment(WhichApartamentFragment.newInstance()));
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-
+        goNextFragment();
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
         }
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
+    @OnClick({R.id.csvHouse, R.id.csvApartament})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.csvHouse:
+                nextFragment = WhichHouseFragment.newInstance();
+                csvHouse.setChecked(true);
+                csvApartment.setChecked(false);
+                break;
+            case R.id.csvApartament:
+                csvHouse.setChecked(false);
+                csvApartment.setChecked(true);
+                nextFragment = WhichApartamentFragment.newInstance();
+                break;
+        }
+    }
+
+    private void goNextFragment() {
+        if (nextFragment != null) {
+            ((AboutYouActivity) getActivity()).addFragment(nextFragment);
+        }
     }
 }

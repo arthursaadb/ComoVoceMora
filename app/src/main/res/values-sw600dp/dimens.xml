@@ -18,4 +18,10 @@
 
     <!-- Image Selected -->
     <dimen name="image_age_size">300dp</dimen>
+
+    <!--Custom Selected View-->
+    <dimen name="selected_view_image_width">240dp</dimen>
+    <dimen name="selected_view_image_height">100dp</dimen>
+    <dimen name="selected_view_text_height">60dp</dimen>
+    <dimen name="selected_size">200dp</dimen>
 </resources>
