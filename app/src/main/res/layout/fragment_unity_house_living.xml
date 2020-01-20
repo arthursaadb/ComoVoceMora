@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@color/colorTransparent"
+        android:rotation="180"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_next"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMister"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_prancheta_circular"
+        app:layout_constraintStart_toEndOf="@id/btBack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:text="O que sua moradia é para voce?\nEscolha por ordem de importância."
+        android:background="@drawable/bg_ballon"
+        android:gravity="center_vertical"
+        android:paddingStart="50dp"
+        android:paddingLeft="50dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivMister"
+        app:layout_constraintEnd_toEndOf="@id/btNext" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/progressBar"
+        android:layout_below="@id/tv_question"
+        android:layout_toEndOf="@id/ivMister"
+        android:layout_toRightOf="@id/ivMister"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintStart_toEndOf="@id/btBack"
+        app:layout_constraintEnd_toStartOf="@id/btNext"
+        app:layout_constraintBottom_toTopOf="@id/progressBar">
+
+        <LinearLayout
+            android:id="@+id/llButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/leftContainer"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btFirstOption"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Familia/amigos"
+                    android:visibility="visible"
+                    android:textSize="9sp"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btThirdOption"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Local onde durmo"
+                    android:textSize="9sp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btFifthOption"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Passo mais tempo"
+                    android:visibility="visible"
+                    android:textSize="9sp"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btSevenOption"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Local com que identifico"
+                    android:visibility="visible"
+                    android:textSize="9sp"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btNineOption"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Investimento material"
+                    android:textSize="9sp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rightContainer"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btSecondOption"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Local seguro"
+                    android:textSize="9sp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btForthOption"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Onde estão percentes"
+                    android:textSize="9sp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btSixOption"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Onde realizo atividades"
+                    android:textSize="9sp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/btEightOption"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Outros"
+                    android:textSize="9sp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <br.com.como_voce_mora.custom.CustomPodium
+            android:id="@+id/cpPodium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btNext"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorTransparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_doublenext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        style="@style/SessionBackButton"
+        android:id="@+id/btPreviousSession"
+        android:layout_above="@id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progressBar"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        style="@style/HelpButton"
+        android:id="@+id/btHelp"
+        android:layout_above="@id/progressBar"
+        app:layout_constraintBottom_toTopOf="@id/progressBar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

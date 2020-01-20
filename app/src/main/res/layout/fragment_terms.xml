@@ -17,7 +17,8 @@
         android:layout_centerHorizontal="true"
         android:text="TERMOS DE CONSENTIMENTO LIVRE E ESCLARECIDO"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/default_text_size" />
+        android:gravity="center"
+        android:textSize="@dimen/title_text_size" />
 
     <WebView
         android:id="@+id/wv_terms"

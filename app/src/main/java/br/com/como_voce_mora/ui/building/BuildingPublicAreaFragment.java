@@ -6,6 +6,8 @@ import android.widget.Toast;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -37,8 +39,7 @@ public class BuildingPublicAreaFragment extends BaseFragment {
     @OnClick(R.id.btNext)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-//            ((AboutYouActivity) getActivity()).addFragment(OrganizationFragment.newInstance());
-            Toast.makeText(getContext(), "Em Desenvolvimento!", Toast.LENGTH_LONG).show();
+            ((AboutYouActivity) getActivity()).addFragment(UnitySplashFragment.newInstance());
         }
     }
 

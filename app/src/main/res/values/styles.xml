@@ -11,8 +11,9 @@
     </style>
 
     <style name="ButtonMenu">
-        <item name="android:layout_height">50dp</item>
-        <item name="android:layout_width">150dp</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_width">@dimen/button_width</item>
         <item name="android:textColor">@color/colorGray</item>
         <item name="android:background">@drawable/bg_button_menu</item>
         <item name="android:fontFamily">@font/mkm232</item>

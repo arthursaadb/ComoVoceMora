@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class PreviousHouseTimeFragment extends BaseFragment {
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.view_1)
     CustomSelectedView mView1;
@@ -33,6 +33,10 @@ public class PreviousHouseTimeFragment extends BaseFragment {
         return new PreviousHouseTimeFragment();
     }
 
+    @Override
+    public void init() {
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
+    }
 
     @OnClick({R.id.view_1, R.id.view_2, R.id.view_3, R.id.view_4, R.id.view_5})
     public void onClickViews(View view) {
@@ -80,23 +84,18 @@ public class PreviousHouseTimeFragment extends BaseFragment {
         return R.layout.fragment_previous_house_time;
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(CurrentHomeFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
         }
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
-    }
 }
