@@ -1,11 +1,11 @@
 package br.com.como_voce_mora.api;
 
 import br.com.como_voce_mora.model.ResponseError;
-import br.com.como_voce_mora.repository.RepositoryCallback;
+import br.com.como_voce_mora.repository.RepositoryCallBack;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public abstract class BaseCallBack<T> implements retrofit2.Callback<T>, RepositoryCallback<T> {
+public abstract class BaseCallBack<T> implements retrofit2.Callback<T>, RepositoryCallBack<T> {
 
 
     @Override

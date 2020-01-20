@@ -1,4 +1,4 @@
-package br.com.como_voce_mora.ui.atualresidence;
+package br.com.como_voce_mora.ui.currentresidence;
 
 import android.os.Bundle;
 import android.widget.ImageView;

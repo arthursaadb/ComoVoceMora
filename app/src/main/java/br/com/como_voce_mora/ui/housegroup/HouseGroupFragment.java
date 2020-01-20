@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.atualresidence.CountryFragment;
 import butterknife.OnClick;
 
 public class HouseGroupFragment extends BaseFragment {

@@ -1,4 +1,4 @@
-package br.com.como_voce_mora.ui.atualresidence;
+package br.com.como_voce_mora.ui.currentresidence;
 
 import android.os.Bundle;
 
@@ -9,22 +9,23 @@ import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class ComercialFragment extends BaseFragment {
+public class EquipamentsFragment extends BaseFragment {
 
     @BindView(R.id.progressBar)
     HowYouLiveProgressBar progressBar;
 
-    public static ComercialFragment newInstance() {
+    public static EquipamentsFragment newInstance() {
+
         Bundle args = new Bundle();
 
-        ComercialFragment fragment = new ComercialFragment();
+        EquipamentsFragment fragment = new EquipamentsFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_comercial;
+        return R.layout.fragment_equipaments;
     }
 
     @Override
@@ -36,7 +37,7 @@ public class ComercialFragment extends BaseFragment {
     @OnClick(R.id.btNext)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(PublicAreaFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(ComercialFragment.newInstance());
         }
     }
 

@@ -1,4 +1,4 @@
-package br.com.como_voce_mora.ui.atualresidence;
+package br.com.como_voce_mora.ui.currentresidence;
 
 import android.os.Bundle;
 
@@ -9,35 +9,36 @@ import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class WhatsYourSatisfactionFragment extends BaseFragment {
+public class WhatsYourAddressFragment extends BaseFragment {
+
 
     @BindView(R.id.progressBar)
     HowYouLiveProgressBar progressBar;
 
-    public static WhatsYourSatisfactionFragment newInstance() {
+    public static WhatsYourAddressFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        WhatsYourSatisfactionFragment fragment = new WhatsYourSatisfactionFragment();
+        WhatsYourAddressFragment fragment = new WhatsYourAddressFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_whats_your_satisfaction;
+        return R.layout.fragment_whatsyouraddress;
     }
 
     @Override
     public void init() {
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
         super.init();
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
     }
 
     @OnClick(R.id.btNext)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(ClassifyAspectesFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(NeighborHoodFragment.newInstance());
         }
     }
 
