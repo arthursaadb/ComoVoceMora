@@ -1,22 +1,17 @@
 package br.com.como_voce_mora.ui.building;
 
-import android.os.Bundle;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.previoushouse.AcquisitionStateFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class WhichDivisionFragment extends BaseFragment {
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvMuro)
     CustomSelectedView csvMuro;
@@ -35,7 +30,7 @@ public class WhichDivisionFragment extends BaseFragment {
     @Override
     public void init() {
         super.init();
-
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
     }
 
     @OnClick({R.id.csvViva, R.id.csvMuro, R.id.csvGrade, R.id.csvNone})
@@ -75,23 +70,17 @@ public class WhichDivisionFragment extends BaseFragment {
         return R.layout.fragment_which_division;
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(BuildingFeelWellFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
         }
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
     }
 }

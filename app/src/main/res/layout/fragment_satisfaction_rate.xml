@@ -26,14 +26,14 @@
             android:orientation="vertical">
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/SmallCustomRadioButton"
+                style="@style/CustomRadioButton"
                 android:id="@+id/rb_1"
                 android:text="Muito Bom"
                 android:gravity="center"
                 android:textSize="@dimen/default_text_size" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/SmallCustomRadioButton"
+                style="@style/CustomRadioButton"
                 android:id="@+id/rb_2"
                 android:layout_marginTop="20dp"
                 android:text="Bom"
@@ -41,7 +41,7 @@
                 android:textSize="@dimen/default_text_size" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/SmallCustomRadioButton"
+                style="@style/CustomRadioButton"
                 android:id="@+id/rb_3"
                 android:layout_marginTop="20dp"
                 android:text="Regular"
@@ -59,14 +59,14 @@
             android:orientation="vertical">
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/SmallCustomRadioButton"
+                style="@style/CustomRadioButton"
                 android:id="@+id/rb_4"
                 android:text="Regular"
                 android:gravity="center"
                 android:textSize="@dimen/default_text_size" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/SmallCustomRadioButton"
+                style="@style/CustomRadioButton"
                 android:id="@+id/rb_5"
                 android:layout_marginTop="20dp"
                 android:text="Muito Ruim"

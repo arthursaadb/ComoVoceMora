@@ -2,6 +2,7 @@ package br.com.como_voce_mora.ui.building;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,13 +19,15 @@ import butterknife.OnClick;
 public class BuildingFloorFragment extends BaseFragment implements VolumeVertical.OnListener {
     @BindView(R.id.volume)
     VolumeVertical mVolume;
-    @BindView(R.id.iv_age)
+    @BindView(R.id.iv_school)
     ImageView mIvAge;
-
-    @BindView(R.id.progressBar)
+    @BindView(R.id.tv_school)
+    TextView mTvSchool;
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
 
     private List<Integer> images;
+    private List<String> texts;
 
     public static BuildingFloorFragment newInstance() {
 
@@ -45,27 +48,48 @@ public class BuildingFloorFragment extends BaseFragment implements VolumeVertica
         super.init();
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         images = new ArrayList<>();
-        images.add(R.drawable.andar_qtd_2);
-        images.add(R.drawable.andar_qtd_3);
-        images.add(R.drawable.andar_qtd_4);
-        images.add(R.drawable.andar_qtd_5);
-        images.add(R.drawable.andar_qtd_6);
-        images.add(R.drawable.andar_qtd_7);
-        images.add(R.drawable.andar_qtd_8);
-        images.add(R.drawable.andar_qtd_9);
-        images.add(R.drawable.andar_qtd_10);
-        images.add(R.drawable.andar_qtd_11);
-        images.add(R.drawable.andar_qtd_12);
-        images.add(R.drawable.andar_qtd_13);
-        images.add(R.drawable.andar_qtd_14);
-        images.add(R.drawable.andar_qtd_15);
-        images.add(R.drawable.andar_qtd_16);
-        images.add(R.drawable.andar_qtd_17);
-        images.add(R.drawable.andar_qtd_18);
-        images.add(R.drawable.andar_qtd_19);
-        images.add(R.drawable.andar_qtd_20);
+        texts = new ArrayList<>();
 
+        images.add(R.drawable.andar_qtd_2);
+        texts.add("2° andares");
+        images.add(R.drawable.andar_qtd_3);
+        texts.add("3° andares");
+        images.add(R.drawable.andar_qtd_4);
+        texts.add("4° andares");
+        images.add(R.drawable.andar_qtd_5);
+        texts.add("5° andares");
+        images.add(R.drawable.andar_qtd_6);
+        texts.add("6° andares");
+        images.add(R.drawable.andar_qtd_7);
+        texts.add("7° andares");
+        images.add(R.drawable.andar_qtd_8);
+        texts.add("8° andares");
+        images.add(R.drawable.andar_qtd_9);
+        texts.add("9° andares");
+        images.add(R.drawable.andar_qtd_10);
+        texts.add("10° andares");
+        images.add(R.drawable.andar_qtd_11);
+        texts.add("11° andares");
+        images.add(R.drawable.andar_qtd_12);
+        texts.add("12° andares");
+        images.add(R.drawable.andar_qtd_13);
+        texts.add("13° andares");
+        images.add(R.drawable.andar_qtd_14);
+        texts.add("14° andares");
+        images.add(R.drawable.andar_qtd_15);
+        texts.add("15° andares");
+        images.add(R.drawable.andar_qtd_16);
+        texts.add("16° andares");
+        images.add(R.drawable.andar_qtd_17);
+        texts.add("17° andares");
+        images.add(R.drawable.andar_qtd_18);
+        texts.add("18° andares");
+        images.add(R.drawable.andar_qtd_19);
+        texts.add("19° andares");
+        images.add(R.drawable.andar_qtd_20);
+        texts.add("20° andares");
         Collections.reverse(images);
+        Collections.reverse(texts);
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
     }
@@ -73,16 +97,17 @@ public class BuildingFloorFragment extends BaseFragment implements VolumeVertica
     @Override
     public void positionVolume(int position) {
         mIvAge.setImageResource(images.get(position));
+        mTvSchool.setText(texts.get(position));
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(BuildingApartamentPerFloorFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

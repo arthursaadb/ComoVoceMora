@@ -7,46 +7,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorPink">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivMister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ic_mr_clipboard_half_body"
-        app:layout_constraintBottom_toTopOf="@id/progressBar"
-        app:layout_constraintStart_toEndOf="@id/btBack"
-        app:layout_constraintTop_toBottomOf="@id/tv_question" />
-
-    <TextView
-        android:id="@+id/tv_question"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:text="Em casos de utilização da moradia como fonte\n de renda, o espaço é utilizado:"
-        android:background="@drawable/bg_ballon"
-        android:gravity="center_vertical"
-        android:paddingStart="60dp"
-        android:paddingLeft="60dp"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ivMister" />
+    <include layout="@layout/fragment_mr_clipboard_full" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         style="@style/CustomRadioButton"
@@ -55,8 +17,8 @@
         android:text="Apenas Produção/\nConfecção"
         android:gravity="center"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintStart_toEndOf="@id/btBack"
-        app:layout_constraintEnd_toStartOf="@id/btNext"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintTop_toBottomOf="@id/tv_question" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
@@ -67,57 +29,22 @@
         android:text="Local de vendas/\nRecepção de clientes"
         android:gravity="center"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintStart_toEndOf="@id/btBack"
-        app:layout_constraintEnd_toStartOf="@id/btNext"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintTop_toBottomOf="@id/rbProduction" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         style="@style/CustomRadioButton"
         android:id="@+id/rbBoth"
         android:layout_marginBottom="30dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
         android:text="Ambos"
         android:gravity="center"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintStart_toEndOf="@id/rbProduction"
-        app:layout_constraintEnd_toStartOf="@id/btNext"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintTop_toTopOf="@id/rbProduction" />
 
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btNext"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        style="@style/SessionBackButton"
-        android:id="@+id/btPreviousSession"
-        android:layout_above="@id/progressBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/progressBar"
-        />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        style="@style/HelpButton"
-        android:id="@+id/btHelp"
-        android:layout_above="@id/progressBar"
-        app:layout_constraintBottom_toTopOf="@id/progressBar"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

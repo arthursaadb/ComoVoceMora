@@ -13,7 +13,7 @@ import butterknife.OnClick;
 
 public class BuildingPublicAreaFragment extends BaseFragment {
 
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
 
     public static BuildingPublicAreaFragment newInstance() {
@@ -36,14 +36,14 @@ public class BuildingPublicAreaFragment extends BaseFragment {
         super.init();
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(UnitySplashFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

@@ -25,6 +25,8 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
     View mViewLineFake;
     @BindView(R.id.view_line)
     View mViewLine;
+    @BindView(R.id.rl_volume)
+    RelativeLayout rlVolume;
 
     private float mMinRange;
     private float mMaxRange;
@@ -66,7 +68,8 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
         String textMin = getResources().getString(typedArray.getResourceId(R.styleable.CustomVolume_textMin, R.string.a));
         String textMax = getResources().getString(typedArray.getResourceId(R.styleable.CustomVolume_textMax, R.string.z));
 
-        mRlRootView.setBackgroundColor(background);
+//        mRlRootView.setBackgroundColor(background);
+        rlVolume.setBackgroundColor(background);
         mViewLine.setBackgroundColor(lineColor);
         mTvMin.setTextColor(textColor);
         mTvMax.setTextColor(textColor);

@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class WhichApartamentUnityFragment extends BaseFragment {
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvDuplex)
     CustomSelectedView csvDuplex;
@@ -38,7 +38,7 @@ public class WhichApartamentUnityFragment extends BaseFragment {
     @Override
     public void init() {
         super.init();
-
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
     }
 
     @OnClick({R.id.csvDuplex, R.id.csvTiplex, R.id.csvQuintinete, R.id.csvLoft, R.id.csvConvencional, R.id.csvCobertura})
@@ -101,23 +101,18 @@ public class WhichApartamentUnityFragment extends BaseFragment {
         return R.layout.fragment_unity_apartament;
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(HouseLivingUnityFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
         }
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-    }
 }

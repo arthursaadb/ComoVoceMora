@@ -1,58 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rl_root_view"
-    android:layout_width="wrap_content"
-    android:layout_height="50dp"
-    tools:background="@color/colorBege">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/rl_root_view"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+               >
 
-    <TextView
-        android:id="@+id/tv_min"
+    <RelativeLayout
+        android:id="@+id/rl_volume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="@dimen/small_margin"
-        android:layout_marginRight="@dimen/small_margin"
-        android:fontFamily="@font/mkm232"
-        tools:text="-"
-        tools:textColor="@color/colorBlack" />
+        tools:background="@color/colorBege"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/tv_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_marginRight="@dimen/small_margin"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/mkm232"
+            tools:text="-"
+            tools:textColor="@color/colorBlack" />
+
+        <TextView
+            android:id="@+id/tv_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/view_line"
+            android:layout_toRightOf="@id/view_line"
+            android:fontFamily="@font/mkm232"
+            tools:text="+"
+            tools:textColor="@color/colorBlack" />
+
+        <View
+            android:id="@+id/view_line_fake"
+            android:layout_width="150dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/tv_min"
+            android:layout_toRightOf="@id/tv_min" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="150dp"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/tv_min"
+            android:layout_toRightOf="@id/tv_min"
+            tools:background="@color/colorBlack" />
+
+        <View
+            android:id="@+id/view_circle"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            tools:background="@drawable/bg_circle_volume" />
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/tv_max"
+        android:id="@+id/tv_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/small_margin"
-        android:layout_marginLeft="@dimen/small_margin"
-        android:layout_toEndOf="@id/view_line"
-        android:layout_toRightOf="@id/view_line"
-        android:fontFamily="@font/mkm232"
-        tools:text="+"
-        tools:textColor="@color/colorBlack" />
-
-    <View
-        android:id="@+id/view_line_fake"
-        android:layout_width="150dp"
-        android:layout_height="20dp"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/tv_min"
-        android:layout_toRightOf="@id/tv_min" />
-
-    <View
-        android:id="@+id/view_line"
-        android:layout_width="150dp"
-        android:layout_height="1dp"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/tv_min"
-        android:layout_toRightOf="@id/tv_min"
-        tools:background="@color/colorBlack" />
-
-    <View
-        android:id="@+id/view_circle"
-        android:layout_width="12dp"
-        android:layout_height="12dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        tools:background="@drawable/bg_circle_volume" />
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:background="@drawable/bg_ballon_normal_type_1"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/micro_text_size"
+        android:visibility="invisible"
+        android:layout_toEndOf="@id/rl_volume"
+        android:layout_toRightOf="@id/rl_volume"
+        tools:text="Teste"
+        tools:visibility="visible" />
 
 </RelativeLayout>

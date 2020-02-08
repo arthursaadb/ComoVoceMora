@@ -65,4 +65,10 @@
         <item name="android:src">@drawable/ic_help</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
+    <style name="PodiumOptionButton">
+        <item name="android:background">@drawable/podium_opcao</item>
+        <item name="android:textSize">@dimen/real_micro_text_size</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
 </resources>

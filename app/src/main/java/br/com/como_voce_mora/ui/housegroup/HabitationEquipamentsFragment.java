@@ -17,7 +17,7 @@ import butterknife.OnClick;
 
 public class HabitationEquipamentsFragment extends BaseFragment {
 
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvGamesRoom)
     CustomSelectedView csvGamesRoom;
@@ -46,12 +46,12 @@ public class HabitationEquipamentsFragment extends BaseFragment {
         return R.layout.fragment_habitation_equipaments;
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         ((AboutYouActivity) getActivity()).addFragment(RateBuildingFragment.newInstance());
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

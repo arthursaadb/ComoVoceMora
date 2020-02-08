@@ -15,7 +15,7 @@ import butterknife.OnClick;
 
 public class HabitationCondominiumFragment extends BaseFragment {
 
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
 
     public static HabitationCondominiumFragment newInstance() {
@@ -27,14 +27,14 @@ public class HabitationCondominiumFragment extends BaseFragment {
         return R.layout.fragment_habitation_condominium;
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(HabitationBlocksFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

@@ -1,221 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorBlueLight2">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="@color/colorBlueLight2">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivMister"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="30dp"
-        android:layout_toEndOf="@id/btBack"
-        android:layout_toRightOf="@id/btBack"
-        android:src="@drawable/ic_prancheta_circular" />
-
-    <TextView
-        android:id="@+id/tv_question"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:text="Qual sua satisfação dos espaços públicos em relação a:"
-        android:layout_toStartOf="@id/btNext"
-        android:layout_toLeftOf="@id/btNext"
-        android:layout_toEndOf="@id/ivMister"
-        android:layout_toRightOf="@id/ivMister"
-        android:background="@drawable/bg_ballon"
-        android:gravity="center_vertical"
-        android:paddingStart="50dp"
-        android:paddingLeft="50dp"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size" />
+    <include layout="@layout/fragment_mr_clipboard_ball" />
 
 
     <LinearLayout
+        android:id="@+id/llVolume1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_toEndOf="@id/ivMister"
         android:layout_below="@id/tv_question"
-        android:layout_toRightOf="@id/ivMister"
-        android:layout_toStartOf="@id/btNext"
-        android:layout_toLeftOf="@id/btNext"
-        android:orientation="vertical">
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorBege"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintEnd_toStartOf="@id/bt_next">
 
-        <LinearLayout
-            android:id="@+id/llVolume1"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Acesso"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Acesso"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorBlack" />
 
 
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llVolume2"
+        <br.com.como_voce_mora.custom.VolumeHorizontal
+            android:id="@+id/volume1"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Quantidade dos \nEquipamentos"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/llVolume2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/tv_question"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorBege"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/llVolume1"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintEnd_toStartOf="@id/bt_next">
 
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llVolume3"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Qualidade dos\nEquipamentos"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Quantidade dos \nEquipamentos"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorBlack" />
 
 
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llVolume"
+        <br.com.como_voce_mora.custom.VolumeHorizontal
+            android:id="@+id/volume2"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Segurança"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
-
-
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-        </LinearLayout>
+            android:layout_height="wrap_content" />
 
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btNext"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext" />
+    <LinearLayout
+        android:id="@+id/llVolume3"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorBege"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/llVolume2"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintEnd_toStartOf="@id/bt_next">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Qualidade dos\nEquipamentos"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorBlack" />
 
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        style="@style/SessionBackButton"
-        android:id="@+id/btPreviousSession"
-        android:layout_above="@id/progressBar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        style="@style/HelpButton"
-        android:id="@+id/btHelp"
-        android:layout_above="@id/progressBar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
+        <br.com.como_voce_mora.custom.VolumeHorizontal
+            android:id="@+id/volume3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llVolume"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+        android:background="@color/colorBege"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintTop_toBottomOf="@id/llVolume3"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintEnd_toStartOf="@id/bt_next">
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Segurança"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorBlack" />
+
+
+        <br.com.como_voce_mora.custom.VolumeHorizontal
+            android:id="@+id/volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

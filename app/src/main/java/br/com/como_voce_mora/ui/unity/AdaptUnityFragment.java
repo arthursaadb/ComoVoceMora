@@ -2,6 +2,7 @@ package br.com.como_voce_mora.ui.unity;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,13 +20,16 @@ import butterknife.OnClick;
 public class AdaptUnityFragment extends BaseFragment implements VolumeVertical.OnListener {
     @BindView(R.id.volume)
     VolumeVertical mVolume;
-    @BindView(R.id.iv_age)
+    @BindView(R.id.iv_school)
     ImageView mIvAge;
+    @BindView(R.id.tv_school)
+    TextView mTvAge;
 
-    @BindView(R.id.progressBar)
+    @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
 
     private List<Integer> images;
+    private List<String> texts;
 
     public static AdaptUnityFragment newInstance() {
 
@@ -46,6 +50,8 @@ public class AdaptUnityFragment extends BaseFragment implements VolumeVertical.O
         super.init();
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
         images = new ArrayList<>();
+        texts = new ArrayList<>();
+
         images.add(R.drawable.ic_droiosdodroios);
         images.add(R.drawable.ic_droios);
         images.add(R.drawable.ic_mec);
@@ -63,14 +69,14 @@ public class AdaptUnityFragment extends BaseFragment implements VolumeVertical.O
         mIvAge.setImageResource(images.get(position));
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(ActualHouseLivingUnityFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
