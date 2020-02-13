@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.currentresidence;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -8,10 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
-import br.com.como_voce_mora.ui.BaseFragment;
-import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.custom.VolumeVertical;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.CurrentResidenceAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -22,12 +26,16 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
     ImageView mIvAge;
     @BindView(R.id.tv_age)
     TextView mTvAge;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
 
     private List<Integer> images;
     private List<String> names;
+    private AnswerRequest answerRequest;
+    private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.STATE;
 
     public static CountryFragment newInstance() {
 
@@ -46,6 +54,7 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
     @Override
     public void init() {
         super.init();
+        tvQuestion.setText(currentResidenceAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
         images = new ArrayList<>();
         names = new ArrayList<>();
@@ -54,7 +63,7 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
         images.add(R.drawable.estado_alagoas);
         names.add("Alagoas");
         images.add(R.drawable.estado_amapa);
-        names.add("Amapá");
+        names.add("Amapa");
         images.add(R.drawable.estado_amazonas);
         names.add("Amazonas");
         images.add(R.drawable.estado_bahia);
@@ -106,19 +115,20 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
 
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
+        answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), names.get(12));
     }
 
     @Override
     public void positionVolume(int position) {
         mIvAge.setImageResource(images.get(position));
-        mTvAge.setText(mTvAge.getText());
+        mTvAge.setText(names.get(position));
+        mTvAge.setVisibility(View.VISIBLE);
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(WhatsYourAddressFragment.newInstance());
-        }
+        ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
+        ((AboutYouActivity) requireActivity()).addFragment(WhatsYourAddressFragment.newInstance());
     }
 
     @OnClick(R.id.bt_back)

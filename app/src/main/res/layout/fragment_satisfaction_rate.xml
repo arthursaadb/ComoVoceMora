@@ -8,17 +8,16 @@
 
     <include layout="@layout/fragment_mr_clipboard_full" />
 
-    <RadioGroup
+    <LinearLayout
         android:id="@+id/rg_satisfaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tv_question"
+        android:layout_margin="@dimen/default_margin"
         android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toBottomOf="@id/tv_question">
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toTopOf="@id/bt_next"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -61,7 +60,7 @@
             <br.com.como_voce_mora.custom.CustomRadioButton
                 style="@style/CustomRadioButton"
                 android:id="@+id/rb_4"
-                android:text="Regular"
+                android:text="Ruim"
                 android:gravity="center"
                 android:textSize="@dimen/default_text_size" />
 
@@ -75,6 +74,6 @@
 
         </LinearLayout>
 
-    </RadioGroup>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

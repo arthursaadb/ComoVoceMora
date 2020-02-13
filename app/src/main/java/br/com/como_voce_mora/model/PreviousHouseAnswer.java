@@ -1,6 +1,6 @@
 package br.com.como_voce_mora.model;
 
-public enum PreviusHouseAnswer {
+public enum PreviousHouseAnswer {
 
     LIVED_IN_SAME_PLACE("Você sempre morou no mesmo local ou já morou em outro local antes?", "92cd330f-b184-4004-9fb9-8d24a0d6cd09"),
     LIVE_IN_CONDOMINIUM("Você residia em condomínio?", "fa0212cd-3ea2-42df-8dc3-5916719e5989"),
@@ -27,7 +27,7 @@ public enum PreviusHouseAnswer {
     String question;
     String questionPartId;
 
-    PreviusHouseAnswer(String question, String questionPartId) {
+    PreviousHouseAnswer(String question, String questionPartId) {
         this.question = question;
         this.questionPartId = questionPartId;
     }

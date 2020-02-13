@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.model.AboutYouAnswer;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.custom.VolumeVertical;
 import butterknife.BindView;
@@ -20,9 +23,14 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
     ImageView mIvAge;
     @BindView(R.id.tv_age)
     TextView mTvAge;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     private List<Integer> agesImage;
     private List<String> agesText;
+
+    private AnswerRequest answerRequest;
+    private AboutYouAnswer aboutYouAnswer = AboutYouAnswer.WHATS_YOUR_AGE;
 
     public static HowOldAreYouFragment newInstance() {
         return new HowOldAreYouFragment();
@@ -36,6 +44,7 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
     @Override
     public void init() {
         super.init();
+        mTvQuestion.setText(aboutYouAnswer.getQuestion());
 
         agesImage = new ArrayList<>();
         agesImage.add(R.drawable.ic_mr_clipboard_up_70);
@@ -61,20 +70,21 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
         mVolume.setMax(agesImage.size() - 1);
 
         mIvAge.setImageResource(agesImage.get(agesImage.size() / 2));
+        answerRequest = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), agesText.get(0));
     }
 
     @Override
     public void positionVolume(int position) {
         mIvAge.setImageResource(agesImage.get(position));
         mTvAge.setText(agesText.get(position));
+        answerRequest = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), agesText.get(position));
         mTvAge.setVisibility(View.VISIBLE);
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(SchoolingFragment.newInstance());
-        }
+        ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
+        ((AboutYouActivity) requireActivity()).addFragment(SchoolingFragment.newInstance());
     }
 
     @OnClick(R.id.bt_back)

@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toBottomOf="@id/tv_question"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintTop_toTopOf="@id/bt_next"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next"
         app:layout_constraintEnd_toStartOf="@id/bt_next">
 
         <LinearLayout
@@ -25,20 +25,22 @@
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvPraca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:image="@drawable/praca"
-                app:name="@string/praça"
+                app:imageItem="@drawable/praca"
+                app:nameItem="@string/praça"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvParque"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/parque"
-                app:name="@string/parque"
+                app:imageItem="@drawable/parque"
+                app:nameItem="@string/parque"
                 app:textColor="@color/colorBlack" />
 
         </LinearLayout>
@@ -49,23 +51,24 @@
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
-            android:layout_below="@id/tv_question"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvAcademia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:image="@drawable/academia"
-                app:name="@string/academia_livre"
+                app:imageItem="@drawable/academia"
+                app:nameItem="@string/academia_livre"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvQuadra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/quadra"
-                app:name="@string/quadra"
+                app:imageItem="@drawable/quadra"
+                app:nameItem="@string/quadra"
                 app:textColor="@color/colorBlack" />
 
         </LinearLayout>

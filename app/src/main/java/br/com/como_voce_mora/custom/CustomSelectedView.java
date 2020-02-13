@@ -51,6 +51,10 @@ public class CustomSelectedView extends RelativeLayout {
         mTvName.setBackgroundResource(selected ? R.drawable.bg_ballon_pressed_type_1 : R.drawable.bg_ballon_normal_type_1);
     }
 
+    public String getText() {
+        return mTvName.getText().toString();
+    }
+
     public boolean isChecked() {
         return selected;
     }

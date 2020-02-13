@@ -3,11 +3,15 @@ package br.com.como_voce_mora.ui.previoushouse;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.PreviousHouseAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.CustomRadioButton;
@@ -28,6 +32,12 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
     CustomRadioButton mRb4;
     @BindView(R.id.rb_5)
     CustomRadioButton mRb5;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
+
+    private boolean anyOptionChecked = false;
+    private AnswerRequest answerRequest;
+    private PreviousHouseAnswer previous = PreviousHouseAnswer.PREVIUS_HOUSE_SATISFACTION;
 
     public static SatisfactionRateFragment newInstance() {
         return new SatisfactionRateFragment();
@@ -36,6 +46,7 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
     @Override
     public void init() {
         super.init();
+        tvQuestion.setText(previous.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
 
         mRb1.setOnCheckedChangeListener(this);
@@ -48,6 +59,7 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             switch (buttonView.getId()) {
                 case R.id.rb_1:
                     mRb1.setChecked(true);
@@ -55,6 +67,7 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
                     mRb5.setChecked(false);
+                    setAnswer(mRb1.getText().toString());
                     break;
                 case R.id.rb_2:
                     mRb1.setChecked(false);
@@ -62,6 +75,7 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
                     mRb5.setChecked(false);
+                    setAnswer(mRb2.getText().toString());
                     break;
                 case R.id.rb_3:
                     mRb1.setChecked(false);
@@ -69,6 +83,7 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
                     mRb3.setChecked(true);
                     mRb4.setChecked(false);
                     mRb5.setChecked(false);
+                    setAnswer(mRb3.getText().toString());
                     break;
                 case R.id.rb_4:
                     mRb1.setChecked(false);
@@ -76,6 +91,7 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
                     mRb3.setChecked(false);
                     mRb4.setChecked(true);
                     mRb5.setChecked(false);
+                    setAnswer(mRb4.getText().toString());
                     break;
                 case R.id.rb_5:
                     mRb1.setChecked(false);
@@ -83,6 +99,7 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
                     mRb5.setChecked(true);
+                    setAnswer(mRb5.getText().toString());
                     break;
             }
 
@@ -98,6 +115,10 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
         mRb5.updateView();
     }
 
+    private void setAnswer(String text) {
+        answerRequest = new AnswerRequest(previous.getQuestion(), previous.getQuestionPartId(), text);
+    }
+
     @Override
     public int getResLayout() {
         return R.layout.fragment_satisfaction_rate;
@@ -105,8 +126,9 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(PreviousHouseTimeFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHouseTimeFragment.newInstance());
         }
     }
 

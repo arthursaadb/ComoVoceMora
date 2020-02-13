@@ -1,115 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/colorBlueLight2">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlueLight2">
 
     <include layout="@layout/fragment_mr_clipboard_ball" />
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBege"
+        app:layout_constraintTop_toTopOf="@id/volumeAgradabilidade"
+        app:layout_constraintBottom_toBottomOf="@id/volumeAgradabilidade"
+        app:layout_constraintStart_toStartOf="@id/tvAgradabilidade"
+        app:layout_constraintEnd_toEndOf="@id/volumeAgradabilidade" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvAgradabilidade"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:orientation="vertical"
-        app:layout_goneMarginTop="@dimen/default_margin"
-        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toBottomOf="@id/tv_question"
-        app:layout_constraintEnd_toStartOf="@id/bt_next">
-
-        <LinearLayout
-            android:id="@+id/llVolume1"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Agradabilidade"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+        android:text="Agradabilidade"
+        android:paddingStart="@dimen/default_padding"
+        android:paddingLeft="@dimen/default_padding"
+        android:textSize="@dimen/default_text_size"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintTop_toTopOf="@id/volumeAgradabilidade"
+        app:layout_constraintBottom_toBottomOf="@id/volumeAgradabilidade"
+        app:layout_constraintStart_toStartOf="@id/tv_question"
+        app:layout_constraintEnd_toStartOf="@id/volumeAgradabilidade"
+        />
 
 
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <br.com.como_voce_mora.custom.VolumeHorizontal
+        android:id="@+id/volumeAgradabilidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:paddingEnd="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:gravity="end"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        app:layout_constraintStart_toEndOf="@id/tvAgradabilidade"
+        app:layout_constraintEnd_toStartOf="@id/bt_next" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llVolume2"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBege"
+        app:layout_constraintTop_toTopOf="@id/tvConvivio"
+        app:layout_constraintBottom_toBottomOf="@id/tvConvivio"
+        app:layout_constraintEnd_toEndOf="@id/volumeConvivio"
+        app:layout_constraintStart_toStartOf="@id/tvConvivio" />
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Relação de \nConvivio"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
-
-
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llVolume3"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Acessibilidade\ndas Calçadas"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+    <TextView
+        android:id="@+id/tvConvivio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Relação de \nConvivio"
+        android:textSize="@dimen/default_text_size"
+        android:paddingStart="@dimen/default_padding"
+        android:paddingLeft="@dimen/default_padding"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintTop_toTopOf="@id/volumeConvivio"
+        app:layout_constraintBottom_toBottomOf="@id/volumeConvivio"
+        app:layout_constraintStart_toStartOf="@id/tvAgradabilidade"
+        app:layout_constraintEnd_toStartOf="@id/volumeConvivio"
+        />
 
 
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <br.com.como_voce_mora.custom.VolumeHorizontal
+        android:id="@+id/volumeConvivio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:paddingEnd="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        app:layout_constraintStart_toEndOf="@id/tvConvivio"
+        app:layout_constraintTop_toBottomOf="@id/volumeAgradabilidade"
+        app:layout_constraintEnd_toEndOf="@id/volumeAgradabilidade"
+        />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBege"
+        app:layout_constraintTop_toTopOf="@id/tvAcessibilidade"
+        app:layout_constraintBottom_toBottomOf="@id/tvAcessibilidade"
+        app:layout_constraintEnd_toEndOf="@id/volumeConvivio"
+        app:layout_constraintStart_toStartOf="@id/tvAcessibilidade" />
+
+    <TextView
+        android:id="@+id/tvAcessibilidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Acessibilidade\ndas Calçadas"
+        android:textSize="@dimen/default_text_size"
+        android:textColor="@color/colorBlack"
+        android:paddingStart="@dimen/default_padding"
+        android:paddingLeft="@dimen/default_padding"
+        app:layout_constraintStart_toStartOf="@id/tvAgradabilidade"
+        app:layout_constraintTop_toTopOf="@id/volumeAcessibilidade"
+        app:layout_constraintBottom_toBottomOf="@id/volumeAcessibilidade"
+        app:layout_constraintEnd_toStartOf="@id/volumeAcessibilidade" />
 
 
-        </LinearLayout>
+    <br.com.como_voce_mora.custom.VolumeHorizontal
+        android:id="@+id/volumeAcessibilidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="end"
+        android:paddingEnd="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        app:layout_constraintStart_toEndOf="@id/tvAcessibilidade"
+        app:layout_constraintTop_toBottomOf="@id/tvConvivio"
+        app:layout_constraintEnd_toEndOf="@id/volumeConvivio" />
 
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

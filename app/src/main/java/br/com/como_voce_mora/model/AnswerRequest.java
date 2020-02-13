@@ -12,7 +12,12 @@ public class AnswerRequest {
         this.texto = texto;
         this.evaluationId = evaluationId;
     }
-
+    public AnswerRequest(String dwellerId, String questionPartId, String texto) {
+        this.dwellerId = dwellerId;
+        this.questionPartId = questionPartId;
+        this.texto = texto;
+        this.evaluationId = "";
+    }
     public String getDwellerId() {
         return dwellerId;
     }

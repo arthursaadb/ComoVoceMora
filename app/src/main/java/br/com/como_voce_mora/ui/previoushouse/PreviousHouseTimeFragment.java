@@ -1,17 +1,17 @@
 package br.com.como_voce_mora.ui.previoushouse;
 
-import android.os.Bundle;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.CustomSelectedView;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.PreviousHouseAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
-import br.com.como_voce_mora.custom.CustomSelectedView;
-import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -28,6 +28,12 @@ public class PreviousHouseTimeFragment extends BaseFragment {
     CustomSelectedView mView4;
     @BindView(R.id.view_5)
     CustomSelectedView mView5;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
+
+    private boolean anyOptionChecked = false;
+    private AnswerRequest answerRequest;
+    private PreviousHouseAnswer previous = PreviousHouseAnswer.STAY_TIME;
 
     public static PreviousHouseTimeFragment newInstance() {
         return new PreviousHouseTimeFragment();
@@ -35,11 +41,14 @@ public class PreviousHouseTimeFragment extends BaseFragment {
 
     @Override
     public void init() {
+        tvQuestion.setText(previous.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
+
     }
 
     @OnClick({R.id.view_1, R.id.view_2, R.id.view_3, R.id.view_4, R.id.view_5})
-    public void onClickViews(View view) {
+    void onClickViews(View view) {
+        anyOptionChecked = true;
         switch (view.getId()) {
             case R.id.view_1:
                 mView1.setChecked(true);
@@ -47,6 +56,7 @@ public class PreviousHouseTimeFragment extends BaseFragment {
                 mView3.setChecked(false);
                 mView4.setChecked(false);
                 mView5.setChecked(false);
+                setAnswer(mView1.getText());
                 break;
             case R.id.view_2:
                 mView1.setChecked(false);
@@ -54,6 +64,7 @@ public class PreviousHouseTimeFragment extends BaseFragment {
                 mView3.setChecked(false);
                 mView4.setChecked(false);
                 mView5.setChecked(false);
+                setAnswer(mView2.getText());
                 break;
             case R.id.view_3:
                 mView1.setChecked(false);
@@ -61,6 +72,7 @@ public class PreviousHouseTimeFragment extends BaseFragment {
                 mView3.setChecked(true);
                 mView4.setChecked(false);
                 mView5.setChecked(false);
+                setAnswer(mView3.getText());
                 break;
             case R.id.view_4:
                 mView1.setChecked(false);
@@ -68,6 +80,7 @@ public class PreviousHouseTimeFragment extends BaseFragment {
                 mView3.setChecked(false);
                 mView4.setChecked(true);
                 mView5.setChecked(false);
+                setAnswer(mView4.getText());
                 break;
             case R.id.view_5:
                 mView1.setChecked(false);
@@ -75,6 +88,7 @@ public class PreviousHouseTimeFragment extends BaseFragment {
                 mView3.setChecked(false);
                 mView4.setChecked(false);
                 mView5.setChecked(true);
+                setAnswer(mView5.getText());
                 break;
         }
     }
@@ -84,10 +98,15 @@ public class PreviousHouseTimeFragment extends BaseFragment {
         return R.layout.fragment_previous_house_time;
     }
 
+    private void setAnswer(String text) {
+        answerRequest = new AnswerRequest(previous.getQuestion(), previous.getQuestionPartId(), text);
+    }
+
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(CurrentHomeFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
         }
     }
 

@@ -12,7 +12,7 @@
         android:layout_height="@dimen/multi_select_text_height"
         android:background="@drawable/bg_ballon_normal_type_1"
         android:gravity="center"
-        android:textSize="@dimen/nano_text_size"
+        android:textSize="@dimen/real_micro_text_size"
         tools:text="Text" />
 
     <RelativeLayout
@@ -22,6 +22,7 @@
         android:layout_centerHorizontal="true">
 
         <ImageView
+            android:adjustViewBounds="true"
             android:id="@+id/iv_image"
             android:layout_width="@dimen/multi_select_image_width"
             android:layout_height="@dimen/multi_select_image_height" />

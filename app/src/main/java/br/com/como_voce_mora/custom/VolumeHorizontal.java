@@ -27,6 +27,8 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
     View mViewLine;
     @BindView(R.id.rl_volume)
     RelativeLayout rlVolume;
+    @BindView(R.id.tv_info)
+    TextView tvInfo;
 
     private float mMinRange;
     private float mMaxRange;
@@ -121,6 +123,11 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
 
     public void setListener(OnListener listener) {
         mListener = listener;
+    }
+
+    public void setInfo(String text) {
+        tvInfo.setVisibility(VISIBLE);
+        tvInfo.setText(text);
     }
 
     public interface OnListener {

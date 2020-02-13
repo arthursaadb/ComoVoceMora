@@ -3,11 +3,15 @@ package br.com.como_voce_mora.ui.previoushouse;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.PreviousHouseAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.CustomRadioButton;
@@ -26,6 +30,12 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
     CustomRadioButton mRb3;
     @BindView(R.id.rbBorrowed)
     CustomRadioButton mRb4;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
+
+    private boolean anyOptionChecked = false;
+    private AnswerRequest answerRequest;
+    private PreviousHouseAnswer previous = PreviousHouseAnswer.BUY_TYPE;
 
     public static AcquisitionStateFragment newInstance() {
         return new AcquisitionStateFragment();
@@ -39,6 +49,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
     @Override
     public void init() {
         super.init();
+        tvQuestion.setText(previous.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
 
         mRb1.setOnCheckedChangeListener(this);
@@ -49,6 +60,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        anyOptionChecked = true;
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbRent:
@@ -56,7 +68,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
-
+                    setAnswer(mRb1.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbFinanced:
@@ -64,7 +76,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
                     mRb2.setChecked(true);
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
-
+                    setAnswer(mRb2.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbOwn:
@@ -72,7 +84,7 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
                     mRb2.setChecked(false);
                     mRb3.setChecked(true);
                     mRb4.setChecked(false);
-
+                    setAnswer(mRb3.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbOther:
@@ -80,11 +92,15 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);
                     mRb4.setChecked(true);
-
+                    setAnswer(mRb4.getText().toString());
                     updateRbs();
                     break;
             }
         }
+    }
+
+    private void setAnswer(String text) {
+        answerRequest = new AnswerRequest(previous.getQuestion(), previous.getQuestionPartId(), text);
     }
 
     private void updateRbs() {
@@ -96,10 +112,12 @@ public class AcquisitionStateFragment extends BaseFragment implements CustomRadi
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(SatisfactionRateFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(SatisfactionRateFragment.newInstance());
         }
     }
+
 
     @OnClick(R.id.bt_back)
     public void onBtBackClicked() {

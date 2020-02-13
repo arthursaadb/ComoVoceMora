@@ -14,7 +14,8 @@
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toBottomOf="@id/tv_question"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar">
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/bt_next">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -24,29 +25,32 @@
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvSaude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:image="@drawable/saude"
-                app:name="@string/saude"
+                app:imageItem="@drawable/saude"
+                app:nameItem="@string/saude"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvEscola"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/escola"
-                app:name="@string/escola"
+                app:imageItem="@drawable/escola"
+                app:nameItem="@string/escola"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvCultura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/cultura"
-                app:name="@string/cultura"
+                app:imageItem="@drawable/cultura"
+                app:nameItem="@string/cultura"
                 app:textColor="@color/colorBlack" />
         </LinearLayout>
 
@@ -59,29 +63,32 @@
             android:layout_below="@id/tv_question"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvLazer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:image="@drawable/playground"
-                app:name="@string/lazer"
+                app:imageItem="@drawable/playground"
+                app:nameItem="@string/lazer"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvEsporte"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/quadra"
-                app:name="@string/esporte"
+                app:imageItem="@drawable/quadra"
+                app:nameItem="@string/esporte"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvSeguranca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/policia"
-                app:name="@string/seguranca"
+                app:imageItem="@drawable/policia"
+                app:nameItem="@string/seguranca"
                 app:textColor="@color/colorBlack" />
         </LinearLayout>
 

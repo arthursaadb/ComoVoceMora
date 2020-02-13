@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.model.CepResponse;
@@ -28,6 +29,8 @@ public class WhatsYourAddressFragment extends BaseFragment implements CepContrac
     EditText etBairro;
     @BindView(R.id.etCep)
     EditText etCep;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
     CepPresenter mPresenter;
 
@@ -49,6 +52,7 @@ public class WhatsYourAddressFragment extends BaseFragment implements CepContrac
     @Override
     public void init() {
         super.init();
+        tvQuestion.setText("Seu endereço:");
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
         mPresenter = new CepPresenter(this);
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);

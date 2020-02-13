@@ -22,11 +22,15 @@ public enum AboutYouAnswer {
     PET("Animal de Estimação", "590b5fd61e4d3f620eea278e"),
 
 
+    WORK_FOR_YOU_YES("Trabalha algum funcionário em sua moradia?", "22384438-6b03-4500-9ebe-e376850de737"),
+    WORK_FOR_YOU_NO("Trabalha algum funcionário em sua moradia?", "0d70117e-9901-476b-9cdb-339e3456cea3"),
+
 
     FAMILY_FIANNCE("Qual sua renda familiar (em Reais)?", "92a177d9-27a6-4a21-a193-8ebe3fe556fb"),
-    EMPLOYEE_TYPE("Se algum funcionário trabalha em sua casa, qual o tipo de contrato?", "74965001-7420-42a6-9ac6-cab586482ec4");
-
-
+    EMPLOYEE_TYPE("Se algum funcionário trabalha em sua casa, qual o tipo de contrato?", "74965001-7420-42a6-9ac6-cab586482ec4"),
+    WHATS_YOUR_PROFESSION("Qual é sua atividade principal?", "408f937b-2e42-4fae-ade5-b246771bc7ef"),
+    FAMILY_INCOME("Qual sua renda familiar em reais? Lembre-se que é a renda de todos os moradores\n" +
+        "somada. Se você não souber ou quiser responder, apenas clique em avançar","216db099-3479-4dca-955a-d47275fe6813");
 
 
     String question;

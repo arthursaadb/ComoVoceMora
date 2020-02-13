@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.model.AboutYouAnswer;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.custom.VolumeVertical;
 import butterknife.BindView;
@@ -20,9 +23,14 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
     ImageView mIvSchool;
     @BindView(R.id.tv_school)
     TextView nTvSchool;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
     private List<Integer> images;
     private List<String> texts;
+
+    private AnswerRequest answerRequest;
+    private AboutYouAnswer aboutYouAnswer = AboutYouAnswer.SCHOOLING;
 
     public static SchoolingFragment newInstance() {
         return new SchoolingFragment();
@@ -36,6 +44,7 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
     @Override
     public void init() {
         super.init();
+        tvQuestion.setText(aboutYouAnswer.getQuestion());
 
         images = new ArrayList<>();
         images.add(R.drawable.ic_escola_superior_completo);
@@ -103,6 +112,7 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
         mVolume.setMax(images.size() - 1);
 
         mIvSchool.setImageResource(images.get(images.size() / 2));
+        answerRequest = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), texts.get(0));
     }
 
     @Override
@@ -110,13 +120,14 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
         mIvSchool.setImageResource(images.get(position));
         nTvSchool.setText(texts.get(position));
         nTvSchool.setVisibility(View.VISIBLE);
+        answerRequest = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), texts.get(position));
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(WithWhomYouLiveFragment.newInstance());
-        }
+        ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
+        ((AboutYouActivity) requireActivity()).addFragment(WithWhomYouLiveFragment.newInstance());
+
     }
 
     @OnClick(R.id.bt_back)

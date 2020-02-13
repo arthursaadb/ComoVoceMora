@@ -28,14 +28,14 @@ public class UsedSpaceUnityFragment extends BaseFragment {
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
     }
 
-    @OnClick(R.id.btNext)
+    @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) getActivity()).addFragment(ResidentsUnityFragment.newInstance());
         }
     }
 
-    @OnClick(R.id.btBack)
+    @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();

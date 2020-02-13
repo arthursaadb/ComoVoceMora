@@ -11,8 +11,8 @@ public enum CurrentResidenceAnswer {
     TIME_LIVING("Desde quando você mora neste local?", "39817be1-f9bc-4c2e-a5f3-459f5db25d21"),
     NEIGHBORHOOD_IDENTIFICATION("Você se identifica com o seu bairro?", "47686f3b-6983-44a3-9aff-f15e7a6b1e18"),
 
-    URBAN_EQUIPMENT("Quais equipamentos urbanos estão presentes no seu bairro? Informe a quantidade.", "4efbf667-9637-4ffa-b269-11900d67e91a"),
-    HHEALTH("Saúde (UBS e UAI)", "590b5fd61e4d3f620eea272a"),
+    URBAN_EQUIPMENT("Quais equipamentos urbanos estão presentes no seu bairro?", "4efbf667-9637-4ffa-b269-11900d67e91a"),
+    HEALTH("Saúde (UBS e UAI)", "590b5fd61e4d3f620eea272a"),
     SCHOOL("Educação (creches e escolas)", "590b5fd61e4d3f620eea272b"),
     CULTURE("Cultura", "590b5fd61e4d3f620eea272c"),
     RECREATION("Lazer (praças e parques)", "590b5fd61e4d3f620eea272d"),
