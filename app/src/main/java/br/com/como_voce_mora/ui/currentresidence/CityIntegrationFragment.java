@@ -51,6 +51,8 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
         super.init();
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
+        rbYes.setOnCheckedChangeListener(this);
+        rbNo.setOnCheckedChangeListener(this);
     }
 
     @OnClick(R.id.bt_next)
