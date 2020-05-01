@@ -5,13 +5,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
-import br.com.como_voce_mora.model.AboutYouAnswer;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
@@ -37,7 +34,7 @@ public class NeighborHoodFragment extends BaseFragment implements VolumeVertical
     private List<Integer> images;
     private List<String> texts;
     private AnswerRequest answerRequest;
-    private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.NEIGHBORHOOD_IDENTIFICATION;
+//    private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.NEIGHBORHOOD_IDENTIFICATION;
 
     public static NeighborHoodFragment newInstance() {
 
@@ -56,8 +53,8 @@ public class NeighborHoodFragment extends BaseFragment implements VolumeVertical
     @Override
     public void init() {
         super.init();
-        tvQuesion.setText(currentResidenceAnswer.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+//        tvQuesion.setText(currentResidenceAnswer.getQuestion());
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         images = new ArrayList<>();
         texts = new ArrayList<>();
         images.add(R.drawable.ic_muito_bom);
@@ -73,7 +70,7 @@ public class NeighborHoodFragment extends BaseFragment implements VolumeVertical
 
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
-        answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), texts.get(2));
+//        answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), texts.get(2));
     }
 
     @Override
@@ -81,12 +78,12 @@ public class NeighborHoodFragment extends BaseFragment implements VolumeVertical
         mIvAge.setImageResource(images.get(position));
         mTvAge.setText(texts.get(position));
         mTvAge.setVisibility(View.VISIBLE);
-        answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), texts.get(position));
+//        answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), texts.get(position));
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
+//        ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
         ((AboutYouActivity) requireActivity()).addFragment(EquipamentsFragment.newInstance());
     }
 

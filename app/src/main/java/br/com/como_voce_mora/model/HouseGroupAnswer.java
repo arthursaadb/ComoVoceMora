@@ -43,8 +43,6 @@ public enum HouseGroupAnswer {
     OTHER_MOTIVE_IMPORTANCE("Outro Motivo", "590b5fd61e4d3f620eea2793"),
 
     GREEN_AREA("Existem áreas verdes no seu edifício?", "ec1cd8cc-2eee-4326-9ba2-d3cc1c471687"),
-    MISS_GREEN_AREA("Você sente falta de áreas verdes?", "f56106f2-a57d-41be-8378-6961efd27fbb"),
-    GREEN_AREA_SATISFACTION("Qual a sua satisfação em relação à  quantidade dessas áreas verdes?", "058b4850-21f6-498e-be57-8abae21786c2"),
     NEIGHBORHOOD_DELIMITATION("Existe delimitação entre sua residência e a vizinhança?", "6a1601b4-3a30-4e86-a2d9-e766a2375b4e"),
     NEIGHBORHOOD_DELIMITATION_TYPE("Que delimitação existem entre sua residência e a vizinhança?", "f0ce08bf-d19e-4946-bf47-bb63329c37a0"),
 

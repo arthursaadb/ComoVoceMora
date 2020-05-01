@@ -9,39 +9,33 @@
     <include layout="@layout/fragment_mr_clipboard_full" />
 
 
-    <LinearLayout
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/csvHouse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_gravity="center"
+        app:nameItem="@string/house"
+        app:imageItem="@drawable/casa_casa"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toBottomOf="@id/tv_question"
-        app:layout_constraintEnd_toStartOf="@id/bt_next">
+        app:layout_constraintTop_toBottomOf="@id/bt_next"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next"
+        app:layout_constraintEnd_toStartOf="@id/csvApartament" />
 
-        <br.com.como_voce_mora.custom.CustomSelectedView
-            android:id="@+id/csvHouse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center"
-            app:nameItem="@string/house"
-            app:imageItem="@drawable/casa_casa" />
-
-        <br.com.como_voce_mora.custom.CustomSelectedView
-            android:id="@+id/csvApartament"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center"
-            app:nameItem="@string/apartament"
-            app:imageItem="@drawable/apartamento_apartamento" />
-
-
-    </LinearLayout>
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/csvApartament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        app:nameItem="@string/apartament"
+        app:imageItem="@drawable/apartamento_apartamento"
+        app:layout_constraintStart_toEndOf="@id/csvHouse"
+        app:layout_constraintTop_toTopOf="@id/csvHouse"
+        app:layout_constraintBottom_toBottomOf="@id/csvHouse"
+        app:layout_constraintEnd_toStartOf="@id/bt_next" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

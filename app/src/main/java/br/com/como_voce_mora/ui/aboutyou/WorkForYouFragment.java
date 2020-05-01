@@ -31,7 +31,7 @@ public class WorkForYouFragment extends BaseFragment implements CustomRadioButto
     TextView tvQuestion;
 
     boolean optionSelected = false;
-    private AboutYouAnswer aboutYouAnswer = AboutYouAnswer.WORK_FOR_YOU_NO;
+    private AboutYouAnswer aboutYouAnswer = AboutYouAnswer.WORK_FOR_YOU;
     private AnswerRequest answerRequest;
 
 
@@ -81,7 +81,6 @@ public class WorkForYouFragment extends BaseFragment implements CustomRadioButto
                     cbNo.setChecked(false);
                     updateRbs();
                     showSecondary();
-                    aboutYouAnswer = AboutYouAnswer.WORK_FOR_YOU_YES;
                     break;
                 case R.id.btNo:
                     cbYes.setChecked(false);
@@ -89,7 +88,6 @@ public class WorkForYouFragment extends BaseFragment implements CustomRadioButto
                     hideSecondary();
                     updateRbs();
                     optionSelected = true;
-                    aboutYouAnswer = AboutYouAnswer.WORK_FOR_YOU_NO;
                     break;
                 case R.id.btMens:
                     cbMens.setChecked(true);

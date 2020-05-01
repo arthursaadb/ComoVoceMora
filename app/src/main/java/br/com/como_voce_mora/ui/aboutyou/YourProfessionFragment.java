@@ -22,7 +22,7 @@ public class YourProfessionFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
-    AboutYouAnswer aboutYouAnswer = AboutYouAnswer.WHATS_YOUR_PROFESSION;
+    AboutYouAnswer aboutYouAnswer = AboutYouAnswer.YOUR_PROFESSION;
 
     public static YourProfessionFragment newInstance() {
         return new YourProfessionFragment();

@@ -35,7 +35,7 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
     private List<Integer> images;
     private List<String> names;
     private AnswerRequest answerRequest;
-    private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.STATE;
+//    private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.STATE;
 
     public static CountryFragment newInstance() {
 
@@ -54,8 +54,8 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
     @Override
     public void init() {
         super.init();
-        tvQuestion.setText(currentResidenceAnswer.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+//        tvQuestion.setText(currentResidenceAnswer.getQuestion());
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         images = new ArrayList<>();
         names = new ArrayList<>();
         images.add(R.drawable.estado_acre);
@@ -115,7 +115,7 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
 
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
-        answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), names.get(12));
+//        answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), names.get(12));
     }
 
     @Override
@@ -127,7 +127,7 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
+//        ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
         ((AboutYouActivity) requireActivity()).addFragment(WhatsYourAddressFragment.newInstance());
     }
 

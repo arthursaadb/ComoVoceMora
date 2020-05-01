@@ -8,8 +8,9 @@ public enum AboutYouAnswer {
 
     NUMBER_OF_PERSON("Agora vamos falar sobre os moradores. Selecione quem mora com você.", "2d40a340-1cc7-4d88-b9e5-f39404463c3b"),
     FAMILY_INCOME("Qual sua renda familiar em reais? Lembre-se que é a renda de todos os moradores\n" +
-        "somada. Se você não souber ou quiser responder, apenas clique em avançar","92a177d9-27a6-4a21-a193-8ebe3fe556fb");
-
+        "somada. Se você não souber ou quiser responder, apenas clique em avançar", "92a177d9-27a6-4a21-a193-8ebe3fe556fb"),
+    WORK_FOR_YOU("Trabalha algum funcionário em sua morada?", "17c7ca75-55bc-47d2-9ef0-d6770d65ee0d"),
+    YOUR_PROFESSION("Qual é sua atividade principal?","408f937b-2e42-4fae-ade5-b246771bc7ef");
 
     String question;
     String questionPartId;

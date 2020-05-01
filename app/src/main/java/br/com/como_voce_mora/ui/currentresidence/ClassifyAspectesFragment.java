@@ -56,7 +56,7 @@ public class ClassifyAspectesFragment extends BaseFragment {
     public void init() {
         super.init();
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         texts.add("Muito Ruim");
         texts.add("Ruim");
         texts.add("Regular");
