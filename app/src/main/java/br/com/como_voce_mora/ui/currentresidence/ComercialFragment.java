@@ -9,7 +9,6 @@ import java.util.List;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.VolumeHorizontal;
-import br.com.como_voce_mora.custom.VolumeVertical;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
@@ -57,7 +56,7 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
         super.init();
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
         tvQuestion2.setText(currentResidenceAnswer2.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
 
         texts = new ArrayList<>();
         texts.add("Muito mal servido");

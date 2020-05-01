@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
-import br.com.como_voce_mora.model.AboutYouAnswer;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
@@ -49,7 +48,7 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
     @Override
     public void init() {
         super.init();
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
         rbYes.setOnCheckedChangeListener(this);
         rbNo.setOnCheckedChangeListener(this);

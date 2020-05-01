@@ -59,7 +59,7 @@ public class EquipamentsFragment extends BaseFragment {
     @Override
     public void init() {
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         super.init();
     }
 

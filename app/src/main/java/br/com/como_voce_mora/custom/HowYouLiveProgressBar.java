@@ -44,7 +44,7 @@ public class HowYouLiveProgressBar extends RelativeLayout {
     public enum HowYouLive {
         ABOUT_YOU(R.drawable.sobre_voce),
         BEFORE_RESIDENCE(R.drawable.moradia_anterior),
-        ATUAL_RESIDENCE(R.drawable.moradia_atual),
+        ACTUAL_RESIDENCE(R.drawable.moradia_atual),
         GROUP(R.drawable.conjunto),
         BUILDING(R.drawable.avaliar_moradia),
         UNITY(R.drawable.avaliar_unidade),

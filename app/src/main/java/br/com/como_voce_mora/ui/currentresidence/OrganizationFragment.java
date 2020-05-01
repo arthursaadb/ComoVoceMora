@@ -59,7 +59,7 @@ public class OrganizationFragment extends BaseFragment implements CustomRadioBut
     public void init() {
         super.init();
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         mRbFemale.setOnCheckedChangeListener(this);
         mRbMale.setOnCheckedChangeListener(this);
         mRbOther.setOnCheckedChangeListener(this);

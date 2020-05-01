@@ -55,7 +55,7 @@ public class CountryFragment extends BaseFragment implements VolumeVertical.OnLi
     public void init() {
         super.init();
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         images = new ArrayList<>();
         names = new ArrayList<>();
         images.add(R.drawable.estado_acre);

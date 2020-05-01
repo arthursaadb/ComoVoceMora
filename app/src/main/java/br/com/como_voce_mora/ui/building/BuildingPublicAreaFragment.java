@@ -1,7 +1,6 @@
 package br.com.como_voce_mora.ui.building;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -32,7 +31,7 @@ public class BuildingPublicAreaFragment extends BaseFragment {
 
     @Override
     public void init() {
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         super.init();
     }
 

@@ -1,10 +1,7 @@
 package br.com.como_voce_mora.ui.currentresidence;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,7 +12,6 @@ import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
-import br.com.como_voce_mora.presenter.cep.CepPresenter;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -55,7 +51,7 @@ public class PublicAreaFragment extends BaseFragment {
     public void init() {
         super.init();
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ATUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
     }
 
     @OnClick({R.id.csvPraca, R.id.csvParque, R.id.csvAcademia,
