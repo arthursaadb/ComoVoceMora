@@ -95,5 +95,8 @@
     <string name="resident_sister">Irmã(ão)</string>
     <string name="resident_other">Outro</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

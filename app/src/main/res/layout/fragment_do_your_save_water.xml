@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.DoYourSaveWaterFragment">
+
+    <include layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="120dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="32dp"
+        android:src="@drawable/agua"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbYes"
+        style="@style/SmallCustomRadioButton"
+        android:gravity="center"
+        android:text="Sim"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toTopOf="@id/water_iv" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbNo"
+        style="@style/CustomRadioButton"
+        android:gravity="center"
+        android:text="Não"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintBottom_toBottomOf="@id/water_iv" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbBillPrice"
+        style="@style/SmallCustomRadioButton"
+        android:gravity="center"
+        android:text="Economizo no preço das contas"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintStart_toEndOf="@id/rbYes"
+        app:layout_constraintTop_toTopOf="@id/rbYes"/>
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbLessAmbientalDamage"
+        style="@style/SmallCustomRadioButton"
+        android:gravity="center"
+        android:text="Causa menos danos ambientais"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintStart_toEndOf="@id/rbBillPrice"
+        app:layout_constraintTop_toTopOf="@id/water_iv"/>
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbFearDry"
+        style="@style/SmallCustomRadioButton"
+        android:gravity="center"
+        android:text="Temo faltar em período de seca"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintTop_toBottomOf="@id/rbBillPrice"
+        app:layout_constraintStart_toStartOf="@id/rbBillPrice"
+        app:layout_constraintEnd_toEndOf="@id/rbBillPrice"/>
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbOthers"
+        style="@style/SmallCustomRadioButton"
+        android:gravity="center"
+        android:text="Outros"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintTop_toBottomOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintEnd_toEndOf="@id/rbLessAmbientalDamage"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
