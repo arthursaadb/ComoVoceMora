@@ -26,12 +26,12 @@ public class PublicAreaFragment extends BaseFragment {
     TextView tvQuestion;
 
     List<AnswerRequest> answerRequests = new ArrayList<>();
-    CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.PUBBLIC_SPACE;
-    CurrentResidenceAnswer pracaCurrentResidenceAnswer = CurrentResidenceAnswer.SQUARE;
-    CurrentResidenceAnswer parqueCurrentResidenceAnswer = CurrentResidenceAnswer.PARK;
-    CurrentResidenceAnswer academiaCurrentResidenceAnswer = CurrentResidenceAnswer.GYM;
-    CurrentResidenceAnswer esporteCurrentResidenceAnswer = CurrentResidenceAnswer.SPORTS_PLACE;
-
+    CurrentResidenceAnswer currentResidenceAnswer = null;
+    CurrentResidenceAnswer pracaCurrentResidenceAnswer = null;
+    CurrentResidenceAnswer parqueCurrentResidenceAnswer = null;
+    CurrentResidenceAnswer academiaCurrentResidenceAnswer = null;
+    CurrentResidenceAnswer esporteCurrentResidenceAnswer = null;
+    ;
 
     public static PublicAreaFragment newInstance() {
 

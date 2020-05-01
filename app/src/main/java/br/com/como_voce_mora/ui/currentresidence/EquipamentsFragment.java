@@ -35,12 +35,12 @@ public class EquipamentsFragment extends BaseFragment {
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.URBAN_EQUIPMENT;
-    private CurrentResidenceAnswer saudeCurrentResidenceAnswer = CurrentResidenceAnswer.HEALTH;
-    private CurrentResidenceAnswer escolaCurrentResidenceAnswer = CurrentResidenceAnswer.SCHOOL;
-    private CurrentResidenceAnswer culturaCurrentResidenceAnswer = CurrentResidenceAnswer.CULTURE;
-    private CurrentResidenceAnswer lazerCurrentResidenceAnswer = CurrentResidenceAnswer.RECREATION;
-    private CurrentResidenceAnswer esporteCurrentResidenceAnswer = CurrentResidenceAnswer.SPORT_EQUIPMENT;
-    private CurrentResidenceAnswer segurancaCurrentResidenceAnswer = CurrentResidenceAnswer.SAFETY;
+    private CurrentResidenceAnswer saudeCurrentResidenceAnswer =null;
+    private CurrentResidenceAnswer escolaCurrentResidenceAnswer =null;
+    private CurrentResidenceAnswer culturaCurrentResidenceAnswer = null;
+    private CurrentResidenceAnswer lazerCurrentResidenceAnswer = null;
+    private CurrentResidenceAnswer esporteCurrentResidenceAnswer = null;
+    private CurrentResidenceAnswer segurancaCurrentResidenceAnswer =null;
 
     public static EquipamentsFragment newInstance() {
 
