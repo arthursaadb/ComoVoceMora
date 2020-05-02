@@ -15,6 +15,7 @@ import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.custom.VolumeVertical;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -109,7 +110,7 @@ public class FamilyIncomeFragment extends BaseFragment implements VolumeVertical
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
-        ((AboutYouActivity) requireActivity()).addFragment(YourProfessionFragment.newInstance());
+        ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
     }
 
     @OnClick(R.id.bt_back)

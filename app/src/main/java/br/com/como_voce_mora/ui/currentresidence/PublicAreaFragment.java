@@ -26,12 +26,8 @@ public class PublicAreaFragment extends BaseFragment {
     TextView tvQuestion;
 
     List<AnswerRequest> answerRequests = new ArrayList<>();
-    CurrentResidenceAnswer currentResidenceAnswer = null;
-    CurrentResidenceAnswer pracaCurrentResidenceAnswer = null;
-    CurrentResidenceAnswer parqueCurrentResidenceAnswer = null;
-    CurrentResidenceAnswer academiaCurrentResidenceAnswer = null;
-    CurrentResidenceAnswer esporteCurrentResidenceAnswer = null;
-    ;
+    CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.DEFAULT_PULIC_AREA;
+
 
     public static PublicAreaFragment newInstance() {
 
@@ -62,43 +58,43 @@ public class PublicAreaFragment extends BaseFragment {
             case R.id.csvPraca:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    answerRequests.add(new AnswerRequest(pracaCurrentResidenceAnswer.getQuestion(),
-                        pracaCurrentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
+                        currentResidenceAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(pracaCurrentResidenceAnswer.getQuestion());
+                    removeItem(csv.getText());
                     break;
                 }
             case R.id.csvParque:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    answerRequests.add(new AnswerRequest(parqueCurrentResidenceAnswer.getQuestion(),
-                        parqueCurrentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
+                        currentResidenceAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(parqueCurrentResidenceAnswer.getQuestion());
+                    removeItem(csv.getText());
                 }
             case R.id.csvAcademia:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    answerRequests.add(new AnswerRequest(academiaCurrentResidenceAnswer.getQuestion(),
-                        academiaCurrentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
+                        currentResidenceAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(academiaCurrentResidenceAnswer.getQuestion());
+                    removeItem(csv.getText());
                 }
             case R.id.csvQuadra:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    answerRequests.add(new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(),
-                        esporteCurrentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
+                        currentResidenceAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(esporteCurrentResidenceAnswer.getQuestion());
+                    removeItem(csv.getText());
                 }
         }
     }

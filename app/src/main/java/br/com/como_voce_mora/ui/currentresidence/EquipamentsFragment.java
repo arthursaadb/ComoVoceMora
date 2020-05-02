@@ -35,12 +35,12 @@ public class EquipamentsFragment extends BaseFragment {
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.URBAN_EQUIPMENT;
-    private CurrentResidenceAnswer saudeCurrentResidenceAnswer =null;
-    private CurrentResidenceAnswer escolaCurrentResidenceAnswer =null;
-    private CurrentResidenceAnswer culturaCurrentResidenceAnswer = null;
-    private CurrentResidenceAnswer lazerCurrentResidenceAnswer = null;
-    private CurrentResidenceAnswer esporteCurrentResidenceAnswer = null;
-    private CurrentResidenceAnswer segurancaCurrentResidenceAnswer =null;
+    private CurrentResidenceAnswer saudeCurrentResidenceAnswer =CurrentResidenceAnswer.SAUDE;
+    private CurrentResidenceAnswer escolaCurrentResidenceAnswer =CurrentResidenceAnswer.ESCOLA;
+    private CurrentResidenceAnswer culturaCurrentResidenceAnswer = CurrentResidenceAnswer.CULTURA;
+    private CurrentResidenceAnswer lazerCurrentResidenceAnswer = CurrentResidenceAnswer.LAZER;
+    private CurrentResidenceAnswer esporteCurrentResidenceAnswer = CurrentResidenceAnswer.ESPORTE;
+    private CurrentResidenceAnswer segurancaCurrentResidenceAnswer =CurrentResidenceAnswer.SEGURANCA;
 
     public static EquipamentsFragment newInstance() {
 
@@ -73,8 +73,7 @@ public class EquipamentsFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     saude = csv.getText();
-                    answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(),
-                        saudeCurrentResidenceAnswer.getQuestionPartId(), saude));
+                    answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(), saudeCurrentResidenceAnswer.getQuestionPartId(), saude));
                     break;
                 } else {
                     csv.setChecked(false);

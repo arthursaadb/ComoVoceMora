@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.model.CepResponse;
+import br.com.como_voce_mora.model.Utils;
 import br.com.como_voce_mora.presenter.cep.CepContract;
 import br.com.como_voce_mora.presenter.cep.CepPresenter;
 import br.com.como_voce_mora.ui.BaseFragment;
@@ -71,6 +72,7 @@ public class WhatsYourAddressFragment extends BaseFragment implements CepContrac
             public void afterTextChanged(Editable editable) {
                 if (editable.length() == 8) {
                     mPresenter.getCep(editable.toString());
+                    Utils.hideKeyboard(getActivity());
                 }
             }
         });
@@ -79,7 +81,7 @@ public class WhatsYourAddressFragment extends BaseFragment implements CepContrac
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(NeighborHoodFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(EquipamentsFragment.newInstance());
         }
     }
 

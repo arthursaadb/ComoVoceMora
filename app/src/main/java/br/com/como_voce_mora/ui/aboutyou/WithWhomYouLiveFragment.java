@@ -37,7 +37,7 @@ public class WithWhomYouLiveFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(WorkForYouFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(FamilyIncomeFragment.newInstance());
         }
     }
 
