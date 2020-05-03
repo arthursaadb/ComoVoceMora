@@ -36,7 +36,6 @@ public class UnitySplashFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
 
     }
 

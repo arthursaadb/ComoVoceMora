@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.HouseGroupAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.building.RateBuildingFragment;
@@ -36,6 +38,9 @@ public class HabitationEquipamentsFragment extends BaseFragment {
     @BindView(R.id.csvChildPool)
     CustomSelectedView csvChildPool;
 
+    private AnswerRequest answerRequests;
+    private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.LIVE_IN_CONDOMINIUM;
+    private boolean anyOptionChecked = false;
 
     public static HabitationEquipamentsFragment newInstance() {
         return new HabitationEquipamentsFragment();
@@ -44,6 +49,11 @@ public class HabitationEquipamentsFragment extends BaseFragment {
     @Override
     public int getResLayout() {
         return R.layout.fragment_habitation_equipaments;
+    }
+
+    @Override
+    public void init() {
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
     }
 
     @OnClick(R.id.bt_next)
@@ -150,6 +160,6 @@ public class HabitationEquipamentsFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+
     }
 }

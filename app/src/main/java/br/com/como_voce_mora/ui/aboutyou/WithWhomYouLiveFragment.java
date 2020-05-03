@@ -29,7 +29,6 @@ public class WithWhomYouLiveFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         tvQuestion.setText(aboutYouAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ABOUT_YOU);
     }

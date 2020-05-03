@@ -44,7 +44,6 @@ public class HouseLivingUnityFragment extends BaseFragment {
                 }
             }
         });
-        super.init();
     }
 
     @OnClick(R.id.bt_next)

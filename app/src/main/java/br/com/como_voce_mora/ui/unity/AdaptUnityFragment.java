@@ -47,7 +47,6 @@ public class AdaptUnityFragment extends BaseFragment implements VolumeVertical.O
 
     @Override
     public void init() {
-        super.init();
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
         images = new ArrayList<>();
         texts = new ArrayList<>();

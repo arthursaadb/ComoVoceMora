@@ -29,7 +29,6 @@ public class WhichDivisionFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
     }
 

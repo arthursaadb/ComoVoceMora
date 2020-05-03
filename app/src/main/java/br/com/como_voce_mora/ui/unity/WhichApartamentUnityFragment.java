@@ -37,7 +37,6 @@ public class WhichApartamentUnityFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
     }
 

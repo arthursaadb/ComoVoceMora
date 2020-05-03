@@ -38,7 +38,5 @@ public abstract class BaseFragment extends Fragment {
 
     public abstract int getResLayout();
 
-    public void init() {
-
-    }
+    public abstract void init();
 }

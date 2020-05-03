@@ -42,7 +42,6 @@ public class WhichApartamentFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         tvQuestion.setText(previous.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
     }

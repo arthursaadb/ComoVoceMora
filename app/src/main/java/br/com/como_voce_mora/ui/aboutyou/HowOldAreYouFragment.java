@@ -43,7 +43,6 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
 
     @Override
     public void init() {
-        super.init();
         mTvQuestion.setText(aboutYouAnswer.getQuestion());
 
         agesImage = new ArrayList<>();

@@ -45,7 +45,6 @@ public class SatisfactionRateFragment extends BaseFragment implements CompoundBu
 
     @Override
     public void init() {
-        super.init();
         tvQuestion.setText(previous.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
 

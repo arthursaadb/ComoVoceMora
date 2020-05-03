@@ -35,7 +35,6 @@ public class PreviousHomeFragment extends BaseFragment implements CustomRadioBut
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
         tvQuestion.setText(previous.getQuestion());
         rbRent.setOnCheckedChangeListener(this);

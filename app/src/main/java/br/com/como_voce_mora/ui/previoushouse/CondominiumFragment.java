@@ -60,7 +60,6 @@ public class CondominiumFragment extends BaseFragment implements CustomRadioButt
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
         tvQuestion.setText(previous.getQuestion());
 

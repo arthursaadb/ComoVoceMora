@@ -31,7 +31,6 @@ public class BuildingSatisfactionFragment extends BaseFragment {
     @Override
     public void init() {
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
-        super.init();
     }
 
     @OnClick(R.id.bt_next)

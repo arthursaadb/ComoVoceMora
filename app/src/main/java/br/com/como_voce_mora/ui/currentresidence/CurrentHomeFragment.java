@@ -35,7 +35,6 @@ public class CurrentHomeFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
 
     }
 

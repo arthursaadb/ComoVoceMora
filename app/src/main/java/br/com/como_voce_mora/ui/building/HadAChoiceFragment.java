@@ -44,7 +44,6 @@ public class HadAChoiceFragment extends BaseFragment implements CustomRadioButto
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         mRbFemale.setOnCheckedChangeListener(this);
         mRbMale.setOnCheckedChangeListener(this);

@@ -24,7 +24,6 @@ public class TermsFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
 
         mWvTerms.loadData(getString(R.string.terms), "text/html; charset=utf-8", "UTF-8");
     }

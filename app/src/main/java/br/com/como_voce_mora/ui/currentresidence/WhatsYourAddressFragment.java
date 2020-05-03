@@ -52,7 +52,6 @@ public class WhatsYourAddressFragment extends BaseFragment implements CepContrac
 
     @Override
     public void init() {
-        super.init();
         tvQuestion.setText("Seu endereço:");
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         mPresenter = new CepPresenter(this);

@@ -42,6 +42,11 @@ public class ResidentsUnityFragment extends BaseFragment {
         return R.layout.fragment_unity_residents;
     }
 
+    @Override
+    public void init() {
+
+    }
+
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null)

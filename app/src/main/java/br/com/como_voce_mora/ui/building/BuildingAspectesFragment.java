@@ -31,7 +31,6 @@ public class BuildingAspectesFragment extends BaseFragment {
     @Override
     public void init() {
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
-        super.init();
     }
 
     @OnClick(R.id.bt_next)

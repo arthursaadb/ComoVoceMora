@@ -35,7 +35,6 @@ public class RateBuildingFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
 
     }
 

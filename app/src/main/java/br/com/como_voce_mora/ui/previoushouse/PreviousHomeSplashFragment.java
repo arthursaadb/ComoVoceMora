@@ -35,7 +35,6 @@ public class PreviousHomeSplashFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
 
     }
 

@@ -45,7 +45,6 @@ public class BuildingFloorFragment extends BaseFragment implements VolumeVertica
 
     @Override
     public void init() {
-        super.init();
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         images = new ArrayList<>();
         texts = new ArrayList<>();

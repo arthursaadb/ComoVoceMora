@@ -60,7 +60,6 @@ public class EquipamentsFragment extends BaseFragment {
     public void init() {
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
-        super.init();
     }
 
     @OnClick({R.id.csvSaude, R.id.csvEscola, R.id.csvCultura,
