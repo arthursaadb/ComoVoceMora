@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.DoYouKnowTapFragment">
+
+    <include
+        android:id="@+id/mrClipboardLayout"
+        layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/energia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/you_know_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Você sabia?"
+        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/explanation_tv"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/explanation_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Na compra de geladeiras, máquinas de lavar roupa, aparelhos de ar condicionado e outros eletrodoméstico, escolha aqueles que possuírem a Etiqueta do Procel e estejam enquadrada no Modelo A da escala. Você pode consultar a lista de equipamentos avaliados no site do Inmetro, clicando no link abaixo:"
+        android:layout_marginEnd="64dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintTop_toBottomOf="@id/you_know_tv"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/link_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="@dimen/small_margin"
+        android:textAlignment="center"
+        android:autoLink="web"
+        android:textColorLink="@color/colorWhite"
+        android:text="(http://www.inmetro.gov.br/consumidor/tabelas.asp)"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintTop_toBottomOf="@id/explanation_tv"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

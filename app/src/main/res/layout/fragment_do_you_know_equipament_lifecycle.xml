@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.DoYouKnowTapFragment">
+
+    <include
+        android:id="@+id/mrClipboardLayout"
+        layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/agua"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/you_know_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Você sabia?"
+        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/explanation_tv"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/explanation_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Geralmente ficamos em dúvida se podemos diminuir a vida útil de um equipamento ao ligá-lo e desligá-lo várias vezes, como computadores e TVs. Esses equipamentos são projetados para suportar uma elevada situação de liga-desliga, então a recomendação é que sejam se não formos utilizá-los por alguns minutos. Além disso, a função stand-by foi desenvolvida para proporcionar conforto, mas temos que ter conhecimento que consome energia e, dependendo da quantidade de equipamentos ligados, ocorrerá um consumo mensal elevado."
+        android:layout_marginEnd="64dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintTop_toBottomOf="@id/you_know_tv"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
