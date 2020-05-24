@@ -15,7 +15,7 @@ import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class HabitationCondominiumFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+public class HabitationMissGreenAreaFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -27,15 +27,10 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
     CustomRadioButton rbNo;
 
     private AnswerRequest answerRequests;
-    private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.LIVE_IN_CONDOMINIUM;
-    private boolean yesChecked = false;
-    private boolean houseType = true;
+    private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.MISS_GREEN_AREA;
 
-    public static HabitationCondominiumFragment newInstance(boolean houseType) {
-        HabitationCondominiumFragment habitationCondominiumFragment = new HabitationCondominiumFragment();
-        habitationCondominiumFragment.houseType = houseType;
-
-        return new HabitationCondominiumFragment();
+    public static HabitationMissGreenAreaFragment newInstance() {
+        return new HabitationMissGreenAreaFragment();
     }
 
     @Override
@@ -54,15 +49,7 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         ResearchFlow.addAnswer(houseGroupAnser.getQuestion(), answerRequests);
-        if (yesChecked) {
-            if (houseType) {
-                ((AboutYouActivity) requireActivity()).addFragment(HabitationEquipmentsFragment.newInstance());
-            } else {
-                ((AboutYouActivity) requireActivity()).addFragment(HabitationBlocksFragment.newInstance());
-            }
-        } else {
-            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
-        }
+        ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
     }
 
     @OnClick(R.id.bt_back)
@@ -78,13 +65,11 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbYes:
-                    yesChecked = true;
                     rbYes.setChecked(true);
                     rbNo.setChecked(false);
                     updateRbs();
                     break;
                 case R.id.rbNo:
-                    yesChecked = false;
                     rbYes.setChecked(false);
                     rbNo.setChecked(true);
 
@@ -102,6 +87,4 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
         rbNo.updateView();
         rbYes.updateView();
     }
-
-
 }

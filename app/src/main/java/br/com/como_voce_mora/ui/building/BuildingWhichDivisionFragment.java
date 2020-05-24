@@ -10,7 +10,7 @@ import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class WhichDivisionFragment extends BaseFragment {
+public class BuildingWhichDivisionFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvMuro)
@@ -23,8 +23,8 @@ public class WhichDivisionFragment extends BaseFragment {
     CustomSelectedView csvNone;
 
 
-    public static WhichDivisionFragment newInstance() {
-        return new WhichDivisionFragment();
+    public static BuildingWhichDivisionFragment newInstance() {
+        return new BuildingWhichDivisionFragment();
     }
 
     @Override
@@ -66,7 +66,7 @@ public class WhichDivisionFragment extends BaseFragment {
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_which_division;
+        return R.layout.fragment_building_which_division;
     }
 
     @OnClick(R.id.bt_next)

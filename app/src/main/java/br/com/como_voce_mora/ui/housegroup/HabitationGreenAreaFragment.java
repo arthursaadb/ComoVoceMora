@@ -15,7 +15,7 @@ import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class HabitationCondominiumFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+public class HabitationGreenAreaFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -27,20 +27,16 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
     CustomRadioButton rbNo;
 
     private AnswerRequest answerRequests;
-    private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.LIVE_IN_CONDOMINIUM;
+    private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.GREEN_AREA;
     private boolean yesChecked = false;
-    private boolean houseType = true;
 
-    public static HabitationCondominiumFragment newInstance(boolean houseType) {
-        HabitationCondominiumFragment habitationCondominiumFragment = new HabitationCondominiumFragment();
-        habitationCondominiumFragment.houseType = houseType;
-
-        return new HabitationCondominiumFragment();
+    public static HabitationGreenAreaFragment newInstance() {
+        return new HabitationGreenAreaFragment();
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_habitation_condominium;
+        return R.layout.fragment_habitation_green_area;
     }
 
     @Override
@@ -55,13 +51,9 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
     public void onBtNextClicked() {
         ResearchFlow.addAnswer(houseGroupAnser.getQuestion(), answerRequests);
         if (yesChecked) {
-            if (houseType) {
-                ((AboutYouActivity) requireActivity()).addFragment(HabitationEquipmentsFragment.newInstance());
-            } else {
-                ((AboutYouActivity) requireActivity()).addFragment(HabitationBlocksFragment.newInstance());
-            }
+            ((AboutYouActivity) requireActivity()).addFragment(HabitationGreenAreaSatisfactionFragment.newInstance());
         } else {
-            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(HabitationMissGreenAreaFragment.newInstance());
         }
     }
 

@@ -29,5 +29,4 @@
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbYes" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

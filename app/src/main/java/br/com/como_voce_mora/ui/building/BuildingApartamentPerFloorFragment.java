@@ -11,8 +11,11 @@ import java.util.List;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.custom.VolumeVertical;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.BuildingAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.housegroup.HabitationAspectsFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -23,12 +26,17 @@ public class BuildingApartamentPerFloorFragment extends BaseFragment implements 
     ImageView mIvAge;
     @BindView(R.id.tv_school)
     TextView mTvSchool;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
+
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
 
     private List<Integer> images;
     private List<String> texts;
+    private AnswerRequest answerRequest;
+    private BuildingAnswer buildingAnswer = BuildingAnswer.APARTAMENTS_BY_FLOOR;
 
     public static BuildingApartamentPerFloorFragment newInstance() {
 
@@ -41,7 +49,7 @@ public class BuildingApartamentPerFloorFragment extends BaseFragment implements 
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_apartament_floor_building;
+        return R.layout.fragment_building_apartament_floor;
     }
 
     @Override
@@ -84,7 +92,7 @@ public class BuildingApartamentPerFloorFragment extends BaseFragment implements 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(BuildingAspectesFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
         }
     }
 

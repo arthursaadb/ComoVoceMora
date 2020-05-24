@@ -86,7 +86,7 @@ public class HabitationBlocksFragment extends BaseFragment implements VolumeVert
     public void onBtNextClicked() {
         if (anyOptionChecked)
             ResearchFlow.addAnswer(houseGroupAnser.getQuestion(), answerRequests);
-            ((AboutYouActivity) requireActivity()).addFragment(HabitationEquipamentsFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(HabitationEquipmentsFragment.newInstance());
     }
 
     @OnClick(R.id.bt_back)

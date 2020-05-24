@@ -129,6 +129,10 @@ public class CustomPodium extends RelativeLayout {
         this.onPodiumListener = onPodiumListener;
     }
 
+    public String[] getPodium() {
+        return podium;
+    }
+
     public interface OnPodiumListener {
         void onPositionClicked(String xqdl);
     }

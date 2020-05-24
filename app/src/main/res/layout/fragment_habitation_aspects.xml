@@ -3,9 +3,10 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   android:background="@color/colorBlueLight2">
+                                                   android:background="@color/colorGrayLight">
 
     <include layout="@layout/fragment_mr_clipboard_ball" />
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -24,6 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_question"
+            android:layout_centerHorizontal="true"
             android:background="@color/colorBege"
             android:orientation="horizontal">
 
@@ -34,7 +37,7 @@
                 android:layout_marginRight="70dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
-                android:text="Vaga\n de satisfação"
+                android:text="Acessibilidade"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/colorBlack" />
 
@@ -65,7 +68,7 @@
                 android:layout_marginRight="70dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
-                android:text="Hall de\n entrada"
+                android:text="Qualidade da\n Construção"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/colorBlack" />
 
@@ -97,7 +100,7 @@
                 android:layout_marginRight="70dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
-                android:text="Elevadores"
+                android:text="Aparência \nda Consturção"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/colorBlack" />
 
@@ -129,7 +132,7 @@
                 android:layout_marginRight="70dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
-                android:text="Escadas"
+                android:text="Limpeza e/ conservação"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/colorBlack" />
 
@@ -144,39 +147,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/llVolume5"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Hall do\n apartamento"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
-
-
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
-                android:paddingRight="10dp" />
-
-
-        </LinearLayout>
-
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

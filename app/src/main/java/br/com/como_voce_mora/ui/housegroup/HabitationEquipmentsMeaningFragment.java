@@ -1,8 +1,8 @@
-package br.com.como_voce_mora.ui.building;
+package br.com.como_voce_mora.ui.housegroup;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -11,28 +11,33 @@ import br.com.como_voce_mora.custom.CustomPodium;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.aboutyou.HowOldAreYouFragment;
+import br.com.como_voce_mora.ui.building.BuildingFloorFragment;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.OnClick;
 
-public class NegativePointsFragment extends BaseFragment {
+public class HabitationEquipmentsMeaningFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.cpPodium)
     CustomPodium customPodium;
     @BindViews({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
-        R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
+            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
     List<Button> mButtons;
 
+    public static HabitationEquipmentsMeaningFragment newInstance() {
 
-    public static NegativePointsFragment newInstance() {
-        return new NegativePointsFragment();
+        Bundle args = new Bundle();
+
+        HabitationEquipmentsMeaningFragment fragment = new HabitationEquipmentsMeaningFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
+
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_negative_points;
+        return R.layout.fragment_habitation_equipments_meaning;
     }
 
     @Override
@@ -50,7 +55,7 @@ public class NegativePointsFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(BuildingFloorFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(HabitationGreenAreaFragment.newInstance());
         }
     }
 
@@ -62,12 +67,11 @@ public class NegativePointsFragment extends BaseFragment {
     }
 
     @OnClick({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
-        R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
+            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption})
     public void onClickOptions(View view) {
         Button textView = (Button) view;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
     }
-
 
 }

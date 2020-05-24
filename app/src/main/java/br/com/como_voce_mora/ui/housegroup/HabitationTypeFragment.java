@@ -7,12 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.model.AnswerRequest;
-import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.HouseGroupAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
@@ -33,9 +29,10 @@ public class HabitationTypeFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    private boolean anyOneSelected = false;
     private AnswerRequest answerRequests;
     private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.HOUSING_TYPOLOGY;
-    private boolean anyOptionChecked = false;
+    private boolean houseChecked = false;
 
     public static HabitationTypeFragment newInstance() {
         return new HabitationTypeFragment();
@@ -53,9 +50,10 @@ public class HabitationTypeFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOneSelected) {
             ResearchFlow.addAnswer(houseGroupAnser.getQuestion(), answerRequests);
-            ((AboutYouActivity) requireActivity()).addFragment(HabitationCondominiumFragment.newInstance());
+            ResearchFlow.setHouse(houseChecked);
+            ((AboutYouActivity) requireActivity()).addFragment(HabitationCondominiumFragment.newInstance(houseChecked));
         }
     }
 
@@ -68,17 +66,18 @@ public class HabitationTypeFragment extends BaseFragment {
 
     @OnClick({R.id.csvHouse, R.id.csvApartament})
     public void onClickViews(View view) {
-        anyOptionChecked = true;
+        anyOneSelected = true;
         setAnswer(((CustomSelectedView) view).getText());
         switch (view.getId()) {
             case R.id.csvHouse:
+                houseChecked = true;
                 csvHouse.setChecked(true);
                 csvApartament.setChecked(false);
                 break;
             case R.id.csvApartament:
+                houseChecked = false;
                 csvHouse.setChecked(false);
                 csvApartament.setChecked(true);
-
                 break;
         }
     }

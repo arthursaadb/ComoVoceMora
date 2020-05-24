@@ -6,6 +6,7 @@ public class ResearchFlow {
     private static final ResearchFlow ourInstance = new ResearchFlow();
 
     private static HashMap<String, AnswerRequest> answerMap = new HashMap<>();
+    private static boolean house = true;
 
     public static ResearchFlow getInstance() {
         return ourInstance;
@@ -19,4 +20,11 @@ public class ResearchFlow {
     }
 
 
+    public static void setHouse(boolean houseChecked) {
+        house = houseChecked;
+    }
+
+    public static boolean getHouse() {
+        return house;
+    }
 }

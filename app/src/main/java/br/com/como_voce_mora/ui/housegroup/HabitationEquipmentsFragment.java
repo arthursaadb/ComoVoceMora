@@ -1,23 +1,21 @@
 package br.com.como_voce_mora.ui.housegroup;
 
-import android.os.Bundle;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import java.util.ArrayList;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.HouseGroupAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.building.RateBuildingFragment;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class HabitationEquipamentsFragment extends BaseFragment {
+public class HabitationEquipmentsFragment extends BaseFragment {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -38,12 +36,21 @@ public class HabitationEquipamentsFragment extends BaseFragment {
     @BindView(R.id.csvChildPool)
     CustomSelectedView csvChildPool;
 
-    private AnswerRequest answerRequests;
-    private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.LIVE_IN_CONDOMINIUM;
-    private boolean anyOptionChecked = false;
+    private AnswerRequest answerGameRoom;
+    private AnswerRequest answerGym;
+    private AnswerRequest answerParty;
+    private AnswerRequest answerAdultPool;
+    private AnswerRequest answerGourmet;
+    private AnswerRequest answerSquare;
+    private AnswerRequest answerChildPool;
+    private AnswerRequest answerPlayGround;
 
-    public static HabitationEquipamentsFragment newInstance() {
-        return new HabitationEquipamentsFragment();
+
+    private ArrayList<AnswerRequest> answerRequests = new ArrayList<>();
+    private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.CONDOMINIUM_PUBLIC_EQUIPMENT;
+
+    public static HabitationEquipmentsFragment newInstance() {
+        return new HabitationEquipmentsFragment();
     }
 
     @Override
@@ -58,7 +65,38 @@ public class HabitationEquipamentsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ((AboutYouActivity) getActivity()).addFragment(RateBuildingFragment.newInstance());
+        setAnswer();
+        ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
+    }
+
+    private void setAnswer() {
+        if(answerGameRoom!= null) {
+            answerRequests.add(answerGameRoom);
+        }
+        if(answerGym!= null) {
+            answerRequests.add(answerGym);
+        }
+        if(answerParty!= null) {
+            answerRequests.add(answerParty);
+        }
+        if(answerAdultPool!= null) {
+            answerRequests.add(answerAdultPool);
+        }
+        if(answerGourmet!= null) {
+            answerRequests.add(answerGourmet);
+        }
+        if(answerSquare!= null) {
+            answerRequests.add(answerSquare);
+        }
+        if(answerChildPool!= null) {
+            answerRequests.add(answerChildPool);
+        }
+        if(answerPlayGround!= null) {
+            answerRequests.add(answerPlayGround);
+        }
+        for (AnswerRequest r : answerRequests) {
+            ResearchFlow.addAnswer(r.getDwellerId(), r);
+        }
     }
 
     @OnClick(R.id.bt_back)
@@ -70,10 +108,12 @@ public class HabitationEquipamentsFragment extends BaseFragment {
 
 
     @OnClick({R.id.csvGamesRoom, R.id.csvGym, R.id.csvPartyRoom, R.id.csvPoolPlusEighteen, R.id.csvGourmet,
-        R.id.csvPlayGround, R.id.csvSqaure, R.id.csvChildPool})
+            R.id.csvPlayGround, R.id.csvSqaure, R.id.csvChildPool})
     public void onClickViews(View view) {
+        String text = ((CustomSelectedView) view).getText();
         switch (view.getId()) {
             case R.id.csvGamesRoom:
+                answerGameRoom = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(true);
                 csvGymRoom.setChecked(false);
                 csvPartyRoom.setChecked(false);
@@ -84,6 +124,7 @@ public class HabitationEquipamentsFragment extends BaseFragment {
                 csvPlayGround.setChecked(false);
                 break;
             case R.id.csvGym:
+                answerGym = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(false);
                 csvGymRoom.setChecked(true);
                 csvPartyRoom.setChecked(false);
@@ -94,6 +135,7 @@ public class HabitationEquipamentsFragment extends BaseFragment {
                 csvPlayGround.setChecked(false);
                 break;
             case R.id.csvPartyRoom:
+                answerParty = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(false);
                 csvGymRoom.setChecked(false);
                 csvPartyRoom.setChecked(true);
@@ -104,6 +146,7 @@ public class HabitationEquipamentsFragment extends BaseFragment {
                 csvPlayGround.setChecked(false);
                 break;
             case R.id.csvPoolPlusEighteen:
+                answerAdultPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(false);
                 csvGymRoom.setChecked(false);
                 csvPartyRoom.setChecked(false);
@@ -114,6 +157,7 @@ public class HabitationEquipamentsFragment extends BaseFragment {
                 csvPlayGround.setChecked(false);
                 break;
             case R.id.csvGourmet:
+                answerGourmet = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(false);
                 csvGymRoom.setChecked(false);
                 csvPartyRoom.setChecked(false);
@@ -124,6 +168,7 @@ public class HabitationEquipamentsFragment extends BaseFragment {
                 csvPlayGround.setChecked(false);
                 break;
             case R.id.csvPlayGround:
+                answerPlayGround = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(false);
                 csvGymRoom.setChecked(false);
                 csvPartyRoom.setChecked(false);
@@ -134,6 +179,7 @@ public class HabitationEquipamentsFragment extends BaseFragment {
                 csvPlayGround.setChecked(true);
                 break;
             case R.id.csvSqaure:
+                answerSquare = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(false);
                 csvGymRoom.setChecked(false);
                 csvPartyRoom.setChecked(false);
@@ -144,6 +190,7 @@ public class HabitationEquipamentsFragment extends BaseFragment {
                 csvPlayGround.setChecked(false);
                 break;
             case R.id.csvChildPool:
+                answerChildPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(false);
                 csvGymRoom.setChecked(false);
                 csvPartyRoom.setChecked(false);
@@ -154,12 +201,5 @@ public class HabitationEquipamentsFragment extends BaseFragment {
                 csvPlayGround.setChecked(false);
                 break;
         }
-    }
-
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
     }
 }

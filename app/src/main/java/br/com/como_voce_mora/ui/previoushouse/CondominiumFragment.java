@@ -16,6 +16,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -30,7 +31,7 @@ public class CondominiumFragment extends BaseFragment implements CustomRadioButt
     @BindView(R.id.rbNo)
     CustomRadioButton rbNo;
 
-    private boolean anyOptionChecked = false;
+    private boolean yesChecked = false;
     private AnswerRequest answerRequest;
     private PreviousHouseAnswer previous = PreviousHouseAnswer.LIVED_IN_SAME_PLACE;
 
@@ -45,9 +46,11 @@ public class CondominiumFragment extends BaseFragment implements CustomRadioButt
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
-            ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
+        ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
+        if (yesChecked) {
             ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeTypeFragment.newInstance());
+        } else {
+            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
         }
     }
 
@@ -69,16 +72,17 @@ public class CondominiumFragment extends BaseFragment implements CustomRadioButt
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        anyOptionChecked = true;
         setAnswer(buttonView.getText().toString());
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbYes:
+                    yesChecked = true;
                     rbYes.setChecked(true);
                     rbNo.setChecked(false);
                     updateRbs();
                     break;
                 case R.id.rbNo:
+                    yesChecked = false;
                     rbYes.setChecked(false);
                     rbNo.setChecked(true);
                     updateRbs();
