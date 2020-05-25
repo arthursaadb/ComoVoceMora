@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGreenLight"
-    tools:context=".ui.sustainablehabits.DoYourSaveWaterFragment">
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
 
     <include
         android:id="@+id/mrClipboardLayout"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGreenLight"
-    tools:context=".ui.sustainablehabits.DoYourSaveWaterFragment">
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
 
     <include
         android:id="@+id/mrClipboardLayout"
@@ -19,7 +19,7 @@
         android:layout_marginTop="100dp"
         android:src="@drawable/energia"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:layout_marginStart="64dp"
         android:text="Sim"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toTopOf="@id/water_iv"
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:layout_marginStart="64dp"
         android:text="Não"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintStart_toEndOf="@id/water_iv"
@@ -48,7 +50,7 @@
         android:id="@+id/rbBillsPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginStart="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:text="Economizo no preço\ndas contas"
         android:textAlignment="center"
@@ -61,7 +63,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:button="@color/colorTransparent"
-        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginStart="@dimen/default_margin"
         android:text="Causa menos danos\nambientais"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"

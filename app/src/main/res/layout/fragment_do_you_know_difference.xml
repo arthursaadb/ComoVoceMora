@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGreenLight"
-    tools:context=".ui.sustainablehabits.DoYourSaveWaterFragment">
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
 
     <include
         android:id="@+id/mrClipboardLayout"
@@ -19,7 +19,7 @@
         android:layout_marginTop="100dp"
         android:src="@drawable/ic_5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
@@ -32,8 +32,8 @@
         android:text="Sim"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintTop_toTopOf="@id/water_iv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"/>
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
