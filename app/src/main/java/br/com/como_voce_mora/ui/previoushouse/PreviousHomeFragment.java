@@ -50,7 +50,7 @@ public class PreviousHomeFragment extends BaseFragment implements CustomRadioBut
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(CondominiumFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousCondominiumFragment.newInstance());
         }
     }
 

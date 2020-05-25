@@ -1,21 +1,16 @@
 package br.com.como_voce_mora.ui.unity;
 
-import android.os.Bundle;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.housegroup.HabitationCondominiumFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class ResidentsUnityFragment extends BaseFragment {
+public class UnityResidentsFragment extends BaseFragment {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -33,8 +28,8 @@ public class ResidentsUnityFragment extends BaseFragment {
     CustomSelectedView csvOther;
 
 
-    public static ResidentsUnityFragment newInstance() {
-        return new ResidentsUnityFragment();
+    public static UnityResidentsFragment newInstance() {
+        return new UnityResidentsFragment();
     }
 
     @Override
@@ -50,7 +45,7 @@ public class ResidentsUnityFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null)
-            ((AboutYouActivity) getActivity()).addFragment(UsedSpaceUnityFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(UnityUsedSpaceFragment.newInstance());
     }
 
     @OnClick(R.id.bt_back)

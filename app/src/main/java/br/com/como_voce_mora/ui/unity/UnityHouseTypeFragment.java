@@ -1,4 +1,4 @@
-package br.com.como_voce_mora.ui.previoushouse;
+package br.com.como_voce_mora.ui.unity;
 
 import android.view.View;
 import android.widget.TextView;
@@ -7,14 +7,16 @@ import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.AnswerRequest;
-import br.com.como_voce_mora.model.PreviousHouseAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.previoushouse.PreviousAcquisitionStateFragment;
+import br.com.como_voce_mora.ui.previoushouse.PreviousWhichHouseFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class WhichHouseFragment extends BaseFragment {
+public class UnityHouseTypeFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvCasaGerminada)
@@ -32,15 +34,15 @@ public class WhichHouseFragment extends BaseFragment {
 
     private boolean anyOptionChecked = false;
     private AnswerRequest answerRequest;
-    private PreviousHouseAnswer previous = PreviousHouseAnswer.PREVIUS_HOUSE_TYPE;
+    private UnityAnswer unityAnswer = UnityAnswer.HOUSE_TYPE;
 
-    public static WhichHouseFragment newInstance() {
-        return new WhichHouseFragment();
+    public static UnityHouseTypeFragment newInstance() {
+        return new UnityHouseTypeFragment();
     }
 
     @Override
     public void init() {
-        tvQuestion.setText(previous.getQuestion());
+        tvQuestion.setText(unityAnswer.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
     }
 
@@ -93,7 +95,7 @@ public class WhichHouseFragment extends BaseFragment {
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(previous.getQuestion(), previous.getQuestionPartId(), text);
+        answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), text);
     }
 
 
@@ -105,8 +107,8 @@ public class WhichHouseFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (anyOptionChecked) {
-            ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(AcquisitionStateFragment.newInstance());
+            ResearchFlow.addAnswer(unityAnswer.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(UnityHouseLivingFragment.newInstance());
         }
     }
 
@@ -116,5 +118,6 @@ public class WhichHouseFragment extends BaseFragment {
             getActivity().onBackPressed();
         }
     }
+
 
 }

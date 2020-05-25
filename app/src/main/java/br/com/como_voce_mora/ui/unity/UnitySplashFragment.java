@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.previoushouse.PreviousHomeFragment;
 import butterknife.OnClick;
 
 public class UnitySplashFragment extends BaseFragment {
@@ -41,6 +40,6 @@ public class UnitySplashFragment extends BaseFragment {
 
     @OnClick(R.id.bt_touch_next)
     public void onClickedBtNext() {
-        ((AboutYouActivity) getActivity()).addFragment(AcquisitionUnityFragment.newInstance());
+        ((AboutYouActivity) getActivity()).addFragment(UnityAcquisitionFragment.newInstance());
     }
 }

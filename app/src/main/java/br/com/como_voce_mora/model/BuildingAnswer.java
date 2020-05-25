@@ -42,25 +42,6 @@ public enum BuildingAnswer {
 
 
     //VOLUME HORIZONTAL QUESTION
-    PUBLIC_EQUIPMENTS_SATISFACTION("Sobre os equipamentos de uso comum, avalie:", "cbeb0f65-32ce-4904-b06f-48b9600f9e7c"),
-    GYM("Academia", "590b5fd61e4d3f620eea27ee"),
-    PARTY_HALL("Salão de Festas", "590b5fd61e4d3f620eea27f1"),
-    PLAYGROUND("Playground", "590b5fd61e4d3f620eea2803"),
-    SPORTS_TABLE("Quadra de Esportes", "590b5fd61e4d3f620eea2804"),
-    GAME_HALL("Salão de Jogos", "590b5fd61e4d3f620eea280b"),
-    GOURMET_HALL("Espaços Gourmet", "590b5fd61e4d3f620eea280d"),
-    ADULT_POOL("Piscina Adulto", "590b5fd61e4d3f620eea2815"),
-    KIDS_POOL("Piscina Infantil", "590b5fd61e4d3f620eea2816"),
-    STEAM_ROOM("Sauna", "590b5fd61e4d3f620eea2817"),
-
-
-
-    BLOCK_IDENTIFICATION("Existe algum elemento de identificação no espaço do seu conjunto? (Em que seu bloco se diferencia dos demais)", "e7268e97-77fc-4e01-a29b-5454a3d67acc"),
-    RESIDENT_ORGANIZATION("Existe algum organização de moradores em seu conjunto?", "288cb1c5-1cfe-43a1-963c-eb0a88311c65"),
-    RESIDENT_ORGANIZATION_TYPE("Se existe, indique a organização de moradores do seu conjunto?", "076c146b-0d4b-4354-b933-0a0da3e3e0ad"),
-
-
-    //VOLUME HORIZONTAL QUESTION
     LOT_REVIEW("Em relação ao lote, avalie:", "affe770a-0464-4e31-b47c-8953ac33fc48"),
     LOT_SIZE("Tamanho", "59c5489bf9a75c213d64b215"),
     LOT_EVOLUTION("Capacidade de ampliação", "590b5fd61e4d3f620eea26ec"),

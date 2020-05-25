@@ -1,12 +1,7 @@
 package br.com.como_voce_mora.ui.previoushouse;
 
-import android.os.Bundle;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
@@ -20,7 +15,7 @@ import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class CondominiumFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+public class PreviousCondominiumFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -35,8 +30,8 @@ public class CondominiumFragment extends BaseFragment implements CustomRadioButt
     private AnswerRequest answerRequest;
     private PreviousHouseAnswer previous = PreviousHouseAnswer.LIVED_IN_SAME_PLACE;
 
-    public static CondominiumFragment newInstance() {
-        return new CondominiumFragment();
+    public static PreviousCondominiumFragment newInstance() {
+        return new PreviousCondominiumFragment();
     }
 
     @Override

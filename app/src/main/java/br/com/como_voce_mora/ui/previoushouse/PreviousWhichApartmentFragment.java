@@ -1,21 +1,20 @@
-package br.com.como_voce_mora.ui.unity;
+package br.com.como_voce_mora.ui.previoushouse;
 
-import android.os.Bundle;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.PreviousHouseAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.previoushouse.AcquisitionStateFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class WhichApartamentUnityFragment extends BaseFragment {
+public class PreviousWhichApartmentFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvDuplex)
@@ -30,18 +29,26 @@ public class WhichApartamentUnityFragment extends BaseFragment {
     CustomSelectedView csvConvencional;
     @BindView(R.id.csvCobertura)
     CustomSelectedView csvCobertura;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
-    public static WhichApartamentUnityFragment newInstance() {
-        return new WhichApartamentUnityFragment();
+    private boolean anyOptionChecked = false;
+    private AnswerRequest answerRequest;
+    private PreviousHouseAnswer previous = PreviousHouseAnswer.PREVIUS_APARTAMENT_TYPE;
+
+    public static PreviousWhichApartmentFragment newInstance() {
+        return new PreviousWhichApartmentFragment();
     }
 
     @Override
     public void init() {
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
+        tvQuestion.setText(previous.getQuestion());
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
     }
 
     @OnClick({R.id.csvDuplex, R.id.csvTiplex, R.id.csvQuintinete, R.id.csvLoft, R.id.csvConvencional, R.id.csvCobertura})
     public void onCheckedChanged(View view) {
+        anyOptionChecked = true;
         switch (view.getId()) {
             case R.id.csvDuplex:
                 csvDuplex.setChecked(true);
@@ -50,6 +57,7 @@ public class WhichApartamentUnityFragment extends BaseFragment {
                 csvLoft.setChecked(false);
                 csvConvencional.setChecked(false);
                 csvCobertura.setChecked(false);
+                setAnswer(csvDuplex.getText());
                 break;
             case R.id.csvTiplex:
                 csvDuplex.setChecked(false);
@@ -58,6 +66,7 @@ public class WhichApartamentUnityFragment extends BaseFragment {
                 csvLoft.setChecked(false);
                 csvConvencional.setChecked(false);
                 csvCobertura.setChecked(false);
+                setAnswer(csvTiplex.getText());
                 break;
             case R.id.csvQuintinete:
                 csvDuplex.setChecked(false);
@@ -66,6 +75,7 @@ public class WhichApartamentUnityFragment extends BaseFragment {
                 csvLoft.setChecked(false);
                 csvConvencional.setChecked(false);
                 csvCobertura.setChecked(false);
+                setAnswer(csvQuintinete.getText());
                 break;
             case R.id.csvLoft:
                 csvDuplex.setChecked(false);
@@ -74,6 +84,7 @@ public class WhichApartamentUnityFragment extends BaseFragment {
                 csvLoft.setChecked(true);
                 csvConvencional.setChecked(false);
                 csvCobertura.setChecked(false);
+                setAnswer(csvLoft.getText());
                 break;
             case R.id.csvConvencional:
                 csvDuplex.setChecked(false);
@@ -82,6 +93,7 @@ public class WhichApartamentUnityFragment extends BaseFragment {
                 csvLoft.setChecked(false);
                 csvConvencional.setChecked(true);
                 csvCobertura.setChecked(false);
+                setAnswer(csvConvencional.getText());
                 break;
             case R.id.csvCobertura:
                 csvDuplex.setChecked(false);
@@ -90,20 +102,26 @@ public class WhichApartamentUnityFragment extends BaseFragment {
                 csvLoft.setChecked(false);
                 csvConvencional.setChecked(true);
                 csvCobertura.setChecked(true);
+                setAnswer(csvCobertura.getText());
                 break;
         }
+    }
+
+    private void setAnswer(String text) {
+        answerRequest = new AnswerRequest(previous.getQuestion(), previous.getQuestionPartId(), text);
     }
 
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_unity_apartament;
+        return R.layout.fragment_which_apartament;
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(HouseLivingUnityFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousAcquisitionStateFragment.newInstance());
         }
     }
 
@@ -113,5 +131,4 @@ public class WhichApartamentUnityFragment extends BaseFragment {
             getActivity().onBackPressed();
         }
     }
-
 }
