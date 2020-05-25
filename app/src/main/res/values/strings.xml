@@ -99,8 +99,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Hábitos saudáveis -->
-    <string name="solar_panels">Placas solares</string>
-    <string name="photovoltaic_panels">Painéis fotovoltaícos</string>
-    <string name="systems">Ambos os sistemas</string>
-    <string name="none">Nenhum dos dois sistemas</string>
+    <string name="why_do_you_save_water_title">Você economiza água, por que?</string>
+    <string name="organic_1">Sacola plástica</string>
+    <string name="organic_2">Bolsa reutilizável</string>
+    <string name="organic_3">Caixa de papelão</string>
+    <string name="organic_4">Outros</string>
 </resources>
