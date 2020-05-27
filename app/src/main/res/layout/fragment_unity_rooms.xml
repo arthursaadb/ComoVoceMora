@@ -27,32 +27,32 @@
                 android:id="@+id/csvServico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/praca"
-                app:nameItem="@string/praça"
+                app:imageItem="@drawable/lavanderia"
+                app:nameItem="@string/area_servico"
                 app:textColor="@color/colorBlack" />
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvBanheiro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/parque"
-                app:nameItem="@string/parque"
+                app:imageItem="@drawable/banheiro"
+                app:nameItem="@string/banheiro"
                 app:textColor="@color/colorBlack" />
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvCasal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/parque"
-                app:nameItem="@string/parque"
+                app:imageItem="@drawable/dormCasal"
+                app:nameItem="@string/decasal"
                 app:textColor="@color/colorBlack" />
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvSolteiro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/parque"
-                app:nameItem="@string/parque"
+                app:imageItem="@drawable/dormSolteiro"
+                app:nameItem="@string/desolteiro"
                 app:textColor="@color/colorBlack" />
 
         </LinearLayout>
@@ -67,35 +67,34 @@
                 android:id="@+id/csvSala"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/academia"
-                app:nameItem="@string/academia_livre"
+                app:imageItem="@drawable/estar"
+                app:nameItem="@string/estar"
                 app:textColor="@color/colorBlack" />
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvCopa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/quadra"
-                app:nameItem="@string/quadra"
+                app:imageItem="@drawable/salaJantar"
+                app:nameItem="@string/jantar"
                 app:textColor="@color/colorBlack" />
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvVaranda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/quadra"
-                app:nameItem="@string/quadra"
+                app:imageItem="@drawable/varanda"
+                app:nameItem="@string/varanda"
                 app:textColor="@color/colorBlack" />
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvCozinha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/quadra"
-                app:nameItem="@string/quadra"
+                app:imageItem="@drawable/cozinha"
+                app:nameItem="@string/cozinha"
                 app:textColor="@color/colorBlack" />
         </LinearLayout>
-
 
     </LinearLayout>
 

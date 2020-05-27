@@ -14,6 +14,7 @@ import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -71,7 +72,7 @@ public class UnityUtilAreaFragment extends BaseFragment  implements VolumeVertic
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         ResearchFlow.addAnswer(unityAnswer.getQuestion(), answerRequest);
-//        ((AboutYouActivity) requireActivity()).addFragment(WithWhomYouLiveFragment.newInstance());
+        ((AboutYouActivity) requireActivity()).addFragment(UnityRoomsFragment.newInstance());
 
     }
 

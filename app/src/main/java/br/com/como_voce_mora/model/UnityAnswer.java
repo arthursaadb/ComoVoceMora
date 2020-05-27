@@ -50,7 +50,7 @@ public enum UnityAnswer {
     REFORM_DIFICULTY("Considerando as alterações/reformas, diga-me o nível de dificuldade em:", "1c62df09-ca01-4f9c-be06-2b62582b4cfc"),
     CHANGE_FURNISHINGS_POSITION("Variar posição dos móveis", "590b5fd61e4d3f620eea27c8"),
     CAHNGE_ELETRONICS_POSITIONS("Variar posição dos eletrodomésticos", "590b5fd61e4d3f620eea27c9"),
-    NATURAL_PLANTS("nserir flores e plantas naturais", "590b5fd61e4d3f620eea27ca"),
+    NATURAL_PLANTS("Inserir flores e plantas naturais", "590b5fd61e4d3f620eea27ca"),
     PERSONAL_DECORATION("Inserir objetos pessoais decorativos ou de recordações", "590b5fd61e4d3f620eea27cb"),
     PAINT("Pintar e/ou usar papel de parede", "590b5fd61e4d3f620eea27cc"),
     DROP_WALL("Abrir vãos e/ou derrubar paredes", "590b5fd61e4d3f620eea27cd"),
@@ -64,7 +64,7 @@ public enum UnityAnswer {
     IMPROVE_CONFORT("Melhorar o conforto", "590b5fd61e4d3f620eea27a7"),
     RESOLVE_TECNICAL_INSUE("Resolver problema técnico", "590b5fd61e4d3f620eea27a8"),
     DECREASE_ROOM("Diminuir cômodo", "590b5fd61e4d3f620eea27a9"),
-    CAHNGE_ROOM_FUNCTION("Alterar a função do cômodo", "590b5fd61e4d3f620eea27aa"),
+    CHANGE_ROOM_FUNCTION("Alterar a função do cômodo", "590b5fd61e4d3f620eea27aa"),
     OTHER_REASON("Outro", "590b5fd61e4d3f620eea27c1"),
     ELIMINATE_ROOM("Eliminar cômodo", "590b5fd61e4d3f620eea27c7"),
 
