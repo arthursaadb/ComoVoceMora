@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
+
+    <include
+        android:id="@+id/mrClipboardLayout"
+        layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/plantas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/optionYes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Sim"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintBottom_toTopOf="@id/water_iv"
+        app:layout_constraintStart_toEndOf="@id/water_iv" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/optionNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Não"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@id/water_iv" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbBillsPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:text="Decoração(acho\nbonita)"
+        android:textAlignment="center"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintStart_toEndOf="@id/optionYes"
+        app:layout_constraintTop_toTopOf="@id/optionYes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbLessAmbientalDamage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:text="Gosto de cuidar"
+        android:textAlignment="center"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/rbBillsPrice"
+        app:layout_constraintTop_toTopOf="@id/rbBillsPrice" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbDry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Melhora a qualidade\ndo ar"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rbBillsPrice"
+        app:layout_constraintStart_toStartOf="@id/rbBillsPrice"
+        app:layout_constraintTop_toBottomOf="@id/rbBillsPrice" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Consumo próprio"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rbDry"
+        app:layout_constraintStart_toStartOf="@id/rbDry"
+        app:layout_constraintTop_toBottomOf="@id/rbDry" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbOthers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Outros"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintTop_toBottomOf="@id/rbLessAmbientalDamage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
