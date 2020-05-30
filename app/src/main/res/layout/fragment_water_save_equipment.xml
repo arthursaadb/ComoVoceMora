@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorGreenLight">
 
-    <include layout="@layout/fragment_mr_clipboard_full" />
-
+    <include layout="@layout/fragment_mr_clipboard_ball" />
 
     <br.com.como_voce_mora.custom.CustomSelectedView
         android:id="@+id/cvsSolarPlates"
@@ -15,12 +14,12 @@
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        app:imageItem="@drawable/casa_casa"
+        app:imageItem="@drawable/maquina"
         app:layout_constraintBottom_toBottomOf="@id/bt_next"
         app:layout_constraintEnd_toStartOf="@id/csvApartament"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toTopOf="@id/bt_next"
-        app:nameItem="@string/solar_1" />
+        app:nameItem="@string/equipment_1" />
 
     <br.com.como_voce_mora.custom.CustomSelectedView
         android:id="@+id/csvPhotovoltaicPanels"
@@ -29,34 +28,58 @@
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        app:imageItem="@drawable/apartamento_apartamento"
+        app:imageItem="@drawable/caixadagua"
         app:layout_constraintBottom_toBottomOf="@id/bt_next"
-        app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/cvsSolarPlates"
         app:layout_constraintTop_toTopOf="@id/bt_next"
-        app:nameItem="@string/solar_2" />
+        app:nameItem="@string/equipment_2" />
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/csv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        app:imageItem="@drawable/descarga"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/csvPhotovoltaicPanels"
+        app:layout_constraintTop_toTopOf="@id/bt_next"
+        app:nameItem="@string/equipment_3" />
 
     <br.com.como_voce_mora.custom.CustomSelectedView
         android:id="@+id/csvSystems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:imageItem="@drawable/apartamento_apartamento"
-       app:layout_constraintTop_toBottomOf="@id/cvsSolarPlates"
+        app:imageItem="@drawable/vasocaixa"
+        app:layout_constraintTop_toBottomOf="@id/cvsSolarPlates"
         app:layout_constraintStart_toStartOf="@id/cvsSolarPlates"
         app:layout_constraintEnd_toEndOf="@id/cvsSolarPlates"
-        app:nameItem="@string/solar_3" />
+        app:nameItem="@string/equipment_4" />
 
     <br.com.como_voce_mora.custom.CustomSelectedView
         android:id="@+id/cvsNone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:imageItem="@drawable/apartamento_apartamento"
-       app:layout_constraintTop_toBottomOf="@id/csvPhotovoltaicPanels"
+        app:imageItem="@drawable/torneira"
+        app:layout_constraintTop_toBottomOf="@id/csvPhotovoltaicPanels"
         app:layout_constraintStart_toStartOf="@id/csvPhotovoltaicPanels"
         app:layout_constraintEnd_toEndOf="@id/csvPhotovoltaicPanels"
-        app:nameItem="@string/solar_4" />
+        app:nameItem="@string/equipment_5" />
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/others"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:imageItem="@drawable/torneira"
+        app:layout_constraintTop_toBottomOf="@id/csv5"
+        app:layout_constraintStart_toStartOf="@id/csv5"
+        app:layout_constraintEnd_toEndOf="@id/csv5"
+        app:nameItem="@string/equipment_6" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

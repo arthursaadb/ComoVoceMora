@@ -104,4 +104,16 @@
     <string name="organic_2">Bolsa reutilizável</string>
     <string name="organic_3">Caixa de papelão</string>
     <string name="organic_4">Outros</string>
+
+    <string name="equipment_1">Máquina lavar com\nreuso</string>
+    <string name="equipment_2">Caixa d água para\nreuso</string>
+    <string name="equipment_3">Descarga com duplo\nfluxo</string>
+    <string name="equipment_4">Vaso com caixa\nacoplada</string>
+    <string name="equipment_5">Torneira econômica</string>
+    <string name="equipment_6">Outros</string>
+
+    <string name="solar_1">Placas solares</string>
+    <string name="solar_2">Painés\nfotovoltaicos</string>
+    <string name="solar_3">Ambos os\nsistemas</string>
+    <string name="solar_4">Nenhum dos dois\nsistemas</string>
 </resources>

@@ -42,7 +42,7 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
-    SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WATER_SAVE_EQUIPMENT;
+    SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WATHER_SAVE_EQUIPMENT;
     AnswerRequest answerRequest;
 
     public static WhyYouNotUseEquipamentFragment newInstance() {
