@@ -11,6 +11,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -24,10 +25,10 @@ public class PreviousHomeFragment extends BaseFragment implements CustomRadioBut
     CustomRadioButton rbRent;
     @BindView(R.id.rbFinanced)
     CustomRadioButton rbFinanced;
-
+    private boolean yesChecked = false;
     private boolean anyOptionChecked = false;
     private AnswerRequest answerRequest;
-    private PreviousHouseAnswer previous = PreviousHouseAnswer.LIVE_IN_CONDOMINIUM;
+    private PreviousHouseAnswer previous = PreviousHouseAnswer.LIVED_IN_SAME_PLACE;
 
     public static PreviousHomeFragment newInstance() {
         return new PreviousHomeFragment();
@@ -50,7 +51,11 @@ public class PreviousHomeFragment extends BaseFragment implements CustomRadioBut
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(PreviousCondominiumFragment.newInstance());
+            if (yesChecked) {
+                ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeTypeFragment.newInstance());
+            } else {
+                ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
+            }
         }
     }
 
@@ -68,11 +73,13 @@ public class PreviousHomeFragment extends BaseFragment implements CustomRadioBut
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbRent:
+                    yesChecked = true;
                     rbRent.setChecked(true);
                     rbFinanced.setChecked(false);
                     updateRbs();
                     break;
                 case R.id.rbFinanced:
+                    yesChecked = false;
                     rbRent.setChecked(false);
                     rbFinanced.setChecked(true);
                     updateRbs();
