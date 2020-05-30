@@ -41,7 +41,7 @@ public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_what_you_do_to_save_water;
+        return R.layout.fragment_do_your_save_water;
     }
 
     @OnClick(R.id.bt_next)

@@ -1,14 +1,9 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
@@ -24,41 +19,37 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WhyYouNotUseEquipamentFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
-    @BindView(R.id.optionYes)
+    @BindView(R.id.rbBrushMyTeeth)
     CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.optionNo)
+    @BindView(R.id.rbDishes)
     CustomRadioButton rbDishes;
-    @BindView(R.id.rbBillsPrice)
-    CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbLessAmbientalDamage)
-    CustomRadioButton rbWashMachineReuse;
-    @BindView(R.id.rbDry)
+    @BindView(R.id.rbQuickShowers)
     CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbOthers)
+    @BindView(R.id.rbFewDevices)
     CustomRadioButton rbFewDevices;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
-    SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WATHER_SAVE_EQUIPMENT;
+    SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_WHY_NOT;
     AnswerRequest answerRequest;
 
-    public static WhyYouNotUseEquipamentFragment newInstance() {
-        return new WhyYouNotUseEquipamentFragment();
+    public static OrganicFoodWhyNotFragment newInstance() {
+        return new OrganicFoodWhyNotFragment();
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_why_you_not_use_equipament;
+        return R.layout.fragment_organic_food_why_not;
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowEquipamentsFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowTapFragment.newInstance());
         }
     }
 
@@ -71,11 +62,10 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
 
     @Override
     public void init() {
+        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
         rbDishes.setOnCheckedChangeListener(this);
-        rbWashMachineCapacity.setOnCheckedChangeListener(this);
-        rbWashMachineReuse.setOnCheckedChangeListener(this);
         rbQuickShowers.setOnCheckedChangeListener(this);
         rbFewDevices.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
@@ -85,12 +75,11 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             setAnswer(buttonView.getText().toString());
+
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(false);
 
@@ -99,28 +88,6 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
                 case R.id.rbDishes:
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-
-                    updateViews();
-                    break;
-                case R.id.rbWashMachineCapacity:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(true);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-
-                    updateViews();
-                    break;
-                case R.id.rbWashMachineReuse:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(true);
                     rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(false);
 
@@ -129,8 +96,6 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
                 case R.id.rbQuickShowers:
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(true);
                     rbFewDevices.setChecked(false);
 
@@ -139,20 +104,8 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
                 case R.id.rbFewDevices:
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(true);
-
-                    updateViews();
-                    break;
-                case R.id.rbOther:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
@@ -163,12 +116,9 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
     private void updateViews() {
         rbBrushMyTeeth.updateView();
         rbDishes.updateView();
-        rbWashMachineCapacity.updateView();
-        rbWashMachineReuse.updateView();
         rbQuickShowers.updateView();
         rbFewDevices.updateView();
     }
-
 
     private void setAnswer(String text) {
         answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
