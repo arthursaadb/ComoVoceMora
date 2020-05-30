@@ -43,7 +43,7 @@
                 android:id="@+id/csvCasal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/dormCasal"
+                app:imageItem="@drawable/dorm_casal"
                 app:nameItem="@string/decasal"
                 app:textColor="@color/colorBlack" />
 
@@ -51,7 +51,7 @@
                 android:id="@+id/csvSolteiro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/dormSolteiro"
+                app:imageItem="@drawable/dorm_solteiro"
                 app:nameItem="@string/desolteiro"
                 app:textColor="@color/colorBlack" />
 
@@ -75,7 +75,7 @@
                 android:id="@+id/csvCopa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/salaJantar"
+                app:imageItem="@drawable/sala_jantar"
                 app:nameItem="@string/jantar"
                 app:textColor="@color/colorBlack" />
 

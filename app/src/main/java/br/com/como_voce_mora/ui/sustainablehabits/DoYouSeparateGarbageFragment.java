@@ -66,7 +66,6 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
         rbDishes.setOnCheckedChangeListener(this);

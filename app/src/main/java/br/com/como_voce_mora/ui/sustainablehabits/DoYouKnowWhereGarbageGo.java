@@ -53,7 +53,6 @@ public class DoYouKnowWhereGarbageGo extends BaseFragment implements CustomRadio
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
         rbDishes.setOnCheckedChangeListener(this);

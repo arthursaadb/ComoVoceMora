@@ -64,7 +64,6 @@ public class OrganicFoodWhyFragment extends BaseFragment implements CustomRadioB
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
         rbDishes.setOnCheckedChangeListener(this);

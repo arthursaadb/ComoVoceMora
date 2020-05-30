@@ -65,7 +65,6 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
         rbDishes.setOnCheckedChangeListener(this);

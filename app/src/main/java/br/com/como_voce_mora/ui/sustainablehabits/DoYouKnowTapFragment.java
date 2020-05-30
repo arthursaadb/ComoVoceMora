@@ -11,7 +11,6 @@ import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.building.NegativePointsFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -47,7 +46,6 @@ public class DoYouKnowTapFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
     }
 }

@@ -16,7 +16,6 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.SustainableHabitsAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.previoushouse.AcquisitionStateFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -52,7 +51,6 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }

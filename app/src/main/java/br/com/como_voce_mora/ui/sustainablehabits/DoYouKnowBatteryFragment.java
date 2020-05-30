@@ -44,7 +44,6 @@ public class DoYouKnowBatteryFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
     }
 }

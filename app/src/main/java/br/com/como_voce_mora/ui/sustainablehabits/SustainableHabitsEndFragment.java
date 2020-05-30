@@ -27,6 +27,11 @@ public class SustainableHabitsEndFragment extends BaseFragment {
         return R.layout.fragment_sustainable_habits_end;
     }
 
+    @Override
+    public void init() {
+
+    }
+
     @OnClick(R.id.rootLayout)
     public void onClickRoot() {
 //        ((AboutYouActivity) requireActivity()).addFragment(WhyDoYouSaveWater.newInstance());

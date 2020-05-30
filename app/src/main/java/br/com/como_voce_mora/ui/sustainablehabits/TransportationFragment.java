@@ -63,7 +63,6 @@ public class TransportationFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         texts.add("Muito Ruim");
