@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
+
+    <include
+        android:id="@+id/mrClipboardLayout"
+        layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/agua"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbBrushMyTeeth"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="24dp"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:padding="@dimen/default_padding"
+        android:text="Escovo os dentes com a\ntorneira fechada"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@id/water_iv"
+        app:layout_constraintStart_toEndOf="@id/water_iv" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbDishes"
+        style="@style/CustomRadioButton"
+        android:layout_marginTop="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:padding="@dimen/default_padding"
+        android:text="Ensabouo a louça com a\ntorneira fechada"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
+        app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
+        app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbWashMachineCapacity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:padding="@dimen/default_padding"
+        android:text="Uso a máquina de lavar na capacidade máxima"
+        android:textAlignment="center"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rbDishes"
+        app:layout_constraintStart_toStartOf="@id/rbDishes"
+        app:layout_constraintTop_toBottomOf="@id/rbDishes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbWashMachineReuse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Reutilizo água da máquina\nde lavar"
+        android:textAlignment="center"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rbWashMachineCapacity"
+        app:layout_constraintStart_toStartOf="@id/rbWashMachineCapacity"
+        app:layout_constraintTop_toBottomOf="@id/rbWashMachineCapacity" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbQuickShowers"
+        style="@style/CustomRadioButton"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:padding="@dimen/default_padding"
+        android:text="Tomo banhos rápidos"
+        android:textAlignment="center"
+        android:textSize="@dimen/micro_text_size"
+        android:layout_marginStart="80dp"
+        app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
+        app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
+
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbFewDevices"
+        style="@style/CustomRadioButton"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:padding="@dimen/default_padding"
+        android:text="Possuo aparelhos que\neconomizam água"
+        android:textAlignment="center"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
+        app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
+        app:layout_constraintTop_toTopOf="@id/rbDishes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbOthers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:button="@color/colorTransparent"
+        android:text="Outros"
+        android:textAlignment="center"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintEnd_toEndOf="@id/rbFewDevices"
+        app:layout_constraintStart_toStartOf="@+id/rbFewDevices"
+        app:layout_constraintTop_toTopOf="@id/rbWashMachineCapacity" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
