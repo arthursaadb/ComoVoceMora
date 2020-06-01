@@ -19,6 +19,10 @@ public class ResearchFlow {
         answerMap.put(question, answerRequest);
     }
 
+    public static HashMap<String, AnswerRequest> getMap() {
+        return answerMap;
+    }
+
 
     public static void setHouse(boolean houseChecked) {
         house = houseChecked;
