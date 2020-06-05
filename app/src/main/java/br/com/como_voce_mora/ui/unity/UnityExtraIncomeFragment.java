@@ -80,7 +80,7 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CustomRadi
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(unityAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) getActivity()).addFragment(UnityResidentsFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(UnityRateLivingFragment.newInstance());
         }
     }
 

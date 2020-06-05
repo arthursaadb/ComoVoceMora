@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.housegroup;
 
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -35,6 +36,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
     CustomSelectedView csvSquare;
     @BindView(R.id.csvChildPool)
     CustomSelectedView csvChildPool;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
     private AnswerRequest answerGameRoom;
     private AnswerRequest answerGym;
@@ -61,6 +64,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+        tvQuestion.setText(houseGroupAnser.getQuestion());
     }
 
     @OnClick(R.id.bt_next)
@@ -70,28 +74,28 @@ public class HabitationEquipmentsFragment extends BaseFragment {
     }
 
     private void setAnswer() {
-        if(answerGameRoom!= null) {
+        if (answerGameRoom != null) {
             answerRequests.add(answerGameRoom);
         }
-        if(answerGym!= null) {
+        if (answerGym != null) {
             answerRequests.add(answerGym);
         }
-        if(answerParty!= null) {
+        if (answerParty != null) {
             answerRequests.add(answerParty);
         }
-        if(answerAdultPool!= null) {
+        if (answerAdultPool != null) {
             answerRequests.add(answerAdultPool);
         }
-        if(answerGourmet!= null) {
+        if (answerGourmet != null) {
             answerRequests.add(answerGourmet);
         }
-        if(answerSquare!= null) {
+        if (answerSquare != null) {
             answerRequests.add(answerSquare);
         }
-        if(answerChildPool!= null) {
+        if (answerChildPool != null) {
             answerRequests.add(answerChildPool);
         }
-        if(answerPlayGround!= null) {
+        if (answerPlayGround != null) {
             answerRequests.add(answerPlayGround);
         }
         for (AnswerRequest r : answerRequests) {
@@ -115,90 +119,36 @@ public class HabitationEquipmentsFragment extends BaseFragment {
             case R.id.csvGamesRoom:
                 answerGameRoom = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
                 csvGamesRoom.setChecked(true);
-                csvGymRoom.setChecked(false);
-                csvPartyRoom.setChecked(false);
-                csvPoolPlusEighteen.setChecked(false);
-                csvGourmet.setChecked(false);
-                csvSquare.setChecked(false);
-                csvChildPool.setChecked(false);
-                csvPlayGround.setChecked(false);
+                ;
                 break;
             case R.id.csvGym:
                 answerGym = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGamesRoom.setChecked(false);
                 csvGymRoom.setChecked(true);
-                csvPartyRoom.setChecked(false);
-                csvPoolPlusEighteen.setChecked(false);
-                csvGourmet.setChecked(false);
-                csvSquare.setChecked(false);
-                csvChildPool.setChecked(false);
-                csvPlayGround.setChecked(false);
                 break;
             case R.id.csvPartyRoom:
                 answerParty = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGamesRoom.setChecked(false);
-                csvGymRoom.setChecked(false);
                 csvPartyRoom.setChecked(true);
-                csvPoolPlusEighteen.setChecked(false);
-                csvGourmet.setChecked(false);
-                csvSquare.setChecked(false);
-                csvChildPool.setChecked(false);
-                csvPlayGround.setChecked(false);
+
                 break;
             case R.id.csvPoolPlusEighteen:
                 answerAdultPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGamesRoom.setChecked(false);
-                csvGymRoom.setChecked(false);
-                csvPartyRoom.setChecked(false);
                 csvPoolPlusEighteen.setChecked(true);
-                csvGourmet.setChecked(false);
-                csvSquare.setChecked(false);
-                csvChildPool.setChecked(false);
-                csvPlayGround.setChecked(false);
                 break;
             case R.id.csvGourmet:
                 answerGourmet = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGamesRoom.setChecked(false);
-                csvGymRoom.setChecked(false);
-                csvPartyRoom.setChecked(false);
-                csvPoolPlusEighteen.setChecked(false);
                 csvGourmet.setChecked(true);
-                csvSquare.setChecked(false);
-                csvChildPool.setChecked(false);
-                csvPlayGround.setChecked(false);
                 break;
             case R.id.csvPlayGround:
                 answerPlayGround = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGamesRoom.setChecked(false);
-                csvGymRoom.setChecked(false);
-                csvPartyRoom.setChecked(false);
-                csvPoolPlusEighteen.setChecked(false);
-                csvGourmet.setChecked(false);
-                csvSquare.setChecked(false);
-                csvChildPool.setChecked(false);
                 csvPlayGround.setChecked(true);
                 break;
             case R.id.csvSqaure:
                 answerSquare = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGamesRoom.setChecked(false);
-                csvGymRoom.setChecked(false);
-                csvPartyRoom.setChecked(false);
-                csvPoolPlusEighteen.setChecked(false);
-                csvGourmet.setChecked(false);
                 csvSquare.setChecked(true);
-                csvChildPool.setChecked(false);
-                csvPlayGround.setChecked(false);
                 break;
             case R.id.csvChildPool:
                 answerChildPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGamesRoom.setChecked(false);
-                csvGymRoom.setChecked(false);
-                csvPartyRoom.setChecked(false);
-                csvPoolPlusEighteen.setChecked(false);
-                csvGourmet.setChecked(false);
-                csvSquare.setChecked(false);
                 csvChildPool.setChecked(true);
-                csvPlayGround.setChecked(false);
                 break;
         }
     }

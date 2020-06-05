@@ -1,9 +1,11 @@
 package br.com.como_voce_mora.ui.housegroup;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.model.HouseGroupAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.building.BuildingWhichDivisionFragment;
@@ -14,6 +16,10 @@ public class HabitationSatisfactionFragment extends BaseFragment {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
+
+    HouseGroupAnswer houseGroupAnswer = HouseGroupAnswer.EQUIPMENTS_TO_ADD;
 
     public static HabitationSatisfactionFragment newInstance() {
 
@@ -32,6 +38,7 @@ public class HabitationSatisfactionFragment extends BaseFragment {
     @Override
     public void init() {
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+        tvQuestion.setText(houseGroupAnswer.getQuestion());
     }
 
     @OnClick(R.id.bt_next)

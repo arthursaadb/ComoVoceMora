@@ -17,7 +17,7 @@ import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class UnityRateLivingFragment extends BaseFragment {
+public class UnitySatisfactionRoom extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
     @BindView(R.id.tv_question)
@@ -37,27 +37,27 @@ public class UnityRateLivingFragment extends BaseFragment {
 
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
-    private UnityAnswer satisfaction = UnityAnswer.SATISFACTION_BY_ROOM;
-    private UnityAnswer size = UnityAnswer.SIZE;
-    private UnityAnswer division = UnityAnswer.DIVISION;
-    private UnityAnswer quality = UnityAnswer.CONSTRUCTION_QUALITY;
-    private UnityAnswer clean = UnityAnswer.CLEAN_DIFFICULTY;
-    private UnityAnswer adaptation = UnityAnswer.ADAPTATION;
-    private UnityAnswer privacy = UnityAnswer.PRIVACY;
+    private UnityAnswer satisfaction = UnityAnswer.CHARACTERISTICS_SATISFACTION;
+    private UnityAnswer size = UnityAnswer.SIZE_SATISFACTION;
+    private UnityAnswer division = UnityAnswer.EASE_OF_FURNISHINGS;
+    private UnityAnswer quality = UnityAnswer.TEMPERATURE;
+    private UnityAnswer clean = UnityAnswer.NATURAL_VENTILATION;
+    private UnityAnswer adaptation = UnityAnswer.NATURAL_ILUMINATION;
+    private UnityAnswer privacy = UnityAnswer.NOISE_LEVEL;
     private List<String> texts = new ArrayList<>();
 
-    public static UnityRateLivingFragment newInstance() {
+    public static UnitySatisfactionRoom newInstance() {
 
         Bundle args = new Bundle();
 
-        UnityRateLivingFragment fragment = new UnityRateLivingFragment();
+        UnitySatisfactionRoom fragment = new UnitySatisfactionRoom();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_unity_rate_living;
+        return R.layout.fragment_unity_satisfaction_room;
     }
 
     @Override
@@ -110,7 +110,7 @@ public class UnityRateLivingFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (getActivity() != null) {
             setAnswers();
-            ((AboutYouActivity) getActivity()).addFragment(UnityUtilAreaFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(UnityReformFragment.newInstance());
         }
     }
 

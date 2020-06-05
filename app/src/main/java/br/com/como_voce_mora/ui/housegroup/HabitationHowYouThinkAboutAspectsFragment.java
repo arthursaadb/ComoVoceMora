@@ -57,7 +57,7 @@ public class HabitationHowYouThinkAboutAspectsFragment extends BaseFragment {
     @Override
     public void init() {
         tvQuestion.setText(aspects.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
         texts.add("Muito Ruim");
         texts.add("Ruim");
         texts.add("Regular");

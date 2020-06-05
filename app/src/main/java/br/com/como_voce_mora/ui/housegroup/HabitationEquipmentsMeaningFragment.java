@@ -3,6 +3,7 @@ package br.com.como_voce_mora.ui.housegroup;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
     @BindViews({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
             R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
     List<Button> mButtons;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
     public static HabitationEquipmentsMeaningFragment newInstance() {
 
@@ -42,6 +45,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
 
     @Override
     public void init() {
+        tvQuestion.setText("Para você, o que significa a presença de equipamentos de uso comum em um edifcio?");
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         customPodium.setOnPodiumListener(xqdl -> {
             for (Button b : mButtons) {

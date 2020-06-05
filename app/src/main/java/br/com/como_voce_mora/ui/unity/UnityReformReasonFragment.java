@@ -26,7 +26,7 @@ public class UnityReformReasonFragment extends BaseFragment {
     @BindView(R.id.cpPodium)
     CustomPodium customPodium;
     @BindViews({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
-            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption, R.id.btNineOption})
+            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption})
     List<Button> mButtons;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
@@ -112,12 +112,12 @@ public class UnityReformReasonFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (getActivity() != null) {
             setAnswers();
-//            ((AboutYouActivity) getActivity()).addFragment(UnityAdaptFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(UnitySunLightFragment.newInstance());
         }
     }
 
     @OnClick({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
-            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption, R.id.btNineOption})
+            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption})
     public void onClickOptions(View view) {
         Button textView = (Button) view;
         customPodium.putOnPodium(textView.getText().toString());

@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.building;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -107,6 +108,7 @@ public class BuildingFloorFragment extends BaseFragment implements VolumeVertica
     public void positionVolume(int position) {
         mIvAge.setImageResource(images.get(position));
         mTvSchool.setText(texts.get(position));
+        mTvSchool.setVisibility(View.VISIBLE);
         answerRequest = new AnswerRequest(buildingAnswer.getQuestion(), buildingAnswer.getQuestionPartId(), texts.get(position));
     }
 
