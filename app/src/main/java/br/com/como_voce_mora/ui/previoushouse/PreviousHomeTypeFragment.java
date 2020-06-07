@@ -61,7 +61,7 @@ public class PreviousHomeTypeFragment extends BaseFragment {
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.csvHouse:
-                nextFragment = WhichHouseFragment.newInstance();
+                nextFragment = PreviousWhichHouseFragment.newInstance();
                 csvHouse.setChecked(true);
                 csvApartment.setChecked(false);
                 setAnswer(csvHouse.getText());
@@ -69,7 +69,7 @@ public class PreviousHomeTypeFragment extends BaseFragment {
             case R.id.csvApartament:
                 csvHouse.setChecked(false);
                 csvApartment.setChecked(true);
-                nextFragment = WhichApartamentFragment.newInstance();
+                nextFragment = PreviousWhichApartmentFragment.newInstance();
                 setAnswer(csvApartment.getText());
                 break;
         }

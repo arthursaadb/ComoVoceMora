@@ -35,7 +35,6 @@ public class HouseGroupFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
 
     }
 

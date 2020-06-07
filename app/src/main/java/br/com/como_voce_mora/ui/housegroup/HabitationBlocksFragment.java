@@ -1,21 +1,19 @@
 package br.com.como_voce_mora.ui.housegroup;
 
-import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
-import br.com.como_voce_mora.ui.BaseFragment;
-import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.custom.VolumeVertical;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.HouseGroupAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -29,9 +27,17 @@ public class HabitationBlocksFragment extends BaseFragment implements VolumeVert
     ImageView mIvBlocks;
     @BindView(R.id.tv_blocks)
     TextView mTvBlocks;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
     private List<Integer> blocks = new ArrayList<>();
     private List<String> blocksText = new ArrayList<>();
+
+
+    private AnswerRequest answerRequests;
+    private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.CONDOMINIUM_BLOCKS;
+    private boolean anyOptionChecked = false;
+
 
     public static HabitationBlocksFragment newInstance() {
         return new HabitationBlocksFragment();
@@ -42,23 +48,10 @@ public class HabitationBlocksFragment extends BaseFragment implements VolumeVert
         return R.layout.fragment_habitation_blocks;
     }
 
-    @OnClick(R.id.bt_next)
-    public void onBtNextClicked() {
-        if (getActivity() != null)
-            ((AboutYouActivity) getActivity()).addFragment(HabitationEquipamentsFragment.newInstance());
-    }
-
-    @OnClick(R.id.bt_back)
-    public void onBtBackClicked() {
-        if (getActivity() != null) {
-            getActivity().onBackPressed();
-        }
-    }
-
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+        tvQuestion.setText(houseGroupAnser.getQuestion());
 
         blocks.add(R.drawable.blocos_12);
         blocksText.add("12");
@@ -89,9 +82,25 @@ public class HabitationBlocksFragment extends BaseFragment implements VolumeVert
         mVolume.setMax(blocks.size() - 1);
     }
 
+    @OnClick(R.id.bt_next)
+    public void onBtNextClicked() {
+        if (anyOptionChecked)
+            ResearchFlow.addAnswer(houseGroupAnser.getQuestion(), answerRequests);
+            ((AboutYouActivity) requireActivity()).addFragment(HabitationEquipmentsFragment.newInstance());
+    }
+
+    @OnClick(R.id.bt_back)
+    public void onBtBackClicked() {
+        if (getActivity() != null) {
+            getActivity().onBackPressed();
+        }
+    }
+
     @Override
     public void positionVolume(int position) {
+        anyOptionChecked = true;
         mIvBlocks.setImageResource(blocks.get(position));
         mTvBlocks.setText(blocksText.get(position));
+        answerRequests = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), blocksText.get(position));
     }
 }

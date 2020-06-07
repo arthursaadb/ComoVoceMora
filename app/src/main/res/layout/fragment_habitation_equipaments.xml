@@ -40,8 +40,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
-                app:nameItem="@string/games_room"
-                app:imageItem="@drawable/game_room" />
+                app:nameItem="@string/gym"
+                app:imageItem="@drawable/academia" />
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvSqaure"
@@ -50,8 +50,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
-                app:nameItem="@string/games_room"
-                app:imageItem="@drawable/game_room" />
+                app:nameItem="@string/quadra"
+                app:imageItem="@drawable/quadra" />
 
         </LinearLayout>
 

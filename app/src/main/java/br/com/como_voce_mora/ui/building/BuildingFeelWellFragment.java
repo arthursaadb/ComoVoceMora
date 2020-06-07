@@ -41,12 +41,11 @@ public class BuildingFeelWellFragment extends BaseFragment implements VolumeVert
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_feel_well;
+        return R.layout.fragment_building_feel_well;
     }
 
     @Override
     public void init() {
-        super.init();
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         images = new ArrayList<>();
         texts = new ArrayList<>();

@@ -40,7 +40,6 @@ public class WhatYourGenderFragment extends BaseFragment implements CustomRadioB
 
     @Override
     public void init() {
-        super.init();
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ABOUT_YOU);
         mTvQuestion.setText(aboutYouAnswer.getQuestion());
 

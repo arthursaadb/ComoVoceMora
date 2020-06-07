@@ -29,7 +29,6 @@ public class WithWhomYouLiveFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
         tvQuestion.setText(aboutYouAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ABOUT_YOU);
     }
@@ -37,7 +36,7 @@ public class WithWhomYouLiveFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(WorkForYouFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(FamilyIncomeFragment.newInstance());
         }
     }
 

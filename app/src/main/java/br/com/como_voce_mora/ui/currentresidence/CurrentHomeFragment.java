@@ -35,12 +35,12 @@ public class CurrentHomeFragment extends BaseFragment {
 
     @Override
     public void init() {
-        super.init();
 
     }
 
     @OnClick(R.id.bt_touch_next)
     public void onClickedBtNext() {
-        ((AboutYouActivity) getActivity()).addFragment(CountryFragment.newInstance());
+        ((AboutYouActivity) getActivity()).addFragment(WhatsYourAddressFragment.newInstance());
+
     }
 }

@@ -53,7 +53,6 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
 
     @Override
     public void init() {
-        super.init();
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
         tvQuestion2.setText(currentResidenceAnswer2.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:orientation="vertical"
+                                                   android:background="@color/colorPink">
+
+    <include layout="@layout/fragment_mr_clipboard_full" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvServico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageItem="@drawable/lavanderia"
+                app:nameItem="@string/area_servico"
+                app:textColor="@color/colorBlack" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvBanheiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageItem="@drawable/banheiro"
+                app:nameItem="@string/banheiro"
+                app:textColor="@color/colorBlack" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvCasal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageItem="@drawable/dormCasal"
+                app:nameItem="@string/decasal"
+                app:textColor="@color/colorBlack" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvSolteiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageItem="@drawable/dormSolteiro"
+                app:nameItem="@string/desolteiro"
+                app:textColor="@color/colorBlack" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvSala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageItem="@drawable/estar"
+                app:nameItem="@string/estar"
+                app:textColor="@color/colorBlack" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvCopa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageItem="@drawable/salaJantar"
+                app:nameItem="@string/jantar"
+                app:textColor="@color/colorBlack" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvVaranda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageItem="@drawable/varanda"
+                app:nameItem="@string/varanda"
+                app:textColor="@color/colorBlack" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvCozinha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageItem="@drawable/cozinha"
+                app:nameItem="@string/cozinha"
+                app:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

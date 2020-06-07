@@ -47,7 +47,6 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
 
     @Override
     public void init() {
-        super.init();
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
         rbYes.setOnCheckedChangeListener(this);
@@ -82,7 +81,7 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
                     break;
                 case R.id.rbNo:
                     rbYes.setChecked(false);
-                    rbYes.setChecked(true);
+                    rbNo.setChecked(true);
                     updateRbs();
                     break;
             }

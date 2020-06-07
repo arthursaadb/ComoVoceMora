@@ -43,7 +43,6 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
 
     @Override
     public void init() {
-        super.init();
         tvQuestion.setText(aboutYouAnswer.getQuestion());
 
         images = new ArrayList<>();

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <include layout="@layout/fragment_mr_clipboard_ball" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbYes"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Sim"
+        android:gravity="center"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintBottom_toTopOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@id/rbYes"
+        app:layout_constraintTop_toTopOf="@id/rbYes">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbMovel"
+                android:text="Sim"
+                android:gravity="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toTopOf="@id/bt_next"
+                app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbEletro"
+                android:text="Sim"
+                android:gravity="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toTopOf="@id/bt_next"
+                app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbFlores"
+                android:text="Sim"
+                android:gravity="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toTopOf="@id/bt_next"
+                app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbDec"
+                android:text="Sim"
+                android:gravity="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toTopOf="@id/bt_next"
+                app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbPintar"
+                android:text="Sim"
+                android:gravity="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toTopOf="@id/bt_next"
+                app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbVao"
+                android:text="Sim"
+                android:gravity="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toTopOf="@id/bt_next"
+                app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbForro"
+                android:text="Sim"
+                android:gravity="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toTopOf="@id/bt_next"
+                app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbLuz"
+                android:text="Sim"
+                android:gravity="center"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toTopOf="@id/bt_next"
+                app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbNo"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Sim"
+        android:gravity="center"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintTop_toBottomOf="@id/rbYes"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
