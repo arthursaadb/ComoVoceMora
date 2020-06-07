@@ -39,7 +39,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <ImageView
         android:id="@+id/water_iv"
         android:layout_width="200dp"
@@ -74,11 +73,16 @@
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintTop_toBottomOf="@id/you_know_tv" />
 
-
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

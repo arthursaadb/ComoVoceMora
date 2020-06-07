@@ -40,14 +40,14 @@ public class DoYouKnowEcopointFragment extends BaseFragment implements CustomRad
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_do_you_know_where_gargage_go;
+        return R.layout.fragment_do_you_know_ecopoint;
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(WhatYouDoToSaveWater.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouSeparateOilFragment.newInstance());
         }
     }
 

@@ -53,7 +53,7 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(WhatYouDoToSaveElectricity.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowWhereGarbageGo.newInstance());
         }
     }
 

@@ -55,7 +55,7 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_do_your_save_water;
+        return R.layout.fragment_do_you_separate_oil;
     }
 
     @OnClick(R.id.bt_next)

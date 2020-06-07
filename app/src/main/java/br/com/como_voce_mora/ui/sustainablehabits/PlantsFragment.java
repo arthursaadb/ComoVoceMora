@@ -55,7 +55,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(WhatYouDoToSaveWater.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(PlantsTypeFragment.newInstance());
         }
     }
 

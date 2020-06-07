@@ -101,7 +101,7 @@ public class TransportationFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         setAnswers();
-        ((AboutYouActivity) requireActivity()).addFragment(ClassifyAspectesFragment.newInstance());
+        ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowVehiclesFragment.newInstance());
     }
 
     private void setAnswers() {

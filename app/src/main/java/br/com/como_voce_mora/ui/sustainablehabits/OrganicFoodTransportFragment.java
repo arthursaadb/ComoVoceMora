@@ -120,7 +120,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             setAnswer();
-            ((AboutYouActivity) requireActivity()).addFragment(WhyReasonEquipamentFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(PlantsFragment.newInstance());
         }
     }
 

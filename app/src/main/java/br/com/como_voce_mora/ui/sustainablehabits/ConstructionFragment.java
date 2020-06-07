@@ -58,7 +58,7 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowProcelFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(ElectronicFragment.newInstance());
         }
     }
 
