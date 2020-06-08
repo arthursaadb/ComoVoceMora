@@ -79,8 +79,8 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
         texts = new ArrayList<>();
         texts.add("Pós-graduação completo");
         texts.add("Pós-graduação incompleto");
-        texts.add("ensino superior completo");
-        texts.add("ensino superior incompleto");
+        texts.add("Ensino superior completo");
+        texts.add("Ensino superior incompleto");
         texts.add("3° ano médio completo");
         texts.add("3° ano médio incompleto");
         texts.add("2° ano médio completo");
@@ -105,7 +105,7 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
         texts.add("2° ano fundamental incompleto");
         texts.add("1° ano fundamental completo");
         texts.add("1° ano fundamental incompleto");
-        texts.add("nunca fui à escola");
+        texts.add("Nunca fui à escola");
 
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);

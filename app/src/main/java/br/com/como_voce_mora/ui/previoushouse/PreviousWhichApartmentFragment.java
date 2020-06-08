@@ -100,7 +100,7 @@ public class PreviousWhichApartmentFragment extends BaseFragment {
                 csvTiplex.setChecked(false);
                 csvQuintinete.setChecked(false);
                 csvLoft.setChecked(false);
-                csvConvencional.setChecked(true);
+                csvConvencional.setChecked(false);
                 csvCobertura.setChecked(true);
                 setAnswer(csvCobertura.getText());
                 break;

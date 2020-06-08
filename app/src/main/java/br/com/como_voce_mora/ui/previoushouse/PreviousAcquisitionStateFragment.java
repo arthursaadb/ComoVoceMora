@@ -81,7 +81,7 @@ public class PreviousAcquisitionStateFragment extends BaseFragment implements Cu
                     setAnswer(mRb3.getText().toString());
                     updateRbs();
                     break;
-                case R.id.rbOther:
+                case R.id.rbBorrowed:
                     mRb1.setChecked(false);
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);

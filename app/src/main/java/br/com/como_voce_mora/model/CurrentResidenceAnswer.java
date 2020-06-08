@@ -44,7 +44,7 @@ public enum CurrentResidenceAnswer {
 
     NEIGHBORHOOD_ORGANIZATION_TYPE("Informe qual organização de moradores (comunitária) está presente no seu bairro.", "1752bdd5-0e02-4962-994e-7b0b9fe5ceed"),
 
-    INTEGRATED_IN_CITY("Você se sente integrado à cidade em que mora?", "3c0ad0c0-57ef-4dd8-a138-e4569bba29aa"),
+    INTEGRATED_IN_CITY("Você se sente integrado à cidade onde mora?", "3c0ad0c0-57ef-4dd8-a138-e4569bba29aa"),
 
      DEFAULT_PULIC_AREA("Você conhece os seguintes equipamentos urbanos no seu bairro?", "40ae50b9-8c33-43d9-b2a8-261a943d6cf4"),
 

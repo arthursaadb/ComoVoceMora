@@ -45,7 +45,7 @@
     <string name="address_please">Por favor, não abreviar e não acentuar!</string>
     <string name="equipaments_question">Indique quais dos equipamentos urbanos abaixo estão presentes no seu bairro:</string>
     <string name="saude">Saúde</string>
-    <string name="escola">Escola</string>
+    <string name="escola">Educação</string>
     <string name="cultura">Cultura</string>
     <string name="lazer">Lazer</string>
     <string name="esporte">Esporte</string>
@@ -70,10 +70,11 @@
     <string name="playground">Playground</string>
     <string name="square">Quadra</string>
     <string name="child_pool">Piscina infantil</string>
-    <string name="casagerminada">Casa germinada</string>
+    <string name="casagerminada">Casa geminada</string>
     <string name="sobrado">Sobrado</string>
     <string name="vila">Casa de vila</string>
-    <string name="terrea">Casa Térrea</string>
+    <string name="terrea">Casa térrea</string>
+    <string name="fundo">Casa fundo</string>
     <string name="duplex">Duplex</string>
     <string name="triplex">Triplex</string>
     <string name="quitinete">Quitinete</string>
