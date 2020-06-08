@@ -31,6 +31,8 @@
         android:layout_marginEnd="@dimen/default_margin"
         android:background="@color/colorWhite"
         android:textColor="@color/colorBlack"
+        android:singleLine="true"
+        android:maxLines="1"
         app:layout_constraintTop_toTopOf="@id/tvDigitHere"
         app:layout_constraintStart_toEndOf="@id/tvDigitHere"
         app:layout_constraintBottom_toBottomOf="@id/tvDigitHere"

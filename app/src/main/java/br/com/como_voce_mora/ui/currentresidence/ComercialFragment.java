@@ -12,6 +12,7 @@ import br.com.como_voce_mora.custom.VolumeHorizontal;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.Utils;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -75,6 +76,7 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
             answerRequest2 = new AnswerRequest(currentResidenceAnswer2.getQuestion(), currentResidenceAnswer2.getQuestionPartId(), etCity.getText().toString());
             ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
             ResearchFlow.addAnswer(currentResidenceAnswer2.getQuestion(), answerRequest2);
+            Utils.hideKeyboard(requireActivity());
             ((AboutYouActivity) requireActivity()).addFragment(PublicAreaFragment.newInstance());
         }
     }

@@ -14,6 +14,7 @@ import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.Utils;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -128,6 +129,7 @@ public class OrganizationFragment extends BaseFragment implements CustomRadioBut
     private void setAnswer() {
         AnswerRequest answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), "");
         ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
+        Utils.hideKeyboard(getActivity());
         for (AnswerRequest r : answerRequestList) {
             ResearchFlow.addAnswer(r.getDwellerId(), r);
         }

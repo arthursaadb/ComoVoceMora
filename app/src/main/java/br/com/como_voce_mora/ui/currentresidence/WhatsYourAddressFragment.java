@@ -99,6 +99,7 @@ public class WhatsYourAddressFragment extends BaseFragment implements CepContrac
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
+        Utils.hideKeyboard(getActivity());
         setAnswer();
     }
 
