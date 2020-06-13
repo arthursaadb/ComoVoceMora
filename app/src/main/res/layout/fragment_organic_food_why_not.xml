@@ -63,7 +63,6 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbFewDevices"
         style="@style/CustomRadioButton"
-        android:layout_width="0dp"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Outros"

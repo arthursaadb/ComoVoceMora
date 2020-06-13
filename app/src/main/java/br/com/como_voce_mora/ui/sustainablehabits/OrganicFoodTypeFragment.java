@@ -52,7 +52,7 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowTapFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
         }
     }
 

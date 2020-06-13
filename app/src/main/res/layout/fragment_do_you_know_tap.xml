@@ -77,7 +77,14 @@
         app:layout_constraintTop_toBottomOf="@id/you_know_tv"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"/>
+
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <br.com.como_voce_mora.custom.HowYouLiveProgressBar
         android:id="@+id/progress_bar"

@@ -31,7 +31,7 @@ public class DoYouKnowVehiclesFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(TransportationReasonFragment.newInstance());
         }
     }
 

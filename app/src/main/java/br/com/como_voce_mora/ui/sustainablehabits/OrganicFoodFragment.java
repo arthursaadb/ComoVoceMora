@@ -54,7 +54,7 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowMedicamentExpiredFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodWhyFragment.newInstance());
         }
     }
 

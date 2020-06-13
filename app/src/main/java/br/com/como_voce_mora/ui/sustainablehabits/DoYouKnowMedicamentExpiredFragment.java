@@ -30,7 +30,7 @@ public class DoYouKnowMedicamentExpiredFragment extends BaseFragment {
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_do_you_know_battery;
+        return R.layout.fragment_do_you_know_medicament_expired;
     }
 
     @OnClick(R.id.bt_next)

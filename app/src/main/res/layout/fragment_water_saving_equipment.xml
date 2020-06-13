@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight">
+
+    <include layout="@layout/fragment_mr_clipboard_ball" />
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/cvsSolarPlates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        app:imageItem="@drawable/maquina"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next"
+        app:layout_constraintEnd_toStartOf="@id/csvApartament"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toTopOf="@id/bt_next"
+        app:nameItem="@string/equipment_1" />
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/csvPhotovoltaicPanels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        app:imageItem="@drawable/caixadagua"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/cvsSolarPlates"
+        app:layout_constraintTop_toTopOf="@id/bt_next"
+        app:nameItem="@string/equipment_2" />
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/csvSystems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:imageItem="@drawable/vasocaixa"
+        app:layout_constraintTop_toBottomOf="@id/cvsSolarPlates"
+        app:layout_constraintStart_toStartOf="@id/cvsSolarPlates"
+        app:layout_constraintEnd_toEndOf="@id/cvsSolarPlates"
+        app:nameItem="@string/equipment_4" />
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/cvsNone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:imageItem="@drawable/descarga"
+        app:layout_constraintTop_toTopOf="@id/csvPhotovoltaicPanels"
+        app:layout_constraintStart_toEndOf="@id/csvPhotovoltaicPanels"
+        app:layout_constraintBottom_toBottomOf="@id/csvPhotovoltaicPanels"
+        app:nameItem="@string/equipment_3" />
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/option5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:imageItem="@drawable/torneira"
+        app:layout_constraintTop_toBottomOf="@id/csvPhotovoltaicPanels"
+        app:layout_constraintStart_toStartOf="@id/csvPhotovoltaicPanels"
+        app:layout_constraintStart_toEndOf="@id/csvPhotovoltaicPanels"
+        app:nameItem="@string/equipment_5"/>
+
+    <br.com.como_voce_mora.custom.CustomSelectedView
+        android:id="@+id/option6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:imageItem="@drawable/interrogacao"
+        app:layout_constraintTop_toTopOf="@id/option5"
+        app:layout_constraintStart_toEndOf="@id/option5"
+        app:layout_constraintBottom_toBottomOf="@id/option5"
+        app:nameItem="@string/equipment_6"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
