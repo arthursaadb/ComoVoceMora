@@ -24,18 +24,12 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class OrganicFoodTransportFragment extends BaseFragment {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
-    @BindView(R.id.csvCasaGerminada)
-    CustomSelectedView csvCasaGerminada;
-    @BindView(R.id.csvSobrado)
-    CustomSelectedView csvSobrado;
-    @BindView(R.id.csvVila)
-    CustomSelectedView csvVila;
-    @BindView(R.id.csvTerreo)
-    CustomSelectedView csvTerreo;
-    @BindView(R.id.tv_question)
-    TextView mTvQuestion;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
+    @BindView(R.id.cvsSolarPlates) CustomSelectedView cvsSolarPlates;
+    @BindView(R.id.csvPhotovoltaicPanels) CustomSelectedView csvPhotovoltaicPanels;
+    @BindView(R.id.csvSystems) CustomSelectedView csvSystems;
+    @BindView(R.id.cvsNone) CustomSelectedView cvsNone;
+    @BindView(R.id.tv_question) TextView mTvQuestion;
 
     private String saude = "";
     private String escola = "";
@@ -61,12 +55,12 @@ public class OrganicFoodTransportFragment extends BaseFragment {
         return R.layout.fragment_organic_food_transport;
     }
 
-    @OnClick({R.id.csvCasaGerminada, R.id.csvSobrado, R.id.csvVila, R.id.csvTerreo, R.id.csvFundo})
+    @OnClick({R.id.cvsSolarPlates, R.id.csvPhotovoltaicPanels, R.id.csvSystems, R.id.cvsNone})
     public void onCheckedChanged(View view) {
         CustomSelectedView csv = (CustomSelectedView) view;
         anyOptionChecked = true;
         switch (view.getId()) {
-            case R.id.csvCasaGerminada:
+            case R.id.cvsSolarPlates:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     saude = csv.getText();
@@ -78,7 +72,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                     removeItem(sustainableHabitsAnswer.getQuestion());
                     break;
                 }
-            case R.id.csvSobrado:
+            case R.id.csvPhotovoltaicPanels:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     escola = csv.getText();
@@ -89,7 +83,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
                 }
-            case R.id.csvVila:
+            case R.id.csvSystems:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     cultura = csv.getText();
@@ -100,7 +94,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
                 }
-            case R.id.csvTerreo:
+            case R.id.cvsNone:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     lazer = csv.getText();
