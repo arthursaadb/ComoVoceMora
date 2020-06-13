@@ -3,9 +3,9 @@ package br.com.como_voce_mora.presenter;
 public class ServicesPresenterContract {
 
     public interface Presenter {
-        void getDwellerId();
+        void callService();
 
-        void postAnswers();
+        void postAnswers(String dwellerId);
     }
 
     public interface View {

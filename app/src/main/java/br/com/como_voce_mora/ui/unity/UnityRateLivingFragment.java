@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.unity;
 
+import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -44,6 +45,15 @@ public class UnityRateLivingFragment extends BaseFragment {
     private UnityAnswer adaptation = UnityAnswer.ADAPTATION;
     private UnityAnswer privacy = UnityAnswer.PRIVACY;
     private List<String> texts = new ArrayList<>();
+
+    public static UnityRateLivingFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        UnityRateLivingFragment fragment = new UnityRateLivingFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public int getResLayout() {

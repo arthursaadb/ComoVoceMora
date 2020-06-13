@@ -35,12 +35,12 @@ public class EquipamentsFragment extends BaseFragment {
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.URBAN_EQUIPMENT;
-    private CurrentResidenceAnswer saudeCurrentResidenceAnswer =CurrentResidenceAnswer.SAUDE;
-    private CurrentResidenceAnswer escolaCurrentResidenceAnswer =CurrentResidenceAnswer.ESCOLA;
+    private CurrentResidenceAnswer saudeCurrentResidenceAnswer = CurrentResidenceAnswer.SAUDE;
+    private CurrentResidenceAnswer escolaCurrentResidenceAnswer = CurrentResidenceAnswer.ESCOLA;
     private CurrentResidenceAnswer culturaCurrentResidenceAnswer = CurrentResidenceAnswer.CULTURA;
     private CurrentResidenceAnswer lazerCurrentResidenceAnswer = CurrentResidenceAnswer.LAZER;
     private CurrentResidenceAnswer esporteCurrentResidenceAnswer = CurrentResidenceAnswer.ESPORTE;
-    private CurrentResidenceAnswer segurancaCurrentResidenceAnswer =CurrentResidenceAnswer.SEGURANCA;
+    private CurrentResidenceAnswer segurancaCurrentResidenceAnswer = CurrentResidenceAnswer.SEGURANCA;
 
     public static EquipamentsFragment newInstance() {
 
@@ -63,7 +63,7 @@ public class EquipamentsFragment extends BaseFragment {
     }
 
     @OnClick({R.id.csvSaude, R.id.csvEscola, R.id.csvCultura,
-        R.id.csvLazer, R.id.csvEsporte, R.id.csvSeguranca})
+            R.id.csvLazer, R.id.csvEsporte, R.id.csvSeguranca})
     void onClickViews(View view) {
         CustomSelectedView csv = (CustomSelectedView) view;
         anyOneSelected = true;
@@ -84,7 +84,7 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     escola = csv.getText();
                     answerRequests.add(new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(),
-                        escolaCurrentResidenceAnswer.getQuestionPartId(), escola));
+                            escolaCurrentResidenceAnswer.getQuestionPartId(), escola));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -95,7 +95,7 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     cultura = csv.getText();
                     answerRequests.add(new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(),
-                        culturaCurrentResidenceAnswer.getQuestionPartId(), cultura));
+                            culturaCurrentResidenceAnswer.getQuestionPartId(), cultura));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -106,7 +106,7 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     lazer = csv.getText();
                     answerRequests.add(new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(),
-                        lazerCurrentResidenceAnswer.getQuestionPartId(), lazer));
+                            lazerCurrentResidenceAnswer.getQuestionPartId(), lazer));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -117,7 +117,7 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     esporte = csv.getText();
                     answerRequests.add(new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(),
-                        esporteCurrentResidenceAnswer.getQuestionPartId(), esporte));
+                            esporteCurrentResidenceAnswer.getQuestionPartId(), esporte));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -125,9 +125,10 @@ public class EquipamentsFragment extends BaseFragment {
                 }
             case R.id.csvSeguranca:
                 if (!csv.isChecked()) {
+                    csv.setChecked(true);
                     seguranca = csv.getText();
                     answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(),
-                        segurancaCurrentResidenceAnswer.getQuestionPartId(), seguranca));
+                            segurancaCurrentResidenceAnswer.getQuestionPartId(), seguranca));
                     break;
                 } else {
                     csv.setChecked(false);

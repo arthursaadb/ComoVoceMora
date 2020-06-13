@@ -24,6 +24,8 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
     CustomRadioButton rbNo;
     @BindView(R.id.rbYes)
     CustomRadioButton rbYes;
+    @BindView(R.id.rbRegultar)
+    CustomRadioButton rbRegular;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
@@ -51,6 +53,7 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
         rbYes.setOnCheckedChangeListener(this);
         rbNo.setOnCheckedChangeListener(this);
+        rbRegular.setOnCheckedChangeListener(this);
     }
 
     @OnClick(R.id.bt_next)
@@ -84,6 +87,12 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
                     rbNo.setChecked(true);
                     updateRbs();
                     break;
+                case R.id.rbRegultar:
+                    rbYes.setChecked(false);
+                    rbNo.setChecked(false);
+                    rbRegular.setChecked(true);
+                    updateRbs();
+                    break;
             }
         }
     }
@@ -95,5 +104,6 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
     private void updateRbs() {
         rbYes.updateView();
         rbNo.updateView();
+        rbRegular.updateView();
     }
 }

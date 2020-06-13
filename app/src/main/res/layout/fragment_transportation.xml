@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight">
+
+    <include layout="@layout/fragment_mr_clipboard_ball" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBege"
+        app:layout_constraintTop_toTopOf="@id/volumeAcesso"
+        app:layout_constraintBottom_toBottomOf="@id/volumeAcesso"
+        app:layout_constraintStart_toStartOf="@id/tvAcesso"
+        app:layout_constraintEnd_toEndOf="@id/volumeAcesso" />
+
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/mobilidade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAcesso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:text="No dia-a-dia, até cinco\nquarteirões"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/default_padding"
+        android:textSize="@dimen/default_text_size"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/colorBlack"
+        android:paddingLeft="@dimen/default_padding"
+        app:layout_constraintTop_toTopOf="@id/volumeAcesso"
+        app:layout_constraintBottom_toBottomOf="@id/volumeAcesso"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@id/volumeAcesso"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+
+    <br.com.como_voce_mora.custom.VolumeHorizontal
+        android:id="@+id/volumeAcesso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginRight="@dimen/default_margin"
+        android:gravity="end"
+        android:paddingEnd="@dimen/default_padding"
+        app:layout_constraintStart_toEndOf="@id/tvAcesso"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        android:paddingRight="@dimen/default_padding" />
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBege"
+        app:layout_constraintStart_toStartOf="@id/tvQuantidade"
+        app:layout_constraintTop_toTopOf="@id/tvQuantidade"
+        app:layout_constraintBottom_toBottomOf="@id/tvQuantidade"
+        app:layout_constraintEnd_toEndOf="@id/volumeQuantidade" />
+
+    <TextView
+        android:id="@+id/tvQuantidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:text="No dia-a-dia, de cinco a \nde quarteirões"
+        android:paddingStart="@dimen/default_padding"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/default_text_size"
+        android:paddingLeft="@dimen/default_padding"
+        app:layout_constraintTop_toBottomOf="@id/volumeAcesso"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@id/volumeQuantidade"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+
+    <br.com.como_voce_mora.custom.VolumeHorizontal
+        android:id="@+id/volumeQuantidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:gravity="end"
+        android:paddingEnd="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        app:layout_constraintStart_toEndOf="@id/tvQuantidade"
+        app:layout_constraintTop_toTopOf="@id/tvQuantidade"
+        app:layout_constraintBottom_toBottomOf="@id/tvQuantidade"
+        app:layout_constraintEnd_toEndOf="@id/volumeAcesso" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBege"
+        app:layout_constraintStart_toStartOf="@id/tvQualidade"
+        app:layout_constraintTop_toTopOf="@id/tvQualidade"
+        app:layout_constraintBottom_toBottomOf="@id/tvQualidade"
+        app:layout_constraintEnd_toEndOf="@id/volumeQualidade" />
+
+    <TextView
+        android:id="@+id/tvQualidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="No dia-a-dia, acima de\ndez quarteirões"
+        android:textSize="@dimen/default_text_size"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/colorBlack"
+        android:paddingStart="@dimen/default_padding"
+        android:paddingLeft="@dimen/default_padding"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/tvQuantidade"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@id/volumeQualidade" />
+
+
+    <br.com.como_voce_mora.custom.VolumeHorizontal
+        android:id="@+id/volumeQualidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingEnd="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        app:layout_constraintStart_toEndOf="@id/tvQualidade"
+        app:layout_constraintTop_toTopOf="@id/tvQualidade"
+        app:layout_constraintEnd_toEndOf="@id/volumeQuantidade"
+        app:layout_constraintBottom_toBottomOf="@id/tvQualidade" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBege"
+        app:layout_constraintStart_toStartOf="@id/tvSeguranca"
+        app:layout_constraintTop_toTopOf="@id/volumeSeguranca"
+        app:layout_constraintBottom_toBottomOf="@id/volumeSeguranca"
+        app:layout_constraintEnd_toEndOf="@id/volumeSeguranca" />
+
+    <TextView
+        android:id="@+id/tvSeguranca"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Mais utilizado no\ngeral"
+        android:paddingStart="@dimen/default_padding"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/default_text_size"
+        android:paddingLeft="@dimen/default_padding"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintBottom_toBottomOf="@id/volumeSeguranca"
+        app:layout_constraintEnd_toStartOf="@id/volumeSeguranca"
+        app:layout_constraintTop_toTopOf="@id/volumeSeguranca" />
+
+
+    <br.com.como_voce_mora.custom.VolumeHorizontal
+        android:id="@+id/volumeSeguranca"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="end"
+        android:paddingEnd="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        app:layout_constraintTop_toBottomOf="@id/tvQualidade"
+        app:layout_constraintStart_toEndOf="@id/tvSeguranca"
+        app:layout_constraintEnd_toEndOf="@id/volumeQualidade" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@ package br.com.como_voce_mora.model;
 
 public enum HouseGroupAnswer {
 
-    HOUSING_TYPOLOGY("Que tipologia de habitação você reside?", "b9badba5-9a5a-4bab-95e2-f7664e1a908b"),
+    HOUSING_TYPOLOGY("Em que tipologia de habitação você reside?", "b9badba5-9a5a-4bab-95e2-f7664e1a908b"),
     LIVE_IN_CONDOMINIUM("A moradia em que você reside pertence a um condomínio?", "3b286887-ea0e-4a0f-b22c-ed2cbe4673ed"),
     CONDOMINIUM_BLOCKS("Quantos blocos existem no seu condomínio?", "0e43b1af-bbe0-48e2-8ffc-1a663681cf0a"),
     CONDOMINIUM_PUBLIC_EQUIPMENT("Selecione os equipamentos de uso coletivo que existem no seu condomínio.", "41a76c17-3ea9-47e8-bf25-45d7bab862fa"),

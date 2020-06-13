@@ -9,21 +9,45 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DoYouKnowEquipamentsFragment extends Fragment {
+public class DoYouKnowEquipamentsFragment extends BaseFragment {
 
-    public DoYouKnowEquipamentsFragment() {
-        // Required empty public constructor
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+
+    public static DoYouKnowEquipamentsFragment newInstance() {
+        return new DoYouKnowEquipamentsFragment();
     }
 
+    @Override
+    public int getResLayout() {
+        return R.layout.fragment_do_you_know_equipaments;
+    }
+
+    @OnClick(R.id.bt_next)
+    public void onBtNextClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouSaveElectricityFragment.newInstance());
+        }
+    }
+
+    @OnClick(R.id.bt_back)
+    public void onBtBackClicked() {
+        if (getActivity() != null) {
+            getActivity().onBackPressed();
+        }
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_do_you_know_equipaments, container, false);
+    public void init() {
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
     }
 }

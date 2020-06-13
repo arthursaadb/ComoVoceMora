@@ -26,12 +26,12 @@ public class PlayGroundActivity extends AppCompatActivity implements ServicesPre
 
     @OnClick(R.id.btGetId)
     public void onClick(View v) {
-        mPresenter.getDwellerId();
+//        mPresenter.getDwellerId();
     }
 
     @OnClick(R.id.btSendAnswers)
     public void onClickBtSend(View v) {
-        mPresenter.postAnswers();
+//        mPresenter.postAnswers();
         Toast.makeText(this, "Enviando Dados da Pesquisa...", Toast.LENGTH_LONG).show();
         new Handler().postDelayed(() -> {
             Toast.makeText(this, "Dados Enviados com Sucesso", Toast.LENGTH_LONG).show();

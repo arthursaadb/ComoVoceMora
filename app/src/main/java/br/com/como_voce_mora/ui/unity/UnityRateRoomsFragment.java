@@ -27,6 +27,8 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
     ImageView mIvAge;
     @BindView(R.id.tv_school)
     TextView mTvAge;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
@@ -51,6 +53,7 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
 
     @Override
     public void init() {
+        tvQuestion.setText(unityAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
         images = new ArrayList<>();
         texts = new ArrayList<>();
@@ -69,6 +72,7 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
 
 
         Collections.reverse(images);
+        Collections.reverse(texts);
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
         answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), texts.get(0));
@@ -86,7 +90,7 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(unityAnswer.getQuestion(), answerRequest);
-//            ((AboutYouActivity) getActivity()).addFragment(UnityActualHouseLivingFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance());
         }
     }
 

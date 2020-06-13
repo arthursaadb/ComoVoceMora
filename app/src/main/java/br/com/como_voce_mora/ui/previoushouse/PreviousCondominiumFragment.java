@@ -28,7 +28,7 @@ public class PreviousCondominiumFragment extends BaseFragment implements CustomR
 
     private boolean yesChecked = false;
     private AnswerRequest answerRequest;
-    private PreviousHouseAnswer previous = PreviousHouseAnswer.LIVED_IN_SAME_PLACE;
+    private PreviousHouseAnswer previous = PreviousHouseAnswer.LIVE_IN_CONDOMINIUM;
 
     public static PreviousCondominiumFragment newInstance() {
         return new PreviousCondominiumFragment();
@@ -42,11 +42,7 @@ public class PreviousCondominiumFragment extends BaseFragment implements CustomR
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
-        if (yesChecked) {
-            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeTypeFragment.newInstance());
-        } else {
-            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
-        }
+        ((AboutYouActivity) requireActivity()).addFragment(PreviousCondominiumFragment.newInstance());
     }
 
     @OnClick(R.id.bt_back)

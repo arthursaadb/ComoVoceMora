@@ -9,18 +9,42 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import butterknife.BindView;
+import butterknife.OnClick;
 
-public class DoYouKnowConsumeFragment extends Fragment {
+public class DoYouKnowConsumeFragment extends BaseFragment {
 
-    public DoYouKnowConsumeFragment() {
-        // Required empty public constructor
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+
+    public static DoYouKnowConsumeFragment newInstance() {
+        return new DoYouKnowConsumeFragment();
     }
 
+    @Override
+    public int getResLayout() {
+        return R.layout.fragment_do_you_know_consume;
+    }
+
+    @OnClick(R.id.bt_next)
+    public void onBtNextClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowWashingMachineFragment.newInstance());
+        }
+    }
+
+    @OnClick(R.id.bt_back)
+    public void onBtBackClicked() {
+        if (getActivity() != null) {
+            getActivity().onBackPressed();
+        }
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_do_you_know_consume, container, false);
+    public void init() {
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
     }
 }

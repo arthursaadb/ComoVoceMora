@@ -1,10 +1,14 @@
 package br.com.como_voce_mora.ui.unity;
 
 import android.view.View;
+import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
@@ -25,6 +29,11 @@ public class UnityWhichApartmentFragment extends BaseFragment {
     CustomSelectedView csvConvencional;
     @BindView(R.id.csvCobertura)
     CustomSelectedView csvCobertura;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
+
+    UnityAnswer unityAnswer = UnityAnswer.APARTMENT_TYPE;
+    AnswerRequest answerRequest;
 
     public static UnityWhichApartmentFragment newInstance() {
         return new UnityWhichApartmentFragment();
@@ -32,11 +41,14 @@ public class UnityWhichApartmentFragment extends BaseFragment {
 
     @Override
     public void init() {
+        tvQuestion.setText(unityAnswer.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
     }
 
     @OnClick({R.id.csvDuplex, R.id.csvTiplex, R.id.csvQuintinete, R.id.csvLoft, R.id.csvConvencional, R.id.csvCobertura})
     public void onCheckedChanged(View view) {
+        CustomSelectedView csv = (CustomSelectedView) view;
+        answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), csv.getText());
         switch (view.getId()) {
             case R.id.csvDuplex:
                 csvDuplex.setChecked(true);
@@ -98,6 +110,7 @@ public class UnityWhichApartmentFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
+            ResearchFlow.addAnswer(unityAnswer.getQuestion(), answerRequest);
             ((AboutYouActivity) getActivity()).addFragment(UnityHouseLivingFragment.newInstance());
         }
     }

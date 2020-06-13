@@ -1,65 +1,165 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.CustomRadioButton;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.SustainableHabitsAnswer;
+import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import butterknife.BindView;
+import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link WhyReasonEquipamentFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class WhyReasonEquipamentFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class WhyReasonEquipamentFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth)
+    CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes)
+    CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity)
+    CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbWashMachineReuse)
+    CustomRadioButton rbWashMachineReuse;
+    @BindView(R.id.rbQuickShowers)
+    CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbFewDevices)
+    CustomRadioButton rbFewDevices;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHYY_NOT_USE_EQUIPMENT;
+    AnswerRequest answerRequest;
 
-    public WhyReasonEquipamentFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment WhyReasonEquipamentFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static WhyReasonEquipamentFragment newInstance(String param1, String param2) {
-        WhyReasonEquipamentFragment fragment = new WhyReasonEquipamentFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static WhyReasonEquipamentFragment newInstance() {
+        return new WhyReasonEquipamentFragment();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public int getResLayout() {
+        return R.layout.fragment_why_reason_equipament;
+    }
+
+    @OnClick(R.id.bt_next)
+    public void onBtNextClicked() {
+        if (getActivity() != null) {
+            ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowProcelFragment.newInstance());
+        }
+    }
+
+    @OnClick(R.id.bt_back)
+    public void onBtBackClicked() {
+        if (getActivity() != null) {
+            getActivity().onBackPressed();
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_why_reason_equipament, container, false);
+    public void init() {
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
+        rbBrushMyTeeth.setOnCheckedChangeListener(this);
+        rbDishes.setOnCheckedChangeListener(this);
+        rbWashMachineCapacity.setOnCheckedChangeListener(this);
+        rbWashMachineReuse.setOnCheckedChangeListener(this);
+        rbQuickShowers.setOnCheckedChangeListener(this);
+        rbFewDevices.setOnCheckedChangeListener(this);
+        mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            setAnswer(buttonView.getText().toString());
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(true);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbWashMachineReuse.setChecked(false);
+                    rbQuickShowers.setChecked(false);
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(true);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbWashMachineReuse.setChecked(false);
+                    rbQuickShowers.setChecked(false);
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(true);
+                    rbWashMachineReuse.setChecked(false);
+                    rbQuickShowers.setChecked(false);
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineReuse:
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbWashMachineReuse.setChecked(true);
+                    rbQuickShowers.setChecked(false);
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbWashMachineReuse.setChecked(false);
+                    rbQuickShowers.setChecked(true);
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbFewDevices:
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbWashMachineReuse.setChecked(false);
+                    rbQuickShowers.setChecked(false);
+                    rbFewDevices.setChecked(true);
+
+                    updateViews();
+                    break;
+                case R.id.rbOther:
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbWashMachineReuse.setChecked(false);
+                    rbQuickShowers.setChecked(false);
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+            }
+        }
+    }
+
+    private void updateViews() {
+        rbBrushMyTeeth.updateView();
+        rbDishes.updateView();
+        rbWashMachineCapacity.updateView();
+        rbWashMachineReuse.updateView();
+        rbQuickShowers.updateView();
+        rbFewDevices.updateView();
+    }
+
+    private void setAnswer(String text) {
+        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
     }
 }

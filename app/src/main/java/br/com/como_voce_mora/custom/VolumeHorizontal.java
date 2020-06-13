@@ -79,6 +79,8 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
 
         mTvMin.setText(textMin);
         mTvMax.setText(textMax);
+        mTvMin.setVisibility(View.INVISIBLE);
+        mTvMax.setVisibility(View.INVISIBLE);
     }
 
     @Override

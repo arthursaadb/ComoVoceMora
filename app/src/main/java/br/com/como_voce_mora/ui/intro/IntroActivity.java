@@ -3,6 +3,8 @@ package br.com.como_voce_mora.ui.intro;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
@@ -19,11 +21,14 @@ import butterknife.OnClick;
 public class IntroActivity extends BaseActivity {
     @BindView(R.id.ib_sound)
     ImageButton mIbSound;
+    @BindView(R.id.bt_send_answers)
+    Button button;
 
     @Override
     public int getResLayout() {
         return R.layout.activity_intro;
     }
+
 
     @OnClick(R.id.ib_sound)
     public void playSound() {
@@ -54,5 +59,11 @@ public class IntroActivity extends BaseActivity {
     public void openSendAnswers() {
         Intent intent = new Intent(this, PlayGroundActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void init() {
+        super.init();
+        button.setVisibility(View.GONE);
     }
 }

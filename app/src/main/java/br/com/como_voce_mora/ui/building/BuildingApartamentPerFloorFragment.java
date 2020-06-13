@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.building;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,9 +14,11 @@ import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.custom.VolumeVertical;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.BuildingAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.housegroup.HabitationAspectsFragment;
+import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -54,6 +57,7 @@ public class BuildingApartamentPerFloorFragment extends BaseFragment implements 
 
     @Override
     public void init() {
+        tvQuestion.setText(buildingAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         images = new ArrayList<>();
         texts = new ArrayList<>();
@@ -81,18 +85,22 @@ public class BuildingApartamentPerFloorFragment extends BaseFragment implements 
         Collections.reverse(texts);
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
+        answerRequest = new AnswerRequest(buildingAnswer.getQuestion(), buildingAnswer.getQuestionPartId(), texts.get(0));
     }
 
     @Override
     public void positionVolume(int position) {
         mIvAge.setImageResource(images.get(position));
+        mTvSchool.setVisibility(View.VISIBLE);
         mTvSchool.setText(texts.get(position));
+        answerRequest = new AnswerRequest(buildingAnswer.getQuestion(), buildingAnswer.getQuestionPartId(), texts.get(position));
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
+            ResearchFlow.addAnswer(buildingAnswer.getQuestion(), answerRequest);
+            ((AboutYouActivity) getActivity()).addFragment(UnitySplashFragment.newInstance());
         }
     }
 

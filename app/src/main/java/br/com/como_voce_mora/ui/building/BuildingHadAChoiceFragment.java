@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.building;
 
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
@@ -20,6 +21,8 @@ public class BuildingHadAChoiceFragment extends BaseFragment implements CustomRa
     CustomRadioButton mRbFemale;
     @BindView(R.id.rbMale)
     CustomRadioButton mRbMale;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
 
     private BuildingAnswer buildingAnswer = BuildingAnswer.CHOOSE_HOUSE;
     private boolean anyOneSelected = false;
@@ -55,6 +58,7 @@ public class BuildingHadAChoiceFragment extends BaseFragment implements CustomRa
 
     @Override
     public void init() {
+        tvQuestion.setText(buildingAnswer.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         mRbFemale.setOnCheckedChangeListener(this);
         mRbMale.setOnCheckedChangeListener(this);
