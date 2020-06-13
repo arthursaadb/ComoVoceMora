@@ -29,6 +29,8 @@
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:padding="@dimen/default_padding"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintTop_toBottomOf="@+id/tv_question"
         android:text="Apago as luzes ao sair\ndo ambiente"
         android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@id/water_iv"

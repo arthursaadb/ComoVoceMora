@@ -20,22 +20,14 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth)
-    CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes)
-    CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity)
-    CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbWashMachineReuse)
-    CustomRadioButton rbWashMachineReuse;
-    @BindView(R.id.rbQuickShowers)
-    CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices)
-    CustomRadioButton rbFewDevices;
-    @BindView(R.id.rbOthers)
-    CustomRadioButton rbOthers;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbWashMachineReuse) CustomRadioButton rbWashMachineReuse;
+    @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbFewDevices) CustomRadioButton rbFewDevices;
+    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
@@ -151,7 +143,7 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
 
                     updateViews();
                     break;
-                case R.id.rbOther:
+                case R.id.rbOthers:
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);

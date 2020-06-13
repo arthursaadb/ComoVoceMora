@@ -1,14 +1,9 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
@@ -25,16 +20,11 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
-    @BindView(R.id.optionYes)
-    CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.optionNo)
-    CustomRadioButton rbDishes;
-    @BindView(R.id.rbBillsPrice)
-    CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.tv_question)
-    TextView mTvQuestion;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.DIFFERENCE_TARIFF_FLAGS;
     AnswerRequest answerRequest;
@@ -109,6 +99,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
+                .getQuestionPartId(), text);
     }
 }

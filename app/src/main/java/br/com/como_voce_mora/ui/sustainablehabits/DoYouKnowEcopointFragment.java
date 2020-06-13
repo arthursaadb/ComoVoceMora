@@ -1,12 +1,5 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -22,14 +15,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class DoYouKnowEcopointFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
-    @BindView(R.id.optionYes)
-    CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.optionNo)
-    CustomRadioButton rbDishes;
-    @BindView(R.id.tv_question)
-    TextView mTvQuestion;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
+    @BindView(R.id.optionYes) CustomRadioButton optionYes;
+    @BindView(R.id.optionNo) CustomRadioButton optionNo;
+    @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ECOPOINT;
     AnswerRequest answerRequest;
@@ -61,8 +50,8 @@ public class DoYouKnowEcopointFragment extends BaseFragment implements CustomRad
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
-        rbBrushMyTeeth.setOnCheckedChangeListener(this);
-        rbDishes.setOnCheckedChangeListener(this);
+        optionYes.setOnCheckedChangeListener(this);
+        optionNo.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -72,15 +61,15 @@ public class DoYouKnowEcopointFragment extends BaseFragment implements CustomRad
             setAnswer(buttonView.getText().toString());
 
             switch (buttonView.getId()) {
-                case R.id.rbBrushMyTeeth:
-                    rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
+                case R.id.optionYes:
+                    optionYes.setChecked(true);
+                    optionNo.setChecked(false);
 
                     updateViews();
                     break;
-                case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(true);
+                case R.id.optionNo:
+                    optionYes.setChecked(false);
+                    optionNo.setChecked(true);
 
                     updateViews();
                     break;
@@ -89,8 +78,8 @@ public class DoYouKnowEcopointFragment extends BaseFragment implements CustomRad
     }
 
     private void updateViews() {
-        rbBrushMyTeeth.updateView();
-        rbDishes.updateView();
+        optionYes.updateView();
+        optionNo.updateView();
     }
 
     private void setAnswer(String text) {

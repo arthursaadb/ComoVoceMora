@@ -20,18 +20,12 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth)
-    CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes)
-    CustomRadioButton rbDishes;
-    @BindView(R.id.rbQuickShowers)
-    CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices)
-    CustomRadioButton rbFewDevices;
-    @BindView(R.id.tv_question)
-    TextView mTvQuestion;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
+    @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbFewDevices) CustomRadioButton rbFewDevices;
+    @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_WHY_NOT;
     AnswerRequest answerRequest;

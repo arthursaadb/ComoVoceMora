@@ -20,22 +20,14 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class DoYouSeparateGarbageFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
-    @BindView(R.id.optionYes)
-    CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.optionNo)
-    CustomRadioButton rbDishes;
-    @BindView(R.id.rbBillsPrice)
-    CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbLessAmbientalDamage)
-    CustomRadioButton rbWashMachineReuse;
-    @BindView(R.id.rbDry)
-    CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbOthers)
-    CustomRadioButton rbFewDevices;
-    @BindView(R.id.tv_question)
-    TextView mTvQuestion;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
+    @BindView(R.id.optionYes) CustomRadioButton optionYes;
+    @BindView(R.id.optionNo) CustomRadioButton optionNo;
+    @BindView(R.id.rbBillsPrice) CustomRadioButton rbBillsPrice;
+    @BindView(R.id.rbLessAmbientalDamage) CustomRadioButton rbLessAmbientalDamage;
+    @BindView(R.id.rbDry) CustomRadioButton rbDry;
+    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
+    @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_GARBAGE;
     AnswerRequest answerRequest;
@@ -67,12 +59,12 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
-        rbBrushMyTeeth.setOnCheckedChangeListener(this);
-        rbDishes.setOnCheckedChangeListener(this);
-        rbWashMachineCapacity.setOnCheckedChangeListener(this);
-        rbWashMachineReuse.setOnCheckedChangeListener(this);
-        rbQuickShowers.setOnCheckedChangeListener(this);
-        rbFewDevices.setOnCheckedChangeListener(this);
+        optionYes.setOnCheckedChangeListener(this);
+        optionNo.setOnCheckedChangeListener(this);
+        rbBillsPrice.setOnCheckedChangeListener(this);
+        rbLessAmbientalDamage.setOnCheckedChangeListener(this);
+        rbDry.setOnCheckedChangeListener(this);
+        rbOthers.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -82,73 +74,63 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
             setAnswer(buttonView.getText().toString());
 
             switch (buttonView.getId()) {
-                case R.id.rbBrushMyTeeth:
-                    rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
+                case R.id.optionYes:
+                    optionYes.setChecked(true);
+                    optionNo.setChecked(false);
+                    rbBillsPrice.setChecked(false);
+                    rbLessAmbientalDamage.setChecked(false);
+                    rbDry.setChecked(false);
+                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
-                case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
+                case R.id.optionNo:
+                    optionYes.setChecked(false);
+                    optionNo.setChecked(true);
+                    rbBillsPrice.setChecked(false);
+                    rbLessAmbientalDamage.setChecked(false);
+                    rbDry.setChecked(false);
+                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
-                case R.id.rbWashMachineCapacity:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(true);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
+                case R.id.rbBillsPrice:
+                    optionYes.setChecked(false);
+                    optionNo.setChecked(false);
+                    rbBillsPrice.setChecked(true);
+                    rbLessAmbientalDamage.setChecked(false);
+                    rbDry.setChecked(false);
+                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
-                case R.id.rbWashMachineReuse:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(true);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
+                case R.id.rbLessAmbientalDamage:
+                    optionYes.setChecked(false);
+                    optionNo.setChecked(false);
+                    rbBillsPrice.setChecked(false);
+                    rbLessAmbientalDamage.setChecked(true);
+                    rbDry.setChecked(false);
+                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
-                case R.id.rbQuickShowers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(true);
-                    rbFewDevices.setChecked(false);
+                case R.id.rbDry:
+                    optionYes.setChecked(false);
+                    optionNo.setChecked(false);
+                    rbBillsPrice.setChecked(false);
+                    rbLessAmbientalDamage.setChecked(false);
+                    rbDry.setChecked(true);
+                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
-                case R.id.rbFewDevices:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(true);
-
-                    updateViews();
-                    break;
-                case R.id.rbOther:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
+                case R.id.rbOthers:
+                    optionYes.setChecked(false);
+                    optionNo.setChecked(false);
+                    rbBillsPrice.setChecked(false);
+                    rbLessAmbientalDamage.setChecked(false);
+                    rbDry.setChecked(false);
+                    rbOthers.setChecked(true);
 
                     updateViews();
                     break;
@@ -157,15 +139,16 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
     }
 
     private void updateViews() {
-        rbBrushMyTeeth.updateView();
-        rbDishes.updateView();
-        rbWashMachineCapacity.updateView();
-        rbWashMachineReuse.updateView();
-        rbQuickShowers.updateView();
-        rbFewDevices.updateView();
+        optionYes.updateView();
+        optionNo.updateView();
+        rbBillsPrice.updateView();
+        rbLessAmbientalDamage.updateView();
+        rbDry.updateView();
+        rbOthers.updateView();
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
+                .getQuestionPartId(), text);
     }
 }

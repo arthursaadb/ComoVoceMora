@@ -25,22 +25,13 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class ConstructionFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth)
-    CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes)
-    CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity)
-    CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbWashMachineReuse)
-    CustomRadioButton rbWashMachineReuse;
-    @BindView(R.id.rbQuickShowers)
-    CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices)
-    CustomRadioButton rbFewDevices;
-    @BindView(R.id.tv_question)
-    TextView mTvQuestion;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbFewDevices) CustomRadioButton rbFewDevices;
+    @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.CONSTRUCTION;
     AnswerRequest answerRequest;
@@ -75,7 +66,6 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
         rbDishes.setOnCheckedChangeListener(this);
         rbWashMachineCapacity.setOnCheckedChangeListener(this);
-        rbWashMachineReuse.setOnCheckedChangeListener(this);
         rbQuickShowers.setOnCheckedChangeListener(this);
         rbFewDevices.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
@@ -90,7 +80,6 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(false);
 
@@ -100,7 +89,6 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(false);
 
@@ -110,17 +98,6 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-
-                    updateViews();
-                    break;
-                case R.id.rbWashMachineReuse:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(true);
                     rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(false);
 
@@ -130,7 +107,6 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(true);
                     rbFewDevices.setChecked(false);
 
@@ -140,19 +116,8 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(true);
-
-                    updateViews();
-                    break;
-                case R.id.rbOther:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
@@ -164,7 +129,6 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
         rbBrushMyTeeth.updateView();
         rbDishes.updateView();
         rbWashMachineCapacity.updateView();
-        rbWashMachineReuse.updateView();
         rbQuickShowers.updateView();
         rbFewDevices.updateView();
     }

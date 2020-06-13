@@ -22,16 +22,11 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class ExpiredMedicationFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth)
-    CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes)
-    CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity)
-    CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.tv_question)
-    TextView mTvQuestion;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.MEDICAMENT_EXPIRED;
     AnswerRequest answerRequest;

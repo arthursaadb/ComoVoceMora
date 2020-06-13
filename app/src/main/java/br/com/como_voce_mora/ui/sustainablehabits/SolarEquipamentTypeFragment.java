@@ -25,13 +25,13 @@ import butterknife.OnClick;
 public class SolarEquipamentTypeFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
-    @BindView(R.id.csvCasaGerminada)
+    @BindView(R.id.cvsSolarPlates)
     CustomSelectedView csvCasaGerminada;
-    @BindView(R.id.csvSobrado)
+    @BindView(R.id.csvPhotovoltaicPanels)
     CustomSelectedView csvSobrado;
-    @BindView(R.id.csvVila)
+    @BindView(R.id.csvSystems)
     CustomSelectedView csvVila;
-    @BindView(R.id.csvTerreo)
+    @BindView(R.id.cvsNone)
     CustomSelectedView csvTerreo;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
@@ -60,12 +60,12 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
         return R.layout.fragment_solar_equipament_type;
     }
 
-    @OnClick({R.id.csvCasaGerminada, R.id.csvSobrado, R.id.csvVila, R.id.csvTerreo, R.id.csvFundo})
+    @OnClick({R.id.cvsSolarPlates, R.id.csvPhotovoltaicPanels, R.id.csvSystems, R.id.cvsNone})
     public void onCheckedChanged(View view) {
         CustomSelectedView csv = (CustomSelectedView) view;
         anyOptionChecked = true;
         switch (view.getId()) {
-            case R.id.csvCasaGerminada:
+            case R.id.cvsSolarPlates:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     saude = csv.getText();
@@ -77,7 +77,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                     removeItem(sustainableHabitsAnswer.getQuestion());
                     break;
                 }
-            case R.id.csvSobrado:
+            case R.id.csvPhotovoltaicPanels:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     escola = csv.getText();
@@ -88,7 +88,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
                 }
-            case R.id.csvVila:
+            case R.id.csvSystems:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     cultura = csv.getText();
@@ -99,7 +99,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
                 }
-            case R.id.csvTerreo:
+            case R.id.cvsNone:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     lazer = csv.getText();
