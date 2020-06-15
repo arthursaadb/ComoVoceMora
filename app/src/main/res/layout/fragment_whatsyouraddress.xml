@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/bt_back"
-        app:layout_constraintTop_toBottomOf="@id/tv_question">
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
