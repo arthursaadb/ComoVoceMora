@@ -7,23 +7,32 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.presenter.ServicesPresenter;
 import br.com.como_voce_mora.presenter.ServicesPresenterContract;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SustainableHabitsEndFragment extends BaseFragment implements ServicesPresenterContract.View {
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
+
 
     private ServicesPresenter mPresenter = new ServicesPresenter(this);
-    public SustainableHabitsEndFragment newInstance() {
+    public static SustainableHabitsEndFragment newInstance() {
         return new SustainableHabitsEndFragment();
     }
+
 
     @Override
     public int getResLayout() {
@@ -32,6 +41,8 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
 
     @Override
     public void init() {
+        mProgress.setVisibility(View.GONE);
+        mTvQuestion.setText("Muito Obrigado! Para finalizar, toque na tela.");
         mPresenter.callService();
     }
 

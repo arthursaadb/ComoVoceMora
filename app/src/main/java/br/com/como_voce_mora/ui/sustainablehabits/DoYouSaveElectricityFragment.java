@@ -20,8 +20,7 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class DoYouSaveElectricityFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar)
-    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
     @BindView(R.id.optionYes) CustomRadioButton optionYes;
     @BindView(R.id.optionNo) CustomRadioButton optionNo;
     @BindView(R.id.rbBillsPrice) CustomRadioButton rbBillsPrice;

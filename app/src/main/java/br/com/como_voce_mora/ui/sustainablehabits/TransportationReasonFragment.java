@@ -62,7 +62,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowTapFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsEndFragment.newInstance());
         }
     }
 

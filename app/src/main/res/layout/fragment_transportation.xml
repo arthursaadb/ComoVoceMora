@@ -58,7 +58,7 @@
         android:gravity="end"
         android:paddingEnd="@dimen/default_padding"
         app:layout_constraintStart_toEndOf="@id/tvAcesso"
-        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         android:paddingRight="@dimen/default_padding" />
 
