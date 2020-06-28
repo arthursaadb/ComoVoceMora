@@ -41,6 +41,7 @@ dependencies {
 
     //views
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'br.com.zup:multi-state-layout:1.0.4'
 
     // API libs
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'

@@ -25,6 +25,7 @@ public class ServicesPresenter implements ServicesPresenterContract.Presenter {
 
     @Override
     public void callService() {
+        mView.showLoad();
         mRepository.getDwellerId(new BaseCallBack<DwellerId>() {
             @Override
             public void onSuccess(DwellerId response) {

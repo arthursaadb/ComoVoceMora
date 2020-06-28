@@ -9,11 +9,15 @@ public class ServicesPresenterContract {
     }
 
     public interface View {
+        void showLoad();
+
         void showId(String dwellerId);
 
         void showError(String azedou);
 
         void advice();
+
+        void stopLoad();
 
     }
 

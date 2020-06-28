@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<br.com.zup.multistatelayout.MultiStateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootLayout"
+    android:id="@+id/multiStateLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fim"
-    tools:context=".ui.sustainablehabits.SustainableHabitsEndFragment">
+    app:msl_loadingLayout="@layout/dialog_base_loading">
 
-    <include
-        android:id="@+id/mrClipboardLayout"
-        layout="@layout/fragment_mr_clipboard_full" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fim"
+        tools:context=".ui.sustainablehabits.SustainableHabitsEndFragment">
+
+        <include
+            android:id="@+id/mrClipboardLayout"
+            layout="@layout/fragment_mr_clipboard_full" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</br.com.zup.multistatelayout.MultiStateLayout>

@@ -64,6 +64,6 @@ public class IntroActivity extends BaseActivity {
     @Override
     public void init() {
         super.init();
-        button.setVisibility(View.GONE);
+//        button.setVisibility(View.GONE);
     }
 }
