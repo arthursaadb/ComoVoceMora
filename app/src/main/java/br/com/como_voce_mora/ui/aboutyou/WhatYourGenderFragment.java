@@ -10,6 +10,7 @@ import br.com.como_voce_mora.model.AboutYouAnswer;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.DoYouSaveWater;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -92,7 +93,7 @@ public class WhatYourGenderFragment extends BaseFragment implements CustomRadioB
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(HowOldAreYouFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouSaveWater.newInstance());
         }
     }
 

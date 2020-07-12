@@ -65,11 +65,15 @@ public class DoYouSaveWater extends BaseFragment implements CustomRadioButton.On
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         optionYes.setOnCheckedChangeListener(this);
         optionNo.setOnCheckedChangeListener(this);
+        blockItems();
+        mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
+    }
+
+    public void enableItems() {
         rbBillsPrice.setOnCheckedChangeListener(this);
         rbLessAmbientalDamage.setOnCheckedChangeListener(this);
         rbDry.setOnCheckedChangeListener(this);
         rbOthers.setOnCheckedChangeListener(this);
-        mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
     public void blockItems() {
@@ -91,6 +95,11 @@ public class DoYouSaveWater extends BaseFragment implements CustomRadioButton.On
 
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
+                    rbBillsPrice.setChecked(false);
+                    rbLessAmbientalDamage.setChecked(false);
+                    rbDry.setChecked(false);
+                    rbOthers.setChecked(false);
+                    enableItems();
 
                     updateViews();
                     break;
