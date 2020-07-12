@@ -31,8 +31,10 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
+    public static Boolean hasWater = false;
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHAT_YOU_DO_TO_SAVE_WATER;
     AnswerRequest answerRequest;
+
 
     public static WhatYouDoToSaveWater newInstance() {
         return new WhatYouDoToSaveWater();
@@ -47,7 +49,7 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowTapFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowWashingMachineFragment.newInstance());
         }
     }
 
@@ -79,77 +81,36 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbWashMachineReuse:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
                     rbWashMachineReuse.setChecked(true);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbQuickShowers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(true);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbFewDevices:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(true);
-                    rbOthers.setChecked(false);
+                    hasWater = true;
 
                     updateViews();
                     break;
                 case R.id.rbOthers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
                     rbOthers.setChecked(true);
 
                     updateViews();

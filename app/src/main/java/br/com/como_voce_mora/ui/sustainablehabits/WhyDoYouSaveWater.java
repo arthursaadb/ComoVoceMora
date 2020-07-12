@@ -15,18 +15,26 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.optionYes) CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.optionNo) CustomRadioButton rbDishes;
-    @BindView(R.id.rbBillsPrice) CustomRadioButton rbBillsPrice;
-    @BindView(R.id.rbLessAmbientalDamage) CustomRadioButton rbLessAmbientalDamage;
-    @BindView(R.id.rbDry) CustomRadioButton rbDry;
-    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.optionYes)
+    CustomRadioButton optionYes;
+    @BindView(R.id.optionNo)
+    CustomRadioButton optionNo;
+    @BindView(R.id.rbBillsPrice)
+    CustomRadioButton rbBillsPrice;
+    @BindView(R.id.rbLessAmbientalDamage)
+    CustomRadioButton rbLessAmbientalDamage;
+    @BindView(R.id.rbDry)
+    CustomRadioButton rbDry;
+    @BindView(R.id.rbOthers)
+    CustomRadioButton rbOthers;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.YOU_SAVE_WATER;
     AnswerRequest answerRequest;
+    BaseFragment mNextFragment;
 
     public static WhyDoYouSaveWater newInstance() {
         return new WhyDoYouSaveWater();
@@ -39,9 +47,9 @@ public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && mNextFragment != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(WhatYouDoToSaveWater.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }
     }
 
@@ -55,13 +63,20 @@ public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
-        rbBrushMyTeeth.setOnCheckedChangeListener(this);
-        rbDishes.setOnCheckedChangeListener(this);
+        optionYes.setOnCheckedChangeListener(this);
+        optionNo.setOnCheckedChangeListener(this);
         rbBillsPrice.setOnCheckedChangeListener(this);
         rbLessAmbientalDamage.setOnCheckedChangeListener(this);
         rbDry.setOnCheckedChangeListener(this);
         rbOthers.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
+    }
+
+    public void blockItems() {
+        rbBillsPrice.setOnCheckedChangeListener(null);
+        rbLessAmbientalDamage.setOnCheckedChangeListener(null);
+        rbDry.setOnCheckedChangeListener(null);
+        rbOthers.setOnCheckedChangeListener(null);
     }
 
     @Override
@@ -71,18 +86,20 @@ public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton
 
             switch (buttonView.getId()) {
                 case R.id.optionYes:
-                    rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
+                    init();
+                    mNextFragment = DoYouKnowEquipamentsFragment.newInstance();
+
+                    optionYes.setChecked(true);
+                    optionNo.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.optionNo:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(true);
+                    mNextFragment = new DoYouSaveElectricityFragment();
+                    blockItems();
+
+                    optionYes.setChecked(false);
+                    optionNo.setChecked(true);
                     rbBillsPrice.setChecked(false);
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
@@ -91,41 +108,21 @@ public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton
                     updateViews();
                     break;
                 case R.id.rbBillsPrice:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
                     rbBillsPrice.setChecked(true);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbLessAmbientalDamage:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbBillsPrice.setChecked(false);
                     rbLessAmbientalDamage.setChecked(true);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDry:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(true);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbOthers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
                     rbOthers.setChecked(true);
 
                     updateViews();
@@ -135,8 +132,8 @@ public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton
     }
 
     private void updateViews() {
-        rbBrushMyTeeth.updateView();
-        rbDishes.updateView();
+        optionYes.updateView();
+        optionNo.updateView();
         rbBillsPrice.updateView();
         rbLessAmbientalDamage.updateView();
         rbDry.updateView();
