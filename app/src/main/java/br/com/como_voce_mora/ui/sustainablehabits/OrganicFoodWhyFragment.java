@@ -74,32 +74,20 @@ public class OrganicFoodWhyFragment extends BaseFragment implements CustomRadioB
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbQuickShowers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
                     rbQuickShowers.setChecked(true);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbFewDevices:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(true);
 
                     updateViews();

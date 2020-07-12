@@ -40,6 +40,7 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD;
     AnswerRequest answerRequest;
+    BaseFragment mNextFrag;
 
     public static OrganicFoodFragment newInstance() {
         return new OrganicFoodFragment();
@@ -52,9 +53,9 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && mNextFrag != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodWhyFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
         }
     }
 
@@ -80,6 +81,7 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
+                    mNextFrag = OrganicFoodWhyFragment.newInstance();
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
@@ -87,6 +89,7 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
                     updateViews();
                     break;
                 case R.id.rbDishes:
+                    mNextFrag = OrganicFoodWhyNot.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
@@ -94,6 +97,7 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
+                    mNextFrag = OrganicFoodWhyFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);

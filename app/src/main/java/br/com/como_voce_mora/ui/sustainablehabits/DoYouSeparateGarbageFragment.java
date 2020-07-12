@@ -20,17 +20,26 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class DoYouSeparateGarbageFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.optionYes) CustomRadioButton optionYes;
-    @BindView(R.id.optionNo) CustomRadioButton optionNo;
-    @BindView(R.id.rbBillsPrice) CustomRadioButton rbBillsPrice;
-    @BindView(R.id.rbLessAmbientalDamage) CustomRadioButton rbLessAmbientalDamage;
-    @BindView(R.id.rbDry) CustomRadioButton rbDry;
-    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.optionYes)
+    CustomRadioButton optionYes;
+    @BindView(R.id.optionNo)
+    CustomRadioButton optionNo;
+    @BindView(R.id.rbBillsPrice)
+    CustomRadioButton rbBillsPrice;
+    @BindView(R.id.rbLessAmbientalDamage)
+    CustomRadioButton rbLessAmbientalDamage;
+    @BindView(R.id.rbDry)
+    CustomRadioButton rbDry;
+    @BindView(R.id.rbOthers)
+    CustomRadioButton rbOthers;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_GARBAGE;
     AnswerRequest answerRequest;
+    BaseFragment mNextFrag;
 
     public static DoYouSeparateGarbageFragment newInstance() {
         return new DoYouSeparateGarbageFragment();
@@ -68,6 +77,14 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
+
+    public void blockItems() {
+        rbBillsPrice.setOnCheckedChangeListener(null);
+        rbLessAmbientalDamage.setOnCheckedChangeListener(null);
+        rbDry.setOnCheckedChangeListener(null);
+        rbOthers.setOnCheckedChangeListener(null);
+    }
+
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
@@ -75,16 +92,18 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
             switch (buttonView.getId()) {
                 case R.id.optionYes:
+                    init();
+                    mNextFrag = DoYouKnowWhereGarbageGo.newInstance();
+
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.optionNo:
+                    mNextFrag = DoYouKnowBatteryFragment.newInstance();
+                    blockItems();
+
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
                     rbBillsPrice.setChecked(false);
@@ -95,41 +114,21 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
                     updateViews();
                     break;
                 case R.id.rbBillsPrice:
-                    optionYes.setChecked(false);
-                    optionNo.setChecked(false);
                     rbBillsPrice.setChecked(true);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbLessAmbientalDamage:
-                    optionYes.setChecked(false);
-                    optionNo.setChecked(false);
-                    rbBillsPrice.setChecked(false);
                     rbLessAmbientalDamage.setChecked(true);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDry:
-                    optionYes.setChecked(false);
-                    optionNo.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(true);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbOthers:
-                    optionYes.setChecked(false);
-                    optionNo.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
                     rbOthers.setChecked(true);
 
                     updateViews();

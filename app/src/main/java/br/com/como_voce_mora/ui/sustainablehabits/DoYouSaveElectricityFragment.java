@@ -52,9 +52,9 @@ public class DoYouSaveElectricityFragment extends BaseFragment implements Custom
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && mNextFragment != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(WhatYouDoToSaveElectricity.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }
     }
 
@@ -92,7 +92,7 @@ public class DoYouSaveElectricityFragment extends BaseFragment implements Custom
             switch (buttonView.getId()) {
                 case R.id.optionYes:
                     init();
-                    mNextFragment = DoYouKnowEquipamentsFragment.newInstance();
+                    mNextFragment = DoYouKnowRefrigeratorsFragment.newInstance();
 
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
@@ -100,7 +100,7 @@ public class DoYouSaveElectricityFragment extends BaseFragment implements Custom
                     updateViews();
                     break;
                 case R.id.optionNo:
-                    mNextFragment = new DoYouSaveElectricityFragment();
+                    mNextFragment = DoYouKnowDifferenceFragment.newInstance();
                     blockItems();
 
                     optionYes.setChecked(false);

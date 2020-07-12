@@ -20,14 +20,20 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth)
+    CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes)
+    CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity)
+    CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.DIFFERENCE_TARIFF_FLAGS;
     AnswerRequest answerRequest;
+    BaseFragment mNextFrag;
 
     public static DoYouKnowDifferenceFragment newInstance() {
         return new DoYouKnowDifferenceFragment();
@@ -40,7 +46,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && mNextFrag != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
             ((AboutYouActivity) requireActivity()).addFragment(SolarEquipamentTypeFragment.newInstance());
         }
@@ -68,6 +74,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
+                    mNextFrag = SolarEquipamentTypeFragment.newInstance();
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
@@ -75,6 +82,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
                     updateViews();
                     break;
                 case R.id.rbDishes:
+                    mNextFrag = DoYouKnowProcelFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
@@ -82,6 +90,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
+                    mNextFrag = DoYouKnowProcelFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);

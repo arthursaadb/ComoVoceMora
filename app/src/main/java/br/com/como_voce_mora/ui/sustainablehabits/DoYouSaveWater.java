@@ -14,7 +14,7 @@ import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+public class DoYouSaveWater extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.optionYes)
@@ -36,8 +36,8 @@ public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton
     AnswerRequest answerRequest;
     BaseFragment mNextFragment;
 
-    public static WhyDoYouSaveWater newInstance() {
-        return new WhyDoYouSaveWater();
+    public static DoYouSaveWater newInstance() {
+        return new DoYouSaveWater();
     }
 
     @Override
@@ -95,7 +95,7 @@ public class WhyDoYouSaveWater extends BaseFragment implements CustomRadioButton
                     updateViews();
                     break;
                 case R.id.optionNo:
-                    mNextFragment = new DoYouSaveElectricityFragment();
+                    mNextFragment = DoYouSaveElectricityFragment.newInstance();
                     blockItems();
 
                     optionYes.setChecked(false);

@@ -78,45 +78,25 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbQuickShowers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
                     rbQuickShowers.setChecked(true);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbFewDevices:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(true);
 
                     updateViews();

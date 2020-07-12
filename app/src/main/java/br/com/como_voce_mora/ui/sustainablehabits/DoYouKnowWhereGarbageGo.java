@@ -22,6 +22,7 @@ public class DoYouKnowWhereGarbageGo extends BaseFragment implements CustomRadio
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHERE_GO_GARBAGE;
     AnswerRequest answerRequest;
+    BaseFragment mNextFrag;
 
     public static DoYouKnowWhereGarbageGo newInstance() {
         return new DoYouKnowWhereGarbageGo();
@@ -34,9 +35,9 @@ public class DoYouKnowWhereGarbageGo extends BaseFragment implements CustomRadio
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && mNextFrag != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(CollectionPointsUberlandiaFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
         }
     }
 
@@ -62,12 +63,14 @@ public class DoYouKnowWhereGarbageGo extends BaseFragment implements CustomRadio
 
             switch (buttonView.getId()) {
                 case R.id.optionYes:
+                    mNextFrag = DoYouKnowEcopointFragment.newInstance();
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.optionNo:
+                    mNextFrag = CollectionPointsUberlandiaFragment.newInstance();
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
 

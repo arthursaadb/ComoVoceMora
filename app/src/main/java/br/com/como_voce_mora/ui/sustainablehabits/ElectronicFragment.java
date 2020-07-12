@@ -23,6 +23,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ELETRONIC;
     AnswerRequest answerRequest;
+    BaseFragment mNextFrag;
 
     public static ElectronicFragment newInstance() {
         return new ElectronicFragment();
@@ -63,6 +64,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
+                    mNextFrag = DoYouKnowMedicamentExpiredFragment.newInstance();
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
@@ -70,6 +72,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
                     updateViews();
                     break;
                 case R.id.rbDishes:
+                    mNextFrag = DoYouKnowMedicamentExpiredFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
@@ -77,6 +80,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
+                    mNextFrag = OrganicFoodFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
