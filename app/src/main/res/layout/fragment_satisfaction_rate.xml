@@ -1,79 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorOrange">
 
-    <include layout="@layout/fragment_mr_clipboard_full" />
+    <include layout="@layout/fragment_mr_clipboard_ball" />
 
-    <LinearLayout
-        android:id="@+id/rg_satisfaction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/default_margin"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
-        app:layout_constraintTop_toTopOf="@id/bt_next"
-        app:layout_constraintBottom_toBottomOf="@id/bt_next">
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
-                android:id="@+id/rb_1"
-                android:text="Muito Bom"
-                android:gravity="center"
-                android:textSize="@dimen/default_text_size" />
+            <RelativeLayout
+                android:id="@+id/llVolume1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBege"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/bt_next"
+                app:layout_constraintEnd_toEndOf="@id/tv_question"
+                app:layout_constraintStart_toStartOf="@id/tv_question"
+                app:layout_constraintTop_toTopOf="@id/bt_next">
 
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
-                android:id="@+id/rb_2"
-                android:layout_marginTop="20dp"
-                android:text="Bom"
-                android:gravity="center"
-                android:textSize="@dimen/default_text_size" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginRight="70dp"
+                    android:text="Aspecto Geral"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/default_text_size" />
 
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
-                android:id="@+id/rb_3"
-                android:layout_marginTop="20dp"
-                android:text="Regular"
-                android:gravity="center"
-                android:textSize="@dimen/default_text_size" />
+
+                <br.com.como_voce_mora.custom.VolumeHorizontal
+                    android:id="@+id/volume1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llVolume2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorBege"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/bt_next"
+                app:layout_constraintEnd_toEndOf="@id/tv_question"
+                app:layout_constraintStart_toStartOf="@id/tv_question"
+                app:layout_constraintTop_toTopOf="@id/bt_next">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginRight="70dp"
+                    android:text="Relação custo/\nbeneficio"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/default_text_size" />
+
+
+                <br.com.como_voce_mora.custom.VolumeHorizontal
+                    android:id="@+id/volume2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+
+                android:id="@+id/llVolume3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorBege"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/bt_next"
+                app:layout_constraintEnd_toEndOf="@id/tv_question"
+                app:layout_constraintStart_toStartOf="@id/tv_question"
+                app:layout_constraintTop_toTopOf="@id/bt_next">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginRight="70dp"
+                    android:text="Acabamento"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/default_text_size" />
+
+
+                <br.com.como_voce_mora.custom.VolumeHorizontal
+                    android:id="@+id/volume3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llVolume4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorBege"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/bt_next"
+                app:layout_constraintEnd_toEndOf="@id/tv_question"
+                app:layout_constraintStart_toStartOf="@id/tv_question"
+                app:layout_constraintTop_toTopOf="@id/bt_next">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginRight="70dp"
+                    android:text="Localização"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/default_text_size" />
+
+
+                <br.com.como_voce_mora.custom.VolumeHorizontal
+                    android:id="@+id/volume4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llVolume5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorBege"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/bt_next"
+                app:layout_constraintEnd_toEndOf="@id/tv_question"
+                app:layout_constraintStart_toStartOf="@id/tv_question"
+                app:layout_constraintTop_toTopOf="@id/bt_next">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginRight="70dp"
+                    android:text="Tamanho"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/default_text_size" />
+
+
+                <br.com.como_voce_mora.custom.VolumeHorizontal
+                    android:id="@+id/volume5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp" />
+
+            </RelativeLayout>
+
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
-
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
-                android:id="@+id/rb_4"
-                android:text="Ruim"
-                android:gravity="center"
-                android:textSize="@dimen/default_text_size" />
-
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
-                android:id="@+id/rb_5"
-                android:layout_marginTop="20dp"
-                android:text="Muito Ruim"
-                android:gravity="center"
-                android:textSize="@dimen/default_text_size" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

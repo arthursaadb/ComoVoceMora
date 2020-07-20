@@ -9,7 +9,7 @@ public enum PreviousHouseAnswer {
     PREVIUS_HOUSE_TYPE("Que tipo de casa era?", "a3d75d2e-4a8c-44ee-936d-f3cb78a004fc"),
     BUY_TYPE("Qual era o estado de aquisição?", "38be2056-927c-4759-81f3-211c3b7fcfc9"),
 
-    PREVIUS_HOUSE_SATISFACTION("Qual o nível de satisfação para a moradia anterior quanto a:", "070fe97e-a155-418b-ba94-26da321017b0"),
+    PREVIUS_HOUSE_SATISFACTION("Sobre a moradia anterior, indique seu grau de satisfação em relação a:", "070fe97e-a155-418b-ba94-26da321017b0"),
     GENERAL_ASPECTS("Aspectos Gerais", "59c54861f9a75c213d64b214"),
     COST_BENEFIT("Relação de Custo Benefício", "590b5fd61e4d3f620eea271a"),
     FINISHHING("Acabamento", "590b5fd51e4d3f620eea26d3"),

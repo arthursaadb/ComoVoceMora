@@ -30,9 +30,9 @@ public enum CurrentResidenceAnswer {
 
     COMMERCE("Em relação à presença de comércio, seu bairro é:", "2854c32c-6d1a-45a6-8199-ab23260a45bc"),
 
-    COMMERCE_TYPE_MISSING("De qual tipo de estabelecimento comercial ou serviço você sente falta no seu bairro?", "65691f6a-7105-474c-b1f6-b19aabd6785f"),
+    COMMERCE_TYPE_MISSING("De qual tipo de estabelecimento comercial/serviço você sente falta no seu bairro?", "65691f6a-7105-474c-b1f6-b19aabd6785f"),
 
-    NEIGHBORHOOD_ASPECTS("Em relação ao bairro, classifique os aspectos:", "e3b4d5dc-5ad4-4c9b-a70c-aa50272ee3fe"),
+    NEIGHBORHOOD_ASPECTS("Classifique os seguintes aspectos em relação ao seu BAIRRO:", "e3b4d5dc-5ad4-4c9b-a70c-aa50272ee3fe"),
 
     COLLECTIVE_INTERACTION("Convívio social coletivo", "590b5fd61e4d3f620eea2799"),
 
@@ -46,10 +46,10 @@ public enum CurrentResidenceAnswer {
 
     INTEGRATED_IN_CITY("Você se sente integrado à cidade onde mora?", "3c0ad0c0-57ef-4dd8-a138-e4569bba29aa"),
 
-     DEFAULT_PULIC_AREA("Você conhece os seguintes equipamentos urbanos no seu bairro?", "40ae50b9-8c33-43d9-b2a8-261a943d6cf4"),
+    DEFAULT_PULIC_AREA("Você conhece os seguintes equipamentos urbanos no seu bairro?", "40ae50b9-8c33-43d9-b2a8-261a943d6cf4"),
 
 
-    LATITUDE_LONGITUDE("Informe a latitude e longitude de sua moradia atual.","771578be-85a7-404a-8e09-a27e569d5444");
+    LATITUDE_LONGITUDE("Informe a latitude e longitude de sua moradia atual.", "771578be-85a7-404a-8e09-a27e569d5444");
 
     String question;
     String questionPartId;

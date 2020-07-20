@@ -87,7 +87,6 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
                     yesChecked = false;
                     rbYes.setChecked(false);
                     rbNo.setChecked(true);
-
                     updateRbs();
                     break;
             }
@@ -97,11 +96,8 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
     private void setAnswer(String text) {
         answerRequests = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
     }
-
     private void updateRbs() {
         rbNo.updateView();
         rbYes.updateView();
     }
-
-
 }

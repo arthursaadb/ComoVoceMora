@@ -42,6 +42,8 @@ public class WithWhomYouLiveFragment extends BaseFragment {
     CustomSelectedView csv11;
     @BindView(R.id.csv12)
     CustomSelectedView csv12;
+    @BindView(R.id.csv13)
+    CustomSelectedView csv13;
 
     int personCount = 0;
 
@@ -82,7 +84,7 @@ public class WithWhomYouLiveFragment extends BaseFragment {
 
     @OnClick({R.id.csv1, R.id.csv2, R.id.csv3, R.id.csv4, R.id.csv5,
             R.id.csv6, R.id.csv7, R.id.csv8, R.id.csv9, R.id.csv10,
-            R.id.csv11, R.id.csv12})
+            R.id.csv11, R.id.csv12, R.id.csv13})
     public void onClickViews(View view) {
         switch (view.getId()) {
             case R.id.csv1:
@@ -188,6 +190,14 @@ public class WithWhomYouLiveFragment extends BaseFragment {
                 if (!csv12.isChecked()) {
                     personCount++;
                     csv12.setChecked(true);
+                } else {
+                    personCount--;
+                }
+                break;
+            case R.id.csv13:
+                if (!csv13.isChecked()) {
+                    personCount++;
+                    csv13.setChecked(true);
                 } else {
                     personCount--;
                 }

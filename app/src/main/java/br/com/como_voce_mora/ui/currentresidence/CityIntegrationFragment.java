@@ -80,11 +80,13 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
                 case R.id.rbYes:
                     rbYes.setChecked(true);
                     rbNo.setChecked(false);
+                    rbRegular.setChecked(false);
                     updateRbs();
                     break;
                 case R.id.rbNo:
                     rbYes.setChecked(false);
                     rbNo.setChecked(true);
+                    rbRegular.setChecked(false);
                     updateRbs();
                     break;
                 case R.id.rbRegultar:

@@ -117,38 +117,80 @@ public class HabitationEquipmentsFragment extends BaseFragment {
         String text = ((CustomSelectedView) view).getText();
         switch (view.getId()) {
             case R.id.csvGamesRoom:
-                answerGameRoom = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGamesRoom.setChecked(true);
-                ;
+                if (csvGamesRoom.isChecked()) {
+                    csvGamesRoom.setChecked(false);
+                    answerGameRoom = null;
+                } else {
+                    answerGameRoom = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    csvGamesRoom.setChecked(true);
+                }
                 break;
             case R.id.csvGym:
-                answerGym = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGymRoom.setChecked(true);
+                if (csvGymRoom.isChecked()) {
+                    answerGym = null;
+                    csvGymRoom.setChecked(false);
+                } else {
+                    answerGym = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    csvGymRoom.setChecked(true);
+                }
                 break;
             case R.id.csvPartyRoom:
-                answerParty = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvPartyRoom.setChecked(true);
-
+                if (csvPartyRoom.isChecked()) {
+                    answerParty = null;
+                    csvPartyRoom.setChecked(false);
+                } else {
+                    answerParty = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    csvPartyRoom.setChecked(true);
+                }
                 break;
             case R.id.csvPoolPlusEighteen:
-                answerAdultPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvPoolPlusEighteen.setChecked(true);
+                if (csvPoolPlusEighteen.isChecked()) {
+                    answerAdultPool = null;
+                    csvPoolPlusEighteen.setChecked(false);
+                } else {
+                    answerAdultPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    csvPoolPlusEighteen.setChecked(true);
+                }
+
                 break;
             case R.id.csvGourmet:
-                answerGourmet = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvGourmet.setChecked(true);
+                if (csvGourmet.isChecked()) {
+                    answerGourmet = null;
+                    csvGourmet.setChecked(false);
+                } else {
+                    answerGourmet = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    csvGourmet.setChecked(true);
+                }
+
                 break;
             case R.id.csvPlayGround:
-                answerPlayGround = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvPlayGround.setChecked(true);
+                if (csvPlayGround.isChecked()) {
+                    answerPlayGround = null;
+                    csvPlayGround.setChecked(false);
+                } else {
+                    answerPlayGround = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    csvPlayGround.setChecked(true);
+                }
+
                 break;
             case R.id.csvSqaure:
-                answerSquare = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvSquare.setChecked(true);
+                if (csvSquare.isChecked()) {
+                    answerSquare = null;
+                    csvSquare.setChecked(false);
+                } else {
+                    answerSquare = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    csvSquare.setChecked(true);
+                }
                 break;
             case R.id.csvChildPool:
-                answerChildPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
-                csvChildPool.setChecked(true);
+                if (csvChildPool.isChecked()) {
+                    answerChildPool = null;
+                    csvChildPool.setChecked(false);
+                } else {
+                    answerChildPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    csvChildPool.setChecked(true);
+                }
+
                 break;
         }
     }

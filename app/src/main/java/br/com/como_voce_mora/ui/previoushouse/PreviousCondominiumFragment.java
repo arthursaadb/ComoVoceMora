@@ -42,7 +42,7 @@ public class PreviousCondominiumFragment extends BaseFragment implements CustomR
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
-        ((AboutYouActivity) requireActivity()).addFragment(PreviousCondominiumFragment.newInstance());
+        ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeTypeFragment.newInstance());
     }
 
     @OnClick(R.id.bt_back)

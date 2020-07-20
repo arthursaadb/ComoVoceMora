@@ -61,7 +61,7 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
         texts = new ArrayList<>();
         texts.add("Muito mal servido");
         texts.add("Mal servido");
-        texts.add("Regultar");
+        texts.add("Regular");
         texts.add("Bem servido");
         texts.add("Muito bem servido");
 
@@ -77,7 +77,7 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
             ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
             ResearchFlow.addAnswer(currentResidenceAnswer2.getQuestion(), answerRequest2);
             Utils.hideKeyboard(requireActivity());
-            ((AboutYouActivity) requireActivity()).addFragment(PublicAreaFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());
         }
     }
 

@@ -1,71 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/colorOrange">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorOrange">
 
     <include layout="@layout/fragment_mr_clipboard_full" />
 
-    <LinearLayout
-        android:id="@+id/rg_previous_house"
+    <TextView
+        android:id="@+id/tv_school"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="@drawable/bg_ballon_normal_type_1"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/micro_text_size"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/iv_school"
+        app:layout_constraintEnd_toStartOf="@id/volume"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toBottomOf="@id/tv_question"
+        tools:text="Teste"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/iv_school"
+        android:layout_width="@dimen/image_selected_size"
+        android:layout_height="@dimen/image_selected_size"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/um_ano"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
-        app:layout_constraintEnd_toStartOf="@id/bt_next">
+        app:layout_constraintEnd_toStartOf="@id/volume"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_school" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <br.com.como_voce_mora.custom.CustomSelectedView
-                android:id="@+id/view_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:nameItem="@string/zero_a_um"
-                app:imageItem="@drawable/um_ano" />
-
-            <br.com.como_voce_mora.custom.CustomSelectedView
-                android:id="@+id/view_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:nameItem="@string/um_a_dois"
-                app:imageItem="@drawable/um_ano_meio" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <br.com.como_voce_mora.custom.CustomSelectedView
-                android:id="@+id/view_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:nameItem="@string/dois_a_tres"
-                app:imageItem="@drawable/dois_anos_meio" />
-
-            <br.com.como_voce_mora.custom.CustomSelectedView
-                android:id="@+id/view_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:nameItem="@string/tres_a_quatro"
-                app:imageItem="@drawable/tres_anos_meio" />
-        </LinearLayout>
-
-        <br.com.como_voce_mora.custom.CustomSelectedView
-            android:id="@+id/view_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:nameItem="@string/mais_de_cinco"
-            app:imageItem="@drawable/cinco_anos" />
-    </LinearLayout>
+    <br.com.como_voce_mora.custom.VolumeVertical
+        android:id="@+id/volume"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        app:backgroundVolume="@color/colorBackgroundVolume"
+        app:circleSelectedVolume="@drawable/bg_circle_volume"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:lineColorVolume="@color/colorBlack"
+        app:textColorVolume="@color/colorBlack"
+        app:textMax="@string/down"
+        app:textMin="@string/up" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

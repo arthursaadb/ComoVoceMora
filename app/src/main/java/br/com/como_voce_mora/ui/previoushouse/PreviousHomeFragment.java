@@ -52,7 +52,7 @@ public class PreviousHomeFragment extends BaseFragment implements CustomRadioBut
         if (anyOptionChecked) {
             ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
             if (yesChecked) {
-                ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeTypeFragment.newInstance());
+                ((AboutYouActivity) requireActivity()).addFragment(PreviousCondominiumFragment.newInstance());
             } else {
                 ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
             }

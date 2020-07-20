@@ -57,12 +57,12 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
 
         agesText = new ArrayList<>();
         agesText.add("Mais de 70");
-        agesText.add("de 61 a 70");
-        agesText.add("de 51 a 60");
-        agesText.add("de 41 a 50");
-        agesText.add("de 31 a 40");
-        agesText.add("de 21 a 30");
-        agesText.add("de 15 a 20");
+        agesText.add("De 61 a 70");
+        agesText.add("De 51 a 60");
+        agesText.add("De 41 a 50");
+        agesText.add("De 31 a 40");
+        agesText.add("De 21 a 30");
+        agesText.add("De 15 a 20");
         agesText.add("Menos de 15");
 
         mVolume.setListener(this);
