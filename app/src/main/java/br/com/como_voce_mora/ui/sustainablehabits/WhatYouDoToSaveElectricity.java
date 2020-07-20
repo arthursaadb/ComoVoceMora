@@ -25,7 +25,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     CustomRadioButton rbWashMachineCapacity;
     @BindView(R.id.rbQuickShowers)
     CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices)
+    @BindView(R.id.rbOthers)
     CustomRadioButton rbFewDevices;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
@@ -45,9 +45,9 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && mNextFragment != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowRefrigeratorsFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }
     }
 

@@ -13,9 +13,9 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="@dimen/default_margin"
         android:layout_marginTop="100dp"
         android:src="@drawable/alimentos1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,8 +30,10 @@
         android:gravity="center"
         android:text="Verduras"
         android:textSize="@dimen/micro_text_size"
-        app:layout_constraintBottom_toTopOf="@id/water_iv"
-        app:layout_constraintStart_toEndOf="@id/water_iv" />
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/rbDishes"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@+id/tv_question" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
@@ -41,19 +43,21 @@
         android:gravity="center"
         android:text="Frutas"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbWashMachineCapacity"
+        style="@style/CustomRadioButton"
         android:layout_marginTop="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Sucos"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
@@ -66,9 +70,9 @@
         android:gravity="center"
         android:padding="@dimen/default_padding"
         android:text="Carnes"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
-        android:layout_marginStart="80dp"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
 
@@ -87,7 +91,7 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbOthers"
-       style="@style/CustomRadioButton"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:text="Outros"
         android:textAlignment="center"

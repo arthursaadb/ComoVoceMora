@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+
         android:layout_marginTop="100dp"
         android:src="@drawable/agua"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,20 +23,26 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBrushMyTeeth"
         style="@style/CustomRadioButton"
-        android:text="Desconheço"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/default_margin"
         android:gravity="center"
+        android:text="Desconheço"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@id/rbDishes"
         app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintTop_toTopOf="@id/water_iv" />
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
         style="@style/CustomRadioButton"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:gravity="center"
         android:text="Custo alto"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
@@ -44,12 +50,14 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineCapacity"
         style="@style/CustomRadioButton"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Depende de\nreformas"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
         app:layout_constraintTop_toBottomOf="@id/rbDishes" />
@@ -57,11 +65,13 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbQuickShowers"
         style="@style/CustomRadioButton"
-        android:layout_marginStart="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Difícil manuntenção"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
 
@@ -69,6 +79,8 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbFewDevices"
         style="@style/CustomRadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Não vejo necessidade"

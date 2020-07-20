@@ -49,91 +49,13 @@ public class UnityRoomsFragment extends BaseFragment {
             R.id.csvSolteiro, R.id.csvSala, R.id.csvCopa, R.id.csvVaranda, R.id.csvCozinha})
     void onClickViews(View view) {
         CustomSelectedView csv = (CustomSelectedView) view;
-        switch (view.getId()) {
-            case R.id.csvServico:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+        if (!csv.isChecked()) {
+            csv.setChecked(true);
 //                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
 //                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
-                    break;
-                } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
-                    break;
-                }
-            case R.id.csvBanheiro:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
-                    break;
-                } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
-                }
-            case R.id.csvCasal:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
-                    break;
-                } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
-                }
-            case R.id.csvSolteiro:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
-                    break;
-                } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
-                }
-
-            case R.id.csvSala:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
-                    break;
-                } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
-                }
-
-            case R.id.csvCopa:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
-                    break;
-                } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
-                }
-
-            case R.id.csvVaranda:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
-                    break;
-                } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
-                }
-            case R.id.csvCozinha:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
-                    break;
-                } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
-                }
+        } else {
+            csv.setChecked(false);
+            removeItem(csv.getText());
         }
     }
 

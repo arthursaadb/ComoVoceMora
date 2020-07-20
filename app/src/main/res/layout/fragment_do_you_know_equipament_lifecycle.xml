@@ -42,38 +42,39 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/agua"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/bt_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504" />
 
     <TextView
         android:id="@+id/you_know_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Você sabia?"
+        android:layout_marginTop="32dp"
         android:textColor="@color/colorWhite"
         android:layout_marginBottom="@dimen/default_padding"
         android:textSize="@dimen/title_text_size"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/explanation_tv"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/explanation_tv"
+        app:layout_constraintEnd_toEndOf="@id/explanation_tv"/>
 
     <TextView
         android:id="@+id/explanation_tv"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="Geralmente ficamos em dúvida se podemos diminuir a vida útil de um equipamento ao ligá-lo e desligá-lo várias vezes, como computadores e TVs. Esses equipamentos são projetados para suportar uma elevada situação de liga-desliga, então a recomendação é que sejam se não formos utilizá-los por alguns minutos. Além disso, a função stand-by foi desenvolvida para proporcionar conforto, mas temos que ter conhecimento que consome energia e, dependendo da quantidade de equipamentos ligados, ocorrerá um consumo mensal elevado."
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="@dimen/default_margin"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/default_text_size"
+        android:textSize="@dimen/small_text_size"
         app:layout_constraintTop_toBottomOf="@id/you_know_tv"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintEnd_toStartOf="@id/bt_next"

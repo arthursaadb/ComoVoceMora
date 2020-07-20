@@ -48,7 +48,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
     public void onBtNextClicked() {
         if (getActivity() != null && mNextFrag != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(SolarEquipamentTypeFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
         }
     }
 

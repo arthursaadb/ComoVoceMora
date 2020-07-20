@@ -26,7 +26,7 @@ public class DoYouKnowProcelFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) requireActivity()).addFragment(WhatYouDoToSaveElectricity.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(SolarEquipamentTypeFragment.newInstance());
         }
     }
 

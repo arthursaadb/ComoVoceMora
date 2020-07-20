@@ -5,7 +5,7 @@ public enum UnityAnswer {
     HOUSING_STATE("Qual é o estado de aquisição da sua moradia?", "c0ef6d0a-9239-4c85-b543-788beea7c322"),
     APARTMENT_TYPE("Qual é o tipo do seu apartamento?", "e3b5d26a-3351-40cb-9089-e66cf88da694"),
     HOUSE_TYPE("Qual é o tipo da sua casa?", "d1c3a164-62a7-40a0-81e2-084e846da1d4"),
-    HOME_TYPE("O que a sua moradia é pra você?", "1b010a14-85c7-45e8-abb1-3984eef1e5f5"),
+    HOME_TYPE("O que a sua moradia significa pra você?", "1b010a14-85c7-45e8-abb1-3984eef1e5f5"),
     KEEP_FURNISHINGS("Na sua moradia, foi possível acomodar seus antigos móveis e eletrodomésticos?", "93290ddc-5e83-4da6-9621-7ea28e9af17a"),
     DIFFICULTY_KEEP_FURNISHINGS("Informe o grau de dificuldade para a acomodação dos móveis e eletrodomésticos.", "b8b58180-05f4-48df-b180-f58a3f17e80f"),
     NO_DIFFICULTY_KEEP_FURNISHINGS("Por que não houve dificuldade em acomodar os antigos móveis e eletrodomésticos?", "6ce823ea-9635-41fe-a78e-b56f6a2b6c20"),
@@ -58,7 +58,7 @@ public enum UnityAnswer {
     INNCREASE_POWER_PLUG("Acrescentar tomadas e/ou iluminação", "590b5fd61e4d3f620eea27cf"),
 
     //PODIUM QUESTION
-    REFORM_REASON("Quais foram as razões das reformas ou alterações?", "12bb5893-1908-48f2-9b2a-ac4a31d06fec"),
+    REFORM_REASON("“Quais foram as razões das reformas e alterações? Escolha por ordem de prioridade", "12bb5893-1908-48f2-9b2a-ac4a31d06fec"),
     ENLARGE_ROOM("Ampliar cômodo", "590b5fd61e4d3f620eea27a4"),
     IMPROVE_FINISHING("Melhorar o acabamento", "590b5fd61e4d3f620eea27a6"),
     IMPROVE_CONFORT("Melhorar o conforto", "590b5fd61e4d3f620eea27a7"),

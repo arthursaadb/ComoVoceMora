@@ -15,7 +15,6 @@
         android:id="@+id/water_iv"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="100dp"
         android:src="@drawable/ic_5"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,14 +25,17 @@
         android:id="@+id/rbBrushMyTeeth"
         style="@style/CustomRadioButton"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:padding="@dimen/default_padding"
         android:text="Sim"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintTop_toTopOf="@id/water_iv"
+        app:layout_constraintBottom_toTopOf="@id/rbDishes"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintEnd_toStartOf="@+id/bt_next"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
@@ -44,6 +46,7 @@
         android:padding="@dimen/default_padding"
         android:text="Ouvi falar, mas não sei"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
@@ -59,10 +62,10 @@
         android:text="Desconheço"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
         app:layout_constraintTop_toBottomOf="@id/rbDishes" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

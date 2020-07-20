@@ -17,7 +17,9 @@
         style="@style/CustomRadioButton"
         android:layout_marginStart="24dp"
         android:gravity="center"
-        android:layout_marginTop="32dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/rbDishes"
+        android:layout_marginTop="@dimen/default_margin"
         android:text="Desconheço"
         android:textSize="@dimen/micro_text_size"
         app:layout_constraintTop_toBottomOf="@id/tv_question"
@@ -26,9 +28,9 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
         style="@style/CustomRadioButton"
-        android:layout_marginTop="@dimen/default_margin"
         android:gravity="center"
         android:text="Custo alto"
+        app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
         android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
@@ -37,12 +39,12 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineCapacity"
         style="@style/CustomRadioButton"
-        android:layout_marginTop="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Depende de\nreformas"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
         app:layout_constraintTop_toBottomOf="@id/rbDishes" />
@@ -54,7 +56,8 @@
         android:text="Difícil manuntenção"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
-        android:layout_marginStart="80dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
 

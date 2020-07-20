@@ -2,11 +2,10 @@ package br.com.como_voce_mora.ui.sustainablehabits;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.Nullable;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import java.io.Serializable;
+import java.util.List;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -20,8 +19,23 @@ public class DoYouKnowConsumeFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
 
-    public static DoYouKnowConsumeFragment newInstance() {
-        return new DoYouKnowConsumeFragment();
+    List<BaseFragment> mNextFragments;
+
+    public static DoYouKnowConsumeFragment newInstance(List<BaseFragment> mNextFragments) {
+        DoYouKnowConsumeFragment frag = new DoYouKnowConsumeFragment();
+        Bundle b = new Bundle();
+        b.putSerializable("mNextFragments", (Serializable) mNextFragments);
+        frag.setArguments(b);
+        return frag;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+            this.mNextFragments = (List<BaseFragment>) getArguments().get("mNextFragments");
+        }
     }
 
     @Override
@@ -32,11 +46,7 @@ public class DoYouKnowConsumeFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            if (WhatYouDoToSaveWater.hasWater) {
-                ((AboutYouActivity) requireActivity()).addFragment(WaterSaveEquipmentFragment.newInstance());
-            } else {
-                ((AboutYouActivity) requireActivity()).addFragment(WhyYouNotUseEquipamentFragment.newInstance());
-            }
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFragments.get(0));
         }
     }
 
@@ -49,6 +59,7 @@ public class DoYouKnowConsumeFragment extends BaseFragment {
 
     @Override
     public void init() {
+        mNextFragments.remove(0);
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
     }
 }

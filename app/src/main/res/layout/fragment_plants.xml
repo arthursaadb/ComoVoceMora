@@ -13,48 +13,53 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginTop="100dp"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
         android:src="@drawable/plantas"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/optionYes"
         app:layout_constraintStart_toEndOf="@+id/bt_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/optionYes"
-        android:layout_width="wrap_content"
+        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Sim"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toTopOf="@id/water_iv"
-        app:layout_constraintStart_toEndOf="@id/water_iv" />
+        app:layout_constraintEnd_toStartOf="@id/rbBillsPrice"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@+id/tv_question" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/optionNo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Não"
         android:textSize="@dimen/default_text_size"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/optionYes"
         app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintTop_toBottomOf="@id/water_iv" />
+        tools:ignore="NotSibling" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBillsPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
         android:button="@color/colorTransparent"
-        android:text="Decoração(acho\nbonita)"
+        android:text="Decoração(acho\nbonito)"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/optionYes"
         app:layout_constraintTop_toTopOf="@id/optionYes" />
 
@@ -62,39 +67,43 @@
         android:id="@+id/rbLessAmbientalDamage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
         android:button="@color/colorTransparent"
-        android:text="Gosto de cuidar"
+        android:text="Gosto de celular"
         android:textAlignment="center"
         android:textSize="@dimen/micro_text_size"
-        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbBillsPrice"
         app:layout_constraintTop_toTopOf="@id/rbBillsPrice" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDry"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Melhora a qualidade\ndo ar"
         android:textSize="@dimen/micro_text_size"
-        app:layout_constraintEnd_toEndOf="@id/rbBillsPrice"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/rbOthers"
         app:layout_constraintStart_toStartOf="@id/rbBillsPrice"
         app:layout_constraintTop_toBottomOf="@id/rbBillsPrice" />
 
+
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbNew"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Consumo próprio"
         android:textSize="@dimen/micro_text_size"
-        app:layout_constraintEnd_toEndOf="@id/rbDry"
-        app:layout_constraintStart_toStartOf="@id/rbDry"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/rbOthers"
+        app:layout_constraintStart_toStartOf="@id/rbBillsPrice"
         app:layout_constraintTop_toBottomOf="@id/rbDry" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
@@ -102,13 +111,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Outros"
         android:textSize="@dimen/micro_text_size"
-        app:layout_constraintEnd_toEndOf="@id/rbLessAmbientalDamage"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"
         app:layout_constraintTop_toBottomOf="@id/rbLessAmbientalDamage" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
