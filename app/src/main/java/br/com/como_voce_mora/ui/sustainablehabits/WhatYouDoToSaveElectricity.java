@@ -32,6 +32,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHAT_YOU_DO_TO_SAVE_ELECTRICITY;
     AnswerRequest answerRequest;
+    BaseFragment mNextFragment;
 
     public static WhatYouDoToSaveElectricity newInstance() {
         return new WhatYouDoToSaveElectricity();
@@ -72,49 +73,31 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             setAnswer(buttonView.getText().toString());
+            mNextFragment = DoYouKnowEquipamentLifecycleFragment.newInstance();
 
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
+                    mNextFragment = DoYouKnowDifferenceFragment.newInstance();
 
                     updateViews();
                     break;
                 case R.id.rbQuickShowers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
                     rbQuickShowers.setChecked(true);
-                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbFewDevices:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(true);
 
                     updateViews();

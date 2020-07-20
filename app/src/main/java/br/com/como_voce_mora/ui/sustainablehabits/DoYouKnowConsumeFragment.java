@@ -32,7 +32,11 @@ public class DoYouKnowConsumeFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowWashingMachineFragment.newInstance());
+            if (WhatYouDoToSaveWater.hasWater) {
+                ((AboutYouActivity) requireActivity()).addFragment(WaterSaveEquipmentFragment.newInstance());
+            } else {
+                ((AboutYouActivity) requireActivity()).addFragment(WhyYouNotUseEquipamentFragment.newInstance());
+            }
         }
     }
 

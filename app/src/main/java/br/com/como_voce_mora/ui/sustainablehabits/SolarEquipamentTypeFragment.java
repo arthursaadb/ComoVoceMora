@@ -41,7 +41,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
     private String cultura = "";
     private String lazer = "";
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.EQUIPMENT_SOLAR_ENERGY;
-
+    private BaseFragment mNextFrag;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private boolean anyOptionChecked = false;
 
@@ -62,6 +62,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
 
     @OnClick({R.id.cvsSolarPlates, R.id.csvPhotovoltaicPanels, R.id.csvSystems, R.id.cvsNone})
     public void onCheckedChanged(View view) {
+        mNextFrag = WhyReasonEquipamentFragment.newInstance();
         CustomSelectedView csv = (CustomSelectedView) view;
         anyOptionChecked = true;
         switch (view.getId()) {
@@ -91,6 +92,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
+                    mNextFrag = DoYouSeparateGarbageFragment.newInstance();
                     cultura = csv.getText();
                     answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
                             sustainableHabitsAnswer.getQuestionPartId(), cultura));

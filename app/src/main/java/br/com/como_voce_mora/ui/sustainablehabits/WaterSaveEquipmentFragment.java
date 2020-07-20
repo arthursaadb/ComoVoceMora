@@ -142,7 +142,7 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             setAnswer();
-            ((AboutYouActivity) requireActivity()).addFragment(WhyReasonEquipamentFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouSaveElectricityFragment.newInstance());
         }
     }
 

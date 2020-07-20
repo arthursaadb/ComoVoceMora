@@ -1,7 +1,5 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
-import android.os.Bundle;
-
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
@@ -26,6 +24,6 @@ public class SustainableHabitsIntroFragment extends BaseFragment {
 
     @OnClick(R.id.rootLayout)
     public void onClickRoot() {
-        ((AboutYouActivity) requireActivity()).addFragment(WhyDoYouSaveWater.newInstance());
+        ((AboutYouActivity) requireActivity()).addFragment(DoYouSaveWater.newInstance());
     }
 }

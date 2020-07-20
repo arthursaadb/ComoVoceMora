@@ -31,7 +31,7 @@ public class DoYouKnowBatteryFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) requireActivity()).addFragment(ExpiredMedicationFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowWhereGarbageGo.newInstance());
         }
     }
 

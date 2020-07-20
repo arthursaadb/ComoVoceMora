@@ -23,17 +23,17 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.optionYes)
-    CustomRadioButton rbBrushMyTeeth;
+    CustomRadioButton optionYes;
     @BindView(R.id.optionNo)
-    CustomRadioButton rbDishes;
+    CustomRadioButton optionNo;
     @BindView(R.id.rbBillsPrice)
-    CustomRadioButton rbWashMachineCapacity;
+    CustomRadioButton rbBillsPrice;
     @BindView(R.id.rbLessAmbientalDamage)
-    CustomRadioButton rbWashMachineReuse;
+    CustomRadioButton rbLessAmbientalDamage;
     @BindView(R.id.rbDry)
-    CustomRadioButton rbQuickShowers;
+    CustomRadioButton rbDry;
     @BindView(R.id.rbOthers)
-    CustomRadioButton rbFewDevices;
+    CustomRadioButton rbOthers;
     @BindView(R.id.rbNew)
     CustomRadioButton rbNew;
     @BindView(R.id.tv_question)
@@ -41,6 +41,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.PLANTS;
     AnswerRequest answerRequest;
+    BaseFragment mNextFrag;
 
     public static PlantsFragment newInstance() {
         return new PlantsFragment();
@@ -69,14 +70,23 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
-        rbBrushMyTeeth.setOnCheckedChangeListener(this);
-        rbDishes.setOnCheckedChangeListener(this);
-        rbWashMachineCapacity.setOnCheckedChangeListener(this);
-        rbWashMachineReuse.setOnCheckedChangeListener(this);
-        rbQuickShowers.setOnCheckedChangeListener(this);
-        rbFewDevices.setOnCheckedChangeListener(this);
+        optionYes.setOnCheckedChangeListener(this);
+        optionNo.setOnCheckedChangeListener(this);
+        rbBillsPrice.setOnCheckedChangeListener(this);
+        rbLessAmbientalDamage.setOnCheckedChangeListener(this);
+        rbDry.setOnCheckedChangeListener(this);
+        rbOthers.setOnCheckedChangeListener(this);
         rbNew.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
+    }
+
+
+    public void blockItems() {
+        rbBillsPrice.setOnCheckedChangeListener(null);
+        rbLessAmbientalDamage.setOnCheckedChangeListener(null);
+        rbDry.setOnCheckedChangeListener(null);
+        rbOthers.setOnCheckedChangeListener(null);
+        rbNew.setOnCheckedChangeListener(null);
     }
 
     @Override
@@ -85,90 +95,50 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
             setAnswer(buttonView.getText().toString());
 
             switch (buttonView.getId()) {
-                case R.id.rbBrushMyTeeth:
-                    rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
+                case R.id.optionYes:
+                    init();
+                    mNextFrag = PlantsTypeFragment.newInstance();
+
+                    optionYes.setChecked(true);
+                    optionNo.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.optionNo:
+                    mNextFrag = TransportationFragment.newInstance();
+                    blockItems();
+
+                    optionYes.setChecked(false);
+                    optionNo.setChecked(true);
+                    rbBillsPrice.setChecked(false);
+                    rbLessAmbientalDamage.setChecked(false);
+                    rbDry.setChecked(false);
+                    rbOthers.setChecked(false);
                     rbNew.setChecked(false);
 
                     updateViews();
                     break;
-                case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbNew.setChecked(false);
+                case R.id.rbBillsPrice:
+                    rbBillsPrice.setChecked(true);
 
                     updateViews();
                     break;
-                case R.id.rbWashMachineCapacity:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(true);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbNew.setChecked(false);
+                case R.id.rbLessAmbientalDamage:
+                    rbLessAmbientalDamage.setChecked(true);
 
                     updateViews();
                     break;
-                case R.id.rbWashMachineReuse:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(true);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbNew.setChecked(false);
+                case R.id.rbDry:
+                    rbDry.setChecked(true);
 
                     updateViews();
                     break;
-                case R.id.rbQuickShowers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(true);
-                    rbFewDevices.setChecked(false);
-                    rbNew.setChecked(false);
-
-                    updateViews();
-                    break;
-                case R.id.rbFewDevices:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(true);
-                    rbNew.setChecked(false);
-
-                    updateViews();
-                    break;
-                case R.id.rbOther:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbNew.setChecked(false);
+                case R.id.rbOthers:
+                    rbOthers.setChecked(true);
 
                     updateViews();
                     break;
                 case R.id.rbNew:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
                     rbNew.setChecked(true);
 
                     updateViews();
@@ -177,16 +147,16 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
         }
     }
 
+
     private void updateViews() {
-        rbBrushMyTeeth.updateView();
-        rbDishes.updateView();
-        rbWashMachineCapacity.updateView();
-        rbWashMachineReuse.updateView();
-        rbQuickShowers.updateView();
-        rbFewDevices.updateView();
+        optionYes.updateView();
+        optionNo.updateView();
+        rbBillsPrice.updateView();
+        rbLessAmbientalDamage.updateView();
+        rbDry.updateView();
+        rbOthers.updateView();
         rbNew.updateView();
     }
-
     private void setAnswer(String text) {
         answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
                 .getQuestionPartId(), text);

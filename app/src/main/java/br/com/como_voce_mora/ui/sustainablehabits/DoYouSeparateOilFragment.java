@@ -33,6 +33,7 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_OIL;
     AnswerRequest answerRequest;
+    BaseFragment mNextFrag;
 
     public static DoYouSeparateOilFragment newInstance() {
         return new DoYouSeparateOilFragment();
@@ -70,6 +71,14 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
+
+    public void blockItems() {
+        rbBillsPrice.setOnCheckedChangeListener(null);
+        rbLessAmbientalDamage.setOnCheckedChangeListener(null);
+        rbDry.setOnCheckedChangeListener(null);
+        rbOthers.setOnCheckedChangeListener(null);
+    }
+
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
@@ -77,16 +86,18 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
             switch (buttonView.getId()) {
                 case R.id.optionYes:
+                    init();
+                    mNextFrag = DoYouKnowWhereGarbageGo.newInstance();
+
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.optionNo:
+                    mNextFrag = DoYouKnowBatteryFragment.newInstance();
+                    blockItems();
+
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
                     rbBillsPrice.setChecked(false);
@@ -97,41 +108,21 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
                     updateViews();
                     break;
                 case R.id.rbBillsPrice:
-                    optionYes.setChecked(false);
-                    optionNo.setChecked(false);
                     rbBillsPrice.setChecked(true);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbLessAmbientalDamage:
-                    optionYes.setChecked(false);
-                    optionNo.setChecked(false);
-                    rbBillsPrice.setChecked(false);
                     rbLessAmbientalDamage.setChecked(true);
-                    rbDry.setChecked(false);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDry:
-                    optionYes.setChecked(false);
-                    optionNo.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(true);
-                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbOthers:
-                    optionYes.setChecked(false);
-                    optionNo.setChecked(false);
-                    rbBillsPrice.setChecked(false);
-                    rbLessAmbientalDamage.setChecked(false);
-                    rbDry.setChecked(false);
                     rbOthers.setChecked(true);
 
                     updateViews();
