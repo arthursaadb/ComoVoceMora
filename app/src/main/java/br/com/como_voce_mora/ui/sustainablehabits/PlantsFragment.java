@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -66,7 +67,6 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
             getActivity().onBackPressed();
         }
     }
-
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
@@ -80,14 +80,24 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
-
-    public void blockItems() {
-        rbBillsPrice.setOnCheckedChangeListener(null);
-        rbLessAmbientalDamage.setOnCheckedChangeListener(null);
-        rbDry.setOnCheckedChangeListener(null);
-        rbOthers.setOnCheckedChangeListener(null);
-        rbNew.setOnCheckedChangeListener(null);
+    private void hideItems() {
+        rbBillsPrice.setVisibility(View.INVISIBLE);
+        rbLessAmbientalDamage.setVisibility(View.INVISIBLE);
+        rbDry.setVisibility(View.INVISIBLE);
+        rbOthers.setVisibility(View.INVISIBLE);
+        rbNew.setVisibility(View.INVISIBLE);
     }
+
+    private void showItems() {
+        rbBillsPrice.setVisibility(View.VISIBLE);
+        rbLessAmbientalDamage.setVisibility(View.VISIBLE);
+        rbDry.setVisibility(View.VISIBLE);
+        rbOthers.setVisibility(View.VISIBLE);
+        rbNew.setVisibility(View.VISIBLE);
+    }
+
+
+
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -98,7 +108,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
                 case R.id.optionYes:
                     init();
                     mNextFrag = PlantsTypeFragment.newInstance();
-
+                    showItems();
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
 
@@ -106,8 +116,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
                     break;
                 case R.id.optionNo:
                     mNextFrag = TransportationFragment.newInstance();
-                    blockItems();
-
+                    hideItems();
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
                     rbBillsPrice.setChecked(false);

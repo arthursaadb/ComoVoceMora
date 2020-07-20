@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -65,6 +66,8 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
         }
     }
 
+
+
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
@@ -77,13 +80,21 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
-
-    public void blockItems() {
-        rbBillsPrice.setOnCheckedChangeListener(null);
-        rbLessAmbientalDamage.setOnCheckedChangeListener(null);
-        rbDry.setOnCheckedChangeListener(null);
-        rbOthers.setOnCheckedChangeListener(null);
+    private void hideItems(){
+        rbBillsPrice.setVisibility(View.INVISIBLE);
+        rbLessAmbientalDamage.setVisibility(View.INVISIBLE);
+        rbDry.setVisibility(View.INVISIBLE);
+        rbOthers.setVisibility(View.INVISIBLE);
     }
+
+    private void showItems(){
+        rbBillsPrice.setVisibility(View.VISIBLE);
+        rbLessAmbientalDamage.setVisibility(View.VISIBLE);
+        rbDry.setVisibility(View.VISIBLE);
+        rbOthers.setVisibility(View.VISIBLE);
+    }
+
+
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -97,12 +108,16 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
+                    rbBillsPrice.setChecked(false);
+                    rbLessAmbientalDamage.setChecked(false);
+                    rbDry.setChecked(false);
+                    rbOthers.setChecked(false);
+                    showItems();
 
                     updateViews();
                     break;
                 case R.id.optionNo:
-                    mNextFrag = DoYouKnowBatteryFragment.newInstance();
-                    blockItems();
+                    mNextFrag = DoYouKnowWhereGarbageGo.newInstance();
 
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
@@ -110,6 +125,7 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
+                    hideItems();
 
                     updateViews();
                     break;

@@ -38,41 +38,43 @@
         android:id="@+id/you_know_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="@dimen/default_padding"
         android:text="Você sabia?"
         android:textColor="@color/colorWhite"
-        android:layout_marginBottom="@dimen/default_padding"
         android:textSize="@dimen/title_text_size"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/explanation_tv"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintEnd_toStartOf="@id/bt_next"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="@dimen/default_margin"
         android:layout_marginTop="100dp"
         android:src="@drawable/baterialixo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/explanation_tv"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Não jogue pilhas, baterias ou equipamentos eletrônicos no lixo doméstico, pois contêm substâncias tóxicas que contaminam o solo e a água. Além disso, aproveitei para diminuir o consumo de pilhas descartáveis com o uso de pilhas recarregáveis. Existem alguns pontos de coleta em Uberlândia, como: unidades do DMAE, Centro Administrativo da Prefeitura de Uberlândia, Escola Estadual Amador Naves, Hospital Municipal e alguns supermercados."
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginEnd="@dimen/default_margin"
+        android:text="Não jogue pilhas, baterias ou equipamentos eletrônicos no lixo doméstico, pois contêm substâncias tóxicas que contaminam o solo e a água. Além disso, aproveitei para diminuir o consumo de pilhas descartáveis com o uso de pilhas recarregáveis. Existem alguns pontos de coleta em Uberlândia, como: unidades do DMAE, Centro Administrativo da Prefeitura de Uberlândia, Escola Estadual Amador Naves, Hospital Municipal e alguns supermercados."
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintTop_toBottomOf="@id/you_know_tv"
-        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar"/>
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@id/you_know_tv" />
 
     <br.com.como_voce_mora.custom.HowYouLiveProgressBar
         android:id="@+id/progress_bar"

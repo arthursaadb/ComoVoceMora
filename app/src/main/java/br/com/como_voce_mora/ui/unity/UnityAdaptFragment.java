@@ -60,18 +60,13 @@ public class UnityAdaptFragment extends BaseFragment implements VolumeVertical.O
         images = new ArrayList<>();
         texts = new ArrayList<>();
 
-        images.add(R.drawable.ic_droiosdodroios);
         images.add(R.drawable.ic_droios);
         images.add(R.drawable.ic_mec);
         images.add(R.drawable.ic_suave);
-        images.add(R.drawable.ic_supersuave);
 
-        texts.add("Muito Ruim");
-        texts.add("Ruim");
+        texts.add("Não");
         texts.add("Regular");
-        texts.add("Bom");
-        texts.add("Muito Bom");
-
+        texts.add("Sim");
 
         Collections.reverse(images);
         Collections.reverse(texts);

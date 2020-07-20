@@ -3,6 +3,9 @@ package br.com.como_voce_mora.ui.unity;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -17,6 +20,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class UnityHouseTypeFragment extends BaseFragment {
+    @BindView(R.id.rootLayout)
+    ConstraintLayout mRootLayout;
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.csvCasaGerminada)
@@ -42,8 +47,9 @@ public class UnityHouseTypeFragment extends BaseFragment {
 
     @Override
     public void init() {
+        mRootLayout.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPink));
         tvQuestion.setText(unityAnswer.getQuestion());
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
     }
 
     @OnClick({R.id.csvCasaGerminada, R.id.csvSobrado, R.id.csvVila, R.id.csvTerreo, R.id.csvFundo})

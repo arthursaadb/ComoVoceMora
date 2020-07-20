@@ -30,7 +30,7 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
     @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
     @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices) CustomRadioButton rbFewDevices;
+    @BindView(R.id.rbOthers) CustomRadioButton rbFewDevices;
     @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.CONSTRUCTION;

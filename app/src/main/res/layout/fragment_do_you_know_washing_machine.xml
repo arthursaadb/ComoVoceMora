@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorGreenLight"
     tools:context=".ui.sustainablehabits.DoYouKnowTapFragment">
 
@@ -42,12 +42,12 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="@dimen/default_margin"
         android:layout_marginTop="100dp"
         android:src="@drawable/agua"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,29 +55,30 @@
         android:id="@+id/you_know_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="@dimen/default_padding"
         android:text="Você sabia?"
         android:textColor="@color/colorWhite"
-        android:layout_marginBottom="@dimen/default_padding"
         android:textSize="@dimen/title_text_size"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/explanation_tv"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="@id/explanation_tv"
+        app:layout_constraintStart_toStartOf="@id/explanation_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/explanation_tv"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/default_margin"
         android:text="Uma máquina de lavar roupas pode gastar até 160 litros de água numa lavagem: esse valor representa o consumo de uma pessoa por dia! Armazenar esta água (em recipiente fechado), para lavar a casa posteriormente ou mesmo para ser utilizada na própria lavadora, pode gerar uma boa economia (reduzindo as contas mensais e, ao mesmo tempo, evitando o desperdício para as épocas secas)."
-        android:layout_marginEnd="64dp"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintTop_toBottomOf="@id/you_know_tv"
-        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar"/>
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@id/you_know_tv" />
 
     <br.com.como_voce_mora.custom.HowYouLiveProgressBar
         android:id="@+id/progress_bar"

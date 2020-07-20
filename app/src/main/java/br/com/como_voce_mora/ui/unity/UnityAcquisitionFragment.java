@@ -101,7 +101,7 @@ public class UnityAcquisitionFragment extends BaseFragment implements CustomRadi
 
                     updateRbs();
                     break;
-                case R.id.rbOther:
+                case R.id.rbBorrowed:
                     mRb1.setChecked(false);
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);

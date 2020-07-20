@@ -18,7 +18,7 @@ import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class UnityUtilAreaFragment extends BaseFragment  implements VolumeVertical.OnListener {
+public class UnityUtilAreaFragment extends BaseFragment implements VolumeVertical.OnListener {
 
     @BindView(R.id.volume)
     VolumeVertical mVolume;
@@ -85,82 +85,16 @@ public class UnityUtilAreaFragment extends BaseFragment  implements VolumeVertic
 
     private void startVolume() {
         images = new ArrayList<>();
-        images.add(R.drawable.ic_30mts);
-        images.add(R.drawable.ic_35mts);
-        images.add(R.drawable.ic_40mts);
-        images.add(R.drawable.ic_45mts);
-        images.add(R.drawable.ic_50mts);
-        images.add(R.drawable.ic_55mts);
-        images.add(R.drawable.ic_60mts);
-        images.add(R.drawable.ic_65mts);
-        images.add(R.drawable.ic_70mts);
-        images.add(R.drawable.ic_75mts);
-        images.add(R.drawable.ic_80mts);
-        images.add(R.drawable.ic_85mts);
-        images.add(R.drawable.ic_90mts);
-        images.add(R.drawable.ic_95mts);
-        images.add(R.drawable.ic_100mts);
-        images.add(R.drawable.ic_105mts);
-        images.add(R.drawable.ic_110mts);
-        images.add(R.drawable.ic_115mts);
-        images.add(R.drawable.ic_120mts);
-        images.add(R.drawable.ic_125mts);
-        images.add(R.drawable.ic_130mts);
-        images.add(R.drawable.ic_135mts);
-        images.add(R.drawable.ic_140mts);
-        images.add(R.drawable.ic_145mts);
-        images.add(R.drawable.ic_150mts);
-        images.add(R.drawable.ic_155mts);
-        images.add(R.drawable.ic_160mts);
-        images.add(R.drawable.ic_165mts);
-        images.add(R.drawable.ic_170mts);
-        images.add(R.drawable.ic_175mts);
-        images.add(R.drawable.ic_180mts);
-        images.add(R.drawable.ic_185mts);
-        images.add(R.drawable.ic_190mts);
-        images.add(R.drawable.ic_195mts);
-        images.add(R.drawable.ic_200mts);
-        images.add(R.drawable.ic_205mts);
         images.add(R.drawable.ic_210mts_ou_mais);
+        images.add(R.drawable.ic_100mts);
+        images.add(R.drawable.ic_50mts);
+        images.add(R.drawable.ic_30mts);
 
         texts = new ArrayList<>();
-        texts.add("30 m2");
-        texts.add("35 m2");
-        texts.add("40 m2");
-        texts.add("45 m2");
-        texts.add("50 m2");
-        texts.add("55 m2");
-        texts.add("60 m2");
-        texts.add("65 m2");
-        texts.add("70 m2");
-        texts.add("75 m2");
-        texts.add("80 m2");
-        texts.add("85 m2");
-        texts.add("90 m2");
-        texts.add("95 m2");
-        texts.add("100 m2");
-        texts.add("105 m2");
-        texts.add("110 m2");
-        texts.add("115 m2");
-        texts.add("120 m2");
-        texts.add("126 m2");
-        texts.add("130 m2");
-        texts.add("136 m2");
-        texts.add("140 m2");
-        texts.add("146 m2");
-        texts.add("150 m2");
-        texts.add("156 m2");
-        texts.add("160 m2");
-        texts.add("166 m2");
-        texts.add("170 m2");
-        texts.add("176 m2");
-        texts.add("180 m2");
-        texts.add("186 m2");
-        texts.add("190 m2");
-        texts.add("196 m2");
-        texts.add("200 m2");
-        texts.add("205 m2");
-        texts.add("210 m2 ou mais");
+        texts.add("Mais de 200\u00B2");
+        texts.add("100m\u00B2 a 150m\u00B2");
+        texts.add("50m\u00B2 a 100m\u00B2");
+        texts.add("50m\u00B2");
 
     }
 }

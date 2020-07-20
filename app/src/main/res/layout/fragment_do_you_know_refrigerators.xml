@@ -44,7 +44,6 @@
         android:id="@+id/water_iv"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="100dp"
         android:src="@drawable/energia"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,8 +59,8 @@
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/title_text_size"
         app:layout_constraintBottom_toTopOf="@id/explanation_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toEndOf="@id/explanation_tv"
+        app:layout_constraintStart_toStartOf="@id/explanation_tv"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 

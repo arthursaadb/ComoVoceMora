@@ -2,6 +2,7 @@ package br.com.como_voce_mora.ui.sustainablehabits;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -22,14 +23,22 @@ import butterknife.OnClick;
  * create an instance of this fragment.
  */
 public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.optionYes) CustomRadioButton optionYes;
-    @BindView(R.id.optionNo) CustomRadioButton optionNo;
-    @BindView(R.id.rbBillsPrice) CustomRadioButton rbBillsPrice;
-    @BindView(R.id.rbLessAmbientalDamage) CustomRadioButton rbLessAmbientalDamage;
-    @BindView(R.id.rbDry) CustomRadioButton rbDry;
-    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.optionYes)
+    CustomRadioButton optionYes;
+    @BindView(R.id.optionNo)
+    CustomRadioButton optionNo;
+    @BindView(R.id.rbBillsPrice)
+    CustomRadioButton rbBillsPrice;
+    @BindView(R.id.rbLessAmbientalDamage)
+    CustomRadioButton rbLessAmbientalDamage;
+    @BindView(R.id.rbDry)
+    CustomRadioButton rbDry;
+    @BindView(R.id.rbOthers)
+    CustomRadioButton rbOthers;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_OIL;
     AnswerRequest answerRequest;
@@ -71,13 +80,20 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
-
-    public void blockItems() {
-        rbBillsPrice.setOnCheckedChangeListener(null);
-        rbLessAmbientalDamage.setOnCheckedChangeListener(null);
-        rbDry.setOnCheckedChangeListener(null);
-        rbOthers.setOnCheckedChangeListener(null);
+    private void hideItems() {
+        rbBillsPrice.setVisibility(View.INVISIBLE);
+        rbLessAmbientalDamage.setVisibility(View.INVISIBLE);
+        rbDry.setVisibility(View.INVISIBLE);
+        rbOthers.setVisibility(View.INVISIBLE);
     }
+
+    private void showItems() {
+        rbBillsPrice.setVisibility(View.VISIBLE);
+        rbLessAmbientalDamage.setVisibility(View.VISIBLE);
+        rbDry.setVisibility(View.VISIBLE);
+        rbOthers.setVisibility(View.VISIBLE);
+    }
+
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -87,17 +103,16 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
             switch (buttonView.getId()) {
                 case R.id.optionYes:
                     init();
-                    mNextFrag = DoYouKnowWhereGarbageGo.newInstance();
-
+                    mNextFrag = ConstructionFragment.newInstance();
+                    showItems();
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.optionNo:
-                    mNextFrag = DoYouKnowBatteryFragment.newInstance();
-                    blockItems();
-
+                    mNextFrag = ConstructionFragment.newInstance();
+                    hideItems();
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
                     rbBillsPrice.setChecked(false);

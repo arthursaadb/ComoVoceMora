@@ -5,6 +5,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -20,20 +23,33 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbWashMachineReuse) CustomRadioButton rbWashMachineReuse;
-    @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices) CustomRadioButton rbFewDevices;
-    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth)
+    CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes)
+    CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity)
+    CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbWashMachineReuse)
+    CustomRadioButton rbWashMachineReuse;
+    @BindView(R.id.rbQuickShowers)
+    CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbFewDevices)
+    CustomRadioButton rbFewDevices;
+    @BindView(R.id.rbOthers)
+    CustomRadioButton rbOthers;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
-    public static Boolean hasWater = false;
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHAT_YOU_DO_TO_SAVE_WATER;
     AnswerRequest answerRequest;
+    List<BaseFragment> mNextFragments = new ArrayList<>();
+    BaseFragment consumeFragment = DoYouKnowConsumeFragment.newInstance(mNextFragments);
+    BaseFragment tapFragment = DoYouKnowTapFragment.newInstance(mNextFragments);
+    BaseFragment washingMachineFragment = DoYouKnowWashingMachineFragment.newInstance(mNextFragments);
+    BaseFragment watherSaveFragment = WaterSaveEquipmentFragment.newInstance();
+    BaseFragment whynotFragment = WhyYouNotUseEquipamentFragment.newInstance();
 
 
     public static WhatYouDoToSaveWater newInstance() {
@@ -49,7 +65,7 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowWashingMachineFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFragments.get(0));
         }
     }
 
@@ -71,6 +87,10 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
         rbFewDevices.setOnCheckedChangeListener(this);
         rbOthers.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
+        mNextFragments.add(consumeFragment);
+        mNextFragments.add(tapFragment);
+        mNextFragments.add(washingMachineFragment);
+        mNextFragments.add(whynotFragment);
     }
 
     @Override
@@ -81,7 +101,7 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
-
+                    mNextFragments.remove(tapFragment);
                     updateViews();
                     break;
                 case R.id.rbDishes:
@@ -91,12 +111,12 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
                     break;
                 case R.id.rbWashMachineCapacity:
                     rbWashMachineCapacity.setChecked(true);
-
+                    mNextFragments.remove(consumeFragment);
                     updateViews();
                     break;
                 case R.id.rbWashMachineReuse:
                     rbWashMachineReuse.setChecked(true);
-
+                    mNextFragments.remove(washingMachineFragment);
                     updateViews();
                     break;
                 case R.id.rbQuickShowers:
@@ -106,8 +126,8 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
                     break;
                 case R.id.rbFewDevices:
                     rbFewDevices.setChecked(true);
-                    hasWater = true;
-
+                    mNextFragments.add(watherSaveFragment);
+                    mNextFragments.remove(whynotFragment);
                     updateViews();
                     break;
                 case R.id.rbOthers:

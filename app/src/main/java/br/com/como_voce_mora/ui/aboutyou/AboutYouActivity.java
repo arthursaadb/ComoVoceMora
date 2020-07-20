@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
 import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
+import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 
 public class AboutYouActivity extends BaseActivity {
 
@@ -16,8 +17,9 @@ public class AboutYouActivity extends BaseActivity {
     @Override
     public void init() {
         super.init();
-        replaceFragment(WhatYourGenderFragment.newInstance());
-//        replaceFragment(SustainableHabitsIntroFragment.newInstance());
+//        replaceFragment(WhatYourGenderFragment.newInstance());
+//        replaceFragment(UnitySplashFragment.newInstance());
+        replaceFragment(SustainableHabitsIntroFragment.newInstance());
     }
 
 
@@ -32,7 +34,7 @@ public class AboutYouActivity extends BaseActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .addToBackStack(fragment.getClass().getSimpleName())
-                .add(R.id.container, fragment)
+                .replace(R.id.container, fragment)
                 .commitAllowingStateLoss();
     }
 }

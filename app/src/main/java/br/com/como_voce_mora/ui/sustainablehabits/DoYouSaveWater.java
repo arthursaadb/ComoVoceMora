@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -65,22 +66,25 @@ public class DoYouSaveWater extends BaseFragment implements CustomRadioButton.On
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         optionYes.setOnCheckedChangeListener(this);
         optionNo.setOnCheckedChangeListener(this);
-        blockItems();
-        mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
-    }
-
-    public void enableItems() {
         rbBillsPrice.setOnCheckedChangeListener(this);
         rbLessAmbientalDamage.setOnCheckedChangeListener(this);
         rbDry.setOnCheckedChangeListener(this);
         rbOthers.setOnCheckedChangeListener(this);
+        mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
-    public void blockItems() {
-        rbBillsPrice.setOnCheckedChangeListener(null);
-        rbLessAmbientalDamage.setOnCheckedChangeListener(null);
-        rbDry.setOnCheckedChangeListener(null);
-        rbOthers.setOnCheckedChangeListener(null);
+    private void hideItems(){
+        rbBillsPrice.setVisibility(View.INVISIBLE);
+        rbLessAmbientalDamage.setVisibility(View.INVISIBLE);
+        rbDry.setVisibility(View.INVISIBLE);
+        rbOthers.setVisibility(View.INVISIBLE);
+    }
+
+    private void showItems(){
+        rbBillsPrice.setVisibility(View.VISIBLE);
+        rbLessAmbientalDamage.setVisibility(View.VISIBLE);
+        rbDry.setVisibility(View.VISIBLE);
+        rbOthers.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -92,21 +96,19 @@ public class DoYouSaveWater extends BaseFragment implements CustomRadioButton.On
                 case R.id.optionYes:
                     init();
                     mNextFragment = DoYouKnowEquipamentsFragment.newInstance();
-
+                    showItems();
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
                     rbBillsPrice.setChecked(false);
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
-                    enableItems();
 
                     updateViews();
                     break;
                 case R.id.optionNo:
                     mNextFragment = DoYouSaveElectricityFragment.newInstance();
-                    blockItems();
-
+                    hideItems();
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
                     rbBillsPrice.setChecked(false);
