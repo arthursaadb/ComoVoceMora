@@ -93,7 +93,7 @@ public class WhatYourGenderFragment extends BaseFragment implements CustomRadioB
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouSaveWater.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(HowOldAreYouFragment.newInstance());
         }
     }
 

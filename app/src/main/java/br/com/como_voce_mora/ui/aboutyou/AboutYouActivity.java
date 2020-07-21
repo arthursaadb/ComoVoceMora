@@ -17,9 +17,9 @@ public class AboutYouActivity extends BaseActivity {
     @Override
     public void init() {
         super.init();
-//        replaceFragment(WhatYourGenderFragment.newInstance());
+        replaceFragment(WhatYourGenderFragment.newInstance());
 //        replaceFragment(UnitySplashFragment.newInstance());
-        replaceFragment(SustainableHabitsIntroFragment.newInstance());
+//        replaceFragment(SustainableHabitsIntroFragment.newInstance());
     }
 
 
