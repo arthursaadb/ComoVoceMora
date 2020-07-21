@@ -42,7 +42,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(sustainableHabitsAnswer.getQuestion(), answerRequest);
-            ((AboutYouActivity) requireActivity()).addFragment(TransportationFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(TransportationReasonFragment.newInstance());
         }
     }
 
