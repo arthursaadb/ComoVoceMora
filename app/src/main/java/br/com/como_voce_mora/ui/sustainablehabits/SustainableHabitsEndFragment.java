@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +17,7 @@ import br.com.como_voce_mora.presenter.ServicesPresenter;
 import br.com.como_voce_mora.presenter.ServicesPresenterContract;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.intro.IntroActivity;
 import br.com.zup.multistatelayout.MultiStateLayout;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -52,7 +54,8 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
 
     @OnClick(R.id.rootLayout)
     public void onClickRoot() {
-//        ((AboutYouActivity) requireActivity()).addFragment(WhyDoYouSaveWater.newInstance());
+        Intent intent = new Intent(getActivity(), IntroActivity.class);
+        startActivity(intent);
     }
 
     @Override
