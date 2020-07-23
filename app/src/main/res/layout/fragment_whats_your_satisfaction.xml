@@ -1,172 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/colorBlueLight2">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlueLight2">
 
     <include layout="@layout/fragment_mr_clipboard_ball" />
 
-    <View
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorBege"
-        app:layout_constraintTop_toTopOf="@id/volumeAcesso"
-        app:layout_constraintBottom_toBottomOf="@id/volumeAcesso"
-        app:layout_constraintStart_toStartOf="@id/tvAcesso"
-        app:layout_constraintEnd_toEndOf="@id/volumeAcesso" />
-
-    <TextView
-        android:id="@+id/tvAcesso"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:text="Acesso"
-        android:gravity="center_vertical"
-        android:paddingStart="@dimen/default_padding"
-        android:textSize="@dimen/default_text_size"
-        android:layout_gravity="center_vertical"
-        android:textColor="@color/colorBlack"
-        android:paddingLeft="@dimen/default_padding"
-        app:layout_constraintTop_toTopOf="@id/volumeAcesso"
-        app:layout_constraintBottom_toBottomOf="@id/volumeAcesso"
-        app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard"
-        app:layout_constraintEnd_toStartOf="@id/volumeAcesso"
-        app:layout_constraintHorizontal_chainStyle="packed" />
-
-
-    <br.com.como_voce_mora.custom.VolumeHorizontal
-        android:id="@+id/volumeAcesso"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        android:gravity="end"
-        android:paddingEnd="@dimen/default_padding"
-        app:layout_constraintStart_toEndOf="@id/tvAcesso"
-        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
-        android:paddingRight="@dimen/default_padding" />
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar">
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAcesso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Acesso"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/default_padding"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/colorBlack"
+                android:paddingLeft="@dimen/default_padding" />
 
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/colorBege"
-        app:layout_constraintStart_toStartOf="@id/tvQuantidade"
-        app:layout_constraintTop_toTopOf="@id/tvQuantidade"
-        app:layout_constraintBottom_toBottomOf="@id/tvQuantidade"
-        app:layout_constraintEnd_toEndOf="@id/volumeQuantidade" />
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volumeAcesso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"
+                app:layout_constraintStart_toEndOf="@id/tvAcesso"
+                app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+                app:layout_constraintEnd_toStartOf="@id/bt_next" />
 
-    <TextView
-        android:id="@+id/tvQuantidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:text="Quantidade dos \nEquipamentos"
-        android:paddingStart="@dimen/default_padding"
-        android:layout_gravity="center_vertical"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size"
-        android:paddingLeft="@dimen/default_padding"
-        app:layout_constraintTop_toBottomOf="@id/volumeAcesso"
-        app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard"
-        app:layout_constraintEnd_toStartOf="@id/volumeQuantidade"
-        app:layout_constraintHorizontal_chainStyle="packed" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
 
-    <br.com.como_voce_mora.custom.VolumeHorizontal
-        android:id="@+id/volumeQuantidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:gravity="end"
-        android:paddingEnd="@dimen/default_padding"
-        android:paddingRight="@dimen/default_padding"
-        app:layout_constraintStart_toEndOf="@id/tvQuantidade"
-        app:layout_constraintTop_toTopOf="@id/tvQuantidade"
-        app:layout_constraintBottom_toBottomOf="@id/tvQuantidade"
-        app:layout_constraintEnd_toEndOf="@id/volumeAcesso" />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/colorBege"
-        app:layout_constraintStart_toStartOf="@id/tvQualidade"
-        app:layout_constraintTop_toTopOf="@id/tvQualidade"
-        app:layout_constraintBottom_toBottomOf="@id/tvQualidade"
-        app:layout_constraintEnd_toEndOf="@id/volumeQualidade" />
-
-    <TextView
-        android:id="@+id/tvQualidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:text="Qualidade dos\nEquipamentos"
-        android:textSize="@dimen/default_text_size"
-        android:layout_gravity="center_vertical"
-        android:textColor="@color/colorBlack"
-        android:paddingStart="@dimen/default_padding"
-        android:paddingLeft="@dimen/default_padding"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/tvQuantidade"
-        app:layout_constraintStart_toStartOf="@id/tvQuantidade"
-        app:layout_constraintEnd_toStartOf="@id/volumeQualidade" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:id="@+id/tvQuantidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantidade dos \nEquipamentos"
+                android:paddingStart="@dimen/default_padding"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/default_text_size"
+                android:paddingLeft="@dimen/default_padding" />
 
 
-    <br.com.como_voce_mora.custom.VolumeHorizontal
-        android:id="@+id/volumeQualidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:paddingEnd="@dimen/default_padding"
-        android:paddingRight="@dimen/default_padding"
-        app:layout_constraintStart_toEndOf="@id/tvQualidade"
-        app:layout_constraintTop_toTopOf="@id/tvQualidade"
-        app:layout_constraintEnd_toEndOf="@id/volumeQuantidade"
-        app:layout_constraintBottom_toBottomOf="@id/tvQualidade" />
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volumeQuantidade"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="end"
+                android:paddingEnd="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding" />
+        </LinearLayout>
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/colorBege"
-        app:layout_constraintStart_toStartOf="@id/tvSeguranca"
-        app:layout_constraintTop_toTopOf="@id/volumeSeguranca"
-        app:layout_constraintBottom_toBottomOf="@id/volumeSeguranca"
-        app:layout_constraintEnd_toEndOf="@id/volumeSeguranca" />
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvSeguranca"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Segurança"
-        android:paddingStart="@dimen/default_padding"
-        android:gravity="center_vertical"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size"
-        android:paddingLeft="@dimen/default_padding"
-        app:layout_constraintStart_toStartOf="@id/tvQualidade"
-        app:layout_constraintBottom_toBottomOf="@id/volumeSeguranca"
-        app:layout_constraintEnd_toStartOf="@id/volumeSeguranca"
-        app:layout_constraintTop_toTopOf="@id/volumeSeguranca" />
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/tvQualidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qualidade dos\nEquipamentos"
+                android:textSize="@dimen/default_text_size"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlack"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingLeft="@dimen/default_padding" />
 
 
-    <br.com.como_voce_mora.custom.VolumeHorizontal
-        android:id="@+id/volumeSeguranca"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:gravity="end"
-        android:paddingEnd="@dimen/default_padding"
-        android:paddingRight="@dimen/default_padding"
-        app:layout_constraintTop_toBottomOf="@id/tvQualidade"
-        app:layout_constraintStart_toEndOf="@id/tvSeguranca"
-        app:layout_constraintEnd_toEndOf="@id/volumeQualidade" />
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volumeQualidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:id="@+id/tvSeguranca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Segurança"
+                android:paddingStart="@dimen/default_padding"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/default_text_size"
+                android:paddingLeft="@dimen/default_padding" />
+
+
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volumeSeguranca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

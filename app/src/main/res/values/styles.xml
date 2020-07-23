@@ -22,10 +22,11 @@
     </style>
 
     <style name="CustomRadioButton">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/custom_radio_button_height</item>
+        <item name="android:layout_width">@dimen/custom_radio_button_width</item>
         <item name="android:button">@android:color/transparent</item>
-        <item name="android:padding">24dp</item>
+        <item name="android:padding">@dimen/custom_radio_button_padding</item>
+        <item name="android:textSize">@dimen/custom_radio_button_text_size</item>
     </style>
 
     <style name="CustomRadioButton2">

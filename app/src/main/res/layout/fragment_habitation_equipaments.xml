@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/colorGrayLight">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrayLight">
 
     <include layout="@layout/fragment_mr_clipboard_full" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
         android:layout_centerVertical="true"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toBottomOf="@id/tv_question"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
@@ -43,6 +44,14 @@
                 app:nameItem="@string/gym"
                 app:imageItem="@drawable/academia" />
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvSqaure"
                 android:layout_width="wrap_content"
@@ -53,13 +62,6 @@
                 app:nameItem="@string/quadra"
                 app:imageItem="@drawable/quadra" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvPartyRoom"
                 android:layout_width="wrap_content"
@@ -69,6 +71,13 @@
                 android:layout_gravity="center"
                 app:nameItem="@string/party_room"
                 app:imageItem="@drawable/party_room" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvPoolPlusEighteen"
@@ -91,6 +100,7 @@
                 app:imageItem="@drawable/kids_pool" />
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -118,8 +128,5 @@
                 app:imageItem="@drawable/playground" />
 
         </LinearLayout>
-
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

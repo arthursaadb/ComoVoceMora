@@ -13,7 +13,6 @@
         android:layout_marginTop="@dimen/default_margin"
         android:text="Manhã"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toBottomOf="@id/bt_next"
         app:layout_constraintEnd_toStartOf="@id/rbTarde"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
@@ -24,7 +23,6 @@
         android:id="@+id/rbTarde"
         android:text="Tarde"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toBottomOf="@id/rbManha"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbManha" />

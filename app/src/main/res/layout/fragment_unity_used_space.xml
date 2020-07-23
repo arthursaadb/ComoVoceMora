@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorPink">
 
-
     <include layout="@layout/fragment_mr_clipboard_full" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
@@ -16,7 +15,6 @@
         android:layout_marginTop="30dp"
         android:text="Apenas Produção/\nConfecção"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintTop_toBottomOf="@id/tv_question" />
@@ -28,7 +26,6 @@
         android:layout_marginBottom="30dp"
         android:text="Local de vendas/\nRecepção de clientes"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintTop_toBottomOf="@id/rbProduction" />
@@ -41,10 +38,8 @@
         android:layout_marginLeft="@dimen/default_margin"
         android:text="Ambos"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintStart_toEndOf="@id/rbProduction"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintTop_toTopOf="@id/rbProduction" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

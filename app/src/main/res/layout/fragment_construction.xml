@@ -8,30 +8,24 @@
     tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
 
     <include
-        android:id="@+id/mrClipboardLayout"
         layout="@layout/fragment_mr_clipboard_ball" />
 
     <ImageView
+        android:layout_marginLeft="10dp"
         android:id="@+id/water_iv"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="100dp"
         android:src="@drawable/acabamento"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/rbBrushMyTeeth"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
         app:layout_constraintStart_toEndOf="@+id/bt_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"/>
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBrushMyTeeth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/CustomRadioButton"
-        android:padding="0dp"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Jogo em terreno vazio"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@id/water_iv"
         app:layout_constraintEnd_toStartOf="@id/rbQuickShowers"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -42,13 +36,9 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
         style="@style/CustomRadioButton"
-        android:padding="0dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Jogo em aterro sanitário"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
@@ -57,14 +47,10 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineCapacity"
         style="@style/CustomRadioButton"
-        android:padding="0dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Uso caçamba"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
@@ -73,14 +59,10 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbQuickShowers"
         style="@style/CustomRadioButton"
-        android:padding="0dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Levo para\necoponto"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
@@ -88,9 +70,6 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbOthers"
         style="@style/CustomRadioButton"
-        android:padding="0dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:button="@color/colorTransparent"
         android:text="Desconheço"
         android:textAlignment="center"

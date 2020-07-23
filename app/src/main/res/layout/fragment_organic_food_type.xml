@@ -29,7 +29,6 @@
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Verduras"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintBottom_toTopOf="@id/rbDishes"
         app:layout_constraintStart_toEndOf="@id/water_iv"
@@ -42,7 +41,6 @@
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Frutas"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
@@ -56,7 +54,6 @@
         android:gravity="center"
         android:text="Sucos"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,11 +65,9 @@
         style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:padding="@dimen/default_padding"
         android:text="Carnes"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
 
@@ -84,7 +79,6 @@
         android:gravity="center"
         android:text="Cereais"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
         app:layout_constraintTop_toTopOf="@id/rbDishes" />
@@ -95,10 +89,8 @@
         android:button="@color/colorTransparent"
         android:text="Outros"
         android:textAlignment="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbFewDevices"
         app:layout_constraintStart_toStartOf="@+id/rbFewDevices"
         app:layout_constraintTop_toTopOf="@id/rbWashMachineCapacity" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

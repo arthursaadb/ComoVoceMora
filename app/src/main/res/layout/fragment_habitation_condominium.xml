@@ -13,7 +13,6 @@
         android:layout_marginTop="@dimen/default_margin"
         android:gravity="center"
         android:text="Sim"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toBottomOf="@id/bt_next"
         app:layout_constraintEnd_toStartOf="@id/rbNo"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
@@ -24,7 +23,6 @@
         style="@style/CustomRadioButton"
         android:gravity="center"
         android:text="Não"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toBottomOf="@id/rbYes"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbYes" />

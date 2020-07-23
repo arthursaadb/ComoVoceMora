@@ -11,7 +11,6 @@
         android:id="@+id/mrClipboardLayout"
         layout="@layout/fragment_mr_clipboard_full" />
 
-
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBrushMyTeeth"
         style="@style/CustomRadioButton"
@@ -21,7 +20,6 @@
         app:layout_constraintBottom_toTopOf="@id/rbDishes"
         android:layout_marginTop="@dimen/default_margin"
         android:text="Desconheço"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintTop_toBottomOf="@id/tv_question"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
 
@@ -31,7 +29,6 @@
         android:gravity="center"
         android:text="Custo alto"
         app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
@@ -43,7 +40,6 @@
         android:gravity="center"
         android:text="Depende de\nreformas"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
@@ -55,12 +51,9 @@
         android:gravity="center"
         android:text="Difícil manuntenção"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
-
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
-
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbFewDevices"
@@ -69,7 +62,6 @@
         android:gravity="center"
         android:text="Não vejo vantagem"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
         app:layout_constraintTop_toTopOf="@id/rbDishes" />

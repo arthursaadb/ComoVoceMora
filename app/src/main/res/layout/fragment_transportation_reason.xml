@@ -23,17 +23,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
         android:id="@+id/rbBrushMyTeeth"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
         app:layout_constraintHorizontal_chainStyle="spread"
         android:layout_marginStart="@dimen/default_margin"
         app:layout_constraintEnd_toStartOf="@id/rbQuickShowers"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:padding="@dimen/default_padding"
         android:text="Rapidez de locomoção"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@id/rbDishes"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintTop_toBottomOf="@+id/tv_question"
@@ -41,13 +38,10 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:padding="@dimen/default_padding"
         android:text="Custo é mais acessível"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
@@ -55,13 +49,11 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineCapacity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Consigo ir a todos os\nlugares"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@id/rbWashMachineReuse"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
@@ -69,13 +61,11 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineReuse"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Divido com\noutras"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbWashMachineCapacity"
         app:layout_constraintStart_toStartOf="@id/rbWashMachineCapacity"
@@ -83,13 +73,11 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbQuickShowers"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Causa menos problemas\nambientais"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintBottom_toTopOf="@id/rbFewDevices"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
@@ -97,14 +85,11 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbFewDevices"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:padding="@dimen/default_padding"
         android:text="Preocupação com a saúde"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
+        style="@style/CustomRadioButton"
         app:layout_constraintBottom_toTopOf="@id/rbOthers"
         app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
@@ -112,12 +97,10 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbOthers"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:text="Necessidade\nfísica"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintBottom_toTopOf="@id/rbNew"
         app:layout_constraintEnd_toEndOf="@id/rbFewDevices"
         app:layout_constraintStart_toStartOf="@+id/rbFewDevices"
@@ -128,13 +111,10 @@
         style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:padding="@dimen/default_padding"
         android:text="Preocupação com a saúde"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbOthers"
         app:layout_constraintStart_toStartOf="@+id/rbOthers"
         app:layout_constraintTop_toTopOf="@id/rbWashMachineReuse" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

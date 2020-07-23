@@ -32,7 +32,6 @@
         app:layout_constraintEnd_toStartOf="@id/rbWashMachineCapacity"
         android:text="Decorativa"
         app:layout_constraintHorizontal_chainStyle="packed"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintTop_toTopOf="@id/water_iv" />
 
@@ -43,7 +42,6 @@
         android:layout_marginTop="@dimen/default_margin"
         android:gravity="center"
         android:text="Medicinal"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
@@ -58,7 +56,6 @@
         android:gravity="center"
         android:text="Hortaliça/Comestível"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@+id/bt_next"
         app:layout_constraintBottom_toBottomOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toEndOf="@id/rbBrushMyTeeth"

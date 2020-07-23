@@ -28,7 +28,6 @@
         android:id="@+id/rbNo"
         android:text="Nao"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toBottomOf="@id/rbYes"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbYes" />
@@ -39,7 +38,6 @@
         android:layout_marginTop="@dimen/default_margin"
         android:text="Nao sei"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintStart_toStartOf="@id/rbYes"
         app:layout_constraintTop_toBottomOf="@id/rbYes" />
 
@@ -51,7 +49,6 @@
         android:layout_marginTop="@dimen/default_margin"
         android:text="Digite Aqui:"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/default_text_size"
         android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@id/rbOther"
         app:layout_constraintStart_toStartOf="@id/rbOther"

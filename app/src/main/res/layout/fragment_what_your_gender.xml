@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,34 +9,31 @@
     <include layout="@layout/fragment_mr_clipboard_full" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        android:id="@+id/rbFemale"
         style="@style/CustomRadioButton"
+        android:id="@+id/rbFemale"
         android:layout_marginTop="@dimen/default_margin"
-        android:gravity="center"
         android:text="Feminino"
-        android:textSize="@dimen/default_text_size"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@id/rbOther"
         app:layout_constraintEnd_toStartOf="@id/rbMale"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toBottomOf="@id/tv_question" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        android:id="@+id/rbMale"
         style="@style/CustomRadioButton"
-        android:gravity="center"
+        android:id="@+id/rbMale"
         android:text="Masculino"
-        android:textSize="@dimen/default_text_size"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/rbFemale"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbFemale" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        android:id="@+id/rbOther"
         style="@style/CustomRadioButton"
+        android:id="@+id/rbOther"
         android:layout_marginTop="@dimen/default_margin"
-        android:gravity="center"
         android:text="Outro"
-        android:textSize="@dimen/default_text_size"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/progress_bar"
         app:layout_constraintStart_toStartOf="@id/rbFemale"
         app:layout_constraintTop_toBottomOf="@id/rbFemale" />

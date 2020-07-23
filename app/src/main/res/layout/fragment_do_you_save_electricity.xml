@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,26 +24,22 @@
         app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        android:id="@+id/optionYes"
         style="@style/CustomRadioButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/optionYes"
+        android:text="Sim"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Sim"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toTopOf="@id/water_iv"
         app:layout_constraintEnd_toStartOf="@id/rbBillsPrice"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintTop_toBottomOf="@+id/tv_question" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
         android:id="@+id/optionNo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:text="Não"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Não"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/optionYes"
@@ -51,12 +48,10 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBillsPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:button="@color/colorTransparent"
+        style="@style/CustomRadioButton"
         android:text="Economizo no preço\ndas contas"
+        android:button="@color/colorTransparent"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@id/rbLessAmbientalDamage"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -65,13 +60,11 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbLessAmbientalDamage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:layout_marginEnd="@dimen/default_margin"
-        android:button="@color/colorTransparent"
         android:text="Causa menos danos\nambientais"
+        android:button="@color/colorTransparent"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbBillsPrice"
@@ -79,13 +72,11 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDry"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:layout_marginTop="@dimen/small_margin"
+        android:text="Temo faltar em\nperíodo de seca"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Temo faltar em\nperíodo de seca"
-        android:textSize="@dimen/micro_text_size"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@id/rbOthers"
         app:layout_constraintStart_toStartOf="@id/rbBillsPrice"
@@ -93,14 +84,12 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbOthers"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:layout_marginTop="@dimen/small_margin"
         android:layout_marginEnd="@dimen/default_margin"
+        android:text="Outros"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Outros"
-        android:textSize="@dimen/micro_text_size"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"

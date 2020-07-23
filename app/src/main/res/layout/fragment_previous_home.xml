@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorOrange">
 
-
     <include layout="@layout/fragment_mr_clipboard_full" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
@@ -16,7 +15,6 @@
         android:layout_marginLeft="10dp"
         android:text="Já morei em outro\nlocal"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toTopOf="@id/bt_next"
         app:layout_constraintEnd_toStartOf="@id/rbFinanced"
@@ -30,7 +28,6 @@
         android:layout_marginLeft="10dp"
         android:text="Sempre morei no \nmesmo local"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toBottomOf="@id/rbRent"
         app:layout_constraintTop_toTopOf="@id/rbRent"
         app:layout_constraintEnd_toStartOf="@id/bt_next"

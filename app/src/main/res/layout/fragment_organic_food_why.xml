@@ -24,12 +24,10 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBrushMyTeeth"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:layout_marginStart="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:padding="@dimen/default_padding"
         android:text="Preocupação\nsaúde"
         android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toStartOf="@id/rbQuickShowers"
@@ -39,29 +37,24 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:layout_marginTop="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:padding="@dimen/default_padding"
         android:text="Reduzir danos\nambientais"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbQuickShowers"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginEnd="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="São mais \nsaborosos"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
@@ -69,16 +62,13 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbFewDevices"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Outros"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
         app:layout_constraintTop_toTopOf="@id/rbDishes" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

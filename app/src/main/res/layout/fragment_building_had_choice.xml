@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/colorBlueLight2">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlueLight2">
 
     <include layout="@layout/fragment_mr_clipboard_full" />
 
@@ -13,7 +14,6 @@
         android:layout_marginTop="@dimen/default_margin"
         android:text="Escolhi"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toTopOf="@id/rbOther"
         app:layout_constraintEnd_toStartOf="@id/rbMale"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
@@ -24,11 +24,8 @@
         android:id="@+id/rbMale"
         android:text="Não tive Escolha"
         android:gravity="center"
-        android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toBottomOf="@id/rbFemale"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbFemale" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next">
 
@@ -24,7 +24,7 @@
             android:id="@+id/llVolume1"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:background="@color/colorBege"
             android:orientation="horizontal">
 
@@ -53,7 +53,7 @@
             android:id="@+id/llVolume2"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:background="@color/colorBege"
             android:orientation="horizontal">
 
@@ -83,7 +83,7 @@
             android:id="@+id/llVolume3"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_below="@id/tv_question"
             android:layout_centerHorizontal="true"
             android:background="@color/colorBege"
@@ -115,7 +115,7 @@
             android:id="@+id/llVolume4"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_below="@id/tv_question"
             android:layout_centerHorizontal="true"
             android:background="@color/colorBege"
