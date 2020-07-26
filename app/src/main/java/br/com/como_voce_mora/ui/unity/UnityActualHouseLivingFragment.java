@@ -17,7 +17,7 @@ import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class UnityActualHouseLivingFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+public class UnityActualHouseLivingFragment extends BaseFragment implements View.OnClickListener {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
@@ -46,8 +46,6 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
     @BindView(R.id.rbExcesso)
     CustomRadioButton mRbExcesso;
 
-
-    private boolean anyOptionChecked = false;
     private AnswerRequest answerRequest;
     private UnityAnswer unityAnswer = UnityAnswer.KEEP_FURNISHINGS;
 
@@ -64,24 +62,25 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
     public void init() {
         tvQuestion.setText(unityAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        mRb1.setOnCheckedChangeListener(this);
-        mRb2.setOnCheckedChangeListener(this);
-        mRbEletroPequeno.setOnCheckedChangeListener(this);
-        mRbEletroGrande.setOnCheckedChangeListener(this);
-        rbMoveisPequenos.setOnCheckedChangeListener(this);
-        rbMoveisGrandes.setOnCheckedChangeListener(this);
-        mRbPortas.setOnCheckedChangeListener(this);
-        mRbPosicaoRuim.setOnCheckedChangeListener(this);
-        mRbMoveisNovos.setOnCheckedChangeListener(this);
-        mRbExcesso.setOnCheckedChangeListener(this);
+        mRb1.setOnClickListener(this);
+        mRb2.setOnClickListener(this);
+        mRbEletroPequeno.setOnClickListener(this);
+        mRbEletroGrande.setOnClickListener(this);
+        rbMoveisPequenos.setOnClickListener(this);
+        rbMoveisGrandes.setOnClickListener(this);
+        mRbPortas.setOnClickListener(this);
+        mRbPosicaoRuim.setOnClickListener(this);
+        mRbMoveisNovos.setOnClickListener(this);
+        mRbExcesso.setOnClickListener(this);
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-            anyOptionChecked = true;
-            setAnswer(buttonView.getText().toString());
-            switch (buttonView.getId()) {
+    public void onClick(View v) {
+        CustomRadioButton  option = (CustomRadioButton) v;
+
+        if (v.isPressed()) {
+            setAnswer(option.getText().toString());
+            switch (option.getId()) {
                 case R.id.rbYes:
                     mRb1.setChecked(true);
                     mRb2.setChecked(false);
@@ -110,37 +109,6 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
                     mScrollView.setVisibility(View.VISIBLE);
                     updateRbs();
                     break;
-                case R.id.rbEletroPequeno:
-                    mRbEletroPequeno.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbEletroGrande:
-                    mRbEletroGrande.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbMoveisPequeno:
-                    rbMoveisPequenos.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbMoveisGrandes:
-                    rbMoveisGrandes.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbPortas:
-                    mRbPortas.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbPosicaoRuim:
-                    mRbPosicaoRuim.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbMoveisNovos:
-                    mRbMoveisNovos.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbExcesso:
-                    mRbExcesso.setChecked(true);
-                    updateRbs();
             }
         }
     }

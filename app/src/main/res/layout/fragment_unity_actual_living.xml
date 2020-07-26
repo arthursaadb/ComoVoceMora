@@ -26,14 +26,13 @@
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="@id/rbNo"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
-        app:layout_constraintStart_toEndOf="@id/rbYes"
-        app:layout_constraintTop_toTopOf="@id/rbYes">
+        app:layout_constraintStart_toEndOf="@id/rbNo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -2,12 +2,13 @@ package br.com.como_voce_mora.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
 import br.com.como_voce_mora.R;
 
-public class CustomRadioButton extends RadioButton implements CompoundButton.OnCheckedChangeListener {
+public class CustomRadioButton extends CheckBox implements CompoundButton.OnCheckedChangeListener {
     public CustomRadioButton(Context context) {
         super(context);
 
