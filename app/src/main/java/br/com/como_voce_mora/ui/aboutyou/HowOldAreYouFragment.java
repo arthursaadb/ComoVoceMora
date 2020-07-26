@@ -29,6 +29,7 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
     private List<Integer> agesImage;
     private List<String> agesText;
 
+    private boolean anyOptionChecked = false;
     private AnswerRequest answerRequest;
     private AboutYouAnswer aboutYouAnswer = AboutYouAnswer.WHATS_YOUR_AGE;
 
@@ -74,6 +75,7 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
 
     @Override
     public void positionVolume(int position) {
+        anyOptionChecked = true;
         mIvAge.setImageResource(agesImage.get(position));
         mTvAge.setText(agesText.get(position));
         answerRequest = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), agesText.get(position));
@@ -82,8 +84,10 @@ public class HowOldAreYouFragment extends BaseFragment implements VolumeVertical
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
-        ((AboutYouActivity) requireActivity()).addFragment(SchoolingFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(SchoolingFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)

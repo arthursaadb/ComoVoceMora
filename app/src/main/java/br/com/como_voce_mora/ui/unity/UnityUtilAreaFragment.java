@@ -94,7 +94,7 @@ public class UnityUtilAreaFragment extends BaseFragment implements VolumeVertica
         texts.add("Mais de 200\u00B2");
         texts.add("100m\u00B2 a 150m\u00B2");
         texts.add("50m\u00B2 a 100m\u00B2");
-        texts.add("50m\u00B2");
+        texts.add("Até 50m\u00B2");
 
     }
 }

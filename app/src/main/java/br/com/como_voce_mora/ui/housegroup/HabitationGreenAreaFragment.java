@@ -79,7 +79,6 @@ public class HabitationGreenAreaFragment extends BaseFragment implements CustomR
                     yesChecked = false;
                     rbYes.setChecked(false);
                     rbNo.setChecked(true);
-
                     updateRbs();
                     break;
             }

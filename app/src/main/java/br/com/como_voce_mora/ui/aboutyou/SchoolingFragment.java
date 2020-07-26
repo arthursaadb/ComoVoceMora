@@ -29,6 +29,7 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
     private List<Integer> images;
     private List<String> texts;
 
+    private boolean anyOptionChecked = false;
     private AnswerRequest answerRequest;
     private AboutYouAnswer aboutYouAnswer = AboutYouAnswer.SCHOOLING;
 
@@ -116,6 +117,7 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
 
     @Override
     public void positionVolume(int position) {
+        anyOptionChecked = true;
         mIvSchool.setImageResource(images.get(position));
         nTvSchool.setText(texts.get(position));
         nTvSchool.setVisibility(View.VISIBLE);
@@ -124,8 +126,10 @@ public class SchoolingFragment extends BaseFragment implements VolumeVertical.On
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
-        ((AboutYouActivity) requireActivity()).addFragment(WithWhomYouLiveFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(WithWhomYouLiveFragment.newInstance());
+        }
 
     }
 

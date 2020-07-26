@@ -9,118 +9,103 @@
 
     <include layout="@layout/fragment_mr_clipboard_ball" />
 
-    <View
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorBege"
-        app:layout_constraintBottom_toBottomOf="@id/volumeAgradabilidade"
-        app:layout_constraintEnd_toEndOf="@id/volumeAgradabilidade"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/tvAgradabilidade"
-        app:layout_constraintTop_toTopOf="@id/volumeAgradabilidade"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/tvAgradabilidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Agradabilidade"
-        android:paddingStart="@dimen/default_padding"
-        android:paddingLeft="@dimen/default_padding"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@color/colorBlack"
-        app:layout_constraintTop_toTopOf="@id/volumeAgradabilidade"
-        app:layout_constraintBottom_toBottomOf="@id/volumeAgradabilidade"
-        app:layout_constraintStart_toStartOf="@id/tv_question"
-        app:layout_constraintEnd_toStartOf="@id/volumeAgradabilidade"
-        />
-
-
-    <br.com.como_voce_mora.custom.VolumeHorizontal
-        android:id="@+id/volumeAgradabilidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:paddingEnd="@dimen/default_padding"
-        android:paddingRight="@dimen/default_padding"
-        android:gravity="end"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
-        app:layout_constraintStart_toEndOf="@id/tvAgradabilidade"
-        app:layout_constraintEnd_toStartOf="@id/bt_next" />
+        app:layout_constraintBottom_toTopOf="@id/progress_bar">
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/colorBege"
-        app:layout_constraintTop_toTopOf="@id/tvConvivio"
-        app:layout_constraintBottom_toBottomOf="@id/tvConvivio"
-        app:layout_constraintEnd_toEndOf="@id/volumeConvivio"
-        app:layout_constraintStart_toStartOf="@id/tvConvivio" />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvConvivio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Relação de \nConvivio"
-        android:textSize="@dimen/default_text_size"
-        android:paddingStart="@dimen/default_padding"
-        android:paddingLeft="@dimen/default_padding"
-        android:textColor="@color/colorBlack"
-        app:layout_constraintTop_toTopOf="@id/volumeConvivio"
-        app:layout_constraintBottom_toBottomOf="@id/volumeConvivio"
-        app:layout_constraintStart_toStartOf="@id/tvAgradabilidade"
-        app:layout_constraintEnd_toStartOf="@id/volumeConvivio"
-        />
+            <TextView
+                android:id="@+id/tvAgradabilidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agradabilidade"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/default_padding"
+                android:textSize="@dimen/default_text_size"
+                android:textColor="@color/colorBlack"
+                android:paddingLeft="@dimen/default_padding" />
 
 
-    <br.com.como_voce_mora.custom.VolumeHorizontal
-        android:id="@+id/volumeConvivio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:paddingEnd="@dimen/default_padding"
-        android:paddingRight="@dimen/default_padding"
-        app:layout_constraintStart_toEndOf="@id/tvConvivio"
-        app:layout_constraintTop_toBottomOf="@id/volumeAgradabilidade"
-        app:layout_constraintEnd_toEndOf="@id/volumeAgradabilidade"
-        />
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volumeAgradabilidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"
+                app:layout_constraintStart_toEndOf="@id/tvAgradabilidade"
+                app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+                app:layout_constraintEnd_toStartOf="@id/bt_next" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/colorBege"
-        app:layout_constraintTop_toTopOf="@id/tvAcessibilidade"
-        app:layout_constraintBottom_toBottomOf="@id/tvAcessibilidade"
-        app:layout_constraintEnd_toEndOf="@id/volumeConvivio"
-        app:layout_constraintStart_toStartOf="@id/tvAcessibilidade" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvAcessibilidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Acessibilidade\ndas Calçadas"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@color/colorBlack"
-        android:paddingStart="@dimen/default_padding"
-        android:paddingLeft="@dimen/default_padding"
-        app:layout_constraintStart_toStartOf="@id/tvAgradabilidade"
-        app:layout_constraintTop_toTopOf="@id/volumeAcessibilidade"
-        app:layout_constraintBottom_toBottomOf="@id/volumeAcessibilidade"
-        app:layout_constraintEnd_toStartOf="@id/volumeAcessibilidade" />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:id="@+id/tvConvivio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relação de Convivio"
+                android:paddingStart="@dimen/default_padding"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/default_text_size"
+                android:paddingLeft="@dimen/default_padding" />
 
 
-    <br.com.como_voce_mora.custom.VolumeHorizontal
-        android:id="@+id/volumeAcessibilidade"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:gravity="end"
-        android:paddingEnd="@dimen/default_padding"
-        android:paddingRight="@dimen/default_padding"
-        app:layout_constraintStart_toEndOf="@id/tvAcessibilidade"
-        app:layout_constraintTop_toBottomOf="@id/tvConvivio"
-        app:layout_constraintEnd_toEndOf="@id/volumeConvivio" />
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volumeConvivio"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="end"
+                android:paddingEnd="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBege"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/tvAcessibilidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Acessibilidadedas Calçadas"
+                android:textSize="@dimen/default_text_size"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorBlack"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingLeft="@dimen/default_padding" />
+
+
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volumeAcessibilidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

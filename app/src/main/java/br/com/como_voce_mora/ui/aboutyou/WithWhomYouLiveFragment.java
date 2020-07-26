@@ -192,6 +192,7 @@ public class WithWhomYouLiveFragment extends BaseFragment {
                     csv12.setChecked(true);
                 } else {
                     personCount--;
+                    csv12.setChecked(false);
                 }
                 break;
             case R.id.csv13:
@@ -200,6 +201,7 @@ public class WithWhomYouLiveFragment extends BaseFragment {
                     csv13.setChecked(true);
                 } else {
                     personCount--;
+                    csv13.setChecked(false);
                 }
                 break;
         }

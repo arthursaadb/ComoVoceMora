@@ -26,6 +26,7 @@ public class PreviousCondominiumFragment extends BaseFragment implements CustomR
     @BindView(R.id.rbNo)
     CustomRadioButton rbNo;
 
+    private boolean anyOptionChecked = false;
     private boolean yesChecked = false;
     private AnswerRequest answerRequest;
     private PreviousHouseAnswer previous = PreviousHouseAnswer.LIVE_IN_CONDOMINIUM;
@@ -41,8 +42,10 @@ public class PreviousCondominiumFragment extends BaseFragment implements CustomR
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
-        ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeTypeFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(previous.getQuestion(), answerRequest);
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeTypeFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)
@@ -63,6 +66,7 @@ public class PreviousCondominiumFragment extends BaseFragment implements CustomR
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        anyOptionChecked = true;
         setAnswer(buttonView.getText().toString());
         if (isChecked) {
             switch (buttonView.getId()) {

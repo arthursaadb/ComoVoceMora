@@ -11,7 +11,10 @@ import br.com.como_voce_mora.model.HouseGroupAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.BuildingApartmentNegativePointsFragment;
+import br.com.como_voce_mora.ui.building.BuildingHouseNegativePointsFragment;
 import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
+import br.com.como_voce_mora.ui.building.BuildingWhichDivisionFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -49,7 +52,11 @@ public class HabitationMissGreenAreaFragment extends BaseFragment implements Cus
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         ResearchFlow.addAnswer(houseGroupAnser.getQuestion(), answerRequests);
-        ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+        if (ResearchFlow.getHouse()) {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingWhichDivisionFragment.newInstance());
+        } else {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)

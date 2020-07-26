@@ -12,23 +12,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toBottomOf="@id/tv_question"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar">
+        app:layout_constraintTop_toBottomOf="@id/tv_question">
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="10dp">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvDuplex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/duplex"
                 app:imageItem="@drawable/apartamento_duplex" />
@@ -37,8 +37,6 @@
                 android:id="@+id/csvTiplex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/triplex"
                 app:imageItem="@drawable/apartamento_triplex" />
@@ -48,14 +46,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvQuintinete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/quitinete"
                 app:imageItem="@drawable/apartamento_quitinete" />
@@ -64,8 +62,6 @@
                 android:id="@+id/csvLoft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/loft"
                 app:imageItem="@drawable/apartamento_loft" />
@@ -75,14 +71,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvConvencional"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/convencional"
                 app:imageItem="@drawable/apartamento_convencional" />
@@ -91,8 +87,6 @@
                 android:id="@+id/csvCobertura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/cobertura"
                 app:imageItem="@drawable/apartamento_cobertura" />

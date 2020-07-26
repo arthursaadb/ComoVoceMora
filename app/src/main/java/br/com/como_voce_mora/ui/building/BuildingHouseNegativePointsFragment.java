@@ -67,7 +67,7 @@ public class BuildingHouseNegativePointsFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (getActivity() != null) {
             setAnswers();
-            ((AboutYouActivity) getActivity()).addFragment(BuildingFloorFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(BuildingLotSatisfactionFragment.newInstance());
         }
     }
 

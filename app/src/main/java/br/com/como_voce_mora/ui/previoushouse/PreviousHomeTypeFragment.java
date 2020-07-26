@@ -26,6 +26,7 @@ public class PreviousHomeTypeFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    private boolean anyOptionChecked = false;
     private Fragment nextFragment;
     private AnswerRequest answerRequest;
     private PreviousHouseAnswer previous = PreviousHouseAnswer.PREVIUS_PLACE_TYPE;
@@ -47,7 +48,9 @@ public class PreviousHomeTypeFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        goNextFragment();
+        if (anyOptionChecked) {
+            goNextFragment();
+        }
     }
 
     @OnClick(R.id.bt_back)
@@ -59,6 +62,7 @@ public class PreviousHomeTypeFragment extends BaseFragment {
 
     @OnClick({R.id.csvHouse, R.id.csvApartament})
     void onClick(View view) {
+        anyOptionChecked = true;
         switch (view.getId()) {
             case R.id.csvHouse:
                 nextFragment = PreviousWhichHouseFragment.newInstance();
