@@ -54,8 +54,8 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
             case R.id.csvServico:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                            unityAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -65,71 +65,77 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
             case R.id.csvBanheiro:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                            unityAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
                     removeItem(csv.getText());
+                    break;
                 }
             case R.id.csvCasal:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                            unityAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
                     removeItem(csv.getText());
+                    break;
                 }
             case R.id.csvSolteiro:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                            unityAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
                     removeItem(csv.getText());
+                    break;
                 }
 
             case R.id.csvSala:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                            unityAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
                     removeItem(csv.getText());
+                    break;
                 }
 
             case R.id.csvCopa:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                            unityAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
                     removeItem(csv.getText());
+                    break;
                 }
 
             case R.id.csvVaranda:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                            unityAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
                     removeItem(csv.getText());
+                    break;
                 }
             case R.id.csvCozinha:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                            unityAnswer.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);

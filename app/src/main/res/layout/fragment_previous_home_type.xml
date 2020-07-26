@@ -8,12 +8,21 @@
     <include layout="@layout/fragment_mr_clipboard_full" />
 
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar">
+
     <br.com.como_voce_mora.custom.CustomSelectedView
         android:id="@+id/csvHouse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_gravity="center"
         app:nameItem="@string/house"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
@@ -26,8 +35,8 @@
         android:id="@+id/csvApartament"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_gravity="center"
         app:layout_constraintStart_toEndOf="@id/csvHouse"
         app:layout_constraintTop_toTopOf="@id/bt_next"
@@ -35,5 +44,7 @@
         app:nameItem="@string/apartament"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:imageItem="@drawable/apartamento_apartamento" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

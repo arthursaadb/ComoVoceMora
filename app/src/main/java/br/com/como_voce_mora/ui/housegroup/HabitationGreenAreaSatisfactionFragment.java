@@ -15,6 +15,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
+import br.com.como_voce_mora.ui.building.BuildingWhichDivisionFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -79,7 +80,11 @@ public class HabitationGreenAreaSatisfactionFragment extends BaseFragment implem
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         ResearchFlow.addAnswer(aboutYouAnswer.getQuestion(), answerRequest);
-        ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+        if (ResearchFlow.getHouse()) {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingWhichDivisionFragment.newInstance());
+        } else {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)

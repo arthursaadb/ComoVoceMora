@@ -27,6 +27,7 @@ public class BuildingHadAChoiceFragment extends BaseFragment implements CustomRa
     private BuildingAnswer buildingAnswer = BuildingAnswer.CHOOSE_HOUSE;
     private boolean anyOneSelected = false;
     private AnswerRequest answerRequests;
+    private boolean yesChecked = false;
 
     public static BuildingHadAChoiceFragment newInstance() {
         return new BuildingHadAChoiceFragment();
@@ -41,10 +42,14 @@ public class BuildingHadAChoiceFragment extends BaseFragment implements CustomRa
     public void onBtNextClicked() {
         if (anyOneSelected) {
             ResearchFlow.addAnswer(buildingAnswer.getQuestion(), answerRequests);
-            if (ResearchFlow.getHouse()) {
-                ((AboutYouActivity) requireActivity()).addFragment(BuildingHouseNegativePointsFragment.newInstance());
+            if (yesChecked) {
+                ((AboutYouActivity) requireActivity()).addFragment(BuildingContributionFragment.newInstance());
             } else {
-                ((AboutYouActivity) requireActivity()).addFragment(BuildingApartmentNegativePointsFragment.newInstance());
+                if (ResearchFlow.getHouse()) {
+                    ((AboutYouActivity) requireActivity()).addFragment(BuildingHouseNegativePointsFragment.newInstance());
+                } else {
+                    ((AboutYouActivity) requireActivity()).addFragment(BuildingApartmentNegativePointsFragment.newInstance());
+                }
             }
         }
     }
@@ -70,6 +75,7 @@ public class BuildingHadAChoiceFragment extends BaseFragment implements CustomRa
             anyOneSelected = true;
             switch (buttonView.getId()) {
                 case R.id.rbFemale:
+                    yesChecked = true;
                     mRbFemale.setChecked(true);
                     mRbMale.setChecked(false);
                     answerRequests = new AnswerRequest(buildingAnswer.getQuestion(),
@@ -77,6 +83,7 @@ public class BuildingHadAChoiceFragment extends BaseFragment implements CustomRa
                     updateRbs();
                     break;
                 case R.id.rbMale:
+                    yesChecked = false;
                     mRbFemale.setChecked(false);
                     mRbMale.setChecked(true);
                     answerRequests = new AnswerRequest(buildingAnswer.getQuestion(),

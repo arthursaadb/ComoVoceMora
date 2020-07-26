@@ -42,7 +42,7 @@ public class UnityRoomsFragment extends BaseFragment {
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        tvQuestion.setText("Muito bem. Agora selecione os cômodos ou espaços que existem na sua moradia e sua quantidade.");
+        tvQuestion.setText("Muito bem. Agora selecione os cômodos ou espaços que existem na sua moradia.");
     }
 
     @OnClick({R.id.csvServico, R.id.csvBanheiro, R.id.csvCasal,

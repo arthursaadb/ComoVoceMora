@@ -17,7 +17,7 @@
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toTopOf="@id/bt_next">
+        app:layout_constraintTop_toBottomOf="@id/tv_question">
 
 
         <LinearLayout
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginLeft="10dp"
                 app:imageItem="@drawable/casa_germinada"
                 app:nameItem="@string/casagerminada" />
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginLeft="10dp"
                 app:imageItem="@drawable/casa_sobrado"
                 app:nameItem="@string/sobrado" />
@@ -57,8 +57,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 app:imageItem="@drawable/casa_casa_de_vila"
                 app:nameItem="@string/vila" />
 
@@ -67,8 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 app:imageItem="@drawable/casa_terrea"
                 app:nameItem="@string/terrea" />
 
@@ -79,9 +79,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            app:imageItem="@drawable/casa_terrea"
-            app:nameItem="@string/terrea" />
+            android:layout_marginLeft="0dp"
+            app:imageItem="@drawable/casa_fundo"
+            app:nameItem="@string/fundo" />
 
 
     </LinearLayout>

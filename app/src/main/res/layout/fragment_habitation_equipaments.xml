@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginBottom="5dp"
         android:layout_centerVertical="true"
         android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
@@ -22,14 +22,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvGamesRoom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/games_room"
                 app:imageItem="@drawable/game_room" />
@@ -38,8 +38,6 @@
                 android:id="@+id/csvGym"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/gym"
                 app:imageItem="@drawable/academia" />
@@ -50,14 +48,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvSqaure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/quadra"
                 app:imageItem="@drawable/quadra" />
@@ -66,8 +64,6 @@
                 android:id="@+id/csvPartyRoom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/party_room"
                 app:imageItem="@drawable/party_room" />
@@ -77,14 +73,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvPoolPlusEighteen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/piscinapluseighteen"
                 app:imageItem="@drawable/adultpool" />
@@ -93,8 +89,6 @@
                 android:id="@+id/csvChildPool"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/child_pool"
                 app:imageItem="@drawable/kids_pool" />
@@ -105,14 +99,14 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvGourmet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/gourment_space"
                 app:imageItem="@drawable/gourmet_space" />
@@ -121,8 +115,6 @@
                 android:id="@+id/csvPlayGround"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/playground"
                 app:imageItem="@drawable/playground" />

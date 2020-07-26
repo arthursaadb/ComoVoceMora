@@ -72,7 +72,8 @@ public class EquipamentsFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     saude = csv.getText();
-                    answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(), saudeCurrentResidenceAnswer.getQuestionPartId(), saude));
+                    answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(),
+                            saudeCurrentResidenceAnswer.getQuestionPartId(), saude));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -89,6 +90,7 @@ public class EquipamentsFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(escolaCurrentResidenceAnswer.getQuestion());
+                    break;
                 }
             case R.id.csvCultura:
                 if (!csv.isChecked()) {
@@ -100,6 +102,7 @@ public class EquipamentsFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(culturaCurrentResidenceAnswer.getQuestion());
+                    break;
                 }
             case R.id.csvLazer:
                 if (!csv.isChecked()) {
@@ -111,6 +114,7 @@ public class EquipamentsFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(lazerCurrentResidenceAnswer.getQuestion());
+                    break;
                 }
             case R.id.csvEsporte:
                 if (!csv.isChecked()) {
@@ -122,6 +126,7 @@ public class EquipamentsFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(esporteCurrentResidenceAnswer.getQuestion());
+                    break;
                 }
             case R.id.csvSeguranca:
                 if (!csv.isChecked()) {

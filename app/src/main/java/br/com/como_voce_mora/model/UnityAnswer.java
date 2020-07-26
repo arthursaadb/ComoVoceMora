@@ -58,7 +58,7 @@ public enum UnityAnswer {
     INNCREASE_POWER_PLUG("Acrescentar tomadas e/ou iluminação", "590b5fd61e4d3f620eea27cf"),
 
     //PODIUM QUESTION
-    REFORM_REASON("“Quais foram as razões das reformas e alterações? Escolha por ordem de prioridade", "12bb5893-1908-48f2-9b2a-ac4a31d06fec"),
+    REFORM_REASON("Quais foram as razões das reformas e alterações? Escolha por ordem de prioridade", "12bb5893-1908-48f2-9b2a-ac4a31d06fec"),
     ENLARGE_ROOM("Ampliar cômodo", "590b5fd61e4d3f620eea27a4"),
     IMPROVE_FINISHING("Melhorar o acabamento", "590b5fd61e4d3f620eea27a6"),
     IMPROVE_CONFORT("Melhorar o conforto", "590b5fd61e4d3f620eea27a7"),

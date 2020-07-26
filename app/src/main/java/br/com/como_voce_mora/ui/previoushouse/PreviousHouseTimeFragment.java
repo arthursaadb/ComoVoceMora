@@ -47,17 +47,17 @@ public class PreviousHouseTimeFragment extends BaseFragment implements VolumeVer
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
 
         texts = new ArrayList<>();
-        texts.add(getString(R.string.zero_a_um));
-        texts.add(getString(R.string.um_a_dois));
-        texts.add(getString(R.string.dois_a_tres));
-        texts.add(getString(R.string.tres_a_quatro));
         texts.add(getString(R.string.mais_de_cinco));
+        texts.add(getString(R.string.tres_a_quatro));
+        texts.add(getString(R.string.dois_a_tres));
+        texts.add(getString(R.string.um_a_dois));
+        texts.add(getString(R.string.zero_a_um));
         images = new ArrayList<>();
-        images.add(R.drawable.um_ano);
-        images.add(R.drawable.um_ano_meio);
-        images.add(R.drawable.dois_anos_meio);
-        images.add(R.drawable.tres_anos_meio);
         images.add(R.drawable.cinco_anos);
+        images.add(R.drawable.tres_anos_meio);
+        images.add(R.drawable.dois_anos_meio);
+        images.add(R.drawable.um_ano_meio);
+        images.add(R.drawable.um_ano);
         volumeVertical.setListener(this);
         volumeVertical.setMax(texts.size() - 1);
     }
