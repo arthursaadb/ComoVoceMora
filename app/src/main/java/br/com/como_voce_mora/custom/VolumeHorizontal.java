@@ -29,11 +29,14 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
     RelativeLayout rlVolume;
     @BindView(R.id.tv_info)
     TextView tvInfo;
+    @BindView(R.id.textView)
+    TextView textView;
 
     private float mMinRange;
     private float mMaxRange;
     private float mWidthRange;
     private int mMax;
+
 
     private OnListener mListener;
 
@@ -69,6 +72,7 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
         int resCircleSelected = typedArray.getResourceId(R.styleable.CustomVolume_circleSelectedVolume, R.drawable.bg_circle_volume);
         String textMin = getResources().getString(typedArray.getResourceId(R.styleable.CustomVolume_textMin, R.string.a));
         String textMax = getResources().getString(typedArray.getResourceId(R.styleable.CustomVolume_textMax, R.string.z));
+        String text = typedArray.getString(R.styleable.CustomVolume_textName);
 
 //        mRlRootView.setBackgroundColor(background);
         rlVolume.setBackgroundColor(background);
@@ -81,6 +85,7 @@ public class VolumeHorizontal extends RelativeLayout implements View.OnTouchList
         mTvMax.setText(textMax);
         mTvMin.setVisibility(View.INVISIBLE);
         mTvMax.setVisibility(View.INVISIBLE);
+        textView.setText(text);
     }
 
     @Override

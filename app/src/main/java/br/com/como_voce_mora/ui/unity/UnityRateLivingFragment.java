@@ -63,7 +63,7 @@ public class UnityRateLivingFragment extends BaseFragment {
     @Override
     public void init() {
         tvQuestion.setText(satisfaction.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
         texts.add("Muito Ruim");
         texts.add("Ruim");
         texts.add("Regular");

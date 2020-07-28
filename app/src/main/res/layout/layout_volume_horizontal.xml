@@ -1,82 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/rl_root_view"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp">
-
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root_view"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp">
 
     <RelativeLayout
-        android:id="@+id/rl_volume"
+        android:id="@+id/rl_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        tools:background="@color/colorBege">
+        android:background="@color/colorBege">
 
         <TextView
-            android:id="@+id/tv_min"
+            android:id="@+id/textView"
+            android:layout_width="@dimen/custom_text_width"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:paddingStart="@dimen/default_padding"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/default_text_size"
+            tools:text="Adaptação as necessidades"
+            android:paddingLeft="@dimen/default_padding" />
+
+        <RelativeLayout
+            android:id="@+id/rl_volume"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/small_margin"
-            android:layout_marginRight="@dimen/small_margin"
             android:layout_centerVertical="true"
-            android:fontFamily="@font/mkm232"
-            tools:text="-"
-            tools:textColor="@color/colorBlack" />
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_toEndOf="@id/textView"
+            android:layout_toRightOf="@id/textView"
+            tools:background="@color/colorBege">
 
-        <TextView
-            android:id="@+id/tv_max"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_margin"
-            android:layout_marginLeft="@dimen/small_margin"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/view_line"
-            android:layout_toRightOf="@id/view_line"
-            android:fontFamily="@font/mkm232"
-            tools:text="+"
-            tools:textColor="@color/colorBlack" />
+            <TextView
+                android:id="@+id/tv_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:layout_marginRight="@dimen/small_margin"
+                android:fontFamily="@font/mkm232"
+                tools:text="-"
+                tools:textColor="@color/colorBlack" />
 
-        <View
-            android:id="@+id/view_line_fake"
-            android:layout_width="150dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/tv_min"
-            android:layout_toRightOf="@id/tv_min" />
+            <TextView
+                android:id="@+id/tv_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:layout_toEndOf="@id/view_line"
+                android:layout_toRightOf="@id/view_line"
+                android:fontFamily="@font/mkm232"
+                tools:text="+"
+                tools:textColor="@color/colorBlack" />
 
-        <View
-            android:id="@+id/view_line"
-            android:layout_width="150dp"
-            android:layout_height="1dp"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/tv_min"
-            android:layout_toRightOf="@id/tv_min"
-            tools:background="@color/colorBlack" />
+            <View
+                android:id="@+id/view_line_fake"
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/tv_min"
+                android:layout_toRightOf="@id/tv_min" />
 
-        <View
-            android:id="@+id/view_circle"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            tools:background="@drawable/bg_circle_volume" />
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/tv_min"
+                android:layout_toRightOf="@id/tv_min"
+                tools:background="@color/colorBlack" />
+
+            <View
+                android:id="@+id/view_circle"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                tools:background="@drawable/bg_circle_volume" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_info"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/custom_text_width"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_toEndOf="@id/rl_content"
+        android:layout_toRightOf="@id/rl_content"
         android:background="@drawable/bg_ballon_normal_type_1"
         android:gravity="center"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/default_text_size"
         android:visibility="invisible"
-        android:layout_toEndOf="@id/rl_volume"
-        android:layout_toRightOf="@id/rl_volume"
         tools:text="Teste"
         tools:visibility="visible" />
 

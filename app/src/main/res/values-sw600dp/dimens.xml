@@ -44,4 +44,7 @@
     <dimen name="custom_radio_button_height">95dp</dimen>
     <dimen name="custom_radio_button_padding">16dp</dimen>
     <dimen name="custom_radio_button_text_size">18sp</dimen>
+
+    <dimen name="custom_text_width">200dp</dimen>
+    <dimen name="custom_photo_size">200dp</dimen>
 </resources>
