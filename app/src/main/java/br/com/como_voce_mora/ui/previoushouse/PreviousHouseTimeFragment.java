@@ -1,79 +1,67 @@
 package br.com.como_voce_mora.ui.previoushouse;
 
-import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.custom.VolumeVertical;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.PreviousHouseAnswer;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
-import br.com.como_voce_mora.ui.atualresidence.CurrentHomeFragment;
-import br.com.como_voce_mora.ui.custom.CustomSelectedView;
-import br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class PreviousHouseTimeFragment extends BaseFragment{
+public class PreviousHouseTimeFragment extends BaseFragment implements VolumeVertical.OnListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
-    @BindView(R.id.view_1)
-    CustomSelectedView mView1;
-    @BindView(R.id.view_2)
-    CustomSelectedView mView2;
-    @BindView(R.id.view_3)
-    CustomSelectedView mView3;
-    @BindView(R.id.view_4)
-    CustomSelectedView mView4;
-    @BindView(R.id.view_5)
-    CustomSelectedView mView5;
+    @BindView(R.id.iv_school)
+    ImageView mIvSchool;
+    @BindView(R.id.tv_school)
+    TextView nTvSchool;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
+    @BindView(R.id.volume)
+    VolumeVertical volumeVertical;
+
+    private boolean anyOptionChecked = false;
+    private AnswerRequest answerRequest;
+    private PreviousHouseAnswer previous = PreviousHouseAnswer.STAY_TIME;
+    private List<Integer> images;
+    private List<String> texts;
 
     public static PreviousHouseTimeFragment newInstance() {
         return new PreviousHouseTimeFragment();
     }
 
+    @Override
+    public void init() {
+        tvQuestion.setText(previous.getQuestion());
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
 
-    @OnClick({R.id.view_1, R.id.view_2, R.id.view_3, R.id.view_4, R.id.view_5})
-    public void onClickViews(View view){
-        switch (view.getId()) {
-            case R.id.view_1:
-                mView1.setChecked(true);
-                mView2.setChecked(false);
-                mView3.setChecked(false);
-                mView4.setChecked(false);
-                mView5.setChecked(false);
-                break;
-            case R.id.view_2:
-                mView1.setChecked(false);
-                mView2.setChecked(true);
-                mView3.setChecked(false);
-                mView4.setChecked(false);
-                mView5.setChecked(false);
-                break;
-            case R.id.view_3:
-                mView1.setChecked(false);
-                mView2.setChecked(false);
-                mView3.setChecked(true);
-                mView4.setChecked(false);
-                mView5.setChecked(false);
-                break;
-            case R.id.view_4:
-                mView1.setChecked(false);
-                mView2.setChecked(false);
-                mView3.setChecked(false);
-                mView4.setChecked(true);
-                mView5.setChecked(false);
-                break;
-            case R.id.view_5:
-                mView1.setChecked(false);
-                mView2.setChecked(false);
-                mView3.setChecked(false);
-                mView4.setChecked(false);
-                mView5.setChecked(true);
-                break;
-        }
+        texts = new ArrayList<>();
+        texts.add(getString(R.string.mais_de_cinco));
+        texts.add(getString(R.string.tres_a_quatro));
+        texts.add(getString(R.string.dois_a_tres));
+        texts.add(getString(R.string.um_a_dois));
+        texts.add(getString(R.string.zero_a_um));
+        images = new ArrayList<>();
+        images.add(R.drawable.cinco_anos);
+        images.add(R.drawable.tres_anos_meio);
+        images.add(R.drawable.dois_anos_meio);
+        images.add(R.drawable.um_ano_meio);
+        images.add(R.drawable.um_ano);
+        volumeVertical.setListener(this);
+        volumeVertical.setMax(texts.size() - 1);
     }
+
 
     @Override
     public int getResLayout() {
@@ -82,9 +70,20 @@ public class PreviousHouseTimeFragment extends BaseFragment{
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(CurrentHomeFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(answerRequest, this);
+            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
         }
+    }
+
+    @Override
+    public void positionVolume(int position) {
+        mIvSchool.setImageResource(images.get(position));
+        nTvSchool.setText(texts.get(position));
+        nTvSchool.setVisibility(View.VISIBLE);
+
+        anyOptionChecked = true;
+        answerRequest = new AnswerRequest(previous.getQuestion(), previous.getQuestionPartId(), texts.get(position));
     }
 
     @OnClick(R.id.bt_back)
@@ -94,9 +93,4 @@ public class PreviousHouseTimeFragment extends BaseFragment{
         }
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BEFORE_RESIDENCE);
-    }
 }

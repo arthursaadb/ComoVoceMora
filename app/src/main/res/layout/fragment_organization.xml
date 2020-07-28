@@ -1,156 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBlueLight2">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="@color/colorBlueLight2">
 
-    <ImageView
-        android:id="@+id/iv_mr_clipboard"
-        android:layout_width="180dp"
-        android:layout_height="350dp"
-        android:layout_alignParentBottom="true"
+
+    <include layout="@layout/fragment_mr_clipboard_full" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbYes"
+        android:layout_marginTop="@dimen/default_margin"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginLeft="@dimen/default_margin"
-        android:src="@drawable/ic_mr_clipboard_half_body" />
+        android:text="Sim"
+        android:gravity="center"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintBottom_toTopOf="@id/rbOther"
+        app:layout_constraintEnd_toStartOf="@id/rbMale"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_question" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbNo"
+        android:text="Nao"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/rbYes"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/rbYes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbOther"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="Nao sei"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@id/rbYes"
+        app:layout_constraintTop_toBottomOf="@id/rbYes" />
 
 
     <TextView
-        android:id="@+id/tv_question"
+        android:id="@+id/tvCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-30dp"
-        android:layout_marginLeft="-30dp"
-        android:layout_marginTop="20dp"
-        android:layout_toStartOf="@id/bt_next"
-        android:layout_toLeftOf="@id/bt_next"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:background="@drawable/bg_ballon"
-        android:gravity="center_vertical"
-        android:paddingStart="50dp"
-        android:paddingLeft="50dp"
-        android:paddingEnd="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="20dp"
-        android:text="@string/country_question"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size" />
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="Digite Aqui:"
+        android:textColor="@color/colorWhite"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/rbOther"
+        app:layout_constraintStart_toStartOf="@id/rbOther"
+        app:layout_constraintEnd_toStartOf="@id/etAddress"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        tools:visibility="visible" />
 
-    <LinearLayout
-        android:id="@+id/rbs"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etAddress"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_question"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp">
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                style="@style/SmallCustomRadioButton"
-                android:gravity="center"
-                android:text="Sim"
-                android:textSize="@dimen/default_text_size" />
-
-            <RadioButton
-                style="@style/SmallCustomRadioButton"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="Não"
-                android:textSize="@dimen/default_text_size" />
-
-            <RadioButton
-                style="@style/SmallCustomRadioButton"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="Não sei"
-                android:textSize="@dimen/default_text_size" />
-        </RadioGroup>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lltext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rbs"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/tvCity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Digite Aqui:"
-            android:textColor="@color/colorWhite"
-            android:textSize="12sp" />
-
-        <EditText
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@color/colorWhite" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lltext"
-        android:layout_centerHorizontal="true"
-        android:text="@string/pleaseno"
-        android:textColor="@color/colorWhite" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_next"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next" />
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/colorWhite"
+        android:textSize="@dimen/default_text_size"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@id/tvCity"
+        app:layout_constraintTop_toTopOf="@id/tvCity"
+        app:layout_constraintEnd_toEndOf="@id/rbNo"
+        tools:visibility="visible" />
 
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btPreviousSession"
-        style="@style/SessionBackButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btHelp"
-        style="@style/HelpButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
-
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

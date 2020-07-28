@@ -1,157 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorOrange">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="@color/colorOrange">
 
-    <ImageView
-        android:id="@+id/iv_mr_clipboard"
-        android:layout_width="180dp"
-        android:layout_height="350dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:src="@drawable/ic_mr_clipboard_half_body" />
 
-    <RadioGroup
+    <include layout="@layout/fragment_mr_clipboard_full" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_question"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_question">
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="10dp">
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_1"
-                style="@style/CustomRadioButton"
-                android:drawableTop="@drawable/apartamento_duplex"
-                android:gravity="center"
-                android:text="Duplex"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvDuplex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/duplex"
+                app:imageItem="@drawable/apartamento_duplex" />
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_2"
-                style="@style/CustomRadioButton"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/apartamento_triplex"
-                android:gravity="center"
-                android:text="Triplex"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvTiplex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/triplex"
+                app:imageItem="@drawable/apartamento_triplex" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp">
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_3"
-                style="@style/CustomRadioButton"
-                android:drawableTop="@drawable/apartamento_quitinete"
-                android:gravity="center"
-                android:text="Quitinete"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvQuintinete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/quitinete"
+                app:imageItem="@drawable/apartamento_quitinete" />
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_4"
-                style="@style/CustomRadioButton"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/apartamento_loft"
-                android:gravity="center"
-                android:text="Loft"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvLoft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/loft"
+                app:imageItem="@drawable/apartamento_loft" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp">
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_5"
-                style="@style/CustomRadioButton"
-                android:drawableTop="@drawable/apartamento_convencional"
-                android:gravity="center"
-                android:text="Convencional"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvConvencional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/convencional"
+                app:imageItem="@drawable/apartamento_convencional" />
 
-            <br.com.como_voce_mora.ui.custom.CustomRadioButton
-                android:id="@+id/rb_6"
-                style="@style/CustomRadioButton"
-                android:layout_marginTop="30dp"
-                android:drawableTop="@drawable/apartamento_cobertura"
-                android:gravity="center"
-                android:text="Cobertura"
-                android:textSize="@dimen/default_text_size" />
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvCobertura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/cobertura"
+                app:imageItem="@drawable/apartamento_cobertura" />
 
         </LinearLayout>
 
-    </RadioGroup>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-30dp"
-        android:layout_marginLeft="-30dp"
-        android:layout_marginTop="60dp"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:background="@drawable/bg_ballon"
-        android:gravity="center_vertical"
-        android:paddingStart="70dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="20dp"
-        android:paddingEnd="70dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="20dp"
-        android:text="Que tipo de casa era?"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_next"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext" />
-
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

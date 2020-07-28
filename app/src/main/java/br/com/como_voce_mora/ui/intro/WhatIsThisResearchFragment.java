@@ -15,6 +15,11 @@ public class WhatIsThisResearchFragment extends BaseFragment {
         return R.layout.fragment_what_is_this_research;
     }
 
+    @Override
+    public void init() {
+
+    }
+
     @OnClick(R.id.ib_next)
     public void nextFragment() {
         if (getActivity() == null) {

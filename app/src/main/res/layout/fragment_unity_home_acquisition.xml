@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <include layout="@layout/fragment_mr_clipboard_full" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbRent"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
+        android:text="Alugado"
+        app:layout_constraintEnd_toStartOf="@id/rbOwn"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbFinanced"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
+        android:text="Financiado"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/rbBorrowed"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/rbRent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbOwn"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
+        android:text="Próprio"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/rbRent"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbBorrowed"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
+        android:text="Emprestado"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/rbFinanced"
+        app:layout_constraintTop_toBottomOf="@id/rbRent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

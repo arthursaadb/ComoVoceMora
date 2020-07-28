@@ -1,218 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPurpleLight">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next" />
+    <include layout="@layout/fragment_mr_clipboard_ball" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivMister"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="60dp"
-        android:layout_toEndOf="@id/btBack"
-        android:layout_toRightOf="@id/btBack"
-        android:src="@drawable/ic_prancheta_circular" />
-
-    <TextView
-        android:id="@+id/tv_question"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginTop="60dp"
-        android:layout_toEndOf="@id/ivMister"
-        android:layout_toRightOf="@id/ivMister"
-        android:background="@drawable/bg_ballon"
-        android:gravity="center_vertical"
-        android:paddingStart="50dp"
-        android:paddingLeft="50dp"
-        android:text="@string/whomyoulive_question"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btNext"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext" />
-
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_question"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/small_margin"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/llTop"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:image="@drawable/moradores_01"
-                app:name="@string/wife"
-                app:textColor="@color/colorBlack" />
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_02"
-                app:name="@string/daughter"
-                app:textColor="@color/colorBlack" />
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:imageItem="@drawable/moradores_01"
+                    app:nameItem="@string/wife"
+                    app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_03"
-                app:name="@string/mother"
-                app:textColor="@color/colorBlack" />
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_02"
+                    app:nameItem="@string/daughter"
+                    app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_04"
-                app:name="@string/grandmother"
-                app:textColor="@color/colorBlack" />
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_03"
+                    app:nameItem="@string/mother"
+                    app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_05"
-                app:name="@string/sister"
-                app:textColor="@color/colorBlack" />
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_04"
+                    app:nameItem="@string/grandmother"
+                    app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_05"
+                    app:nameItem="@string/sister"
+                    app:textColor="@color/colorBlack" />
+
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_06"
+                    app:nameItem="@string/friends"
+                    app:textColor="@color/colorBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBottom"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_06"
-                app:name="@string/friends"
-                app:textColor="@color/colorBlack" />
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:imageItem="@drawable/moradores_07"
+                    app:nameItem="@string/husband"
+                    app:textColor="@color/colorBlack" />
+
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_08"
+                    app:nameItem="@string/son"
+                    app:textColor="@color/colorBlack" />
+
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_09"
+                    app:nameItem="@string/father"
+                    app:textColor="@color/colorBlack" />
+
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_10"
+                    app:nameItem="@string/grandfather"
+                    app:textColor="@color/colorBlack" />
+
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_11"
+                    app:nameItem="@string/brother"
+                    app:textColor="@color/colorBlack" />
+
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_12"
+                    app:nameItem="@string/other_relatives"
+                    app:textColor="@color/colorBlack" />
+
+                <br.com.como_voce_mora.custom.CustomSelectedView
+                    android:id="@+id/csv13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    app:imageItem="@drawable/moradores_13"
+                    app:nameItem="@string/pets"
+                    app:textColor="@color/colorBlack" />
+            </LinearLayout>
+
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:image="@drawable/moradores_07"
-                app:name="@string/husband"
-                app:textColor="@color/colorBlack" />
-
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_08"
-                app:name="@string/son"
-                app:textColor="@color/colorBlack" />
-
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_09"
-                app:name="@string/father"
-                app:textColor="@color/colorBlack" />
-
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_10"
-                app:name="@string/grandfather"
-                app:textColor="@color/colorBlack" />
-
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_11"
-                app:name="@string/brother"
-                app:textColor="@color/colorBlack" />
-
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_12"
-                app:name="@string/other_relatives"
-                app:textColor="@color/colorBlack" />
-
-            <br.com.como_voce_mora.ui.custom.MultiSelect
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                app:image="@drawable/moradores_13"
-                app:name="@string/pets"
-                app:textColor="@color/colorBlack" />
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btPreviousSession"
-        style="@style/SessionBackButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btHelp"
-        style="@style/HelpButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
-
-
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

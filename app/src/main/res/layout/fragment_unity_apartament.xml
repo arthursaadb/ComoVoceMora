@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <include layout="@layout/fragment_mr_clipboard_full" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tv_question"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvDuplex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/duplex"
+                app:imageItem="@drawable/apartamento_duplex" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvTiplex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/triplex"
+                app:imageItem="@drawable/apartamento_triplex" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvQuintinete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/quitinete"
+                app:imageItem="@drawable/apartamento_quitinete" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvLoft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/loft"
+                app:imageItem="@drawable/apartamento_loft" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvConvencional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/convencional"
+                app:imageItem="@drawable/apartamento_convencional" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvCobertura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                app:nameItem="@string/cobertura"
+                app:imageItem="@drawable/apartamento_cobertura" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

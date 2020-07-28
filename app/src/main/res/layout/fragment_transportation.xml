@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight">
+
+    <include layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/mobilidade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerAcesso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:background="@color/colorBege"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@id/bt_next">
+
+        <TextView
+            android:id="@+id/tvAcesso"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="No dia-a-dia, até cinco\nquarteirões"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <br.com.como_voce_mora.custom.VolumeHorizontal
+            android:id="@+id/volumeAcesso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:paddingEnd="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvAcesso"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerQuantidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorBege"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/containerAcesso">
+
+        <TextView
+            android:id="@+id/tvQuantidade"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="No dia-a-dia, de cinco\na de quarteirões"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/default_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <br.com.como_voce_mora.custom.VolumeHorizontal
+            android:id="@+id/volumeQuantidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:paddingEnd="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvQuantidade" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerQualidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorBege"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/containerQuantidade">
+
+        <TextView
+            android:id="@+id/tvQualidade"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="No dia-a-dia, acima\nde dez quarteirões"
+            android:textSize="@dimen/default_text_size"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <br.com.como_voce_mora.custom.VolumeHorizontal
+            android:id="@+id/volumeQualidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:paddingEnd="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvQualidade"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorBege"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/containerQualidade">
+
+        <TextView
+            android:id="@+id/tvSeguranca"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Mais utilizado\nno geral"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/default_text_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <br.com.como_voce_mora.custom.VolumeHorizontal
+            android:id="@+id/volumeSeguranca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:paddingEnd="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvSeguranca" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

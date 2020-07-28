@@ -1,237 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBlueLight2">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next" />
+    <include layout="@layout/fragment_mr_clipboard_ball" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivMister"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="60dp"
-        android:layout_toEndOf="@id/btBack"
-        android:layout_toRightOf="@id/btBack"
-        android:src="@drawable/ic_prancheta_circular" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard">
 
-    <TextView
-        android:id="@+id/tv_question"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginTop="60dp"
-        android:layout_toEndOf="@id/ivMister"
-        android:layout_toRightOf="@id/ivMister"
-        android:background="@drawable/bg_ballon"
-        android:gravity="center_vertical"
-        android:paddingStart="50dp"
-        android:paddingLeft="50dp"
-        android:text="@string/address_question"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ivMister"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_toEndOf="@id/btBack"
-        android:layout_toRightOf="@id/btBack"
-        android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvCep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:text="Cep:"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintEnd_toStartOf="@id/etCep"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/etCep"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:background="@color/colorWhite"
+                android:singleLine="true"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/tvCep"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvCep"
+                app:layout_constraintTop_toTopOf="@id/tvCep" />
 
             <TextView
                 android:id="@+id/tvCity"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Cidade:"
-                android:textColor="@color/colorWhite"
-                android:textSize="12sp" />
-
-            <EditText
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@color/colorWhite" />
-
-            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp">
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:text="Cidade:"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintEnd_toStartOf="@id/etCity"
+                app:layout_constraintStart_toStartOf="@id/tvCep"
+                app:layout_constraintTop_toBottomOf="@id/tvCep" />
 
-                <TextView
-                    android:id="@+id/tvCep"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="Cep:"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:background="@color/colorWhite" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            <EditText
+                android:id="@+id/etCity"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                android:inputType="text"
+                android:maxLines="1"
+                app:layout_constraintBottom_toBottomOf="@id/tvCity"
+                app:layout_constraintEnd_toEndOf="@id/etCep"
+                app:layout_constraintStart_toEndOf="@id/tvCity"
+                app:layout_constraintTop_toTopOf="@id/tvCity" />
 
             <TextView
                 android:id="@+id/address"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Endereço:"
-                android:textColor="@color/colorWhite"
-                android:textSize="12sp" />
-
-            <EditText
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@color/colorWhite" />
-
-            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp">
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="Endereço:"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintEnd_toStartOf="@id/etAddress"
+                app:layout_constraintStart_toStartOf="@id/tvCity"
+                app:layout_constraintTop_toBottomOf="@id/tvCity" />
 
-                <TextView
-                    android:id="@+id/tvAp"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="Apartamento/Bloco:"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:background="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                android:inputType="text"
+                android:maxLines="1"
+                app:layout_constraintBottom_toBottomOf="@id/address"
+                app:layout_constraintEnd_toEndOf="@id/etCity"
+                app:layout_constraintStart_toEndOf="@id/address"
+                app:layout_constraintTop_toTopOf="@id/address" />
 
-                <EditText
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:background="@color/colorWhite" />
+            <TextView
+                android:id="@+id/tvAp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="Número e complemento:"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintEnd_toStartOf="@id/etAp"
+                app:layout_constraintStart_toStartOf="@id/address"
+                app:layout_constraintTop_toBottomOf="@id/address" />
 
+            <EditText
+                android:id="@+id/etAp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:background="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                android:inputType="text"
+                android:maxLines="1"
+                app:layout_constraintBottom_toBottomOf="@id/tvAp"
+                app:layout_constraintEnd_toEndOf="@id/etAddress"
+                app:layout_constraintStart_toEndOf="@id/tvAp"
+                app:layout_constraintTop_toTopOf="@id/tvAp" />
 
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/tvBairro"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Bairro:"
-                android:textColor="@color/colorWhite"
-                android:textSize="12sp" />
-
-            <EditText
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@color/colorWhite" />
-
-            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp">
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="Bairro:"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintStart_toStartOf="@id/tvAp"
+                app:layout_constraintTop_toBottomOf="@id/tvAp" />
 
-                <TextView
-                    android:id="@+id/tvSince"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="Desde que ano mora:"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:background="@color/colorWhite" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="@string/address_please"
-            android:textColor="@color/colorWhite" />
-    </LinearLayout>
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btNext"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext" />
+            <EditText
+                android:id="@+id/etBairro"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:background="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                android:inputType="text"
+                android:maxLines="1"
+                app:layout_constraintBottom_toBottomOf="@id/tvBairro"
+                app:layout_constraintEnd_toEndOf="@id/etAp"
+                app:layout_constraintStart_toEndOf="@id/tvBairro"
+                app:layout_constraintTop_toTopOf="@id/tvBairro" />
 
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btPreviousSession"
-        style="@style/SessionBackButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
+            <TextView
+                android:id="@+id/tvSince"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="Desde que ano mora:"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintEnd_toStartOf="@id/etSince"
+                app:layout_constraintStart_toStartOf="@id/tvBairro"
+                app:layout_constraintTop_toBottomOf="@id/tvBairro" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btHelp"
-        style="@style/HelpButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
+            <EditText
+                android:id="@+id/etSince"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:background="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                android:inputType="text"
+                android:maxLines="1"
+                app:layout_constraintBottom_toBottomOf="@id/tvSince"
+                app:layout_constraintEnd_toEndOf="@id/etBairro"
+                app:layout_constraintStart_toEndOf="@id/tvSince"
+                app:layout_constraintTop_toTopOf="@id/tvSince" />
 
 
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:text="@string/address_please"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/default_text_size"
+                app:layout_constraintEnd_toEndOf="@id/etSince"
+                app:layout_constraintStart_toStartOf="@id/tvSince"
+                app:layout_constraintTop_toBottomOf="@id/tvSince" />
 
-</RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

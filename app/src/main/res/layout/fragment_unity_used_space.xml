@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <include layout="@layout/fragment_mr_clipboard_full" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbProduction"
+        android:layout_marginTop="30dp"
+        android:text="Apenas Produção/\nConfecção"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/tv_question" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbSales"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:text="Local de vendas/\nRecepção de clientes"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/rbProduction" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbBoth"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:text="Ambos"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/rbProduction"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toTopOf="@id/rbProduction" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

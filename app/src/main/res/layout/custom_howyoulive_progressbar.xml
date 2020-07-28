@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="18dp"
-    android:background="@color/colorBlueLight">
+    android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:scaleType="fitXY"
         android:id="@+id/ivProgress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:adjustViewBounds="true"
         android:src="@drawable/sobre_voce" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
+
+    <include
+        android:id="@+id/mrClipboardLayout"
+        layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/alimentos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbBrushMyTeeth"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Preocupação\nsaúde"
+        android:textSize="@dimen/micro_text_size"
+        app:layout_constraintEnd_toStartOf="@id/rbQuickShowers"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toTopOf="@id/water_iv" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbDishes"
+        style="@style/CustomRadioButton"
+        android:layout_marginTop="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Reduzir danos\nambientais"
+        app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
+        app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
+        app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbQuickShowers"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="São mais \nsaborosos"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
+        app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
+
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbFewDevices"
+        style="@style/CustomRadioButton"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Outros"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
+        app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
+        app:layout_constraintTop_toTopOf="@id/rbDishes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

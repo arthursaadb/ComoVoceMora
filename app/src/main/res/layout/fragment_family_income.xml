@@ -1,111 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPurpleLight">
 
-    <ImageView
-        android:id="@+id/iv_mr_clipboard"
-        android:layout_width="180dp"
-        android:layout_height="350dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:src="@drawable/ic_mr_clipboard_half_body" />
-
-    <ImageView
-        android:id="@+id/iv_age"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/ic_500" />
+    <include layout="@layout/fragment_mr_clipboard_full" />
 
     <TextView
-        android:id="@+id/tv_question"
+        android:id="@+id/tv_school"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-30dp"
-        android:layout_marginLeft="-30dp"
-        android:layout_marginTop="20dp"
-        android:layout_toStartOf="@id/volume"
-        android:layout_toLeftOf="@id/volume"
-        android:layout_toEndOf="@id/iv_mr_clipboard"
-        android:layout_toRightOf="@id/iv_mr_clipboard"
-        android:background="@drawable/bg_ballon"
-        android:gravity="center_vertical"
-        android:paddingStart="50dp"
-        android:paddingLeft="50dp"
-        android:paddingEnd="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="20dp"
-        android:text="@string/family_incoming"
+        android:background="@drawable/bg_ballon_normal_type_1"
+        android:gravity="center"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size" />
+        android:textSize="@dimen/micro_text_size"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/iv_school"
+        app:layout_constraintEnd_toStartOf="@id/volume"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        tools:text="Teste"
+        tools:visibility="visible" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_next"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext" />
+    <ImageView
+        android:id="@+id/iv_school"
+        android:layout_width="@dimen/image_selected_size"
+        android:layout_height="@dimen/image_selected_size"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_1"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/volume"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_school" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/bt_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next" />
-
-    <br.com.como_voce_mora.ui.custom.VolumeVertical
+    <br.com.como_voce_mora.custom.VolumeVertical
         android:id="@+id/volume"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="50dp"
         app:backgroundVolume="@color/colorBackgroundVolume"
         app:circleSelectedVolume="@drawable/bg_circle_volume"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
         app:lineColorVolume="@color/colorBlack"
         app:textColorVolume="@color/colorBlack"
         app:textMax="@string/down"
         app:textMin="@string/up" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btPreviousSession"
-        style="@style/SessionBackButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btHelp"
-        style="@style/HelpButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
-
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

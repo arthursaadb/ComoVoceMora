@@ -10,10 +10,10 @@ public class PostContract {
         public static final String TABLE_NAME_MORADOR = "morador";
         public static final String TABLE_NAME_APO = "apo";
         public static final String COLUMN_NAME_MORADOR_ID = "morador_id";
-        public static final String COLUMN_NAME_PERGUNTA_ID = "pergunta_id";
-        public static final String COLUMN_NAME_RESPOSTA = "resposta";
-        public static final String COLUMN_NAME_COMODO_ID = "comodo_id";
-        public static final String COLUMN_NAME_CONCEITO_ID = "conceito_id";
-        public static final String COLUMN_NAME_ATRIBUTO_ID = "atributo_id";
+        public static final String COLUMN_NAME_DWELLER_ID = "dweller_id";
+        public static final String COLUMN_NAME_QUESTION_PART_ID = "question_part_id";
+        public static final String COLUMN_NAME_TEXTO = "texto";
+        public static final String COLUMN_NAME_EVALUATION_ID = "evaluation_id";
+        public static final String COLUMN_NAME_SCREEN = "screen";
     }
 }

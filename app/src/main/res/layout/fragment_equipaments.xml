@@ -1,166 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBlueLight2">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btBack"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="@color/colorTransparent"
-        android:rotation="180"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_next" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivMister"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="30dp"
-        android:layout_toEndOf="@id/btBack"
-        android:layout_toRightOf="@id/btBack"
-        android:src="@drawable/ic_prancheta_circular" />
-
-    <TextView
-        android:id="@+id/tv_question"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:layout_toEndOf="@id/ivMister"
-        android:layout_toRightOf="@id/ivMister"
-        android:background="@drawable/bg_ballon"
-        android:gravity="center_vertical"
-        android:paddingStart="50dp"
-        android:paddingLeft="50dp"
-        android:text="@string/equipaments_question"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/default_text_size" />
+    <include layout="@layout/fragment_mr_clipboard_ball" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/progress_bar"
-        android:layout_below="@id/tv_question"
-        android:layout_toEndOf="@id/ivMister"
-        android:layout_toRightOf="@id/ivMister"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/tv_question">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="0dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvSaude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:image="@drawable/saude"
-                app:name="@string/saude"
+                app:imageItem="@drawable/saude"
+                app:nameItem="@string/saude"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvEscola"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/escola"
-                app:name="@string/escola"
+                app:imageItem="@drawable/escola"
+                app:nameItem="@string/escola"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvCultura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/cultura"
-                app:name="@string/cultura"
+                app:imageItem="@drawable/cultura"
+                app:nameItem="@string/cultura"
                 app:textColor="@color/colorBlack" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_question"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="0dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
-            android:layout_toEndOf="@id/ivMister"
-            android:layout_toRightOf="@id/ivMister"
+            android:layout_below="@id/tv_question"
             android:orientation="horizontal">
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvLazer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:image="@drawable/playground"
-                app:name="@string/lazer"
+                app:imageItem="@drawable/playground"
+                app:nameItem="@string/lazer"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvEsporte"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/quadra"
-                app:name="@string/esporte"
+                app:imageItem="@drawable/quadra"
+                app:nameItem="@string/esporte"
                 app:textColor="@color/colorBlack" />
 
-            <br.com.como_voce_mora.ui.custom.MultiSelect
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csvSeguranca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
-                app:image="@drawable/policia"
-                app:name="@string/seguranca"
+                app:imageItem="@drawable/policia"
+                app:nameItem="@string/seguranca"
                 app:textColor="@color/colorBlack" />
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btNext"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorTransparent"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_doublenext" />
 
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btPreviousSession"
-        style="@style/SessionBackButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btHelp"
-        style="@style/HelpButton"
-        android:layout_above="@id/progress_bar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
-
-
-    <br.com.como_voce_mora.ui.custom.HowYouLiveProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

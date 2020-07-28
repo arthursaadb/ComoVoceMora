@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.CollectionPointsUberlandiaFragment">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/bt_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@color/colorTransparent"
+        android:rotation="180"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/bt_next"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorTransparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_doublenext"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/you_know_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="@dimen/default_padding"
+        android:text="Você sabia?"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintBottom_toTopOf="@id/explanation_tv"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/baterialixo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/explanation_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:text="Não jogue pilhas, baterias ou equipamentos eletrônicos no lixo doméstico, pois contêm substâncias tóxicas que contaminam o solo e a água. Além disso, aproveitei para diminuir o consumo de pilhas descartáveis com o uso de pilhas recarregáveis. Existem alguns pontos de coleta em Uberlândia, como: unidades do DMAE, Centro Administrativo da Prefeitura de Uberlândia, Escola Estadual Amador Naves, Hospital Municipal e alguns supermercados."
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@id/you_know_tv" />
+
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
+
+    <include
+        android:id="@+id/mrClipboardLayout"
+        layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/energia"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/optionYes"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/optionYes"
+        android:text="Sim"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/water_iv"
+        app:layout_constraintEnd_toStartOf="@id/rbBillsPrice"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@+id/tv_question" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/optionNo"
+        android:text="Não"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/optionYes"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        tools:ignore="NotSibling" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbBillsPrice"
+        style="@style/CustomRadioButton"
+        android:text="Economizo no preço\ndas contas"
+        android:button="@color/colorTransparent"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/optionYes"
+        app:layout_constraintTop_toTopOf="@id/optionYes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbLessAmbientalDamage"
+        style="@style/CustomRadioButton"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:text="Causa menos danos\nambientais"
+        android:button="@color/colorTransparent"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/rbBillsPrice"
+        app:layout_constraintTop_toTopOf="@id/rbBillsPrice" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbDry"
+        style="@style/CustomRadioButton"
+        android:layout_marginTop="@dimen/small_margin"
+        android:text="Temo faltar em\nperíodo de seca"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/rbOthers"
+        app:layout_constraintStart_toStartOf="@id/rbBillsPrice"
+        app:layout_constraintTop_toBottomOf="@id/rbBillsPrice" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbOthers"
+        style="@style/CustomRadioButton"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:text="Outros"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintTop_toBottomOf="@id/rbLessAmbientalDamage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,11 @@ import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
+import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
+import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 
 public class AboutYouActivity extends BaseActivity {
+    public static final String SCREEN_FRAGMENT = "screen-fragment";
 
     @Override
     public int getResLayout() {
@@ -15,8 +18,21 @@ public class AboutYouActivity extends BaseActivity {
     @Override
     public void init() {
         super.init();
-        replaceFragment(WhatYourGenderFragment.newInstance());
-//        replaceFragment(CountryFragment.newInstance());
+        String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
+
+        if (screen == null) {
+            replaceFragment(WhatYourGenderFragment.newInstance());
+//        replaceFragment(UnitySplashFragment.newInstance());
+//        replaceFragment(SustainableHabitsIntroFragment.newInstance());
+            return;
+        }
+
+        try {
+            Fragment fragment = (Fragment) Class.forName(screen).newInstance();
+            replaceFragment(fragment);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -31,7 +47,7 @@ public class AboutYouActivity extends BaseActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .addToBackStack(fragment.getClass().getSimpleName())
-                .add(R.id.container, fragment)
+                .replace(R.id.container, fragment)
                 .commitAllowingStateLoss();
     }
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/bt_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@color/colorTransparent"
+        android:rotation="180"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/bt_next"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorTransparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_doublenext"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/agua"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/you_know_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Você sabia?"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintBottom_toTopOf="@id/explanation_tv"
+        app:layout_constraintEnd_toEndOf="@id/explanation_tv"
+        app:layout_constraintStart_toStartOf="@id/explanation_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/explanation_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="O consumo, por ciclo, varia entre 100 e 132 litros (para máquinas com abertura frontal) e entre 98 e 197 litros (para lavadoras com abertura superior), de acordo com o Inmetro. Por isso, relativamente, o consumo é maior quando utilizamos a máquina parcialmente cheia. Assim, a recomendação é sempre usar a lavadora em sua capacidade máxima para se atingir eficiência e economia."
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@id/you_know_tv" />
+
+    <br.com.como_voce_mora.custom.HowYouLiveProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

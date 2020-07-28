@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "457347702356",
+    "firebase_url": "https://como-voce-mora.firebaseio.com",
+    "project_id": "como-voce-mora",
+    "storage_bucket": "como-voce-mora.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457347702356:android:10aa02cc03711b2ee357c1",
+        "android_client_info": {
+          "package_name": "br.com.como_voce_mora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457347702356-pvkjr3nps8saee6lm5h6rrg7k61o7kqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0yze2v6cwSsPHK6b_-JXVmV_Gi8VvbAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457347702356-pvkjr3nps8saee6lm5h6rrg7k61o7kqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

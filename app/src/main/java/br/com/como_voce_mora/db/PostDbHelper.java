@@ -12,12 +12,12 @@ public class PostDbHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_TABLE_APO =
             "CREATE TABLE IF NOT EXISTS " +
                     PostContract.PostEntry.TABLE_NAME_APO + " (" +
-                    PostContract.PostEntry.COLUMN_NAME_PERGUNTA_ID + TEXT_TYPE + " PRIMARY KEY," +
+                    PostContract.PostEntry.COLUMN_NAME_QUESTION_PART_ID + TEXT_TYPE + " PRIMARY KEY," +
                     PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + INTEGER_TYPE + COMMA_SEP +
-                    PostContract.PostEntry.COLUMN_NAME_RESPOSTA + TEXT_TYPE + COMMA_SEP +
-                    PostContract.PostEntry.COLUMN_NAME_COMODO_ID + TEXT_TYPE + COMMA_SEP +
-                    PostContract.PostEntry.COLUMN_NAME_CONCEITO_ID + TEXT_TYPE + COMMA_SEP +
-                    PostContract.PostEntry.COLUMN_NAME_ATRIBUTO_ID + TEXT_TYPE + COMMA_SEP +
+                    PostContract.PostEntry.COLUMN_NAME_DWELLER_ID + TEXT_TYPE + COMMA_SEP +
+                    PostContract.PostEntry.COLUMN_NAME_SCREEN + TEXT_TYPE + COMMA_SEP +
+                    PostContract.PostEntry.COLUMN_NAME_TEXTO + TEXT_TYPE + COMMA_SEP +
+                    PostContract.PostEntry.COLUMN_NAME_EVALUATION_ID + TEXT_TYPE + COMMA_SEP +
                     " FOREIGN KEY " + " (" + PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + ") " +
                     " REFERENCES "  + PostContract.PostEntry.TABLE_NAME_MORADOR +" (" +  PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + ") " +
                     " )";
@@ -30,11 +30,11 @@ public class PostDbHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_APO = "DROP TABLE IF EXISTS " + PostContract.PostEntry.TABLE_NAME_APO;
     private static final String SQL_DELETE_MORADOR = "DROP TABLE IF EXISTS " + PostContract.PostEntry.TABLE_NAME_MORADOR;
 
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "como_voce_mora.db";
 
     public PostDbHelper(Context context) {
-        super(new DatabaseContext(context), DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public void onCreate(SQLiteDatabase db) {

@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/logo_info_save_size"
+        android:layout_height="@dimen/logo_info_save_size"
         android:layout_centerHorizontal="true"
         android:src="@drawable/ic_logo" />
 
@@ -37,6 +37,6 @@
         android:background="@color/colorTransparent"
         android:drawableTop="@drawable/ic_checked"
         android:text="@string/ok"
-        android:textColor="@color/colorWhite" />
-
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/button_text_size" />
 </RelativeLayout>

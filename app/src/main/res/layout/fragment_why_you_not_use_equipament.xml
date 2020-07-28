@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
+
+    <include layout="@layout/fragment_mr_clipboard_ball" />
+
+    <ImageView
+        android:id="@+id/water_iv"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/agua"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbBrushMyTeeth"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="@dimen/default_margin"
+        android:gravity="center"
+        android:text="Desconheço"
+        app:layout_constraintBottom_toTopOf="@id/rbDishes"
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbDishes"
+        style="@style/CustomRadioButton"
+        android:gravity="center"
+        android:text="Custo alto"
+        app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
+        app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
+        app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
+        app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbWashMachineCapacity"
+        style="@style/CustomRadioButton"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Depende de\nreformas"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/rbDishes"
+        app:layout_constraintStart_toStartOf="@id/rbDishes"
+        app:layout_constraintTop_toBottomOf="@id/rbDishes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbQuickShowers"
+        style="@style/CustomRadioButton"
+        android:gravity="center"
+        android:text="Difícil manuntenção"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
+        app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
+
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbFewDevices"
+        style="@style/CustomRadioButton"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Não vejo necessidade"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
+        app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
+        app:layout_constraintTop_toTopOf="@id/rbDishes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
