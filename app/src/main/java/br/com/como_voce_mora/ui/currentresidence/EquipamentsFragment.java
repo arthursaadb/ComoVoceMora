@@ -31,6 +31,7 @@ public class EquipamentsFragment extends BaseFragment {
     private String esporte = "";
     private String seguranca = "";
     String answer = "";
+    private Boolean recreation = false;
     boolean anyOneSelected = false;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
@@ -106,12 +107,14 @@ public class EquipamentsFragment extends BaseFragment {
                 }
             case R.id.csvLazer:
                 if (!csv.isChecked()) {
+                    recreation = true;
                     csv.setChecked(true);
                     lazer = csv.getText();
                     answerRequests.add(new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(),
                             lazerCurrentResidenceAnswer.getQuestionPartId(), lazer));
                     break;
                 } else {
+                    recreation = false;
                     csv.setChecked(false);
                     removeItem(lazerCurrentResidenceAnswer.getQuestion());
                     break;
@@ -161,7 +164,11 @@ public class EquipamentsFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (anyOneSelected) {
             setAnswer();
-            ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
+            if (recreation) {
+                ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());
+            } else {
+                ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
+            }
         }
     }
 

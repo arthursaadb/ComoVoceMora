@@ -77,7 +77,7 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
             ResearchFlow.addAnswer(answerRequest, this);
             ResearchFlow.addAnswer(answerRequest2, this);
             Utils.hideKeyboard(requireActivity());
-            ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(ClassifyAspectesFragment.newInstance());
         }
     }
 

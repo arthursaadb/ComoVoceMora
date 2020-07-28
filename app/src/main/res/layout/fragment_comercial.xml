@@ -94,6 +94,8 @@
         android:layout_marginRight="@dimen/default_margin"
         android:background="@color/colorWhite"
         android:textSize="@dimen/default_text_size"
+        android:singleLine="true"
+        android:maxLines="1"
         android:textColor="@color/colorBlack"
         app:layout_constraintStart_toEndOf="@id/tvCity"
         app:layout_constraintEnd_toEndOf="@id/tv_question2"

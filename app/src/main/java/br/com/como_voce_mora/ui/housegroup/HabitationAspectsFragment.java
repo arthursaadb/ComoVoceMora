@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.housegroup;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,14 +24,16 @@ public class HabitationAspectsFragment extends BaseFragment {
     HowYouLiveProgressBar progressBar;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
-    @BindView(R.id.volume1)
+    @BindView(R.id.llVolume1)
     VolumeHorizontal vhAcessibilidade;
-    @BindView(R.id.volume2)
+    @BindView(R.id.llVolume2)
     VolumeHorizontal vhConstrucao;
-    @BindView(R.id.volume3)
+    @BindView(R.id.llVolume3)
     VolumeHorizontal vhAparencia;
-    @BindView(R.id.volume4)
+    @BindView(R.id.llVolume4)
     VolumeHorizontal vhLimpeza;
+    @BindView(R.id.ivImage)
+    ImageView ivPhoto;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     HouseGroupAnswer satisfaction = HouseGroupAnswer.SATISFACTION_OF_HOME_ASPECTS;
@@ -74,18 +77,22 @@ public class HabitationAspectsFragment extends BaseFragment {
 
     private void initVolumes() {
         vhAcessibilidade.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.accessibility);
             vhAcessibilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(acessibilidade.getQuestion(), acessibilidade.getQuestionPartId(), texts.get(position)));
         });
         vhAparencia.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.appearance);
             vhAparencia.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(construction.getQuestion(), construction.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.quality_construction);
             vhConstrucao.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(general.getQuestion(), general.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.cleaning);
             vhLimpeza.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(clean.getQuestion(), clean.getQuestionPartId(), texts.get(position)));
         });

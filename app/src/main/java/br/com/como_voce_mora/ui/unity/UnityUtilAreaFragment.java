@@ -3,12 +3,14 @@ package br.com.como_voce_mora.ui.unity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.custom.VolumeVertical;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
@@ -20,6 +22,8 @@ import butterknife.OnClick;
 
 public class UnityUtilAreaFragment extends BaseFragment implements VolumeVertical.OnListener {
 
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar progressBar;
     @BindView(R.id.volume)
     VolumeVertical mVolume;
     @BindView(R.id.iv_school)
@@ -50,6 +54,7 @@ public class UnityUtilAreaFragment extends BaseFragment implements VolumeVertica
 
     @Override
     public void init() {
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
         tvQuestion.setText(unityAnswer.getQuestion());
         startVolume();
         mVolume.setListener(this);

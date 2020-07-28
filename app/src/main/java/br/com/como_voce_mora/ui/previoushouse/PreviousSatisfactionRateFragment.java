@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.previoushouse;
 
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ public class PreviousSatisfactionRateFragment extends BaseFragment {
     VolumeHorizontal vhLimpeza;
     @BindView(R.id.volume5)
     VolumeHorizontal vhTamanho;
+    @BindView(R.id.ivImage)
+    ImageView ivPhoto;
     private List<String> texts = new ArrayList<>();
 
     private boolean anyOptionChecked = false;
@@ -67,26 +70,31 @@ public class PreviousSatisfactionRateFragment extends BaseFragment {
 
     private void initVolumes() {
         vhAcessibilidade.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.rate_aspecto_geral);
             anyOptionChecked = true;
             vhAcessibilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(generalAspects.getQuestion(), generalAspects.getQuestionPartId(), texts.get(position)));
         });
         vhAparencia.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.rate_gasto);
             anyOptionChecked = true;
             vhAparencia.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(costBenefit.getQuestion(), costBenefit.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.rate_acabamento);
             anyOptionChecked = true;
             vhConstrucao.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(finishhing.getQuestion(), finishhing.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.rate_localizacao);
             anyOptionChecked = true;
             vhLimpeza.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(location.getQuestion(), location.getQuestionPartId(), texts.get(position)));
         });
         vhTamanho.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.rate_tamanho);
             anyOptionChecked = true;
             vhTamanho.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(size.getQuestion(), size.getQuestionPartId(), texts.get(position)));
