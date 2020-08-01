@@ -28,14 +28,18 @@
         android:layout_toRightOf="@id/iv_mr_clipboard"
         android:background="@drawable/bg_ballon"
         android:gravity="center_vertical"
-        android:paddingStart="70dp"
-        android:paddingLeft="70dp"
+        android:paddingStart="50dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="0dp"
+        android:paddingLeft="0dp"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toTopOf="@id/iv_mr_clipboard"
-        tools:text="Question" />
+        tools:text="Selecione quem mora com você e clique em\n avançar. Se você mora só, apenas clique em\n avançar. " />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/bt_back"

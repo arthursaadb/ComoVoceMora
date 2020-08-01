@@ -31,7 +31,7 @@
         android:layout_width="@dimen/image_selected_size"
         android:layout_height="@dimen/image_selected_size"
         android:layout_marginTop="10dp"
-        android:src="@drawable/ic_1"
+        android:src="@drawable/ic_5"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/volume"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"

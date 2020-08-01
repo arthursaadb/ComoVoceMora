@@ -83,7 +83,7 @@ public class IntroActivity extends BaseActivity {
         super.init();
 
         screenAndMoradorId = ResearchFlow.getQuestionLast();
-
+        button.setVisibility(View.GONE);
         if (screenAndMoradorId != null && !screenAndMoradorId.getScreen().equals(TransportationReasonFragment.class.getName())) {
             btContinue.setVisibility(View.VISIBLE);
         } else {

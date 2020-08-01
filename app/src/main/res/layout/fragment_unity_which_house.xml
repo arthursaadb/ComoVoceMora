@@ -29,8 +29,8 @@
                 android:id="@+id/csvCasaGerminada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/casagerminada"
                 app:imageItem="@drawable/casa_germinada" />
@@ -39,8 +39,8 @@
                 android:id="@+id/csvSobrado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/sobrado"
                 app:imageItem="@drawable/casa_sobrado" />
@@ -56,8 +56,8 @@
                 android:id="@+id/csvVila"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/vila"
                 app:imageItem="@drawable/casa_casa_de_vila" />
@@ -66,8 +66,8 @@
                 android:id="@+id/csvTerreo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_gravity="center"
                 app:nameItem="@string/terrea"
                 app:imageItem="@drawable/casa_terrea" />
@@ -78,8 +78,8 @@
             android:id="@+id/csvFundo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
             app:nameItem="@string/terrea"
             app:imageItem="@drawable/casa_terrea" />
 
