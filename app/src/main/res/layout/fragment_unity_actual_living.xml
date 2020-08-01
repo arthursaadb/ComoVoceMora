@@ -30,6 +30,8 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:fillViewport="true"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="@id/rbNo"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbNo">
