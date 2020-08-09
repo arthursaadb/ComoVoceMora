@@ -75,16 +75,16 @@ public class PreviousSatisfactionRateFragment extends BaseFragment {
             vhAcessibilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(generalAspects.getQuestion(), generalAspects.getQuestionPartId(), texts.get(position)));
         });
-        vhAparencia.setListener(position -> {
+        vhConstrucao.setListener(position -> {
             ivPhoto.setImageResource(R.drawable.rate_gasto);
             anyOptionChecked = true;
-            vhAparencia.setInfo(texts.get(position));
+            vhConstrucao.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(costBenefit.getQuestion(), costBenefit.getQuestionPartId(), texts.get(position)));
         });
-        vhConstrucao.setListener(position -> {
+        vhAparencia.setListener(position -> {
             ivPhoto.setImageResource(R.drawable.rate_acabamento);
             anyOptionChecked = true;
-            vhConstrucao.setInfo(texts.get(position));
+            vhAparencia.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(finishhing.getQuestion(), finishhing.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {

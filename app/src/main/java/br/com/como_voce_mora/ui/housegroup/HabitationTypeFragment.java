@@ -15,6 +15,7 @@ import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -53,7 +54,7 @@ public class HabitationTypeFragment extends BaseFragment {
         if (anyOneSelected) {
             ResearchFlow.addAnswer(answerRequests, this);
             ResearchFlow.setHouse(houseChecked);
-            ((AboutYouActivity) requireActivity()).addFragment(HabitationCondominiumFragment.newInstance(houseChecked));
+            ((AboutYouActivity) requireActivity()).addFragment(HabitationCondominiumFragment.newInstance());
         }
     }
 
@@ -90,5 +91,12 @@ public class HabitationTypeFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
+        }
     }
 }

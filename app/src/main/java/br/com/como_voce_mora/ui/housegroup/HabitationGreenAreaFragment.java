@@ -12,6 +12,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -29,6 +30,7 @@ public class HabitationGreenAreaFragment extends BaseFragment implements CustomR
     private AnswerRequest answerRequests;
     private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.GREEN_AREA;
     private boolean yesChecked = false;
+    private boolean anyOptionChecked = false;
 
     public static HabitationGreenAreaFragment newInstance() {
         return new HabitationGreenAreaFragment();
@@ -49,11 +51,13 @@ public class HabitationGreenAreaFragment extends BaseFragment implements CustomR
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(answerRequests, this);
-        if (yesChecked) {
-            ((AboutYouActivity) requireActivity()).addFragment(HabitationGreenAreaSatisfactionFragment.newInstance());
-        } else {
-            ((AboutYouActivity) requireActivity()).addFragment(HabitationMissGreenAreaFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(answerRequests, this);
+            if (yesChecked) {
+                ((AboutYouActivity) requireActivity()).addFragment(HabitationGreenAreaSatisfactionFragment.newInstance());
+            } else {
+                ((AboutYouActivity) requireActivity()).addFragment(HabitationMissGreenAreaFragment.newInstance());
+            }
         }
     }
 
@@ -67,6 +71,7 @@ public class HabitationGreenAreaFragment extends BaseFragment implements CustomR
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         setAnswer(buttonView.getText().toString());
+        anyOptionChecked = true;
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbYes:
@@ -94,5 +99,11 @@ public class HabitationGreenAreaFragment extends BaseFragment implements CustomR
         rbYes.updateView();
     }
 
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
+        }
+    }
 
 }

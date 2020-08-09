@@ -13,6 +13,7 @@ import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -69,8 +70,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        setAnswer();
-        ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
+            setAnswer();
+            ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
     }
 
     private void setAnswer() {
@@ -192,6 +193,13 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                 }
 
                 break;
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
         }
     }
 }

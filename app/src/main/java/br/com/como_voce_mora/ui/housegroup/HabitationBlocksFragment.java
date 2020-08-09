@@ -14,6 +14,7 @@ import br.com.como_voce_mora.model.HouseGroupAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -84,9 +85,10 @@ public class HabitationBlocksFragment extends BaseFragment implements VolumeVert
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked)
+        if (anyOptionChecked) {
             ResearchFlow.addAnswer(answerRequests, this);
             ((AboutYouActivity) requireActivity()).addFragment(HabitationEquipmentsFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)
@@ -102,5 +104,12 @@ public class HabitationBlocksFragment extends BaseFragment implements VolumeVert
         mIvBlocks.setImageResource(blocks.get(position));
         mTvBlocks.setText(blocksText.get(position));
         answerRequests = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), blocksText.get(position));
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
+        }
     }
 }

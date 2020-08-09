@@ -41,7 +41,7 @@ public class BuildingContributionFragment extends BaseFragment implements Custom
 
     @Override
     public void init() {
-        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         tvQuestion.setText(houseGroupAnser.getQuestion());
         rbYes.setOnCheckedChangeListener(this);
         rbNo.setOnCheckedChangeListener(this);
