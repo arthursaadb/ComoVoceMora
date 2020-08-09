@@ -15,6 +15,7 @@ import br.com.como_voce_mora.ui.building.BuildingApartmentNegativePointsFragment
 import br.com.como_voce_mora.ui.building.BuildingHouseNegativePointsFragment;
 import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import br.com.como_voce_mora.ui.building.BuildingWhichDivisionFragment;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -31,6 +32,7 @@ public class HabitationMissGreenAreaFragment extends BaseFragment implements Cus
 
     private AnswerRequest answerRequests;
     private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.MISS_GREEN_AREA;
+    private boolean anyOptionChecked = false;
 
     public static HabitationMissGreenAreaFragment newInstance() {
         return new HabitationMissGreenAreaFragment();
@@ -51,10 +53,8 @@ public class HabitationMissGreenAreaFragment extends BaseFragment implements Cus
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(answerRequests, this);
-        if (ResearchFlow.getHouse()) {
-            ((AboutYouActivity) requireActivity()).addFragment(BuildingWhichDivisionFragment.newInstance());
-        } else {
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(answerRequests, this);
             ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
         }
     }
@@ -69,6 +69,7 @@ public class HabitationMissGreenAreaFragment extends BaseFragment implements Cus
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         setAnswer(buttonView.getText().toString());
+        anyOptionChecked = true;
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbYes:
@@ -93,5 +94,12 @@ public class HabitationMissGreenAreaFragment extends BaseFragment implements Cus
     private void updateRbs() {
         rbNo.updateView();
         rbYes.updateView();
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(CurrentHomeFragment.newInstance());
+        }
     }
 }

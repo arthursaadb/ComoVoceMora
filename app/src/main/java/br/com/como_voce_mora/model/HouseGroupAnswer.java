@@ -44,7 +44,6 @@ public enum HouseGroupAnswer {
 
     GREEN_AREA("Existem áreas verdes no seu edifício?", "ec1cd8cc-2eee-4326-9ba2-d3cc1c471687"),
     NEIGHBORHOOD_DELIMITATION("Existe delimitação entre sua residência e a vizinhança?", "6a1601b4-3a30-4e86-a2d9-e766a2375b4e"),
-    NEIGHBORHOOD_DELIMITATION_TYPE("Que delimitação existem entre sua residência e a vizinhança?", "f0ce08bf-d19e-4946-bf47-bb63329c37a0"),
 
 
     ;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,141 +9,122 @@
     <include layout="@layout/fragment_mr_clipboard_ball" />
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fadeScrollbars="false"
+        android:id="@+id/scrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fillViewport="true"
+        android:fadeScrollbars="false"
         android:scrollbars="vertical"
-        android:layout_marginBottom="@dimen/default_margin"
-        android:layout_marginTop="@dimen/small_margin"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
-        app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard">
+        app:layout_constraintBottom_toTopOf="@id/progress_bar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbPiscina"
                 style="@style/CustomRadioButton"
-                android:gravity="center"
+                android:id="@+id/rbChildrenPool"
                 android:text="Piscina\ninfantil"
-                app:layout_constraintEnd_toStartOf="@id/rbSauna"
-                app:layout_constraintHorizontal_chainStyle="spread"
+                android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbSauna"
                 style="@style/CustomRadioButton"
-                android:gravity="center"
-                android:text="Sauna"
-                app:layout_constraintEnd_toStartOf="@id/rbSalao"
-                app:layout_constraintStart_toEndOf="@id/rbPiscina"
-                app:layout_constraintTop_toTopOf="@id/rbPiscina" />
-
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbSalao"
-                style="@style/CustomRadioButton"
-                android:gravity="center"
-                android:text="Salão de\nfestas"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/rbSauna"
-                app:layout_constraintTop_toTopOf="@id/rbPiscina" />
-
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbEspaco"
-                style="@style/CustomRadioButton"
-                android:layout_marginTop="@dimen/default_margin"
-                android:gravity="center"
+                android:id="@+id/rbGourmetSpace"
                 android:text="Espaço\ngourmet"
-                app:layout_constraintEnd_toStartOf="@id/rbQuiosque"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rbPiscina" />
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="@id/rbChildrenPool"
+                app:layout_constraintTop_toBottomOf="@id/rbChildrenPool" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbQuiosque"
                 style="@style/CustomRadioButton"
-                android:gravity="center"
-                android:text="Quiosque"
-                app:layout_constraintEnd_toStartOf="@id/rbQuadra"
-                app:layout_constraintStart_toEndOf="@id/rbEspaco"
-                app:layout_constraintTop_toTopOf="@id/rbEspaco" />
-
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbQuadra"
-                style="@style/CustomRadioButton"
-                android:gravity="center"
-                android:text="Quadra"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/rbQuiosque"
-                app:layout_constraintTop_toTopOf="@id/rbEspaco" />
-
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbSalaoJogos"
-                style="@style/CustomRadioButton"
-                android:layout_marginTop="@dimen/default_margin"
-                android:gravity="center"
+                android:id="@+id/rbGameRoom"
                 android:text="Salão de\njogos"
-                app:layout_constraintEnd_toStartOf="@id/rbPiscinaAdulto"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rbEspaco" />
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="@id/rbGourmetSpace"
+                app:layout_constraintTop_toBottomOf="@id/rbGourmetSpace" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbPiscinaAdulto"
                 style="@style/CustomRadioButton"
+                android:id="@+id/rbSteamRoom"
+                android:text="Sauna"
                 android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbChildrenPool"
+                app:layout_constraintTop_toTopOf="@id/rbChildrenPool" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbkiosk"
+                android:text="Quiosque"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbGourmetSpace"
+                app:layout_constraintTop_toTopOf="@id/rbGourmetSpace" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbAdultPool"
                 android:text="Piscina\nadulto"
-                app:layout_constraintEnd_toStartOf="@id/rbPlayground"
-                app:layout_constraintStart_toEndOf="@id/rbSalaoJogos"
-                app:layout_constraintTop_toTopOf="@id/rbSalaoJogos" />
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbGameRoom"
+                app:layout_constraintTop_toTopOf="@id/rbGameRoom" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbPartyRoom"
+                android:text="Salão de\nfestas"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbSteamRoom"
+                app:layout_constraintTop_toTopOf="@id/rbSteamRoom" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
+                android:id="@+id/rbBlock"
+                android:text="Quadra"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbkiosk"
+                app:layout_constraintTop_toTopOf="@id/rbkiosk" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                style="@style/CustomRadioButton"
                 android:id="@+id/rbPlayground"
-                style="@style/CustomRadioButton"
-                android:gravity="center"
                 android:text="Playground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/rbPiscinaAdulto"
-                app:layout_constraintTop_toTopOf="@id/rbSalaoJogos" />
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbAdultPool"
+                app:layout_constraintTop_toTopOf="@id/rbAdultPool" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbAcademia"
                 style="@style/CustomRadioButton"
-                android:layout_marginTop="@dimen/default_margin"
-                android:gravity="center"
+                android:id="@+id/rbGym"
                 android:text="Academia"
-                app:layout_constraintEnd_toStartOf="@id/rbPiscinaAdulto"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rbSalaoJogos" />
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbPartyRoom"
+                app:layout_constraintTop_toTopOf="@id/rbPartyRoom" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbChurrasco"
                 style="@style/CustomRadioButton"
-                android:gravity="center"
+                android:id="@+id/rbBarbecue"
                 android:text="Área para\nchurrasco"
-                app:layout_constraintEnd_toStartOf="@id/rbPlayground"
-                app:layout_constraintStart_toEndOf="@id/rbAcademia"
-                app:layout_constraintTop_toTopOf="@id/rbAcademia" />
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbBlock"
+                app:layout_constraintTop_toTopOf="@id/rbBlock" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbOutro"
                 style="@style/CustomRadioButton"
-                android:gravity="center"
+                android:id="@+id/rbOther"
                 android:text="Outro"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/rbChurrasco"
-                app:layout_constraintTop_toTopOf="@id/rbAcademia" />
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@id/rbPlayground"
+                app:layout_constraintTop_toTopOf="@id/rbPlayground" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.core.widget.NestedScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
