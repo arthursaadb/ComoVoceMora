@@ -37,8 +37,6 @@
                 android:id="@+id/csvLoterica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/loterica"
                 app:nameItem="@string/establishment_2"
                 app:textColor="@color/colorBlueLight2" />
@@ -47,8 +45,6 @@
                 android:id="@+id/csvMercado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/supermercado"
                 app:nameItem="@string/establishment_3"
                 app:textColor="@color/colorBlueLight2" />
@@ -57,8 +53,6 @@
                 android:id="@+id/csvLoja"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/loja"
                 app:nameItem="@string/establishment_4"
                 app:textColor="@color/colorBlueLight2" />
@@ -67,8 +61,6 @@
                 android:id="@+id/csvFarmacia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="40dp"
                 app:imageItem="@drawable/farmacia"
                 app:nameItem="@string/establishment_5"
                 app:textColor="@color/colorBlueLight2" />
@@ -77,8 +69,6 @@
                 android:id="@+id/csvPosto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/posto_gasolina"
                 app:nameItem="@string/establishment_6"
                 app:textColor="@color/colorBlueLight2" />
@@ -106,8 +96,6 @@
                 android:id="@+id/csvPadaria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/padaria"
                 app:nameItem="@string/establishment_8"
                 app:textColor="@color/colorBlueLight2" />
@@ -116,8 +104,6 @@
                 android:id="@+id/csvAcougue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/acougue"
                 app:nameItem="@string/establishment_9"
                 app:textColor="@color/colorBlueLight2" />
@@ -126,8 +112,6 @@
                 android:id="@+id/csvRestaurante"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/restaurante"
                 app:nameItem="@string/establishment_10"
                 app:textColor="@color/colorBlueLight2" />
@@ -136,8 +120,6 @@
                 android:id="@+id/csvOutros"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/outros"
                 app:nameItem="@string/establishment_11"
                 app:textColor="@color/colorBlueLight2" />
@@ -146,8 +128,6 @@
                 android:id="@+id/csvNenhum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginLeft="@dimen/small_margin"
                 app:imageItem="@drawable/nenhum"
                 app:nameItem="@string/establishment_12"
                 app:textColor="@color/colorBlueLight2" />
