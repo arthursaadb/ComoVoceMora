@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.housegroup;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public class HabitationHowYouThinkAboutAspectsFragment extends BaseFragment {
     VolumeHorizontal vhAparencia;
     @BindView(R.id.volume4)
     VolumeHorizontal vhLimpeza;
+    @BindView(R.id.ivImage)
+    ImageView ivPhoto;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     HouseGroupAnswer aspects = HouseGroupAnswer.ASPECTS;
@@ -74,18 +77,22 @@ public class HabitationHowYouThinkAboutAspectsFragment extends BaseFragment {
     private void initVolumes() {
         vhAcessibilidade.setListener(position -> {
             vhAcessibilidade.setInfo(texts.get(position));
+            ivPhoto.setImageResource(R.drawable.custo_beneficio);
             answerRequests.add(new AnswerRequest(aspectSecurity.getQuestion(), aspectSecurity.getQuestionPartId(), texts.get(position)));
         });
         vhAparencia.setListener(position -> {
             vhAparencia.setInfo(texts.get(position));
+            ivPhoto.setImageResource(R.drawable.seguranca);
             answerRequests.add(new AnswerRequest(aspectStreet.getQuestion(), aspectStreet.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
             vhConstrucao.setInfo(texts.get(position));
+            ivPhoto.setImageResource(R.drawable.privacidade);
             answerRequests.add(new AnswerRequest(aspectConvivence.getQuestion(), aspectConvivence.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
             vhLimpeza.setInfo(texts.get(position));
+            ivPhoto.setImageResource(R.drawable.convivencia);
             answerRequests.add(new AnswerRequest(aspectPrivece.getQuestion(), aspectPrivece.getQuestionPartId(), texts.get(position)));
         });
 

@@ -25,18 +25,13 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
     HowYouLiveProgressBar progressBar;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
-    @BindView(R.id.tv_question2)
-    TextView tvQuestion2;
     @BindView(R.id.volume)
     VolumeHorizontal mVolume;
-    @BindView(R.id.etCity)
-    EditText etCity;
 
+    boolean anyOptionChecked = false;
     List<String> texts;
     AnswerRequest answerRequest;
-    AnswerRequest answerRequest2;
     CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.COMMERCE;
-    CurrentResidenceAnswer currentResidenceAnswer2 = CurrentResidenceAnswer.COMMERCE_TYPE_MISSING;
 
 
     public static ComercialFragment newInstance() {
@@ -55,7 +50,6 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
     @Override
     public void init() {
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
-        tvQuestion2.setText(currentResidenceAnswer2.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
 
         texts = new ArrayList<>();
@@ -72,12 +66,10 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (!etCity.getText().toString().isEmpty()) {
-            answerRequest2 = new AnswerRequest(currentResidenceAnswer2.getQuestion(), currentResidenceAnswer2.getQuestionPartId(), etCity.getText().toString());
+        if (anyOptionChecked) {
             ResearchFlow.addAnswer(answerRequest, this);
-            ResearchFlow.addAnswer(answerRequest2, this);
             Utils.hideKeyboard(requireActivity());
-            ((AboutYouActivity) requireActivity()).addFragment(ClassifyAspectesFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(EstablishmentThatYouMissFragment.newInstance());
         }
     }
 
@@ -90,6 +82,7 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
 
     @Override
     public void positionVolume(int position) {
+        anyOptionChecked = true;
         mVolume.setInfo(texts.get(position));
         answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), texts.get(position));
     }

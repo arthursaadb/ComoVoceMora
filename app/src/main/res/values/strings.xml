@@ -132,4 +132,17 @@
     <string name="satisfaction_room_4">Iluminção Natural</string>
     <string name="satisfaction_room_5">Temperatura</string>
     <string name="satisfaction_room_6">Nivel de Ruido</string>
+
+    <string name="establishment_1">BANCO</string>
+    <string name="establishment_2">LOTÉRICA</string>
+    <string name="establishment_3">MERCADO</string>
+    <string name="establishment_4">LOJA</string>
+    <string name="establishment_5">FARMÁCIA</string>
+    <string name="establishment_6">POSTO DE GASOLINA</string>
+    <string name="establishment_7">ACADEMIA</string>
+    <string name="establishment_8">PADARIA</string>
+    <string name="establishment_9">AÇOUGUE</string>
+    <string name="establishment_10">RESTAURANTE</string>
+    <string name="establishment_11">OUTROS</string>
+    <string name="establishment_12">NENHUM</string>
 </resources>

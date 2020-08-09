@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,174 +7,142 @@
 
     <include layout="@layout/fragment_mr_clipboard_ball" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@id/bt_back"
-        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        android:fadeScrollbars="false"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:layout_marginTop="@dimen/small_margin"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
-        app:layout_constraintEnd_toStartOf="@id/bt_next">
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard">
 
-        <LinearLayout
-            android:id="@+id/llVolume1"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Vaga de satisfação"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbPiscina"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Piscina\ninfantil"
+                app:layout_constraintEnd_toStartOf="@id/rbSauna"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbSauna"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Sauna"
+                app:layout_constraintEnd_toStartOf="@id/rbSalao"
+                app:layout_constraintStart_toEndOf="@id/rbPiscina"
+                app:layout_constraintTop_toTopOf="@id/rbPiscina" />
 
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
-                android:paddingRight="10dp" />
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbSalao"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Salão de\nfestas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/rbSauna"
+                app:layout_constraintTop_toTopOf="@id/rbPiscina" />
 
-        </LinearLayout>
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbEspaco"
+                style="@style/CustomRadioButton"
+                android:layout_marginTop="@dimen/default_margin"
+                android:gravity="center"
+                android:text="Espaço\ngourmet"
+                app:layout_constraintEnd_toStartOf="@id/rbQuiosque"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rbPiscina" />
 
-        <LinearLayout
-            android:id="@+id/llVolume2"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbQuiosque"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Quiosque"
+                app:layout_constraintEnd_toStartOf="@id/rbQuadra"
+                app:layout_constraintStart_toEndOf="@id/rbEspaco"
+                app:layout_constraintTop_toTopOf="@id/rbEspaco" />
 
-            <TextView
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Hall de entrada"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbQuadra"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Quadra"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/rbQuiosque"
+                app:layout_constraintTop_toTopOf="@id/rbEspaco" />
 
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbSalaoJogos"
+                style="@style/CustomRadioButton"
+                android:layout_marginTop="@dimen/default_margin"
+                android:gravity="center"
+                android:text="Salão de\njogos"
+                app:layout_constraintEnd_toStartOf="@id/rbPiscinaAdulto"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rbEspaco" />
 
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
-                android:paddingRight="10dp" />
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbPiscinaAdulto"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Piscina\nadulto"
+                app:layout_constraintEnd_toStartOf="@id/rbPlayground"
+                app:layout_constraintStart_toEndOf="@id/rbSalaoJogos"
+                app:layout_constraintTop_toTopOf="@id/rbSalaoJogos" />
 
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbPlayground"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Playground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/rbPiscinaAdulto"
+                app:layout_constraintTop_toTopOf="@id/rbSalaoJogos" />
 
-        </LinearLayout>
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbAcademia"
+                style="@style/CustomRadioButton"
+                android:layout_marginTop="@dimen/default_margin"
+                android:gravity="center"
+                android:text="Academia"
+                app:layout_constraintEnd_toStartOf="@id/rbPiscinaAdulto"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rbSalaoJogos" />
 
-        <LinearLayout
-            android:id="@+id/llVolume3"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbChurrasco"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Área para\nchurrasco"
+                app:layout_constraintEnd_toStartOf="@id/rbPlayground"
+                app:layout_constraintStart_toEndOf="@id/rbAcademia"
+                app:layout_constraintTop_toTopOf="@id/rbAcademia" />
 
-            <TextView
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Elevadores"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbOutro"
+                style="@style/CustomRadioButton"
+                android:gravity="center"
+                android:text="Outro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/rbChurrasco"
+                app:layout_constraintTop_toTopOf="@id/rbAcademia" />
 
-
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
-                android:paddingRight="10dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llVolume4"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Escadas"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
-
-
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
-                android:paddingRight="10dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llVolume5"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/tv_question"
-            android:layout_centerHorizontal="true"
-            android:background="@color/colorBege"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Hall do apartamento"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorBlack" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <br.com.como_voce_mora.custom.VolumeHorizontal
-                android:id="@+id/volume5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
-                android:paddingRight="10dp" />
+    </androidx.core.widget.NestedScrollView>
 
-        </LinearLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

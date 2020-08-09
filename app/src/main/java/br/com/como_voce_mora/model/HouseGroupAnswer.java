@@ -15,7 +15,7 @@ public enum HouseGroupAnswer {
     CLEANS_AND_PRESERVATION("Limpeza e Conservação", "590b5fd61e4d3f620eea2718"),
 
     //VOLUME HORIZONTAL QUESTION
-    ASPECTS("O que voce acha desses aspectos?", "e2ca70eb-4426-44ec-8806-63f27b8eeade"),
+    ASPECTS("O que você acha desses aspectos?", "e2ca70eb-4426-44ec-8806-63f27b8eeade"),
     ASPECTS_SECURITY("Segurança", "590b5fd61e4d3f620eea271a"),
     ASPECTS_STREET_SECURITY("Segurança em relação à rua", "590b5fd61e4d3f620eea2735"),
     ASPECTS_CONVIVENCE("Nível de Convivência", "590b5fd61e4d3f620eea2719"),

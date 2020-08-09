@@ -42,7 +42,10 @@ public class HabitationAspectsFragment extends BaseFragment {
     HouseGroupAnswer general = HouseGroupAnswer.SATISFACTION_OF_HOME_ASPECTS;
     HouseGroupAnswer clean = HouseGroupAnswer.SATISFACTION_OF_HOME_ASPECTS;
     private List<String> texts = new ArrayList<>();
-
+    private boolean check1 = false;
+    private boolean check2 = false;
+    private boolean check3 = false;
+    private boolean check4 = false;
 
     public static HabitationAspectsFragment newInstance() {
 
@@ -77,21 +80,25 @@ public class HabitationAspectsFragment extends BaseFragment {
 
     private void initVolumes() {
         vhAcessibilidade.setListener(position -> {
+            check1 = true;
             ivPhoto.setImageResource(R.drawable.accessibility);
             vhAcessibilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(acessibilidade.getQuestion(), acessibilidade.getQuestionPartId(), texts.get(position)));
         });
         vhAparencia.setListener(position -> {
+            check2 = true;
             ivPhoto.setImageResource(R.drawable.appearance);
             vhAparencia.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(construction.getQuestion(), construction.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
+            check3 = true;
             ivPhoto.setImageResource(R.drawable.quality_construction);
             vhConstrucao.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(general.getQuestion(), general.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
+            check4 = true;
             ivPhoto.setImageResource(R.drawable.cleaning);
             vhLimpeza.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(clean.getQuestion(), clean.getQuestionPartId(), texts.get(position)));
@@ -101,7 +108,7 @@ public class HabitationAspectsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && check1 && check2 && check3 && check4) {
             setAnswers();
             ((AboutYouActivity) getActivity()).addFragment(HabitationHowYouThinkAboutAspectsFragment.newInstance());
         }
