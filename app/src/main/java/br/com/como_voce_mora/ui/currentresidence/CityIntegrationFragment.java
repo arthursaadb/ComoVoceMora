@@ -13,6 +13,7 @@ import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -107,5 +108,12 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
         rbYes.updateView();
         rbNo.updateView();
         rbRegular.updateView();
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
+        }
     }
 }

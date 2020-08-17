@@ -21,7 +21,7 @@
             android:paddingStart="@dimen/default_padding"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/default_text_size"
-            tools:text="Acessibilidadedas Calçadas"
+            tools:text="Acessibilidadedas e qualidade das Calçadas"
             android:paddingLeft="@dimen/default_padding" />
 
         <RelativeLayout

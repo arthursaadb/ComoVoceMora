@@ -15,6 +15,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -121,12 +122,14 @@ public class EquipamentsFragment extends BaseFragment {
                 }
             case R.id.csvEsporte:
                 if (!csv.isChecked()) {
+                    recreation = true;
                     csv.setChecked(true);
                     esporte = csv.getText();
                     answerRequests.add(new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(),
                             esporteCurrentResidenceAnswer.getQuestionPartId(), esporte));
                     break;
                 } else {
+                    recreation = false;
                     csv.setChecked(false);
                     removeItem(esporteCurrentResidenceAnswer.getQuestion());
                     break;
@@ -184,6 +187,13 @@ public class EquipamentsFragment extends BaseFragment {
         ResearchFlow.addAnswer(answerRequest, this);
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
         }
     }
 }

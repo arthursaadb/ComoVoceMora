@@ -9,6 +9,7 @@ import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import br.com.como_voce_mora.ui.unity.UnityAcquisitionFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -28,6 +29,7 @@ public class BuildingWhichDivisionFragment extends BaseFragment {
     CustomSelectedView csvNone;
 
     private UnityAnswer unityAnswer = UnityAnswer.NEIGHBORHOOD_DELIMITATION_TYPE;
+    private boolean anyOneSelected = false;
 
 
     public static BuildingWhichDivisionFragment newInstance() {
@@ -42,6 +44,7 @@ public class BuildingWhichDivisionFragment extends BaseFragment {
 
     @OnClick({R.id.csvViva, R.id.csvMuro, R.id.csvGrade, R.id.csvNone})
     public void onCheckedChanged(View view) {
+        anyOneSelected = true;
         switch (view.getId()) {
             case R.id.csvViva:
                 csvMuro.setChecked(false);
@@ -79,8 +82,10 @@ public class BuildingWhichDivisionFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(UnityAcquisitionFragment.newInstance());
+        if (anyOneSelected) {
+            if (getActivity() != null) {
+                ((AboutYouActivity) getActivity()).addFragment(UnityAcquisitionFragment.newInstance());
+            }
         }
     }
 
@@ -88,6 +93,13 @@ public class BuildingWhichDivisionFragment extends BaseFragment {
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
         }
     }
 }

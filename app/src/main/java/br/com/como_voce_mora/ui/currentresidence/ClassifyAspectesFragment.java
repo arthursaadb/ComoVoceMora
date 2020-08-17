@@ -14,6 +14,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -30,6 +31,7 @@ public class ClassifyAspectesFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    private boolean anyOptionChecked = false;
     private List<String> texts = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.NEIGHBORHOOD_ASPECTS;
@@ -70,14 +72,17 @@ public class ClassifyAspectesFragment extends BaseFragment {
 
     private void initVolumes() {
         volumeAgradabilidade.setListener(position -> {
+            anyOptionChecked = true;
             volumeAgradabilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(agradabilidadeCurrentResidenceAnswer.getQuestion(), agradabilidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeConvivio.setListener(position -> {
+            anyOptionChecked = true;
             volumeConvivio.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(convivioCurrentResidenceAnswer.getQuestion(), convivioCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeAcessibilidade.setListener(position -> {
+            anyOptionChecked = true;
             volumeAcessibilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(acessibildadeCurrentResidenceAnswer.getQuestion(), acessibildadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
@@ -86,8 +91,10 @@ public class ClassifyAspectesFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        setAnswers();
-        ((AboutYouActivity) requireActivity()).addFragment(OrganizationFragment.newInstance());
+        if (anyOptionChecked) {
+            setAnswers();
+            ((AboutYouActivity) requireActivity()).addFragment(OrganizationFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)
@@ -100,6 +107,13 @@ public class ClassifyAspectesFragment extends BaseFragment {
     private void setAnswers() {
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
         }
     }
 }

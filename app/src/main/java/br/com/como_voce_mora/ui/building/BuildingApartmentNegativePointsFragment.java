@@ -15,6 +15,7 @@ import br.com.como_voce_mora.model.BuildingAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.OnClick;
@@ -31,6 +32,7 @@ public class BuildingApartmentNegativePointsFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    private boolean anyOptionChecked = false;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private BuildingAnswer houseGroupAnswer = BuildingAnswer.NEGATIVE_POINTS_LIVE_IN_APARTAMENT;
     private BuildingAnswer privacidade = BuildingAnswer.LACK_OF_PRIVATY_BBETWEEN_NEIGHBORS;
@@ -66,9 +68,11 @@ public class BuildingApartmentNegativePointsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            setAnswers();
-            ((AboutYouActivity) getActivity()).addFragment(BuildingFloorFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                setAnswers();
+                ((AboutYouActivity) getActivity()).addFragment(BuildingFloorFragment.newInstance());
+            }
         }
     }
 
@@ -117,9 +121,16 @@ public class BuildingApartmentNegativePointsFragment extends BaseFragment {
         R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
     public void onClickOptions(View view) {
         Button textView = (Button) view;
+        anyOptionChecked = true;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
     }
 
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
+        }
+    }
 
 }

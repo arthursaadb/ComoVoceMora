@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.custom.VolumeVertical;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.HouseGroupAnswer;
@@ -29,6 +30,8 @@ public class HabitationGreenAreaSatisfactionFragment extends BaseFragment implem
     TextView mTvAge;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar progressBar;
 
     private List<Integer> agesImage;
     private List<String> agesText;
@@ -48,6 +51,7 @@ public class HabitationGreenAreaSatisfactionFragment extends BaseFragment implem
 
     @Override
     public void init() {
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
         mTvQuestion.setText(aboutYouAnswer.getQuestion());
 
         agesImage = new ArrayList<>();

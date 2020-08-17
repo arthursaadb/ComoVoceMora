@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.previoushouse;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import br.com.como_voce_mora.model.PreviousHouseAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.aboutyou.SplashAboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -86,5 +88,12 @@ public class PreviousHomeTypeFragment extends BaseFragment {
 
     private void setAnswer(String text) {
         answerRequest = new AnswerRequest(previous.getQuestion(), previous.getQuestionPartId(), text);
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        Intent intent = new Intent(getActivity(), SplashAboutYouActivity.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 }

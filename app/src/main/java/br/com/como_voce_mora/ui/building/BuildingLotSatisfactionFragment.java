@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.building;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.housegroup.HabitationHowYouThinkAboutAspectsFragment;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -31,6 +33,8 @@ public class BuildingLotSatisfactionFragment extends BaseFragment {
     VolumeHorizontal vhConstrucao;
     @BindView(R.id.volume3)
     VolumeHorizontal vhAparencia;
+    @BindView(R.id.ivImage)
+    ImageView ivPhoto;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     BuildingAnswer satisfaction = BuildingAnswer.LOT_REVIEW;
@@ -38,6 +42,7 @@ public class BuildingLotSatisfactionFragment extends BaseFragment {
     BuildingAnswer evolucao = BuildingAnswer.LOT_EVOLUTION;
     BuildingAnswer construcao = BuildingAnswer.LOT_CONSTROCTION;
     private List<String> texts = new ArrayList<>();
+    private boolean anyOneSelected = false;
 
     public static BuildingLotSatisfactionFragment newInstance() {
 
@@ -71,14 +76,20 @@ public class BuildingLotSatisfactionFragment extends BaseFragment {
 
     private void initVolumes() {
         vhAcessibilidade.setListener(position -> {
+            anyOneSelected = true;
+            ivPhoto.setImageResource(R.drawable.casa_terrea);
             vhAcessibilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(tamanho.getQuestion(), tamanho.getQuestionPartId(), texts.get(position)));
         });
         vhAparencia.setListener(position -> {
+            anyOneSelected = true;
+            ivPhoto.setImageResource(R.drawable.casa_terrea);
             vhAparencia.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(evolucao.getQuestion(), evolucao.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
+            anyOneSelected = true;
+            ivPhoto.setImageResource(R.drawable.casa_terrea);
             vhConstrucao.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(construcao.getQuestion(), construcao.getQuestionPartId(), texts.get(position)));
         });
@@ -86,9 +97,11 @@ public class BuildingLotSatisfactionFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            setAnswers();
-            ((AboutYouActivity) getActivity()).addFragment(UnitySplashFragment.newInstance());
+        if (anyOneSelected) {
+            if (getActivity() != null) {
+                setAnswers();
+                ((AboutYouActivity) getActivity()).addFragment(UnitySplashFragment.newInstance());
+            }
         }
     }
 
@@ -102,6 +115,13 @@ public class BuildingLotSatisfactionFragment extends BaseFragment {
     private void setAnswers() {
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
         }
     }
 }

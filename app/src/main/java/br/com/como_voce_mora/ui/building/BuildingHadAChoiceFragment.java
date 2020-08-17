@@ -11,6 +11,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -100,4 +101,10 @@ public class BuildingHadAChoiceFragment extends BaseFragment implements CustomRa
         mRbMale.updateView();
     }
 
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
+        }
+    }
 }

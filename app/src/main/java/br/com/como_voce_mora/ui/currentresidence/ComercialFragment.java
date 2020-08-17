@@ -16,6 +16,7 @@ import br.com.como_voce_mora.model.Utils;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -85,5 +86,12 @@ public class ComercialFragment extends BaseFragment implements VolumeHorizontal.
         anyOptionChecked = true;
         mVolume.setInfo(texts.get(position));
         answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), texts.get(position));
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
+        }
     }
 }

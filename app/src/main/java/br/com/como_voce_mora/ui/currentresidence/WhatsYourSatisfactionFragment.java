@@ -14,6 +14,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -39,6 +40,7 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
     private CurrentResidenceAnswer acessoCurrentResidenceAnswer = CurrentResidenceAnswer.ACCESSIBILITY;
     private List<String> texts = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
+    private boolean anyOptionChecked = false;
 
     public static WhatsYourSatisfactionFragment newInstance() {
 
@@ -73,18 +75,22 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
 
     private void initVolumes() {
         volumeAcesso.setListener(position -> {
+            anyOptionChecked = true;
             volumeAcesso.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(acessoCurrentResidenceAnswer.getQuestion(), acessoCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeQuantidade.setListener(position -> {
+            anyOptionChecked = true;
             volumeQuantidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(quantidadeCurrentResidenceAnswer.getQuestion(), quantidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeQualidade.setListener(position -> {
+            anyOptionChecked = true;
             volumeQualidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(qualidadeCurrentResidenceAnswer.getQuestion(), qualidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeSegurana.setListener(position -> {
+            anyOptionChecked = true;
             volumeSegurana.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
@@ -92,8 +98,10 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        setAnswers();
-        ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
+        if (anyOptionChecked) {
+            setAnswers();
+            ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
+        }
     }
 
     private void setAnswers() {
@@ -106,6 +114,13 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
         }
     }
 }

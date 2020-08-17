@@ -15,6 +15,7 @@ import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -138,6 +139,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
+                    break;
                 }
 
             case R.id.csvAcademia:
@@ -150,6 +152,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
+                    break;
                 }
 
             case R.id.csvPadaria:
@@ -162,6 +165,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
+                    break;
                 }
 
             case R.id.csvAcougue:
@@ -174,6 +178,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
+                    break;
                 }
 
             case R.id.csvRestaurante:
@@ -186,9 +191,10 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
+                    break;
                 }
 
-            case R.id.csvOther:
+            case R.id.csvOutros:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     outros = csv.getText();
@@ -198,6 +204,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
+                    break;
                 }
 
             case R.id.csvNenhum:
@@ -210,6 +217,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
+                    break;
                 }
         }
     }
@@ -249,6 +257,13 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
         ResearchFlow.addAnswer(answerRequest, this);
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
         }
     }
 }

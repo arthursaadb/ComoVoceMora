@@ -17,7 +17,9 @@ import br.com.como_voce_mora.model.BuildingAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import br.com.como_voce_mora.ui.housegroup.HabitationAspectsFragment;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -37,6 +39,7 @@ public class BuildingApartamentPerFloorFragment extends BaseFragment implements 
     HowYouLiveProgressBar progressBar;
 
     private List<Integer> images;
+    private boolean anyOptionChecked = false;
     private List<String> texts;
     private AnswerRequest answerRequest;
     private BuildingAnswer buildingAnswer = BuildingAnswer.APARTAMENTS_BY_FLOOR;
@@ -92,15 +95,18 @@ public class BuildingApartamentPerFloorFragment extends BaseFragment implements 
     public void positionVolume(int position) {
         mIvAge.setImageResource(images.get(position));
         mTvSchool.setVisibility(View.VISIBLE);
+        anyOptionChecked = true;
         mTvSchool.setText(texts.get(position));
         answerRequest = new AnswerRequest(buildingAnswer.getQuestion(), buildingAnswer.getQuestionPartId(), texts.get(position));
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) getActivity()).addFragment(UnitySplashFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) getActivity()).addFragment(UnitySplashFragment.newInstance());
+            }
         }
     }
 
@@ -108,6 +114,13 @@ public class BuildingApartamentPerFloorFragment extends BaseFragment implements 
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
         }
     }
 }

@@ -21,6 +21,7 @@ import br.com.como_voce_mora.presenter.cep.CepPresenter;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -180,5 +181,12 @@ public class WhatsYourAddressFragment extends BaseFragment implements CepContrac
         etAdress.setText(cepResponse.getLogradouro());
         etBairro.setText(cepResponse.getBairro());
         etCity.setText(cepResponse.getLocalidade());
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
+        }
     }
 }

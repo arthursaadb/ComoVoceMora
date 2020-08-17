@@ -13,6 +13,7 @@ import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.custom.VolumeVertical;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -29,6 +30,7 @@ public class BuildingFeelWellFragment extends BaseFragment implements VolumeVert
 
     private List<Integer> images;
     private List<String> texts;
+    private boolean anyOneSelected = false;
 
     public static BuildingFeelWellFragment newInstance() {
 
@@ -70,14 +72,17 @@ public class BuildingFeelWellFragment extends BaseFragment implements VolumeVert
     @Override
     public void positionVolume(int position) {
         mIvAge.setImageResource(images.get(position));
+        anyOneSelected = true;
         mTvSchool.setText(texts.get(position));
 
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(BuildingPublicAreaFragment.newInstance());
+        if (anyOneSelected) {
+            if (getActivity() != null) {
+                ((AboutYouActivity) getActivity()).addFragment(BuildingPublicAreaFragment.newInstance());
+            }
         }
     }
 
@@ -85,6 +90,13 @@ public class BuildingFeelWellFragment extends BaseFragment implements VolumeVert
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
         }
     }
 }

@@ -16,6 +16,7 @@ import br.com.como_voce_mora.model.BuildingAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.OnClick;
@@ -31,6 +32,7 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
             R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
     List<Button> mButtons;
 
+    private boolean anyOneSelected = false;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private BuildingAnswer houseGroupAnswer = BuildingAnswer.LIVED_IN_SAME_PLACE;
     private BuildingAnswer seguranca = BuildingAnswer.SECURITY;
@@ -66,12 +68,14 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            setAnswers();
-            if (ResearchFlow.getHouse()) {
-                ((AboutYouActivity) requireActivity()).addFragment(BuildingHouseNegativePointsFragment.newInstance());
-            } else {
-                ((AboutYouActivity) requireActivity()).addFragment(BuildingApartmentNegativePointsFragment.newInstance());
+        if (anyOneSelected) {
+            if (getActivity() != null) {
+                setAnswers();
+                if (ResearchFlow.getHouse()) {
+                    ((AboutYouActivity) requireActivity()).addFragment(BuildingHouseNegativePointsFragment.newInstance());
+                } else {
+                    ((AboutYouActivity) requireActivity()).addFragment(BuildingApartmentNegativePointsFragment.newInstance());
+                }
             }
         }
     }
@@ -118,10 +122,16 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
     @OnClick({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
             R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
     public void onClickOptions(View view) {
+        anyOneSelected = true;
         Button textView = (Button) view;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
     }
 
-
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
+        }
+    }
 }

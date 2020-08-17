@@ -18,6 +18,7 @@ import br.com.como_voce_mora.model.BuildingAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -38,6 +39,8 @@ public class BuildingFloorFragment extends BaseFragment implements VolumeVertica
 
     private AnswerRequest answerRequest;
     private BuildingAnswer buildingAnswer = BuildingAnswer.NUMBER_OF_FLOORS;
+    private boolean anyOneSelected = false;
+
 
     public static BuildingFloorFragment newInstance() {
 
@@ -109,14 +112,17 @@ public class BuildingFloorFragment extends BaseFragment implements VolumeVertica
         mIvAge.setImageResource(images.get(position));
         mTvSchool.setText(texts.get(position));
         mTvSchool.setVisibility(View.VISIBLE);
+        anyOneSelected = true;
         answerRequest = new AnswerRequest(buildingAnswer.getQuestion(), buildingAnswer.getQuestionPartId(), texts.get(position));
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) getActivity()).addFragment(BuildingApartamentPerFloorFragment.newInstance());
+        if (anyOneSelected) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) getActivity()).addFragment(BuildingApartamentPerFloorFragment.newInstance());
+            }
         }
     }
 
@@ -124,6 +130,13 @@ public class BuildingFloorFragment extends BaseFragment implements VolumeVertica
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
         }
     }
 }

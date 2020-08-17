@@ -18,6 +18,7 @@ import br.com.como_voce_mora.model.Utils;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -38,6 +39,7 @@ public class OrganizationFragment extends BaseFragment implements CustomRadioBut
     @BindView(R.id.tvCity)
     TextView tvCity;
 
+    private boolean anyOptionChecked = false;
     List<AnswerRequest> answerRequestList = new ArrayList<>();
     CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.NEIGHBORHOOD_ORGANIZATION;
     CurrentResidenceAnswer currentResidenceAnswerIfYes = CurrentResidenceAnswer.NEIGHBORHOOD_ORGANIZATION_TYPE;
@@ -67,6 +69,7 @@ public class OrganizationFragment extends BaseFragment implements CustomRadioBut
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        anyOptionChecked = true;
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbYes:
@@ -120,9 +123,11 @@ public class OrganizationFragment extends BaseFragment implements CustomRadioBut
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        answerRequestList.add(new AnswerRequest(currentResidenceAnswerIfYes.getQuestion(), currentResidenceAnswerIfYes.getQuestionPartId(), etAdress.getText().toString()));
-        setAnswer();
-        ((AboutYouActivity) requireActivity()).addFragment(CityIntegrationFragment.newInstance());
+        if (anyOptionChecked) {
+            answerRequestList.add(new AnswerRequest(currentResidenceAnswerIfYes.getQuestion(), currentResidenceAnswerIfYes.getQuestionPartId(), etAdress.getText().toString()));
+            setAnswer();
+            ((AboutYouActivity) requireActivity()).addFragment(CityIntegrationFragment.newInstance());
+        }
 
     }
 
@@ -139,6 +144,13 @@ public class OrganizationFragment extends BaseFragment implements CustomRadioBut
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
         }
     }
 }

@@ -12,6 +12,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.housegroup.HabitationGreenAreaSatisfactionFragment;
+import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -90,6 +91,13 @@ public class BuildingContributionFragment extends BaseFragment implements Custom
     private void updateRbs() {
         rbNo.updateView();
         rbYes.updateView();
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
+        }
     }
 
 

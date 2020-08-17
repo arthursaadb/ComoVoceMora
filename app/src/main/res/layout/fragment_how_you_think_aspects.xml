@@ -68,7 +68,7 @@
                 app:layout_constraintEnd_toEndOf="@id/tv_question"
                 app:layout_constraintStart_toEndOf="@id/ivImage"
                 app:layout_constraintTop_toBottomOf="@id/llVolume2"
-                app:textName="Privacidade em relaçãoá rua" />
+                app:textName="Privacidade em relação á rua" />
 
             <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume4"
@@ -80,7 +80,7 @@
                 app:layout_constraintEnd_toEndOf="@id/tv_question"
                 app:layout_constraintStart_toEndOf="@id/ivImage"
                 app:layout_constraintTop_toBottomOf="@id/llVolume3"
-                app:textName="Nivel de convivencia" />
+                app:textName="Nivel de convivencia"     />
 
         </LinearLayout>
 

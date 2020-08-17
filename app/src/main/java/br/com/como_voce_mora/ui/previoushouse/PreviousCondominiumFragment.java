@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.previoushouse;
 
+import android.content.Intent;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.ui.aboutyou.SplashAboutYouActivity;
 import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -93,5 +95,12 @@ public class PreviousCondominiumFragment extends BaseFragment implements CustomR
     private void updateRbs() {
         rbYes.updateView();
         rbNo.updateView();
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        Intent intent = new Intent(getActivity(), SplashAboutYouActivity.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 }
