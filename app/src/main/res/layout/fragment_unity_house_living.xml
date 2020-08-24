@@ -29,15 +29,15 @@
 
             <LinearLayout
                 android:id="@+id/leftContainer"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btFirstOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Familia/\nAmigos"
                     android:background="@drawable/podium_opcao" />
@@ -45,16 +45,16 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btThirdOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Local onde durmo" />
 
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btFifthOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Passo mais tempo"
                     android:background="@drawable/podium_opcao" />
@@ -62,16 +62,16 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btSevenOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Local com que identifico" />
 
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btNineOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Investimento material" />
 
@@ -79,7 +79,7 @@
 
             <LinearLayout
                 android:id="@+id/rightContainer"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
@@ -88,32 +88,32 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btSecondOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Local seguro" />
 
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btForthOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"vv
                     android:layout_marginTop="5dp"
                     android:text="Onde estão percentes" />
 
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btSixOption"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="10dp"
                     android:text="Onde realizo atividades" />
 
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btEightOption"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="10dp"
                     android:text="Outros" />
 

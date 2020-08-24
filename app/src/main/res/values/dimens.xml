@@ -51,4 +51,12 @@
 
     <dimen name="custom_text_width">140dp</dimen>
     <dimen name="custom_photo_size">80dp</dimen>
+
+    <!--Podium -->
+    <dimen name="custom_first_podium_view_heigth">160dp</dimen>
+    <dimen name="custom_secound_podium_view_heigth">120dp</dimen>
+    <dimen name="custom_third_podium_view_heigth">80dp</dimen>
+    <dimen name="custom_fourth_podium_view_heigth">40dp</dimen>
+    <dimen name="custom_podium_button_heigth">40dp</dimen>
+    <dimen name="custom_podium_button_width">80dp</dimen>
 </resources>

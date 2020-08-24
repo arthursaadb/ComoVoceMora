@@ -29,15 +29,15 @@
 
             <LinearLayout
                 android:id="@+id/leftContainer"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btFirstOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Ampliar Comodo"
                     android:visibility="visible"
@@ -46,8 +46,8 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btThirdOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Diminuir Comodo"
                     android:visibility="visible"
@@ -56,8 +56,8 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btFifthOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Melhorar Acabamento"
                     android:visibility="visible"
@@ -66,8 +66,8 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btSevenOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Melhorar Conforto"
                     android:visibility="visible"
@@ -77,7 +77,7 @@
 
             <LinearLayout
                 android:id="@+id/rightContainer"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
@@ -86,8 +86,8 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btSecondOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Problema Tecnico"
                     android:visibility="visible"
@@ -96,8 +96,8 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btForthOption"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Eliminar Comodo "
                     android:visibility="visible"
@@ -106,9 +106,9 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btSixOption"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
+                    android:layout_marginTop="5dp"
                     android:text="Função do Comodo"
                     android:visibility="visible"
                     tools:visibility="visible" />
@@ -116,9 +116,9 @@
                 <Button
                     style="@style/PodiumOptionButton"
                     android:id="@+id/btEightOption"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
+                    android:layout_marginTop="5dp"
                     android:text="Outros"
                     android:visibility="visible"
                     tools:visibility="visible" />

@@ -15,7 +15,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/rate_aspecto_geral"
+        android:src="@drawable/casa_terrea"
         app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintBottom_toBottomOf="@id/nested"
         app:layout_constraintTop_toTopOf="@id/nested" />

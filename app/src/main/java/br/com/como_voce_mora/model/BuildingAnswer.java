@@ -6,7 +6,7 @@ public enum BuildingAnswer {
     HELPED_IN_PROJECT("Você ou sua família participaram da elaboração do desenho da moradia original (sem reformas)?", "b38958d5-5112-42a1-a15a-ef7dfaf2413f"),
 
     //PODIUM QUESTION
-    LIVED_IN_SAME_PLACE("Por que você escolheu viver nessa moradia? Informe a prioridade.", "1e9d5d2d-7688-42e4-8474-ec6b4b3b3528"),
+    LIVED_IN_SAME_PLACE("Diga-me, por que você escolheu viver nessa moradia? Selecione um ou mais motivos por ordem de prioridade.", "1e9d5d2d-7688-42e4-8474-ec6b4b3b3528"),
     SECURITY("Segurança", "90b5fd61e4d3f620eea26f6"),
     CONSTRUCTION_QUALITY("Qualidade da Construção", "590b5fd61e4d3f620eea2716"),
     SOCIAL_STATUS("Status Social", "590b5fd61e4d3f620eea278f"),
@@ -42,7 +42,7 @@ public enum BuildingAnswer {
 
 
     //VOLUME HORIZONTAL QUESTION
-    LOT_REVIEW("Em relação ao lote, avalie:", "affe770a-0464-4e31-b47c-8953ac33fc48"),
+    LOT_REVIEW("Qual a sua satisfação em relação ao seu lote", "affe770a-0464-4e31-b47c-8953ac33fc48"),
     LOT_SIZE("Tamanho", "59c5489bf9a75c213d64b215"),
     LOT_EVOLUTION("Capacidade de ampliação", "590b5fd61e4d3f620eea26ec"),
     LOT_CONSTROCTION("Aproveitamento da construção", "5a427ec8f9a75c50ae7eb285")

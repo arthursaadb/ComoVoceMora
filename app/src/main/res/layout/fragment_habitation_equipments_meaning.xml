@@ -27,15 +27,15 @@
 
             <LinearLayout
                 android:id="@+id/leftContainer"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btFirstOption"
                     style="@style/PodiumOptionButton"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Qualidade de vida"
                     android:visibility="visible"
@@ -44,8 +44,8 @@
                 <Button
                     android:id="@+id/btThirdOption"
                     style="@style/PodiumOptionButton"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Não signifca nada"
                     android:visibility="visible"
@@ -54,8 +54,8 @@
                 <Button
                     android:id="@+id/btFifthOption"
                     style="@style/PodiumOptionButton"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Status Social"
                     android:visibility="visible"
@@ -64,8 +64,8 @@
                 <Button
                     android:id="@+id/btSevenOption"
                     style="@style/PodiumOptionButton"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Privacidade"
                     android:visibility="visible"
@@ -75,7 +75,7 @@
 
             <LinearLayout
                 android:id="@+id/rightContainer"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
@@ -84,8 +84,8 @@
                 <Button
                     android:id="@+id/btSecondOption"
                     style="@style/PodiumOptionButton"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Valor Comercial"
                     android:visibility="visible"
@@ -94,8 +94,8 @@
                 <Button
                     android:id="@+id/btForthOption"
                     style="@style/PodiumOptionButton"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
                     android:text="Praticidade de vida"
                     android:visibility="visible"
@@ -104,8 +104,8 @@
                 <Button
                     android:id="@+id/btSixOption"
                     style="@style/PodiumOptionButton"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="10dp"
                     android:text="Segurança"
                     android:visibility="visible"
@@ -114,8 +114,8 @@
                 <Button
                     android:id="@+id/btEightOption"
                     style="@style/PodiumOptionButton"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="10dp"
                     android:text="Segurança"
                     android:visibility="gone"

@@ -22,7 +22,7 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         style="@style/CustomRadioButton"
         android:id="@+id/rbMale"
-        android:text="Não tive Escolha"
+        android:text="Não tive escolha"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/rbFemale"
         app:layout_constraintEnd_toStartOf="@id/bt_next"

@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:id="@+id/llFirstPlace"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/custom_podium_button_width"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,19 +17,20 @@
 
         <Button
             android:id="@+id/btFirstPlace"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/custom_podium_button_width"
+            android:layout_height="@dimen/custom_podium_button_heigth"
+            android:textSize="@dimen/real_micro_text_size"
             android:background="@drawable/podium_opcao_selecionada"
             android:visibility="invisible"
             tools:visibility="visible" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="@dimen/custom_first_podium_view_heigth">
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/custom_first_podium_view_heigth"
                 android:background="@color/colorGray" />
 
             <TextView
@@ -46,7 +47,7 @@
 
     <LinearLayout
         android:id="@+id/llSecondPlace"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/custom_podium_button_width"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/llFirstPlace"
@@ -54,19 +55,20 @@
 
         <Button
             android:id="@+id/btSecondPlace"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/custom_podium_button_width"
+            android:layout_height="@dimen/custom_podium_button_heigth"
+            android:textSize="@dimen/real_micro_text_size"
             android:background="@drawable/podium_opcao_selecionada"
             android:visibility="invisible"
             tools:visibility="visible" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="@dimen/custom_secound_podium_view_heigth">
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="@dimen/custom_secound_podium_view_heigth"
                 android:background="@color/colorGray" />
 
             <TextView
@@ -83,7 +85,7 @@
 
     <LinearLayout
         android:id="@+id/llThirdPlace"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/custom_podium_button_width"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/llSecondPlace"
@@ -91,19 +93,20 @@
 
         <Button
             android:id="@+id/btThirdPlace"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/custom_podium_button_width"
+            android:layout_height="@dimen/custom_podium_button_heigth"
+            android:textSize="@dimen/real_micro_text_size"
             android:background="@drawable/podium_opcao_selecionada"
             android:visibility="invisible"
             tools:visibility="visible" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="@dimen/custom_third_podium_view_heigth">
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/custom_third_podium_view_heigth"
                 android:background="@color/colorGray" />
 
             <TextView
@@ -120,7 +123,7 @@
 
     <LinearLayout
         android:id="@+id/llFourthPlace"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/custom_podium_button_width"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/llThirdPlace"
@@ -128,19 +131,20 @@
 
         <Button
             android:id="@+id/btFourthPlace"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/custom_podium_button_width"
+            android:layout_height="@dimen/custom_podium_button_heigth"
+            android:textSize="@dimen/real_micro_text_size"
             android:background="@drawable/podium_opcao_selecionada"
             android:visibility="invisible"
             tools:visibility="visible" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="@dimen/custom_fourth_podium_view_heigth">
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/custom_fourth_podium_view_heigth"
                 android:background="@color/colorGray" />
 
             <TextView
