@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
@@ -7,4 +7,13 @@
     android:background="@drawable/habitos_sustentaveis_splash"
     tools:context=".ui.sustainablehabits.SustainableHabitsIntroFragment">
 
-</FrameLayout>
+    <Button
+        android:id="@+id/bt_touch_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorTransparent"
+        android:text="@string/touch_next"
+        android:textSize="@dimen/small_text_size" />
+</RelativeLayout>

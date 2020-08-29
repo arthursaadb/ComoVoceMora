@@ -10,7 +10,6 @@ import br.com.como_voce_mora.model.AboutYouAnswer;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.ui.BaseFragment;
-import br.com.como_voce_mora.ui.sustainablehabits.DoYouSaveWater;
 import butterknife.BindView;
 import butterknife.OnClick;
 

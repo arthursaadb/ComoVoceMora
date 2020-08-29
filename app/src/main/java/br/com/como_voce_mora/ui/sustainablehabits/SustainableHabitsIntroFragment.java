@@ -22,8 +22,8 @@ public class SustainableHabitsIntroFragment extends BaseFragment {
 
     }
 
-    @OnClick(R.id.rootLayout)
+    @OnClick({R.id.rootLayout, R.id.bt_touch_next})
     public void onClickRoot() {
-        ((AboutYouActivity) requireActivity()).addFragment(DoYouSaveWater.newInstance());
+        ((AboutYouActivity) requireActivity()).addFragment(WhyYouSaveWaterFragment.newInstance());
     }
 }
