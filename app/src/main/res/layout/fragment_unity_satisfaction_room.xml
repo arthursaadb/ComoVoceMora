@@ -9,208 +9,92 @@
 
     <include layout="@layout/fragment_mr_clipboard_ball" />
 
-
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="@dimen/image_mr_clipboard_ball"
-        android:layout_height="@dimen/image_mr_clipboard_ball"
-        android:layout_marginTop="10dp"
+        android:id="@+id/ivImage"
+        android:layout_width="@dimen/custom_photo_size"
+        android:layout_height="@dimen/custom_photo_size"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard"
-        app:layout_constraintEnd_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toTopOf="@id/llVolume1"
-        app:layout_constraintBottom_toBottomOf="@id/llVolume6" />
+        android:layout_marginTop="10dp"
+        android:src="@drawable/apartamento"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintBottom_toBottomOf="@id/nested"
+        app:layout_constraintTop_toTopOf="@id/nested" />
 
-    <LinearLayout
-        android:id="@+id/llVolume1"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorBege"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/tv_question"
-        app:layout_constraintStart_toStartOf="@id/tv_question"
-        app:layout_constraintEnd_toEndOf="@id/tv_question">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fadeScrollbars="false"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/tv_question"
+        app:layout_constraintStart_toEndOf="@id/ivImage"
+        app:layout_constraintTop_toBottomOf="@id/tv_question">
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Tamanho"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/colorBlack" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volume1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginTop="10dp"
+                app:textName="Tamanho" />
 
-        <br.com.como_voce_mora.custom.VolumeHorizontal
-            android:id="@+id/volume1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="10dp"
-            android:paddingRight="10dp" />
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volume2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginTop="10dp"
+                app:textName="Facilidade de Mobilhar" />
 
-    </LinearLayout>
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volume3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginTop="10dp"
+                app:textName="Ventilação Natural" />
 
-    <LinearLayout
-        android:id="@+id/llVolume2"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorBege"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/llVolume1"
-        app:layout_constraintStart_toStartOf="@id/tv_question"
-        app:layout_constraintEnd_toEndOf="@id/tv_question">
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volume4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginTop="10dp"
+                app:textName="Iluminação Natural" />
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Facilidade de Mobilhar"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/colorBlack" />
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volume5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginTop="10dp"
+                app:textName="Temperatura" />
 
+            <br.com.como_voce_mora.custom.VolumeHorizontal
+                android:id="@+id/volume6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginTop="10dp"
+                app:textName="Nivel de Ruido" />
 
-        <br.com.como_voce_mora.custom.VolumeHorizontal
-            android:id="@+id/volume2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="10dp"
-            android:paddingRight="10dp" />
+        </LinearLayout>
 
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:id="@+id/llVolume3"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorBege"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/llVolume2"
-        app:layout_constraintStart_toStartOf="@id/tv_question"
-        app:layout_constraintEnd_toEndOf="@id/tv_question">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Ventilação Natural"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/colorBlack" />
-
-
-        <br.com.como_voce_mora.custom.VolumeHorizontal
-            android:id="@+id/volume3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="10dp"
-            android:paddingRight="10dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llVolume4"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorBege"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/llVolume3"
-        app:layout_constraintStart_toStartOf="@id/tv_question"
-        app:layout_constraintEnd_toEndOf="@id/tv_question">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Iluminação Natural"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/colorBlack" />
-
-
-        <br.com.como_voce_mora.custom.VolumeHorizontal
-            android:id="@+id/volume4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="10dp"
-            android:paddingRight="10dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llVolume5"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorBege"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/llVolume4"
-        app:layout_constraintStart_toStartOf="@id/tv_question"
-        app:layout_constraintEnd_toEndOf="@id/tv_question">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Temperatura"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/colorBlack" />
-
-
-        <br.com.como_voce_mora.custom.VolumeHorizontal
-            android:id="@+id/volume5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="10dp"
-            android:paddingRight="10dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llVolume6"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorBege"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/llVolume5"
-        app:layout_constraintStart_toStartOf="@id/tv_question"
-        app:layout_constraintEnd_toEndOf="@id/tv_question">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="70dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Nivel de Ruido"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/colorBlack" />
-
-
-        <br.com.como_voce_mora.custom.VolumeHorizontal
-            android:id="@+id/volume6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="10dp"
-            android:paddingRight="10dp" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

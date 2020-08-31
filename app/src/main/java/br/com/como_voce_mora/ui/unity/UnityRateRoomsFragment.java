@@ -20,6 +20,8 @@ import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BATHROOM;
+
 public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertical.OnListener {
     @BindView(R.id.volume)
     VolumeVertical mVolume;
@@ -90,7 +92,7 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(answerRequest,this);
-            ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_BATHROOM));
         }
     }
 

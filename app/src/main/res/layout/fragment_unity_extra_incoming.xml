@@ -31,6 +31,8 @@
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:fillViewport="true"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/rbNo"
         app:layout_constraintEnd_toStartOf="@id/bt_next"

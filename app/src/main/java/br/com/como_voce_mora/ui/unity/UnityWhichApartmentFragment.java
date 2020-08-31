@@ -32,6 +32,7 @@ public class UnityWhichApartmentFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    private boolean anyOptionChecked = false;
     UnityAnswer unityAnswer = UnityAnswer.APARTMENT_TYPE;
     AnswerRequest answerRequest;
 
@@ -47,6 +48,7 @@ public class UnityWhichApartmentFragment extends BaseFragment {
 
     @OnClick({R.id.csvDuplex, R.id.csvTiplex, R.id.csvQuintinete, R.id.csvLoft, R.id.csvConvencional, R.id.csvCobertura})
     public void onCheckedChanged(View view) {
+        anyOptionChecked = true;
         CustomSelectedView csv = (CustomSelectedView) view;
         answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), csv.getText());
         switch (view.getId()) {
@@ -109,9 +111,11 @@ public class UnityWhichApartmentFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) getActivity()).addFragment(UnityHouseLivingFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) getActivity()).addFragment(UnityHouseLivingFragment.newInstance());
+            }
         }
     }
 

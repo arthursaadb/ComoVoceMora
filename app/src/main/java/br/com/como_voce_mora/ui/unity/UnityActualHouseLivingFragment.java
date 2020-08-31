@@ -48,6 +48,7 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements View
 
     private AnswerRequest answerRequest;
     private UnityAnswer unityAnswer = UnityAnswer.KEEP_FURNISHINGS;
+    private boolean anyOptionChecked = false;
 
     public static UnityActualHouseLivingFragment newInstance() {
         return new UnityActualHouseLivingFragment();
@@ -77,7 +78,7 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements View
     @Override
     public void onClick(View v) {
         CustomRadioButton  option = (CustomRadioButton) v;
-
+        anyOptionChecked = true;
         if (v.isPressed()) {
             setAnswer(option.getText().toString());
             switch (option.getId()) {
@@ -132,9 +133,11 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements View
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) getActivity()).addFragment(UnityExtraIncomeFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) getActivity()).addFragment(UnityExtraIncomeFragment.newInstance());
+            }
         }
     }
 

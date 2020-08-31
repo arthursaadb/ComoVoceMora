@@ -19,7 +19,7 @@ public enum UnityAnswer {
     SATISFACTION_FOR_ROOMS("Qual a sua satisfação em relação à capacidade dos cômodos da sua moradia de se alterarem a funções diferentes?", "e43d0c98-463e-4b4c-a11f-8850dadcf52d"),
     TECNOLOGY_IMPORTANCE("A tecnologia, em especial a Internet, influencia nas relações pessoais dentro da moradia?", "7c1fb0c1-e986-4b8d-a25c-87d27c33624f"),
     REFORM_MADE("Quais dessas alterações ou reformas foram feitas nos cômodos da sua moradia?", "0b8a5265-b8ed-459a-93d9-077bea9bd9c3"),
-    CHANGE_TO_BETTER_ATEMPTEMENT("A sua moradia permite fazer alterações para atender melhor sua necessidade ou seu gosto?", "eb7b1308-abff-4b89-903b-34fe2497affe"),
+    CHANGE_TO_BETTER_ATEMPTEMENT("Com relação a decoração, a sua moradia permite fazer alterações para atender melhor sua necessidade ou seu gosto?", "eb7b1308-abff-4b89-903b-34fe2497affe"),
     WHY_DONT_REFORM("Se não foram feitas alterações, quais os motivos?", "32314047-ccfd-48fc-84ca-1adb9b74f50a"),
     SUN_RECEIVE("Em que período do dia sua moradia recebe mais sol?", "9351b2ba-5ba2-4f3c-a166-05a6617922d7"),
     BETTER_SUN("Quais cômodos da sua moradia recebem mais sol?", "f70da57f-bb79-4bd7-b91d-bcd999ede91c"),
@@ -39,7 +39,13 @@ public enum UnityAnswer {
     PRIVACY("Privacidade", "590b5fd61e4d3f620eea26f5"),
 
     //VOLUME HORIZONTAL QUESTION
-    CHARACTERISTICS_SATISFACTION("Agora avalie os cômodos da sua moradia. Para cada característica, informe o seu nível de satisfação.", "0506733c-3a3e-41b8-acd0-fb57b80bee6e"),
+    CHARACTERISTICS_SATISFACTION_BATHROOM("Agora avalie seu BANHEIRO. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea2807"),
+    CHARACTERISTICS_SATISFACTION_BIGROOM("Agora avalie o DORMITÓRIO DE CASAL. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea27fc"),
+    CHARACTERISTICS_SATISFACTION_SINGLEROMM("Agora avalie o DORMITÓRIO DE SOLTEIRO. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea27fb"),
+    CHARACTERISTICS_SATISFACTION_ROOM("Agora avalie a SALA DE ESTAR. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea27f4"),
+    CHARACTERISTICS_SATISFACTION_DINNERROOM("Agora avalie a SALA DE JANTAR . Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea2802"),
+    CHARACTERISTICS_SATISFACTION_BALCONY("Agora avalie a VARANDA. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea280f"),
+    CHARACTERISTICS_SATISFACTION_KITCHEN("Agora avalie a COZINHA. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea27f8"),
     EASE_OF_FURNISHINGS("Facilidade de mobiliar", "5d0975d22771712aa06c6bf8"),
     TEMPERATURE("Temperatura", "5d0975832771712aa06c6bf6"),
     NATURAL_VENTILATION("Nível de Convivência", "590b5fd61e4d3f620eea2700"),

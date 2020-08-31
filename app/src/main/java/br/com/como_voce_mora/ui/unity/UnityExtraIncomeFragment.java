@@ -8,6 +8,7 @@ import androidx.core.widget.NestedScrollView;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
+import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
@@ -17,7 +18,7 @@ import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class UnityExtraIncomeFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener{
+public class UnityExtraIncomeFragment extends BaseFragment implements View.OnClickListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
     @BindView(R.id.rbYes)
@@ -60,23 +61,24 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CustomRadi
     public void init() {
         tvQuestion.setText(unityAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        mRb1.setOnCheckedChangeListener(this);
-        mRb2.setOnCheckedChangeListener(this);
-        mRbEletroPequeno.setOnCheckedChangeListener(this);
-        mRbEletroGrande.setOnCheckedChangeListener(this);
-        rbMoveisPequenos.setOnCheckedChangeListener(this);
-        rbMoveisGrandes.setOnCheckedChangeListener(this);
-        mRbPortas.setOnCheckedChangeListener(this);
-        mRbPosicaoRuim.setOnCheckedChangeListener(this);
-        mRbMoveisNovos.setOnCheckedChangeListener(this);
+        mRb1.setOnClickListener(this);
+        mRb2.setOnClickListener(this);
+        mRbEletroPequeno.setOnClickListener(this);
+        mRbEletroGrande.setOnClickListener(this);
+        rbMoveisPequenos.setOnClickListener(this);
+        rbMoveisGrandes.setOnClickListener(this);
+        mRbPortas.setOnClickListener(this);
+        mRbPosicaoRuim.setOnClickListener(this);
+        mRbMoveisNovos.setOnClickListener(this);
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
+    public void onClick(View v) {
+        CustomRadioButton  option = (CustomRadioButton) v;
+        if (v.isPressed()) {
             anyOptionChecked = true;
-            setAnswer(buttonView.getText().toString());
-            switch (buttonView.getId()) {
+            setAnswer(option.getText().toString());
+            switch (option.getId()) {
                 case R.id.rbYes:
                     mRb1.setChecked(true);
                     mRb2.setChecked(false);
@@ -103,34 +105,6 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CustomRadi
                     mScrollView.setVisibility(View.GONE);
                     updateRbs();
                     break;
-                case R.id.rbEletroPequeno:
-                    mRbEletroPequeno.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbEletroGrande:
-                    mRbEletroGrande.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbMoveisPequeno:
-                    rbMoveisPequenos.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbMoveisGrandes:
-                    rbMoveisGrandes.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbPortas:
-                    mRbPortas.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbPosicaoRuim:
-                    mRbPosicaoRuim.setChecked(true);
-                    updateRbs();
-                    break;
-                case R.id.rbMoveisNovos:
-                    mRbMoveisNovos.setChecked(true);
-                    updateRbs();
-                    break;
             }
         }
     }
@@ -153,9 +127,11 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CustomRadi
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) getActivity()).addFragment(UnityRateLivingFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) getActivity()).addFragment(UnityRateLivingFragment.newInstance());
+            }
         }
     }
 
@@ -165,4 +141,5 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CustomRadi
             getActivity().onBackPressed();
         }
     }
+
 }
