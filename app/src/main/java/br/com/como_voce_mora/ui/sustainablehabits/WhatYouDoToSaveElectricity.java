@@ -26,7 +26,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     @BindView(R.id.rbQuickShowers)
     CustomRadioButton rbQuickShowers;
     @BindView(R.id.rbOthers)
-    CustomRadioButton rbFewDevices;
+    CustomRadioButton rbOthers;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
@@ -65,7 +65,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
         rbDishes.setOnCheckedChangeListener(this);
         rbWashMachineCapacity.setOnCheckedChangeListener(this);
         rbQuickShowers.setOnCheckedChangeListener(this);
-        rbFewDevices.setOnCheckedChangeListener(this);
+        rbOthers.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -97,8 +97,37 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
 
                     updateViews();
                     break;
-                case R.id.rbFewDevices:
-                    rbFewDevices.setChecked(true);
+                case R.id.rbOthers:
+                    rbOthers.setChecked(true);
+
+                    updateViews();
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbWashMachineCapacity.setChecked(false);
+                    mNextFragment = DoYouKnowEquipamentLifecycleFragment.newInstance();
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbOthers:
+                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;
@@ -111,7 +140,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
         rbDishes.updateView();
         rbWashMachineCapacity.updateView();
         rbQuickShowers.updateView();
-        rbFewDevices.updateView();
+        rbOthers.updateView();
     }
 
     private void setAnswer(String text) {

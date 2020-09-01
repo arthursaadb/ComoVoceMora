@@ -106,8 +106,41 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
 
                     updateViews();
                     break;
-                case R.id.rbOther:
+                case R.id.rbOthers:
                     rbOthers.setChecked(true);
+
+                    updateViews();
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbWashMachineCapacity.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbFewDevices:
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbOthers:
+                    rbOthers.setChecked(false);
 
                     updateViews();
                     break;

@@ -20,7 +20,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DoYouSaveElectricityFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+public class WhyYouSaveElectricityFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.optionYes)
@@ -35,20 +35,29 @@ public class DoYouSaveElectricityFragment extends BaseFragment implements Custom
     CustomRadioButton rbDry;
     @BindView(R.id.rbOthers)
     CustomRadioButton rbOthers;
+    @BindView(R.id.rbAbundantResource)
+    CustomRadioButton rbAbundantResource;
+    @BindView(R.id.rbOthersNo)
+    CustomRadioButton rbOthersNo;
+    @BindView(R.id.rbNoNeed)
+    CustomRadioButton rbNoNeed;
+    @BindView(R.id.rbLowCost)
+    CustomRadioButton rbLowCost;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
-    SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.YOU_SAVE_ELECTRICITY;
+    SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHY_YOU_SAVE_ELECTRICITY;
     AnswerRequest answerRequest;
     BaseFragment mNextFragment;
+    Boolean anyOptionChecked = false;
 
-    public static DoYouSaveElectricityFragment newInstance() {
-        return new DoYouSaveElectricityFragment();
+    public static WhyYouSaveElectricityFragment newInstance() {
+        return new WhyYouSaveElectricityFragment();
     }
 
     @Override
     public int getResLayout() {
-        return R.layout.fragment_do_you_save_electricity;
+        return R.layout.fragment_why_you_save_electricity;
     }
 
     @OnClick(R.id.bt_next)
@@ -66,7 +75,6 @@ public class DoYouSaveElectricityFragment extends BaseFragment implements Custom
         }
     }
 
-
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
@@ -76,34 +84,54 @@ public class DoYouSaveElectricityFragment extends BaseFragment implements Custom
         rbLessAmbientalDamage.setOnCheckedChangeListener(this);
         rbDry.setOnCheckedChangeListener(this);
         rbOthers.setOnCheckedChangeListener(this);
+        rbAbundantResource.setOnCheckedChangeListener(this);
+        rbOthersNo.setOnCheckedChangeListener(this);
+        rbNoNeed.setOnCheckedChangeListener(this);
+        rbLowCost.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
-    private void hideItems(){
+    private void hideYesItems() {
         rbBillsPrice.setVisibility(View.INVISIBLE);
         rbLessAmbientalDamage.setVisibility(View.INVISIBLE);
         rbDry.setVisibility(View.INVISIBLE);
         rbOthers.setVisibility(View.INVISIBLE);
     }
 
-    private void showItems(){
+    private void showYesItems() {
         rbBillsPrice.setVisibility(View.VISIBLE);
         rbLessAmbientalDamage.setVisibility(View.VISIBLE);
         rbDry.setVisibility(View.VISIBLE);
         rbOthers.setVisibility(View.VISIBLE);
     }
 
+    private void hideNoItems() {
+        rbAbundantResource.setVisibility(View.INVISIBLE);
+        rbOthersNo.setVisibility(View.INVISIBLE);
+        rbNoNeed.setVisibility(View.INVISIBLE);
+        rbLowCost.setVisibility(View.INVISIBLE);
+    }
+
+    private void showNoItems() {
+        rbAbundantResource.setVisibility(View.VISIBLE);
+        rbOthersNo.setVisibility(View.VISIBLE);
+        rbNoNeed.setVisibility(View.VISIBLE);
+        rbLowCost.setVisibility(View.VISIBLE);
+    }
+
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
+        if(isChecked){
             setAnswer(buttonView.getText().toString());
+        }
 
-            switch (buttonView.getId()) {
-                case R.id.optionYes:
-                    init();
+        switch (buttonView.getId()) {
+            case R.id.optionYes:
+                if (isChecked) {
                     mNextFragment = DoYouKnowRefrigeratorsFragment.newInstance();
-                    showItems();
+                    showYesItems();
+                    hideNoItems();
                     optionYes.setChecked(true);
                     optionNo.setChecked(false);
                     rbBillsPrice.setChecked(false);
@@ -111,41 +139,67 @@ public class DoYouSaveElectricityFragment extends BaseFragment implements Custom
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
 
-                    updateViews();
-                    break;
-                case R.id.optionNo:
+                }
+                updateViews();
+                break;
+            case R.id.optionNo:
+                if (isChecked) {
                     mNextFragment = DoYouKnowDifferenceFragment.newInstance();
-                    hideItems();
+                    hideYesItems();
+                    showNoItems();
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
                     rbBillsPrice.setChecked(false);
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
+                }
+                updateViews();
+                break;
+            case R.id.rbBillsPrice:
+                rbBillsPrice.setChecked(isChecked);
 
-                    updateViews();
-                    break;
-                case R.id.rbBillsPrice:
-                    rbBillsPrice.setChecked(true);
+                updateViews();
+                break;
+            case R.id.rbLessAmbientalDamage:
+                rbLessAmbientalDamage.setChecked(isChecked);
 
-                    updateViews();
-                    break;
-                case R.id.rbLessAmbientalDamage:
-                    rbLessAmbientalDamage.setChecked(true);
+                updateViews();
+                break;
+            case R.id.rbDry:
+                rbDry.setChecked(isChecked);
 
-                    updateViews();
-                    break;
-                case R.id.rbDry:
-                    rbDry.setChecked(true);
+                updateViews();
+                break;
+            case R.id.rbOthers:
+                rbOthers.setChecked(isChecked);
 
-                    updateViews();
-                    break;
-                case R.id.rbOthers:
-                    rbOthers.setChecked(true);
+                updateViews();
+                break;
 
-                    updateViews();
-                    break;
-            }
+            case R.id.rbAbundantResource:
+                rbAbundantResource.setChecked(isChecked);
+
+                updateViews();
+                break;
+
+            case R.id.rbOthersNo:
+                rbOthersNo.setChecked(isChecked);
+
+                updateViews();
+                break;
+
+            case R.id.rbNoNeed:
+                rbNoNeed.setChecked(isChecked);
+
+                updateViews();
+                break;
+
+            case R.id.rbLowCost:
+                rbLowCost.setChecked(isChecked);
+
+                updateViews();
+                break;
         }
     }
 
@@ -156,6 +210,10 @@ public class DoYouSaveElectricityFragment extends BaseFragment implements Custom
         rbLessAmbientalDamage.updateView();
         rbDry.updateView();
         rbOthers.updateView();
+        rbAbundantResource.updateView();
+        rbOthersNo.updateView();
+        rbNoNeed.updateView();
+        rbLowCost.updateView();
     }
 
     private void setAnswer(String text) {

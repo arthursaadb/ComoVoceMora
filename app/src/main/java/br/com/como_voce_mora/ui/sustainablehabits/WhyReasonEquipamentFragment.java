@@ -15,13 +15,22 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class WhyReasonEquipamentFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices) CustomRadioButton rbFewDevices;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth)
+    CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes)
+    CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity)
+    CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbQuickShowers)
+    CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbFewDevices)
+    CustomRadioButton rbFewDevices;
+    @BindView(R.id.rbOthers)
+    CustomRadioButton rbOthers;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHYY_NOT_USE_EQUIPMENT;
     AnswerRequest answerRequest;
@@ -58,6 +67,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
         rbWashMachineCapacity.setOnCheckedChangeListener(this);
         rbQuickShowers.setOnCheckedChangeListener(this);
         rbFewDevices.setOnCheckedChangeListener(this);
+        rbOthers.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -91,6 +101,42 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
 
                     updateViews();
                     break;
+                case R.id.rbOthers:
+                    rbOthers.setChecked(true);
+                    updateViews();
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbWashMachineCapacity.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbFewDevices:
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbOthers:
+                    rbOthers.setChecked(false);
+                    updateViews();
+                    break;
             }
         }
     }
@@ -101,6 +147,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
         rbWashMachineCapacity.updateView();
         rbQuickShowers.updateView();
         rbFewDevices.updateView();
+        rbOthers.updateView();
     }
 
     private void setAnswer(String text) {

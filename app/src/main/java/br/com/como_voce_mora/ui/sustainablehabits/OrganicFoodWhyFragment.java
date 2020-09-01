@@ -22,12 +22,18 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class OrganicFoodWhyFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
-    @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices) CustomRadioButton rbFewDevices;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth)
+    CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes)
+    CustomRadioButton rbDishes;
+    @BindView(R.id.rbQuickShowers)
+    CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbFewDevices)
+    CustomRadioButton rbFewDevices;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_WHY;
     AnswerRequest answerRequest;
@@ -89,6 +95,29 @@ public class OrganicFoodWhyFragment extends BaseFragment implements CustomRadioB
                     break;
                 case R.id.rbFewDevices:
                     rbFewDevices.setChecked(true);
+
+                    updateViews();
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbFewDevices:
+                    rbFewDevices.setChecked(false);
 
                     updateViews();
                     break;

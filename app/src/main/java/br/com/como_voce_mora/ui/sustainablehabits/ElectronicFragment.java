@@ -18,8 +18,9 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
     @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
     @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
     @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;@BindView(R.id.tv_question)
-    TextView mTvQuestion;
+    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbUnknow) CustomRadioButton rbUnknown;
+    @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ELETRONIC;
     AnswerRequest answerRequest;
@@ -55,6 +56,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
         rbDishes.setOnCheckedChangeListener(this);
         rbWashMachineCapacity.setOnCheckedChangeListener(this);
+        rbUnknown.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -68,7 +70,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
-
+                    rbUnknown.setChecked(false);
                     updateViews();
                     break;
                 case R.id.rbDishes:
@@ -76,7 +78,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
-
+                    rbUnknown.setChecked(false);
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
@@ -84,6 +86,15 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
+                    rbUnknown.setChecked(false);
+                    updateViews();
+                    break;
+                case R.id.rbUnknow:
+                    mNextFrag = OrganicFoodFragment.newInstance();
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbUnknown.setChecked(true);
 
                     updateViews();
                     break;
@@ -95,6 +106,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
         rbBrushMyTeeth.updateView();
         rbDishes.updateView();
         rbWashMachineCapacity.updateView();
+        rbUnknown.updateView();
     }
 
     private void setAnswer(String text) {

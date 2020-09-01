@@ -13,11 +13,13 @@
         android:id="@+id/water_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="100dp"
+        android:scaleType="fitXY"
         android:src="@drawable/agua"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintStart_toEndOf="@+id/bt_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        tools:ignore="NotSibling,UnknownIdInLayout" />
+
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBrushMyTeeth"

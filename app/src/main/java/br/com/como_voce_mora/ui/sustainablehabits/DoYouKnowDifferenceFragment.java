@@ -82,7 +82,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    mNextFrag = DoYouKnowProcelFragment.newInstance();
+                    mNextFrag = TariffFlagsFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
@@ -90,7 +90,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
-                    mNextFrag = DoYouKnowProcelFragment.newInstance();
+                    mNextFrag = TariffFlagsFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);

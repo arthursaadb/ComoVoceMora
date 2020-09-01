@@ -122,9 +122,9 @@
     <string name="equipment_6">Outros</string>
 
     <string name="solar_1">Placas solares</string>
-    <string name="solar_2">Painés\nfotovoltaicos</string>
-    <string name="solar_3">Ambos os\nsistemas</string>
-    <string name="solar_4">Nenhum dos dois\nsistemas</string>
+    <string name="solar_2">Painés fotovoltaicos</string>
+    <string name="solar_3">Ambos os sistemas</string>
+    <string name="solar_4">Nenhum dos dois sistemas</string>
 
     <string name="satisfaction_room_1">Tamanho</string>
     <string name="satisfaction_room_2">Facilidade de mobiliar</string>

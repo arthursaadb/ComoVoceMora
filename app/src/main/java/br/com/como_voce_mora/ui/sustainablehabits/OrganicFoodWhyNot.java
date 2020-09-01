@@ -97,6 +97,29 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
                     updateViews();
                     break;
             }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbFewDevices:
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+            }
         }
     }
 

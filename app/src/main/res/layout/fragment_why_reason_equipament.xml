@@ -9,16 +9,16 @@
 
     <include
         android:id="@+id/mrClipboardLayout"
-        layout="@layout/fragment_mr_clipboard_full" />
+        layout="@layout/fragment_mr_clipboard_ball" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBrushMyTeeth"
         style="@style/CustomRadioButton"
         android:layout_marginStart="24dp"
         android:gravity="center"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintBottom_toTopOf="@id/rbDishes"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginTop="@dimen/small_margin"
         android:text="Desconheço"
         app:layout_constraintTop_toBottomOf="@id/tv_question"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard" />
@@ -65,5 +65,16 @@
         app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
         app:layout_constraintTop_toTopOf="@id/rbDishes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbOthers"
+        style="@style/CustomRadioButton"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Outros"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
+        app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
+        app:layout_constraintTop_toTopOf="@id/rbWashMachineCapacity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

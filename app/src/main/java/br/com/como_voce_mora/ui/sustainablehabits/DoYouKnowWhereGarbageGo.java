@@ -70,7 +70,7 @@ public class DoYouKnowWhereGarbageGo extends BaseFragment implements CustomRadio
                     updateViews();
                     break;
                 case R.id.optionNo:
-                    mNextFrag = CollectionPointsUberlandiaFragment.newInstance();
+                    mNextFrag = DoYouKnowEcopointFragment.newInstance();
                     optionYes.setChecked(false);
                     optionNo.setChecked(true);
 

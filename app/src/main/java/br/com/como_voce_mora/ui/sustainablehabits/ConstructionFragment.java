@@ -30,7 +30,8 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
     @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
     @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbOthers) CustomRadioButton rbFewDevices;
+    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
+    @BindView(R.id.rbResiduos) CustomRadioButton rbResiduos;
     @BindView(R.id.tv_question) TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.CONSTRUCTION;
@@ -67,7 +68,8 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
         rbDishes.setOnCheckedChangeListener(this);
         rbWashMachineCapacity.setOnCheckedChangeListener(this);
         rbQuickShowers.setOnCheckedChangeListener(this);
-        rbFewDevices.setOnCheckedChangeListener(this);
+        rbOthers.setOnCheckedChangeListener(this);
+        rbResiduos.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -96,8 +98,48 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
 
                     updateViews();
                     break;
+                case R.id.rbOthers:
+                    rbOthers.setChecked(true);
+
+                    updateViews();
+                    break;
+
+                case R.id.rbResiduos:
+                    rbResiduos.setChecked(true);
+
+                    updateViews();
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbWashMachineCapacity.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
                 case R.id.rbFewDevices:
-                    rbFewDevices.setChecked(true);
+                    rbOthers.setChecked(false);
+
+                    updateViews();
+                    break;
+
+                case R.id.rbResiduos:
+                    rbResiduos.setChecked(false);
 
                     updateViews();
                     break;
@@ -110,7 +152,8 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
         rbDishes.updateView();
         rbWashMachineCapacity.updateView();
         rbQuickShowers.updateView();
-        rbFewDevices.updateView();
+        rbOthers.updateView();
+        rbResiduos.updateView();
     }
 
     private void setAnswer(String text) {

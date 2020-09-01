@@ -42,7 +42,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) requireActivity()).addFragment(TransportationReasonFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(TransportationFragment.newInstance());
         }
     }
 
@@ -69,22 +69,34 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
+                    rbDishes.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
+
+                    updateViews();
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbWashMachineCapacity.setChecked(false);
 
                     updateViews();
                     break;

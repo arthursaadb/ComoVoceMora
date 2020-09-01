@@ -73,6 +73,7 @@
         android:text="Uma torneira que fica gotejando pode gerar um desperdício de até 1.300 litros de água por mês: esse valor é equivalente ao consumo diário de uma pessoa ao longo de uma semana! Também é importante evitar que a torneira fique aberta enquanto você lava a louça, por exemplo, já que, em 15 minutos, com a torneira parcialmente aberta, é possível gerar um gasto médio de 243 litros de água: valor maior que o consumo diário de uma pessoa!"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
+        android:gravity="center"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"

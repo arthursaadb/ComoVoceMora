@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,84 +13,135 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
         android:src="@drawable/residuos"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
-        app:layout_constraintEnd_toStartOf="@id/optionYes"
         app:layout_constraintStart_toEndOf="@+id/bt_back"
-        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard" />
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        tools:ignore="NotSibling,UnknownIdInLayout" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/optionYes"
-        android:text="Sim"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@id/water_iv"
-        app:layout_constraintEnd_toStartOf="@id/rbBillsPrice"
+        android:text="Sim"
         app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintTop_toBottomOf="@+id/tv_question" />
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        tools:ignore="NotSibling" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/optionNo"
-        android:text="Não"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:text="Não"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/optionYes"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         tools:ignore="NotSibling" />
 
+
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbBillsPrice"
-        android:text="Tem coleta seletiva\nno bairro"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
+        android:text="Tem coleta seletiva\n no bairro"
         android:textAlignment="center"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@id/rbLessAmbientalDamage"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/optionYes"
         app:layout_constraintTop_toTopOf="@id/optionYes" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbLessAmbientalDamage"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:text="Doar aos catadores\nde lixo"
+        style="@style/CustomRadioButton"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginRight="@dimen/small_margin"
         android:button="@color/colorTransparent"
+        android:text="Reduzir danos\nambientais"
         android:textAlignment="center"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbBillsPrice"
-        app:layout_constraintTop_toTopOf="@id/rbBillsPrice" />
+        app:layout_constraintTop_toTopOf="@id/rbBillsPrice"
+        tools:ignore="NotSibling" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbDry"
+        style="@style/CustomRadioButton"
         android:layout_marginTop="@dimen/small_margin"
-        android:text="Reduzir danos\nambientais"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:text="Doar aos catadores\nde lixo"
         android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@id/rbOthers"
         app:layout_constraintStart_toStartOf="@id/rbBillsPrice"
         app:layout_constraintTop_toBottomOf="@id/rbBillsPrice" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbOthers"
+        style="@style/CustomRadioButton"
         android:layout_marginTop="@dimen/small_margin"
         android:layout_marginEnd="@dimen/default_margin"
-        android:text="Outros"
+        android:layout_marginRight="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:text="Outros"
         android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"
         app:layout_constraintTop_toBottomOf="@id/rbLessAmbientalDamage" />
 
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbAbundantResource"
+        style="@style/CustomRadioButton"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Difícil separar no\ndia-a-dia"
+        app:layout_constraintEnd_toStartOf="@id/rbOthersNo"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@id/optionNo"
+        app:layout_constraintBottom_toTopOf="@id/rbNoNeed" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbOthersNo"
+        style="@style/CustomRadioButton"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Outros"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/rbAbundantResource"
+        app:layout_constraintBottom_toTopOf="@id/rbLowCost"
+        tools:ignore="UnknownIdInLayout" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbNoNeed"
+        style="@style/CustomRadioButton"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Não vejo\nnecessidade"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@id/optionNo"
+        app:layout_constraintTop_toTopOf="@id/optionNo"
+        app:layout_constraintEnd_toStartOf="@id/rbLowCost"
+        tools:ignore="NotSibling" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbLowCost"
+        style="@style/CustomRadioButton"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Não sei diferenciar"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@id/rbNoNeed"
+        app:layout_constraintBottom_toBottomOf="@id/optionNo"
+        tools:ignore="NotSibling" />
 </androidx.constraintlayout.widget.ConstraintLayout>

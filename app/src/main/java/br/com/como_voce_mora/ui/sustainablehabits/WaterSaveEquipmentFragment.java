@@ -88,6 +88,7 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
             case R.id.csv5:
                 if (!csv.isChecked()) {
@@ -99,6 +100,7 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
@@ -110,6 +112,7 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
             case R.id.cvsNone:
                 if (!csv.isChecked()) {
@@ -121,6 +124,7 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
 
             case R.id.others:
@@ -133,6 +137,7 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
         }
 
@@ -142,7 +147,7 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             setAnswer();
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouSaveElectricityFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(WhyYouSaveElectricityFragment.newInstance());
         }
     }
 

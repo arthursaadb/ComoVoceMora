@@ -73,6 +73,7 @@
         android:layout_marginEnd="@dimen/default_margin"
         android:text="Uma máquina de lavar roupas pode gastar até 160 litros de água numa lavagem: esse valor representa o consumo de uma pessoa por dia! Armazenar esta água (em recipiente fechado), para lavar a casa posteriormente ou mesmo para ser utilizada na própria lavadora, pode gerar uma boa economia (reduzindo as contas mensais e, ao mesmo tempo, evitando o desperdício para as épocas secas)."
         android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"

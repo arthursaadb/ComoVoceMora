@@ -95,97 +95,84 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
-                    rbNew.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
-                    rbNew.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
-                    rbNew.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbWashMachineReuse:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
                     rbWashMachineReuse.setChecked(true);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
-                    rbNew.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbQuickShowers:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
                     rbQuickShowers.setChecked(true);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(false);
-                    rbNew.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbFewDevices:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
                     rbFewDevices.setChecked(true);
-                    rbOthers.setChecked(false);
-                    rbNew.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbOther:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
                     rbOthers.setChecked(true);
-                    rbNew.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbNew:
-                    rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
-                    rbWashMachineReuse.setChecked(false);
-                    rbQuickShowers.setChecked(false);
-                    rbFewDevices.setChecked(false);
-                    rbOthers.setChecked(true);
                     rbNew.setChecked(true);
+
+                    updateViews();
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbWashMachineCapacity.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineReuse:
+                    rbWashMachineReuse.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbFewDevices:
+                    rbFewDevices.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbOther:
+                    rbOthers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbNew:
+                    rbNew.setChecked(false);
 
                     updateViews();
                     break;

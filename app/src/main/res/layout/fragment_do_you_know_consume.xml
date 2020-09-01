@@ -67,6 +67,7 @@
         android:id="@+id/explanation_tv"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
         android:text="O consumo, por ciclo, varia entre 100 e 132 litros (para máquinas com abertura frontal) e entre 98 e 197 litros (para lavadoras com abertura superior), de acordo com o Inmetro. Por isso, relativamente, o consumo é maior quando utilizamos a máquina parcialmente cheia. Assim, a recomendação é sempre usar a lavadora em sua capacidade máxima para se atingir eficiência e economia."
         android:textAlignment="center"
         android:textColor="@color/colorWhite"

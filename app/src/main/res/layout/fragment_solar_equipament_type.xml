@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorGreenLight">
 
-    <include layout="@layout/fragment_mr_clipboard_full" />
+    <include layout="@layout/fragment_mr_clipboard_ball" />
 
 
     <br.com.como_voce_mora.custom.CustomSelectedView
@@ -15,11 +15,12 @@
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        app:imageItem="@drawable/casa_casa"
-        app:layout_constraintBottom_toBottomOf="@id/bt_next"
+        app:imageItem="@drawable/placassolares"
+        app:layout_constraintBottom_toTopOf="@id/csvSystems"
         app:layout_constraintEnd_toStartOf="@id/csvApartament"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toTopOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        app:layout_constraintVertical_chainStyle="spread"
         app:nameItem="@string/solar_1" />
 
     <br.com.como_voce_mora.custom.CustomSelectedView
@@ -29,11 +30,12 @@
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        app:imageItem="@drawable/apartamento_apartamento"
-        app:layout_constraintBottom_toBottomOf="@id/bt_next"
+        app:imageItem="@drawable/placasolarboiler"
+        app:layout_constraintBottom_toTopOf="@id/cvsNone"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/cvsSolarPlates"
-        app:layout_constraintTop_toTopOf="@id/bt_next"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
         app:nameItem="@string/solar_2" />
 
     <br.com.como_voce_mora.custom.CustomSelectedView
@@ -41,7 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:imageItem="@drawable/apartamento_apartamento"
+        app:imageItem="@drawable/placasolarboiler"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
        app:layout_constraintTop_toBottomOf="@id/cvsSolarPlates"
         app:layout_constraintStart_toStartOf="@id/cvsSolarPlates"
         app:layout_constraintEnd_toEndOf="@id/cvsSolarPlates"
@@ -52,7 +55,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:imageItem="@drawable/apartamento_apartamento"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+        app:imageItem="@drawable/casinha"
        app:layout_constraintTop_toBottomOf="@id/csvPhotovoltaicPanels"
         app:layout_constraintStart_toStartOf="@id/csvPhotovoltaicPanels"
         app:layout_constraintEnd_toEndOf="@id/csvPhotovoltaicPanels"

@@ -56,7 +56,7 @@
         android:layout_height="200dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="100dp"
-        android:src="@drawable/baterialixo"
+        android:src="@drawable/medicamentovencido"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintTop_toTopOf="parent" />

@@ -11,17 +11,17 @@
         android:id="@+id/mrClipboardLayout"
         layout="@layout/fragment_mr_clipboard_ball" />
 
+
     <ImageView
         android:id="@+id/water_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginTop="100dp"
-        android:padding="0dp"
+        android:scaleType="fitXY"
         android:src="@drawable/plantas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/bt_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintStart_toEndOf="@+id/bt_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        tools:ignore="NotSibling,UnknownIdInLayout" />
 
 
     <br.com.como_voce_mora.custom.CustomRadioButton
@@ -29,19 +29,22 @@
         style="@style/CustomRadioButton"
         android:layout_marginStart="@dimen/small_margin"
         android:gravity="center"
-        app:layout_constraintEnd_toStartOf="@id/rbWashMachineCapacity"
         android:text="Decorativa"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/rbDishes"
+        app:layout_constraintEnd_toStartOf="@id/rbWashMachineCapacity"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintTop_toTopOf="@id/water_iv" />
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintTop_toBottomOf="@id/tv_question" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
         style="@style/CustomRadioButton"
-        android:padding="0dp"
         android:layout_marginTop="@dimen/default_margin"
         android:gravity="center"
+        android:padding="0dp"
         android:text="Medicinal"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
@@ -49,15 +52,15 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineCapacity"
         style="@style/CustomRadioButton"
-        android:padding="0dp"
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginEnd="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:padding="0dp"
         android:text="Hortaliça/Comestível"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/bt_next"
         app:layout_constraintBottom_toBottomOf="@id/rbBrushMyTeeth"
+        app:layout_constraintEnd_toEndOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
 

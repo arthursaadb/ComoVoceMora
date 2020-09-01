@@ -44,6 +44,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
     private BaseFragment mNextFrag;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private boolean anyOptionChecked = false;
+    private BaseFragment nextFragment;
 
     public static SolarEquipamentTypeFragment newInstance() {
         return new SolarEquipamentTypeFragment();
@@ -68,8 +69,9 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.cvsSolarPlates:
                 if (!csv.isChecked()) {
+                    mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
-                    saude = csv.getText();
+                    saude = csv.getText();        mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
                             sustainableHabitsAnswer.getQuestionPartId(), saude));
                     break;
@@ -80,6 +82,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 }
             case R.id.csvPhotovoltaicPanels:
                 if (!csv.isChecked()) {
+                    mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
                     escola = csv.getText();
                     answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
@@ -91,6 +94,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 }
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
+                    mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
                     mNextFrag = DoYouSeparateGarbageFragment.newInstance();
                     cultura = csv.getText();
@@ -103,6 +107,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 }
             case R.id.cvsNone:
                 if (!csv.isChecked()) {
+                    mNextFrag = DoYouSeparateGarbageFragment.newInstance();
                     csv.setChecked(true);
                     lazer = csv.getText();
                     answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),

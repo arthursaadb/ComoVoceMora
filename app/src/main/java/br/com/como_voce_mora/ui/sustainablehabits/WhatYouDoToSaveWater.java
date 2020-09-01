@@ -136,6 +136,44 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
                     updateViews();
                     break;
             }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+                    mNextFragments.remove(tapFragment);
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbWashMachineCapacity.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineReuse:
+                    rbWashMachineReuse.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbFewDevices:
+                    rbFewDevices.setChecked(false);
+                    mNextFragments.remove(watherSaveFragment);
+                    updateViews();
+                    break;
+                case R.id.rbOthers:
+                    rbOthers.setChecked(false);
+
+                    updateViews();
+
+            }
         }
     }
 

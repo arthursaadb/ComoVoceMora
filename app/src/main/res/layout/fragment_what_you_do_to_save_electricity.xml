@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/colorGreenLight"
-                                                   tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreenLight"
+    tools:context=".ui.sustainablehabits.WhatYouDoToSaveWater">
 
     <include
         android:id="@+id/mrClipboardLayout"
@@ -15,21 +15,20 @@
         android:id="@+id/water_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="100dp"
+        android:scaleType="fitXY"
         android:src="@drawable/energia"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/rbBrushMyTeeth"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintStart_toEndOf="@+id/bt_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        tools:ignore="NotSibling,UnknownIdInLayout" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbBrushMyTeeth"
-        android:layout_width="200dp"
-        android:text="Apago as luzes ao sair do\nambiente"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@id/water_iv"
+        android:text="Apago as luzes ao sair do\nambiente"
+        app:layout_constraintBottom_toTopOf="@id/rbDishes"
         app:layout_constraintEnd_toStartOf="@id/rbQuickShowers"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@id/water_iv"
@@ -37,24 +36,22 @@
         app:layout_constraintVertical_chainStyle="spread" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
-        android:layout_width="200dp"
         android:id="@+id/rbDishes"
-        android:text="Compro eletrodomésticos\ncom selo A"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:text="Compro eletrodomésticos\ncom selo A"
         app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
-        android:layout_width="200dp"
         android:id="@+id/rbWashMachineCapacity"
-        android:text="Desligo aparelhos sem\nuso"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:text="Desligo aparelhos sem\nuso"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
@@ -62,23 +59,21 @@
         app:layout_constraintTop_toBottomOf="@id/rbDishes" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
-        android:layout_width="200dp"
         android:id="@+id/rbQuickShowers"
-        android:text="Utilizo lâmpadas\neconômicas(LED e\nfluorescentes)"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:text="Utilizo lâmpadas\neconômicas(LED e\nfluorescentes)"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
         app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
-        android:layout_width="200dp"
         android:id="@+id/rbOthers"
-        android:text="Outros"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
+        android:text="Outros"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"

@@ -29,7 +29,7 @@
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Verduras"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintBottom_toTopOf="@id/rbDishes"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintTop_toBottomOf="@+id/tv_question" />
@@ -37,7 +37,6 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
         style="@style/CustomRadioButton"
-        android:layout_marginTop="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Frutas"
@@ -49,14 +48,12 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineCapacity"
         style="@style/CustomRadioButton"
-        android:layout_marginTop="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Sucos"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
         app:layout_constraintTop_toBottomOf="@id/rbDishes" />
 

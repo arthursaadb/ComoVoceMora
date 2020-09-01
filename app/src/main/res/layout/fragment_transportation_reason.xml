@@ -15,37 +15,37 @@
         android:id="@+id/water_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginTop="100dp"
+        android:scaleType="fitXY"
         android:src="@drawable/bus"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintStart_toEndOf="@+id/bt_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        tools:ignore="NotSibling,UnknownIdInLayout" />
+
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbBrushMyTeeth"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginStart="@dimen/default_margin"
-        app:layout_constraintEnd_toStartOf="@id/rbQuickShowers"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Rapidez de locomoção"
+        app:layout_constraintEnd_toStartOf="@id/rbWashMachineReuse"
         app:layout_constraintBottom_toTopOf="@id/rbDishes"
-        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintStart_toEndOf="@+id/water_iv"
         app:layout_constraintTop_toBottomOf="@+id/tv_question"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDishes"
         style="@style/CustomRadioButton"
+
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Custo é mais acessível"
         app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
-        app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
-        app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
-        app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
+        app:layout_constraintStart_toStartOf="@+id/rbBrushMyTeeth"
+        app:layout_constraintTop_toBottomOf="@+id/rbBrushMyTeeth" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineCapacity"
@@ -54,22 +54,20 @@
         android:gravity="center"
         android:text="Consigo ir a todos os\nlugares"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@id/rbWashMachineReuse"
-        app:layout_constraintEnd_toEndOf="@id/rbDishes"
-        app:layout_constraintStart_toStartOf="@id/rbDishes"
-        app:layout_constraintTop_toBottomOf="@id/rbDishes" />
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+        app:layout_constraintStart_toStartOf="@+id/rbDishes"
+        app:layout_constraintTop_toBottomOf="@+id/rbDishes" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbWashMachineReuse"
         style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@id/rbOthers"
         android:text="Divido com\noutras"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
-        app:layout_constraintEnd_toEndOf="@id/rbWashMachineCapacity"
-        app:layout_constraintStart_toStartOf="@id/rbWashMachineCapacity"
-        app:layout_constraintTop_toBottomOf="@id/rbWashMachineCapacity" />
+        app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
+        app:layout_constraintTop_toTopOf="@+id/rbBrushMyTeeth" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbQuickShowers"
@@ -78,22 +76,18 @@
         android:gravity="center"
         android:text="Causa menos problemas\nambientais"
         android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/bt_next"
-        app:layout_constraintBottom_toTopOf="@id/rbFewDevices"
-        app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"
-        app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
+        app:layout_constraintStart_toStartOf="@+id/rbWashMachineReuse"
+        app:layout_constraintTop_toTopOf="@+id/rbDishes" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbFewDevices"
+        style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Preocupação com a saúde"
         android:textAlignment="center"
-        style="@style/CustomRadioButton"
-        app:layout_constraintBottom_toTopOf="@id/rbOthers"
-        app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbQuickShowers"
-        app:layout_constraintTop_toTopOf="@id/rbDishes" />
+        app:layout_constraintTop_toTopOf="@+id/rbWashMachineCapacity" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbOthers"
@@ -101,20 +95,19 @@
         android:button="@color/colorTransparent"
         android:text="Necessidade\nfísica"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@id/rbNew"
-        app:layout_constraintEnd_toEndOf="@id/rbFewDevices"
-        app:layout_constraintStart_toStartOf="@+id/rbFewDevices"
-        app:layout_constraintTop_toTopOf="@id/rbWashMachineCapacity" />
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        app:layout_constraintStart_toEndOf="@+id/rbWashMachineReuse"
+        app:layout_constraintTop_toTopOf="@+id/rbWashMachineReuse" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbNew"
         style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Preocupação com a saúde"
+        android:text="Outros"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@id/rbOthers"
+        app:layout_constraintEnd_toEndOf="@+id/rbOthers"
         app:layout_constraintStart_toStartOf="@+id/rbOthers"
-        app:layout_constraintTop_toTopOf="@id/rbWashMachineReuse" />
+        app:layout_constraintTop_toTopOf="@+id/rbQuickShowers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

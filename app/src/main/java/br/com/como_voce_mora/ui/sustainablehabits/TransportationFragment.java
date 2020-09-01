@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import br.com.como_voce_mora.custom.VolumeHorizontal;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.CurrentResidenceAnswer;
 import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.SustainableHabitsAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.currentresidence.ClassifyAspectesFragment;
@@ -32,22 +34,24 @@ public class TransportationFragment extends BaseFragment {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
-    @BindView(R.id.volumeSeguranca)
-    VolumeHorizontal volumeSegurana;
-    @BindView(R.id.volumeAcesso)
-    VolumeHorizontal volumeAcesso;
-    @BindView(R.id.volumeQualidade)
-    VolumeHorizontal volumeQualidade;
-    @BindView(R.id.volumeQuantidade)
-    VolumeHorizontal volumeQuantidade;
+    @BindView(R.id.volume1)
+    VolumeHorizontal volume1;
+    @BindView(R.id.volume2)
+    VolumeHorizontal volume2;
+    @BindView(R.id.volume3)
+    VolumeHorizontal volume3;
+    @BindView(R.id.volume4)
+    VolumeHorizontal volume4;
+    @BindView(R.id.water_iv)
+    ImageView ivPhoto;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
-    private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.PUBLIC_SPACE_SATISFACTION;
-    private CurrentResidenceAnswer segurancaCurrentResidenceAnswer = CurrentResidenceAnswer.SECURITY;
-    private CurrentResidenceAnswer qualidadeCurrentResidenceAnswer = CurrentResidenceAnswer.EQUIPMENTS_QUALITY;
-    private CurrentResidenceAnswer quantidadeCurrentResidenceAnswer = CurrentResidenceAnswer.EQUIPMENTS_QUANTITY;
-    private CurrentResidenceAnswer acessoCurrentResidenceAnswer = CurrentResidenceAnswer.ACCESSIBILITY;
+    private SustainableHabitsAnswer currentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION;
+    private SustainableHabitsAnswer segurancaCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_1;
+    private SustainableHabitsAnswer qualidadeCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_2;
+    private SustainableHabitsAnswer quantidadeCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_3;
+    private SustainableHabitsAnswer acessoCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_4;
     private List<String> texts = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
 
@@ -64,35 +68,35 @@ public class TransportationFragment extends BaseFragment {
     @Override
     public void init() {
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
-        texts.add("Muito Ruim");
-        texts.add("Ruim");
-        texts.add("Regular");
-        texts.add("Bom");
-        texts.add("Muito Bom");
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
+        texts.add("A pé");
+        texts.add("Bicicleta");
+        texts.add("Transporte coletivo");
+        texts.add("Moto");
+        texts.add("Automóvel");
 
-        volumeAcesso.setMax(texts.size() - 1);
-        volumeQuantidade.setMax(texts.size() - 1);
-        volumeQualidade.setMax(texts.size() - 1);
-        volumeSegurana.setMax(texts.size() - 1);
+        volume1.setMax(texts.size() - 1);
+        volume2.setMax(texts.size() - 1);
+        volume3.setMax(texts.size() - 1);
+        volume4.setMax(texts.size() - 1);
         initVolumes();
     }
 
     private void initVolumes() {
-        volumeAcesso.setListener(position -> {
-            volumeAcesso.setInfo(texts.get(position));
+        volume1.setListener(position -> {
+            volume1.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(acessoCurrentResidenceAnswer.getQuestion(), acessoCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
-        volumeQuantidade.setListener(position -> {
-            volumeQuantidade.setInfo(texts.get(position));
+        volume2.setListener(position -> {
+            volume2.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(quantidadeCurrentResidenceAnswer.getQuestion(), quantidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
-        volumeQualidade.setListener(position -> {
-            volumeQualidade.setInfo(texts.get(position));
+        volume3.setListener(position -> {
+            volume3.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(qualidadeCurrentResidenceAnswer.getQuestion(), qualidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
-        volumeSegurana.setListener(position -> {
-            volumeSegurana.setInfo(texts.get(position));
+        volume4.setListener(position -> {
+            volume4.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
     }

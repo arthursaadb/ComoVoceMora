@@ -41,21 +41,9 @@
         style="@style/CustomRadioButton"
         android:gravity="center"
         android:text="Não"
-        app:layout_constraintBottom_toTopOf="@id/rbWashMachineCapacity"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
-
-    <br.com.como_voce_mora.custom.CustomRadioButton
-        android:id="@+id/rbWashMachineCapacity"
-        style="@style/CustomRadioButton"
-        android:button="@color/colorTransparent"
-        android:gravity="center"
-        android:text="Em parte"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
-        app:layout_constraintEnd_toEndOf="@id/rbDishes"
-        app:layout_constraintStart_toStartOf="@id/rbDishes"
-        app:layout_constraintTop_toBottomOf="@id/rbDishes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

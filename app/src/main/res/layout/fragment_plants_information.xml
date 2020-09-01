@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorGreenLight"
     tools:context=".ui.sustainablehabits.DoYouKnowTapFragment">
 
@@ -42,47 +42,43 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="@dimen/default_margin"
         android:layout_marginTop="100dp"
-        android:src="@drawable/agua"
+        android:src="@drawable/plantas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/bt_back"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/you_know_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Você sabia?"
-        android:paddingTop="@dimen/default_margin"
-        android:layout_marginTop="@dimen/default_margin"
-        android:textColor="@color/colorWhite"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="@dimen/default_padding"
+        android:text="Você sabia?"
+        android:textColor="@color/colorWhite"
         android:textSize="@dimen/title_text_size"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/explanation_tv"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@id/water_iv"
-        app:layout_constraintEnd_toEndOf="@id/explanation_tv"/>
+        app:layout_constraintEnd_toEndOf="@id/explanation_tv"
+        app:layout_constraintStart_toStartOf="@id/explanation_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/explanation_tv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/small_margin"
-        android:layout_marginEnd="@dimen/small_margin"
-        android:gravity="center"
-        android:text="Existem diferentes dispositivos que podem ser usados para economizar água: vaso sanitário com caixa acoplada, torneira ecônomica (com arejador ou restritor de vazão), descarga com duplo acionamento, caixa d'água para reuso de água de chuva ou mesmo equipamento que possibilita o reuso da água da lavadora. No caso do arejador, por exemplo, adiciona-se ar à agua, diminuindo-se o fluxo (ou seja, economizando água), sem alterar a sensação de volume e jato d'água. Já os restritores de vazão são pequenos anéis que controlam a saída de água nas torneiras, de fácil instalação."
+        android:text="As plantas, por melhorarem a qualidade do ar (fornecem mais oxigênio e filtram alguns poluentes), também aumentam o conforto térmico, ou seja, resfriam o ambiente, diminuindo a temperatura em dias mais quentes. Além disso, em época seca, melhoram as condições de umidade do ar."
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
+        android:gravity="center"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintTop_toBottomOf="@id/you_know_tv"
-        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
-        app:layout_constraintBottom_toTopOf="@id/progress_bar"/>
+        app:layout_constraintStart_toEndOf="@id/water_iv"
+        app:layout_constraintTop_toBottomOf="@id/you_know_tv" />
 
     <br.com.como_voce_mora.custom.HowYouLiveProgressBar
         android:id="@+id/progress_bar"

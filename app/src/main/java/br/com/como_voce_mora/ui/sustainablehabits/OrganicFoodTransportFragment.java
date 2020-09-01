@@ -82,6 +82,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
@@ -93,6 +94,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
             case R.id.cvsNone:
                 if (!csv.isChecked()) {
@@ -104,6 +106,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
         }
 

@@ -44,7 +44,7 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouSaveElectricityFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(WhyYouSaveElectricityFragment.newInstance());
         }
     }
 
@@ -94,6 +94,36 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
                     break;
                 case R.id.rbFewDevices:
                     rbFewDevices.setChecked(true);
+
+
+                    updateViews();
+                    break;
+            }
+        } else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
+                    rbBrushMyTeeth.setChecked(false);
+
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbWashMachineCapacity:
+                    rbWashMachineCapacity.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbQuickShowers:
+                    rbQuickShowers.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbFewDevices:
+                    rbFewDevices.setChecked(false);
 
 
                     updateViews();

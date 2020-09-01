@@ -33,8 +33,6 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
     CustomRadioButton rbBrushMyTeeth;
     @BindView(R.id.rbDishes)
     CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity)
-    CustomRadioButton rbWashMachineCapacity;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
@@ -70,8 +68,6 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
-        rbDishes.setOnCheckedChangeListener(this);
-        rbWashMachineCapacity.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -84,7 +80,6 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
                     mNextFrag = OrganicFoodWhyFragment.newInstance();
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(false);
 
                     updateViews();
                     break;
@@ -92,15 +87,12 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
                     mNextFrag = OrganicFoodWhyNot.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
-                    rbWashMachineCapacity.setChecked(false);
 
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
                     mNextFrag = OrganicFoodWhyFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
-                    rbDishes.setChecked(false);
-                    rbWashMachineCapacity.setChecked(true);
 
                     updateViews();
                     break;
@@ -111,7 +103,6 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
     private void updateViews() {
         rbBrushMyTeeth.updateView();
         rbDishes.updateView();
-        rbWashMachineCapacity.updateView();
     }
 
     private void setAnswer(String text) {

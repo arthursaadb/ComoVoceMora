@@ -117,6 +117,10 @@ public class WhyYouSaveWaterFragment extends BaseFragment implements CustomRadio
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if(isChecked){
+            setAnswer(buttonView.getText().toString());
+        }
+
         switch (buttonView.getId()) {
             case R.id.optionYes:
                 if (isChecked) {
@@ -135,7 +139,7 @@ public class WhyYouSaveWaterFragment extends BaseFragment implements CustomRadio
                 break;
             case R.id.optionNo:
                 if (isChecked) {
-                    mNextFragment = DoYouSaveElectricityFragment.newInstance();
+                    mNextFragment = WhyYouSaveElectricityFragment.newInstance();
                     hideYesItems();
                     showNoItems();
                     optionYes.setChecked(false);

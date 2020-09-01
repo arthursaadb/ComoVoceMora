@@ -3,6 +3,7 @@ package br.com.como_voce_mora.ui.sustainablehabits;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -31,7 +32,7 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
     @BindView(R.id.multiStateLayout)
-    MultiStateLayout multiStateLayout;
+    ConstraintLayout multiStateLayout;
 
     private ServicesPresenter mPresenter = new ServicesPresenter(this);
 
@@ -52,7 +53,7 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
         mPresenter.callService();
     }
 
-    @OnClick(R.id.rootLayout)
+    @OnClick({R.id.rootLayout, R.id.bt_next})
     public void onClickRoot() {
         Intent intent = new Intent(getActivity(), IntroActivity.class);
         startActivity(intent);
@@ -60,7 +61,7 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
 
     @Override
     public void showLoad() {
-        multiStateLayout.setState(MultiStateLayout.State.LOADING);
+//        multiStateLayout.setState(MultiStateLayout.State.LOADING);
     }
 
     @Override
@@ -80,6 +81,6 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
 
     @Override
     public void stopLoad() {
-        multiStateLayout.setState(MultiStateLayout.State.CONTENT);
+//        multiStateLayout.setState(MultiStateLayout.State.CONTENT);
     }
 }
