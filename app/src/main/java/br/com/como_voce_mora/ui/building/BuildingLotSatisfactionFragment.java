@@ -61,7 +61,7 @@ public class BuildingLotSatisfactionFragment extends BaseFragment {
     @Override
     public void init() {
         tvQuestion.setText(satisfaction.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         texts.add("Muito Ruim");
         texts.add("Ruim");
         texts.add("Regular");

@@ -44,7 +44,7 @@
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginEnd="@dimen/default_margin"
                 android:background="@color/colorWhite"
-                android:inputType="text"
+                android:inputType="number"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textSize="@dimen/default_text_size"

@@ -75,7 +75,7 @@ public class UnitySatisfactionRoom extends BaseFragment {
     @Override
     public void init() {
         tvQuestion.setText(roomType.getQuestion());
-        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
+        progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
         texts.add("Muito Ruim");
         texts.add("Ruim");
         texts.add("Regular");
