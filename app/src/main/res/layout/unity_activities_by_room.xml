@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <include layout="@layout/fragment_mr_clipboard_ball" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/bt_back"
+        app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
+        app:layout_constraintBottom_toTopOf="@id/progress_bar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv1"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/estender_a_roupa"
+                app:imageItem="@drawable/estender_roupa" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv2"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/armazenar_coisas"
+                app:imageItem="@drawable/armazenar_coisas" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv3"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/passar_a_roupa"
+                app:imageItem="@drawable/passar_roupa" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv4"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/receber_convidados"
+                app:imageItem="@drawable/receber_pessoas" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/usar_computador"
+                app:imageItem="@drawable/usar_computador" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/trabalhos_manuais"
+                app:imageItem="@drawable/trabalhos_manuais" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/tocar"
+                app:imageItem="@drawable/tocar" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/ler"
+                app:imageItem="@drawable/ler" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv9"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/lavar_roupa"
+                app:imageItem="@drawable/lavar_roupa" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv10"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/outros"
+                app:imageItem="@drawable/outros" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp">
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv11"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/assistir_tv"
+                app:imageItem="@drawable/tv" />
+
+            <br.com.como_voce_mora.custom.CustomSelectedView
+                android:id="@+id/csv12"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:nameItem="@string/nenhum"
+                app:imageItem="@drawable/nenhum" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

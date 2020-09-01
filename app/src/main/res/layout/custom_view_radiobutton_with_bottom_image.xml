@@ -12,9 +12,9 @@
         android:background="@drawable/bg_ballon_normal_type_1"
         android:ellipsize="end"
         android:gravity="center"
-        android:maxLines="1"
+        android:maxLines="2"
         android:textSize="@dimen/micro_text_size"
-        tools:text="Nome" />
+        tools:text="@string/trabalhos_manuais" />
 
     <ImageView
         android:id="@+id/iv_image"

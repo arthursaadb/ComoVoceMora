@@ -28,6 +28,15 @@ public enum UnityAnswer {
     NO_CHANGES_MADE("Se nenhuma alteração foi feita, qual (is) o(s) motivo(s)?", "7ff06bfe-9fa7-4093-b366-1a31dfefa02d"),
     MADE_LIST_CHANGES("Você já realizou alguma das alterações listadas na questão anterior?", "30d1f4d4-51ff-441b-961d-2ab4bf1aaabc"),
     NEIGHBORHOOD_DELIMITATION_TYPE("Que delimitação existem entre sua residência e a vizinhança?", "f0ce08bf-d19e-4946-bf47-bb63329c37a0"),
+    KITCHEN_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na COZINHA?","590b5fd61e4d3f620eea27f8"),
+    BALCONY_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na VARANDA?","590b5fd61e4d3f620eea280f"),
+    DINNERROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na SALA DE JANTAR?","590b5fd61e4d3f620eea2802"),
+    ROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na SALA DE ESTAR?","590b5fd61e4d3f620eea27f4"),
+    SINGLEROMM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no DORMITÓRIO DE SOLTEIRO?","590b5fd61e4d3f620eea27fb"),
+    BIGROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no DORMITÓRIO DE CASAL?","590b5fd61e4d3f620eea27fc"),
+    BATHROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no BANHEIRO?","590b5fd61e4d3f620eea2807"),
+    SERVICE_AREA_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na ÁREA DE SERVIÇO?","590b5fd61e4d3f620eea2808"),
+
 
     //VOLUME HORIZONTAL QUESTION
     SATISFACTION_BY_ROOM("Agora avalie sua moradia. Para cada característica, informe seu nível de satisfação.", "f8325fd8-ffc8-4752-9906-01d84788709a"),
