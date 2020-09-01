@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.unity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -16,7 +17,7 @@ import br.com.como_voce_mora.ui.building.BuildingFloorFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class UnityReformFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+public class UnityReformFragment extends BaseFragment implements View.OnClickListener {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -71,55 +72,50 @@ public class UnityReformFragment extends BaseFragment implements CustomRadioButt
     public void init() {
         mTvQuestion.setText(unityAnswer.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        mRb1.setOnCheckedChangeListener(this);
-        mRb2.setOnCheckedChangeListener(this);
-        mRb3.setOnCheckedChangeListener(this);
-        mRb4.setOnCheckedChangeListener(this);
-        mRb6.setOnCheckedChangeListener(this);
-        mRb5.setOnCheckedChangeListener(this);
-        mRb7.setOnCheckedChangeListener(this);
-        mRb8.setOnCheckedChangeListener(this);
+        mRb1.setOnClickListener(this);
+        mRb2.setOnClickListener(this);
+        mRb3.setOnClickListener(this);
+        mRb4.setOnClickListener(this);
+        mRb6.setOnClickListener(this);
+        mRb5.setOnClickListener(this);
+        mRb7.setOnClickListener(this);
+        mRb8.setOnClickListener(this);
     }
 
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-        none = false;
-            switch (buttonView.getId()) {
+    public void onClick(View v) {
+        CustomRadioButton  option = (CustomRadioButton) v;
+        if (v.isPressed()) {
+            none = false;
+            mRb8.setChecked(false);
+            switch (option.getId()) {
                 case R.id.rbAcabamento:
-                    mRb1.setChecked(true);
-                    acabamento = (String) buttonView.getText();
+                    acabamento = (String) option.getText();
                     updateRbs();
                     break;
                 case R.id.rbPortas:
-                    mRb2.setChecked(true);
-                    portas = (String) buttonView.getText();
+                    portas = (String) option.getText();
                     updateRbs();
                     break;
                 case R.id.rbGesso:
-                    mRb3.setChecked(true);
-                    gesso = (String) buttonView.getText();
+                    gesso = (String) option.getText();
                     updateRbs();
                     break;
                 case R.id.rbPintura:
-                    mRb4.setChecked(true);
-                    pintura = (String) buttonView.getText();
+                    pintura = (String) option.getText();
                     updateRbs();
                     break;
                 case R.id.rbArmario:
-                    mRb5.setChecked(true);
-                    armario = (String) buttonView.getText();
+                    armario = (String) option.getText();
                     updateRbs();
                     break;
                 case R.id.rbParedes:
-                    mRb6.setChecked(true);
-                    paredes = (String) buttonView.getText();
+                    paredes = (String) option.getText();
                     updateRbs();
                     break;
                 case R.id.rbRachaduras:
-                    mRb7.setChecked(true);
-                    paredes = (String) buttonView.getText();
+                    paredes = (String) option.getText();
                     updateRbs();
                     break;
                 case R.id.rbNenhuma:
@@ -132,7 +128,7 @@ public class UnityReformFragment extends BaseFragment implements CustomRadioButt
                     mRb6.setChecked(false);
                     mRb7.setChecked(false);
                     mRb8.setChecked(true);
-                    nenhuma = (String) buttonView.getText();
+                    nenhuma = (String) option.getText();
                     updateRbs();
                     break;
             }
@@ -155,7 +151,7 @@ public class UnityReformFragment extends BaseFragment implements CustomRadioButt
         if (getActivity() != null) {
             setAnswer();
             if (none) {
-
+                ((AboutYouActivity) requireActivity()).addFragment(UnityReformssNeeds.newInstance());
             } else {
                 ((AboutYouActivity) getActivity()).addFragment(UnityReformReasonFragment.newInstance());
             }

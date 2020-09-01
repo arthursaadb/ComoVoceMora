@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.unity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class UnityRateLivingFragment extends BaseFragment {
     VolumeHorizontal vhAdaptation;
     @BindView(R.id.volume6)
     VolumeHorizontal vhPrivacy;
+    @BindView(R.id.ivImage)
+    ImageView ivPhoto;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private UnityAnswer satisfaction = UnityAnswer.SATISFACTION_BY_ROOM;
@@ -44,6 +47,7 @@ public class UnityRateLivingFragment extends BaseFragment {
     private UnityAnswer adaptation = UnityAnswer.ADAPTATION;
     private UnityAnswer privacy = UnityAnswer.PRIVACY;
     private List<String> texts = new ArrayList<>();
+    private boolean anyOptionChecked = false;
 
     public static UnityRateLivingFragment newInstance() {
 
@@ -80,26 +84,33 @@ public class UnityRateLivingFragment extends BaseFragment {
 
     private void initVolumes() {
         vhSize.setListener(position -> {
+            anyOptionChecked = true;
             vhSize.setInfo(texts.get(position));
+            ivPhoto.setImageResource(R.drawable.apartamento);
             answerRequests.add(new AnswerRequest(size.getQuestion(), size.getQuestionPartId(), texts.get(position)));
         });
         vhDivision.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.apartamento);
             vhDivision.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(division.getQuestion(), division.getQuestionPartId(), texts.get(position)));
         });
         vhQuality.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.apartamento);
             vhQuality.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(quality.getQuestion(), quality.getQuestionPartId(), texts.get(position)));
         });
         vhClean.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.apartamento);
             vhClean.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(clean.getQuestion(), clean.getQuestionPartId(), texts.get(position)));
         });
         vhAdaptation.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.apartamento);
             vhAdaptation.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(adaptation.getQuestion(), adaptation.getQuestionPartId(), texts.get(position)));
         });
         vhPrivacy.setListener(position -> {
+            ivPhoto.setImageResource(R.drawable.apartamento);
             vhPrivacy.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(privacy.getQuestion(), privacy.getQuestionPartId(), texts.get(position)));
         });
@@ -107,9 +118,11 @@ public class UnityRateLivingFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            setAnswers();
-            ((AboutYouActivity) getActivity()).addFragment(UnityUtilAreaFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                setAnswers();
+                ((AboutYouActivity) getActivity()).addFragment(UnityUtilAreaFragment.newInstance());
+            }
         }
     }
 

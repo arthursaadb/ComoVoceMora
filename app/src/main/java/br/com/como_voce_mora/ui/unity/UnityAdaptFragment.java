@@ -38,6 +38,7 @@ public class UnityAdaptFragment extends BaseFragment implements VolumeVertical.O
 
     private List<Integer> images;
     private List<String> texts;
+    private boolean anyOptionChecked = false;
 
     public static UnityAdaptFragment newInstance() {
 
@@ -78,6 +79,7 @@ public class UnityAdaptFragment extends BaseFragment implements VolumeVertical.O
 
     @Override
     public void positionVolume(int position) {
+        anyOptionChecked = true;
         mIvAge.setImageResource(images.get(position));
         mTvAge.setText(texts.get(position));
         mTvAge.setVisibility(View.VISIBLE);
@@ -86,9 +88,11 @@ public class UnityAdaptFragment extends BaseFragment implements VolumeVertical.O
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) getActivity()).addFragment(UnityActualHouseLivingFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) getActivity()).addFragment(UnityActualHouseLivingFragment.newInstance());
+            }
         }
     }
 

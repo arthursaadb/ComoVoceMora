@@ -28,6 +28,7 @@ public class UnityHouseLivingFragment extends BaseFragment {
     TextView tvQuestion;
 
     private UnityAnswer unityAnswer = UnityAnswer.HOME_TYPE;
+    private boolean anyOptionChecked = false;
 
     public static UnityHouseLivingFragment newInstance() {
         return new UnityHouseLivingFragment();
@@ -53,8 +54,10 @@ public class UnityHouseLivingFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ((AboutYouActivity) getActivity()).addFragment(UnityAdaptFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ((AboutYouActivity) getActivity()).addFragment(UnityAdaptFragment.newInstance());
+            }
         }
     }
 
@@ -69,6 +72,7 @@ public class UnityHouseLivingFragment extends BaseFragment {
             R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption, R.id.btNineOption})
     public void onClickOptions(View view) {
         Button textView = (Button) view;
+        anyOptionChecked = true;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
     }

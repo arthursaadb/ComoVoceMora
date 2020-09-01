@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.unity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,6 +17,14 @@ import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BALCONY;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BATHROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BIGROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_DINNERROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_KITCHEN;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_ROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_SINGLEROMM;
 
 public class UnitySatisfactionRoom extends BaseFragment {
     @BindView(R.id.progress_bar)
@@ -34,10 +43,11 @@ public class UnitySatisfactionRoom extends BaseFragment {
     VolumeHorizontal vhAdaptation;
     @BindView(R.id.volume6)
     VolumeHorizontal vhPrivacy;
-
+    @BindView(R.id.ivImage)
+    ImageView ivPhoto;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
-    private UnityAnswer satisfaction = UnityAnswer.CHARACTERISTICS_SATISFACTION;
+    private UnityAnswer roomType = CHARACTERISTICS_SATISFACTION_BATHROOM;
     private UnityAnswer size = UnityAnswer.SIZE_SATISFACTION;
     private UnityAnswer division = UnityAnswer.EASE_OF_FURNISHINGS;
     private UnityAnswer quality = UnityAnswer.TEMPERATURE;
@@ -45,13 +55,15 @@ public class UnitySatisfactionRoom extends BaseFragment {
     private UnityAnswer adaptation = UnityAnswer.NATURAL_ILUMINATION;
     private UnityAnswer privacy = UnityAnswer.NOISE_LEVEL;
     private List<String> texts = new ArrayList<>();
+    private boolean anyOptionChecked = false;
 
-    public static UnitySatisfactionRoom newInstance() {
+    public static UnitySatisfactionRoom newInstance(UnityAnswer room) {
 
         Bundle args = new Bundle();
 
         UnitySatisfactionRoom fragment = new UnitySatisfactionRoom();
         fragment.setArguments(args);
+        fragment.roomType = room;
         return fragment;
     }
 
@@ -62,7 +74,7 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
     @Override
     public void init() {
-        tvQuestion.setText(satisfaction.getQuestion());
+        tvQuestion.setText(roomType.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
         texts.add("Muito Ruim");
         texts.add("Ruim");
@@ -77,10 +89,27 @@ public class UnitySatisfactionRoom extends BaseFragment {
         vhAdaptation.setMax(texts.size() - 1);
         vhPrivacy.setMax(texts.size() - 1);
         initVolumes();
+
+        if (roomType==CHARACTERISTICS_SATISFACTION_BATHROOM) {
+            ivPhoto.setImageResource(R.drawable.banheiro);
+        } else if (roomType==CHARACTERISTICS_SATISFACTION_BIGROOM) {
+            ivPhoto.setImageResource(R.drawable.dorm_casal);
+        } else if (roomType==CHARACTERISTICS_SATISFACTION_SINGLEROMM) {
+            ivPhoto.setImageResource(R.drawable.dorm_solteiro);
+        } else if (roomType==CHARACTERISTICS_SATISFACTION_ROOM) {
+            ivPhoto.setImageResource(R.drawable.estar);
+        } else if (roomType==CHARACTERISTICS_SATISFACTION_DINNERROOM) {
+            ivPhoto.setImageResource(R.drawable.sala_jantar);
+        } else if (roomType==CHARACTERISTICS_SATISFACTION_BALCONY) {
+            ivPhoto.setImageResource(R.drawable.varanda);
+        } else if (roomType==CHARACTERISTICS_SATISFACTION_KITCHEN) {
+            ivPhoto.setImageResource(R.drawable.cozinha);
+        }
     }
 
     private void initVolumes() {
         vhSize.setListener(position -> {
+            anyOptionChecked = true;
             vhSize.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(size.getQuestion(), size.getQuestionPartId(), texts.get(position)));
         });
@@ -108,9 +137,25 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            setAnswers();
-            ((AboutYouActivity) getActivity()).addFragment(UnityReformFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                setAnswers();
+                if (roomType == CHARACTERISTICS_SATISFACTION_BATHROOM) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_BIGROOM));
+                } else if (roomType == CHARACTERISTICS_SATISFACTION_BIGROOM) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_SINGLEROMM));
+                } else if (roomType == CHARACTERISTICS_SATISFACTION_SINGLEROMM) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_ROOM));
+                } else if (roomType == CHARACTERISTICS_SATISFACTION_ROOM) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_DINNERROOM));
+                } else if (roomType == CHARACTERISTICS_SATISFACTION_DINNERROOM) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_BALCONY));
+                } else if (roomType == CHARACTERISTICS_SATISFACTION_BALCONY) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_KITCHEN));
+                } else if (roomType == CHARACTERISTICS_SATISFACTION_KITCHEN) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnityReformFragment.newInstance());
+                }
+            }
         }
     }
 

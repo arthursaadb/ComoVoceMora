@@ -63,7 +63,7 @@ public class CustomSelectedView extends RelativeLayout {
         mIvImage.setImageResource(image);
     }
 
-    public void setText(int text) {
+    public void setText(String text) {
         mTvName.setText(text);
     }
 }

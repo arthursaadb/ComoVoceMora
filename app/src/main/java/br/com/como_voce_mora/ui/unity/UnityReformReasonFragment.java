@@ -112,7 +112,7 @@ public class UnityReformReasonFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (getActivity() != null) {
             setAnswers();
-            ((AboutYouActivity) getActivity()).addFragment(UnitySunLightFragment.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(UnityReformDificult.newInstance());
         }
     }
 

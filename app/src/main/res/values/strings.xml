@@ -103,6 +103,19 @@
     <string name="jantar">Sala de Jantar</string>
     <string name="varanda">Varanda</string>
     <string name="cozinha">Cozinha</string>
+    <string name="estender_a_roupa">ESTENDER A ROUPA</string>
+    <string name="armazenar_coisas">ARMAZENAR COISAS</string>
+    <string name="passar_a_roupa">PASSAR A ROUPA</string>
+    <string name="receber_convidados">RECEBER CONVIDADOS</string>
+    <string name="usar_computador">USAR COMPUTADOR/CELULAR</string>
+    <string name="trabalhos_manuais">FAZER TRABALHOS MANUAIS</string>
+    <string name="tocar">TOCAR INSTRUMENTO</string>
+    <string name="ler">LER/ESTUDAR</string>
+    <string name="lavar_roupa">LAVAR ROUPA</string>
+    <string name="outros">OUTROS</string>
+    <string name="assistir_tv">ASSISTIR TV</string>
+    <string name="nenhum">NENHUM</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -18,6 +18,8 @@ import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static br.com.como_voce_mora.model.UnityAnswer.KITCHEN_ACTIVITIES;
+
 public class UnityRoomsSunlightFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -161,7 +163,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
 //        setAnswer();
-        ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsIntroFragment.newInstance());
+        ((AboutYouActivity) requireActivity()).addFragment(UnityActivitiesByRoom.newInstance(KITCHEN_ACTIVITIES));
     }
 
 //    private void setAnswer() {

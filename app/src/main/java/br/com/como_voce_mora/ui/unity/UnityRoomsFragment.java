@@ -23,7 +23,9 @@ public class UnityRoomsFragment extends BaseFragment {
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
+
     List<AnswerRequest> answerRequests = new ArrayList<>();
+    private boolean anyOptionChecked = false;
 
     @Override
     public int getResLayout() {
@@ -48,6 +50,7 @@ public class UnityRoomsFragment extends BaseFragment {
     @OnClick({R.id.csvServico, R.id.csvBanheiro, R.id.csvCasal,
             R.id.csvSolteiro, R.id.csvSala, R.id.csvCopa, R.id.csvVaranda, R.id.csvCozinha})
     void onClickViews(View view) {
+        anyOptionChecked = true;
         CustomSelectedView csv = (CustomSelectedView) view;
         if (!csv.isChecked()) {
             csv.setChecked(true);
@@ -75,8 +78,10 @@ public class UnityRoomsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
+        if (anyOptionChecked) {
 //        setAnswer();
-        ((AboutYouActivity) requireActivity()).addFragment(UnityRateRoomsFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(UnityRateRoomsFragment.newInstance());
+        }
     }
 
 //    private void setAnswer() {

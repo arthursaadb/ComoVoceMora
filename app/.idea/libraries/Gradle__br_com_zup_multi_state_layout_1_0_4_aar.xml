@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: br.com.zup:multi-state-layout:1.0.4@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/abdc359895b475357221cdc88b7856c6/jetified-multi-state-layout-1.0.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/abdc359895b475357221cdc88b7856c6/jetified-multi-state-layout-1.0.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/abdc359895b475357221cdc88b7856c6/jetified-multi-state-layout-1.0.4/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/br.com.zup/multi-state-layout/1.0.4/7d988c884748e29e518611df253e91f1be289651/multi-state-layout-1.0.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/br.com.zup/multi-state-layout/1.0.4/98d88f05a2d08916f3c299a6c3de4599306ba6f2/multi-state-layout-1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -37,6 +37,7 @@ public class UnityUtilAreaFragment extends BaseFragment implements VolumeVertica
 
     private AnswerRequest answerRequest;
     private UnityAnswer unityAnswer = UnityAnswer.UTIL_AREA;
+    private boolean anyOptionChecked = false;
 
     public static UnityUtilAreaFragment newInstance() {
 
@@ -68,6 +69,7 @@ public class UnityUtilAreaFragment extends BaseFragment implements VolumeVertica
 
     @Override
     public void positionVolume(int position) {
+        anyOptionChecked = true;
         ivSchool.setImageResource(images.get(position));
         tvSchool.setText(texts.get(position));
         tvSchool.setVisibility(View.VISIBLE);
@@ -76,9 +78,10 @@ public class UnityUtilAreaFragment extends BaseFragment implements VolumeVertica
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(answerRequest, this);
-        ((AboutYouActivity) requireActivity()).addFragment(UnityRoomsFragment.newInstance());
-
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(answerRequest, this);
+            ((AboutYouActivity) requireActivity()).addFragment(UnityRoomsFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)

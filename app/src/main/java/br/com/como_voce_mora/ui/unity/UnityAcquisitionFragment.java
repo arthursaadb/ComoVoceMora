@@ -54,12 +54,14 @@ public class UnityAcquisitionFragment extends BaseFragment implements CustomRadi
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            if (ResearchFlow.getHouse()) {
-                ((AboutYouActivity) getActivity()).addFragment(UnityHouseTypeFragment.newInstance());
-            } else {
-                ((AboutYouActivity) getActivity()).addFragment(UnityWhichApartmentFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                if (ResearchFlow.getHouse()) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnityHouseTypeFragment.newInstance());
+                } else {
+                    ((AboutYouActivity) getActivity()).addFragment(UnityWhichApartmentFragment.newInstance());
+                }
             }
         }
     }
@@ -82,7 +84,6 @@ public class UnityAcquisitionFragment extends BaseFragment implements CustomRadi
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
-
                     updateRbs();
                     break;
                 case R.id.rbFinanced:
@@ -90,7 +91,6 @@ public class UnityAcquisitionFragment extends BaseFragment implements CustomRadi
                     mRb2.setChecked(true);
                     mRb3.setChecked(false);
                     mRb4.setChecked(false);
-
                     updateRbs();
                     break;
                 case R.id.rbOwn:
@@ -98,7 +98,6 @@ public class UnityAcquisitionFragment extends BaseFragment implements CustomRadi
                     mRb2.setChecked(false);
                     mRb3.setChecked(true);
                     mRb4.setChecked(false);
-
                     updateRbs();
                     break;
                 case R.id.rbBorrowed:
@@ -106,7 +105,6 @@ public class UnityAcquisitionFragment extends BaseFragment implements CustomRadi
                     mRb2.setChecked(false);
                     mRb3.setChecked(false);
                     mRb4.setChecked(true);
-
                     updateRbs();
                     break;
             }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <include layout="@layout/fragment_mr_clipboard_full" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbYes"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="Sim"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next"
+        app:layout_constraintEnd_toStartOf="@id/rbNo"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toTopOf="@id/bt_next" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        style="@style/CustomRadioButton"
+        android:id="@+id/rbNo"
+        android:text="Não"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/rbYes"
+        app:layout_constraintEnd_toStartOf="@id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/rbYes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

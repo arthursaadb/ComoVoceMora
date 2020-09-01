@@ -17,8 +17,7 @@
         android:layout_marginLeft="10dp"
         app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard"
         app:layout_constraintEnd_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toTopOf="@id/llVolume1"
-        app:layout_constraintBottom_toBottomOf="@id/llVolume6" />
+        app:layout_constraintTop_toTopOf="@id/llVolume1" />
 
 
     <LinearLayout
