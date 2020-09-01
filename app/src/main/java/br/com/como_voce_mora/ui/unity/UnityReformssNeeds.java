@@ -49,7 +49,7 @@ import butterknife.OnClick;
         if (anyOneSelected) {
             ResearchFlow.addAnswer(answerRequests, this);
             if (yesChecked) {
-
+                ((AboutYouActivity) requireActivity()).addFragment(UnityReformDificult.newInstance());
             } else {
                 ((AboutYouActivity) requireActivity()).addFragment(UnitySunLightFragment.newInstance());
             }

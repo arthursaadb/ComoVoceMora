@@ -49,7 +49,7 @@
                 style="@style/CustomRadioButton"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Vendas de produtos"
+                android:text="Variar posição dos móveis"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +59,7 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Cuidar de pessoas\nextra familiares"
+                android:text="Variar posição dos eletrodomésticos"
                 app:layout_constraintStart_toStartOf="@id/rbEletroPequeno"
                 app:layout_constraintTop_toBottomOf="@id/rbEletroPequeno" />
 
@@ -69,26 +69,16 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Cozinhar para fora"
+                android:text="Inserir flores e plantas naturais"
                 app:layout_constraintStart_toStartOf="@id/rbEletroGrande"
                 app:layout_constraintTop_toBottomOf="@id/rbEletroGrande" />
-
-            <br.com.como_voce_mora.custom.CustomRadioButton
-                android:id="@+id/rbMoveisGrandes"
-                style="@style/CustomRadioButton"
-                android:layout_marginBottom="30dp"
-                android:gravity="center"
-                android:padding="0dp"
-                android:text="Trabalhos manuais"
-                app:layout_constraintStart_toEndOf="@id/rbPosicaoRuim"
-                app:layout_constraintTop_toTopOf="@id/rbPortas" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
                 android:id="@+id/rbPortas"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Trabalhos via\ninternet"
+                android:text="Pintar e/ou usar papel de parede"
                 app:layout_constraintStart_toEndOf="@+id/rbEletroPequeno"
                 app:layout_constraintTop_toTopOf="@id/rbEletroPequeno" />
 
@@ -98,7 +88,7 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Lavar/passar\nroupas para fora"
+                android:text="Abrir vãos e/ou derrubar paredes"
                 app:layout_constraintStart_toStartOf="@id/rbPortas"
                 app:layout_constraintTop_toBottomOf="@id/rbPortas" />
 
@@ -108,9 +98,31 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Outros"
+                android:text="Colocar forro de gesso"
                 app:layout_constraintStart_toStartOf="@id/rbPosicaoRuim"
                 app:layout_constraintTop_toBottomOf="@id/rbPosicaoRuim" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbMoveisGrandes"
+                style="@style/CustomRadioButton"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="Inserir objetos decorativos"
+                app:layout_constraintStart_toEndOf="@id/rbPortas"
+                app:layout_constraintTop_toTopOf="@id/rbPortas" />
+
+            <br.com.como_voce_mora.custom.CustomRadioButton
+                android:id="@+id/rbIlumination"
+                style="@style/CustomRadioButton"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="Acrescentar iluminação"
+                app:layout_constraintStart_toEndOf="@id/rbPosicaoRuim"
+                app:layout_constraintTop_toTopOf="@id/rbPosicaoRuim" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

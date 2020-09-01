@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="como_voce_mora/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2139376346/como_voce_mora.iml" filepath="$PROJECT_DIR$/.idea/modules/2139376346/como_voce_mora.iml" group="como_voce_mora" />
+    </modules>
+  </component>
+</project>
