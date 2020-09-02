@@ -14,6 +14,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import br.com.como_voce_mora.ui.previoushouse.PreviousAcquisitionStateFragment;
 import br.com.como_voce_mora.ui.previoushouse.PreviousWhichHouseFragment;
 import butterknife.BindView;
@@ -125,5 +126,10 @@ public class UnityHouseTypeFragment extends BaseFragment {
         }
     }
 
-
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+        }
+    }
 }

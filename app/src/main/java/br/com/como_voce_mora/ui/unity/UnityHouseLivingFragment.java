@@ -12,6 +12,7 @@ import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.OnClick;
@@ -77,4 +78,10 @@ public class UnityHouseLivingFragment extends BaseFragment {
         textView.setVisibility(View.INVISIBLE);
     }
 
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+        }
+    }
 }

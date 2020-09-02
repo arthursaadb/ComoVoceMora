@@ -99,7 +99,7 @@ public class BuildingWhichDivisionFragment extends BaseFragment {
     @OnClick(R.id.btPreviousSession)
     public void onBtPreviouSessionClicked() {
         if (getActivity() != null) {
-            ((AboutYouActivity) requireActivity()).addFragment(HouseGroupFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
         }
     }
 }

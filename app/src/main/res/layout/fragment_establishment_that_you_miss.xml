@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,8 +10,9 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/bt_back"
@@ -21,13 +21,12 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvBanco"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/banco"
                 app:nameItem="@string/establishment_1"
@@ -35,7 +34,7 @@
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvLoterica"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/loterica"
                 app:nameItem="@string/establishment_2"
@@ -43,7 +42,7 @@
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvMercado"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/supermercado"
                 app:nameItem="@string/establishment_3"
@@ -51,7 +50,7 @@
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvLoja"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/loja"
                 app:nameItem="@string/establishment_4"
@@ -67,7 +66,7 @@
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvFarmacia"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/farmacia"
                 app:nameItem="@string/establishment_5"
@@ -82,20 +81,19 @@
             android:layout_marginStart="0dp"
             android:layout_marginLeft="@dimen/default_margin"
             android:layout_marginTop="@dimen/default_margin"
-            android:layout_below="@id/tv_question"
             android:orientation="horizontal">
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvAcademia"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
-                app:imageItem="@drawable/academia"
+                app:imageItem="@drawable/academia_actual"
                 app:nameItem="@string/establishment_7"
                 app:textColor="@color/colorBlueLight2" />
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvPadaria"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/padaria"
                 app:nameItem="@string/establishment_8"
@@ -103,7 +101,7 @@
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvAcougue"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/acougue"
                 app:nameItem="@string/establishment_9"
@@ -111,7 +109,7 @@
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvRestaurante"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/restaurante"
                 app:nameItem="@string/establishment_10"
@@ -119,7 +117,7 @@
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvOutros"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/outros"
                 app:nameItem="@string/establishment_11"
@@ -127,7 +125,7 @@
 
             <br.com.como_voce_mora.custom.CustomSelectedView
                 android:id="@+id/csvNenhum"
-                android:layout_width="85dp"
+                android:layout_width="@dimen/fit_cel_size"
                 android:layout_height="wrap_content"
                 app:imageItem="@drawable/nenhum"
                 app:nameItem="@string/establishment_12"

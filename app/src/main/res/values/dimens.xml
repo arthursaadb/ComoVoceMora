@@ -26,13 +26,17 @@
 
     <!--Custom Selected View-->
     <dimen name="selected_view_image_width">120dp</dimen>
-    <dimen name="selected_view_image_height">50dp</dimen>
+    <dimen name="selected_view_image_height">40dp</dimen>
     <dimen name="selected_view_text_width">150dp</dimen>
-    <dimen name="selected_view_text_height">50dp</dimen>
+    <dimen name="selected_view_text_height">60dp</dimen>
     <dimen name="selected_size">100dp</dimen>
+    <dimen name="fit_cel_size">85dp</dimen>
 
     <!-- Mr Clipboard Ball -->
     <dimen name="image_mr_clipboard_ball">100dp</dimen>
+
+    <!-- Volume Horizontal -->
+    <dimen name="volume_horizontal_line">100dp</dimen>
 
     <!-- Multi Select -->
     <dimen name="multi_select_text_height">30dp</dimen>
@@ -50,7 +54,7 @@
     <dimen name="custom_radio_button_padding">8dp</dimen>
     <dimen name="custom_radio_button_text_size">12sp</dimen>
 
-    <dimen name="custom_text_width">140dp</dimen>
+    <dimen name="custom_text_width">170dp</dimen>
     <dimen name="custom_photo_size">80dp</dimen>
 
     <!--Podium -->

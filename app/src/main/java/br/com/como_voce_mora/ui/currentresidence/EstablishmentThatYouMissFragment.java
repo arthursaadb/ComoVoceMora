@@ -24,6 +24,31 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
     HowYouLiveProgressBar progressBar;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
+    @BindView(R.id.csvBanco)
+    CustomSelectedView csvBanco;
+    @BindView(R.id.csvLoterica)
+    CustomSelectedView csvLoterica;
+    @BindView(R.id.csvMercado)
+    CustomSelectedView csvMercado;
+    @BindView(R.id.csvLoja)
+    CustomSelectedView csvLoja;
+    @BindView(R.id.csvFarmacia)
+    CustomSelectedView csvFarmacia;
+    @BindView(R.id.csvPosto)
+    CustomSelectedView csvPosto;
+    @BindView(R.id.csvAcademia)
+    CustomSelectedView csvAcademia;
+    @BindView(R.id.csvPadaria)
+    CustomSelectedView csvPadaria;
+    @BindView(R.id.csvAcougue)
+    CustomSelectedView csvAcougue;
+    @BindView(R.id.csvRestaurante)
+    CustomSelectedView csvRestaurante;
+    @BindView(R.id.csvOutros)
+    CustomSelectedView csvOutros;
+    @BindView(R.id.csvNenhum)
+    CustomSelectedView csvNenhum;
+
     private String banco = "";
     private String loterica = "";
     private String mercado = "";
@@ -66,156 +91,155 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
             R.id.csvLoja, R.id.csvFarmacia, R.id.csvPosto, R.id.csvAcademia, R.id.csvPadaria,
             R.id.csvAcougue, R.id.csvRestaurante, R.id.csvOutros, R.id.csvNenhum})
     void onClickViews(View view) {
-        CustomSelectedView csv = (CustomSelectedView) view;
         anyOneSelected = true;
         switch (view.getId()) {
             case R.id.csvBanco:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    banco = csv.getText();
+                if (!csvBanco.isChecked()) {
+                    csvBanco.setChecked(true);
+                    banco = csvBanco.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), banco));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvBanco.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
             case R.id.csvLoterica:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    loterica = csv.getText();
+                if (!csvLoterica.isChecked()) {
+                    csvLoterica.setChecked(true);
+                    loterica = csvLoterica.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), loterica));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvLoterica.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
             case R.id.csvMercado:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    mercado = csv.getText();
+                if (!csvMercado.isChecked()) {
+                    csvMercado.setChecked(true);
+                    mercado = csvMercado.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), mercado));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvMercado.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
             case R.id.csvLoja:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    loja = csv.getText();
+                if (!csvLoja.isChecked()) {
+                    csvLoja.setChecked(true);
+                    loja = csvLoja.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), loja));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvLoja.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
             case R.id.csvFarmacia:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    farmacia = csv.getText();
+                if (!csvFarmacia.isChecked()) {
+                    csvFarmacia.setChecked(true);
+                    farmacia = csvFarmacia.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), farmacia));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvFarmacia.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
             case R.id.csvPosto:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    posto = csv.getText();
+                if (!csvPosto.isChecked()) {
+                    csvPosto.setChecked(true);
+                    posto = csvPosto.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), posto));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvPosto.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
 
             case R.id.csvAcademia:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    academia = csv.getText();
+                if (!csvAcademia.isChecked()) {
+                    csvAcademia.setChecked(true);
+                    academia = csvAcademia.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), academia));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvAcademia.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
 
             case R.id.csvPadaria:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    padaria = csv.getText();
+                if (!csvPadaria.isChecked()) {
+                    csvPadaria.setChecked(true);
+                    padaria = csvPadaria.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), padaria));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvPadaria.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
 
             case R.id.csvAcougue:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    acougue = csv.getText();
+                if (!csvAcougue.isChecked()) {
+                    csvAcougue.setChecked(true);
+                    acougue = csvAcougue.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), acougue));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvAcougue.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
 
             case R.id.csvRestaurante:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    restaurante = csv.getText();
+                if (!csvRestaurante.isChecked()) {
+                    csvRestaurante.setChecked(true);
+                    restaurante = csvRestaurante.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), restaurante));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvRestaurante.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
 
             case R.id.csvOutros:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    outros = csv.getText();
+                if (!csvOutros.isChecked()) {
+                    csvOutros.setChecked(true);
+                    outros = csvOutros.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), outros));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvOutros.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }
 
             case R.id.csvNenhum:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
-                    nenhum = csv.getText();
+                if (!csvNenhum.isChecked()) {
+                    csvNenhum.setChecked(true);
+                    nenhum = csvNenhum.getText();
                     answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
                             currentResidenceAnswer.getQuestionPartId(), nenhum));
                     break;
                 } else {
-                    csv.setChecked(false);
+                    csvNenhum.setChecked(false);
                     removeItem(currentResidenceAnswer.getQuestion());
                     break;
                 }

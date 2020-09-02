@@ -14,6 +14,7 @@ import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -25,6 +26,24 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
+    @BindView(R.id.csvServico)
+    CustomSelectedView csvServico;
+    @BindView(R.id.csvBanheiro)
+    CustomSelectedView csvBanheiro;
+    @BindView(R.id.csvCasal)
+    CustomSelectedView csvCasal;
+    @BindView(R.id.csvSolteiro)
+    CustomSelectedView csvSolteiro;
+    @BindView(R.id.csvSala)
+    CustomSelectedView csvSala;
+    @BindView(R.id.csvCopa)
+    CustomSelectedView csvCopa;
+    @BindView(R.id.csvVaranda)
+    CustomSelectedView csvVaranda;
+    @BindView(R.id.csvCozinha)
+    CustomSelectedView csvCozinha;
+
+
     List<AnswerRequest> answerRequests = new ArrayList<>();
     UnityAnswer unityAnswer = UnityAnswer.BETTER_SUN;
 
@@ -51,97 +70,96 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
     @OnClick({R.id.csvServico, R.id.csvBanheiro, R.id.csvCasal,
             R.id.csvSolteiro, R.id.csvSala, R.id.csvCopa, R.id.csvVaranda, R.id.csvCozinha})
     void onClickViews(View view) {
-        CustomSelectedView csv = (CustomSelectedView) view;
         switch (view.getId()) {
             case R.id.csvServico:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+                if (!csvServico.isChecked()) {
+                    csvServico.setChecked(true);
                     answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                            unityAnswer.getQuestionPartId(), csv.getText()));
+                            unityAnswer.getQuestionPartId(), csvServico.getText()));
                     break;
                 } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
+                    csvServico.setChecked(false);
+                    removeItem(csvServico.getText());
                     break;
                 }
             case R.id.csvBanheiro:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+                if (!csvBanheiro.isChecked()) {
+                    csvBanheiro.setChecked(true);
                     answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                            unityAnswer.getQuestionPartId(), csv.getText()));
+                            unityAnswer.getQuestionPartId(), csvBanheiro.getText()));
                     break;
                 } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
+                    csvBanheiro.setChecked(false);
+                    removeItem(csvBanheiro.getText());
                     break;
                 }
             case R.id.csvCasal:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+                if (!csvCasal.isChecked()) {
+                    csvCasal.setChecked(true);
                     answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                            unityAnswer.getQuestionPartId(), csv.getText()));
+                            unityAnswer.getQuestionPartId(), csvCasal.getText()));
                     break;
                 } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
+                    csvCasal.setChecked(false);
+                    removeItem(csvCasal.getText());
                     break;
                 }
             case R.id.csvSolteiro:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+                if (!csvSolteiro.isChecked()) {
+                    csvSolteiro.setChecked(true);
                     answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                            unityAnswer.getQuestionPartId(), csv.getText()));
+                            unityAnswer.getQuestionPartId(), csvSolteiro.getText()));
                     break;
                 } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
+                    csvSolteiro.setChecked(false);
+                    removeItem(csvSolteiro.getText());
                     break;
                 }
 
             case R.id.csvSala:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+                if (!csvSala.isChecked()) {
+                    csvSala.setChecked(true);
                     answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                            unityAnswer.getQuestionPartId(), csv.getText()));
+                            unityAnswer.getQuestionPartId(), csvSala.getText()));
                     break;
                 } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
+                    csvSala.setChecked(false);
+                    removeItem(csvSala.getText());
                     break;
                 }
 
             case R.id.csvCopa:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+                if (!csvCopa.isChecked()) {
+                    csvCopa.setChecked(true);
                     answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                            unityAnswer.getQuestionPartId(), csv.getText()));
+                            unityAnswer.getQuestionPartId(), csvCopa.getText()));
                     break;
                 } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
+                    csvCopa.setChecked(false);
+                    removeItem(csvCopa.getText());
                     break;
                 }
 
             case R.id.csvVaranda:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+                if (!csvVaranda.isChecked()) {
+                    csvVaranda.setChecked(true);
                     answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                            unityAnswer.getQuestionPartId(), csv.getText()));
+                            unityAnswer.getQuestionPartId(), csvVaranda.getText()));
                     break;
                 } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
+                    csvVaranda.setChecked(false);
+                    removeItem(csvVaranda.getText());
                     break;
                 }
             case R.id.csvCozinha:
-                if (!csv.isChecked()) {
-                    csv.setChecked(true);
+                if (!csvCozinha.isChecked()) {
+                    csvCozinha.setChecked(true);
                     answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                            unityAnswer.getQuestionPartId(), csv.getText()));
+                            unityAnswer.getQuestionPartId(), csvCozinha.getText()));
                     break;
                 } else {
-                    csv.setChecked(false);
-                    removeItem(csv.getText());
+                    csvCozinha.setChecked(false);
+                    removeItem(csvCozinha.getText());
                 }
         }
     }
@@ -178,6 +196,13 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
         }
     }
 

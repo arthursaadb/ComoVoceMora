@@ -1,5 +1,6 @@
 package br.com.como_voce_mora.ui.housegroup;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -103,6 +104,7 @@ public class HabitationBlocksFragment extends BaseFragment implements VolumeVert
         anyOptionChecked = true;
         mIvBlocks.setImageResource(blocks.get(position));
         mTvBlocks.setText(blocksText.get(position));
+        mTvBlocks.setVisibility(View.VISIBLE);
         answerRequests = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), blocksText.get(position));
     }
 

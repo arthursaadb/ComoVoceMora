@@ -71,7 +71,7 @@
                 android:layout_marginStart="@dimen/small_margin"
                 android:layout_marginLeft="@dimen/small_margin"
                 android:layout_marginTop="10dp"
-                app:textName="Facilidade de  Manutençao/Limpeza" />
+                app:textName="Facilidade de  Manutenção/Limpeza" />
 
             <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume5"
@@ -80,7 +80,7 @@
                 android:layout_marginStart="@dimen/small_margin"
                 android:layout_marginLeft="@dimen/small_margin"
                 android:layout_marginTop="10dp"
-                app:textName="Adaptação as necessidades" />
+                app:textName="Adaptação às necessidades" />
 
             <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume6"

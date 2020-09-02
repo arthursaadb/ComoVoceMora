@@ -14,6 +14,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
 import butterknife.BindView;
@@ -493,6 +494,13 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     csv12.setChecked(true);
                 }
                 break;
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
         }
     }
 }

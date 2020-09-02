@@ -42,7 +42,7 @@ public enum BuildingAnswer {
 
 
     //VOLUME HORIZONTAL QUESTION
-    LOT_REVIEW("Qual a sua satisfação em relação ao seu lote", "affe770a-0464-4e31-b47c-8953ac33fc48"),
+    LOT_REVIEW("Qual a sua satisfação em relação ao seu lote?", "affe770a-0464-4e31-b47c-8953ac33fc48"),
     LOT_SIZE("Tamanho", "59c5489bf9a75c213d64b215"),
     LOT_EVOLUTION("Capacidade de ampliação", "590b5fd61e4d3f620eea26ec"),
     LOT_CONSTROCTION("Aproveitamento da construção", "5a427ec8f9a75c50ae7eb285")

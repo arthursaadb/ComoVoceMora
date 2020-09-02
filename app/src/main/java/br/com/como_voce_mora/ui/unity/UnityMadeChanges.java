@@ -13,6 +13,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -121,7 +122,7 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
                     mRbPosicaoRuim.setChecked(false);
                     mRbMoveisNovos.setChecked(false);
                     mRbIlumination.setChecked(false);
-                    mScrollView.setVisibility(View.GONE);
+                    mScrollView.setVisibility(View.VISIBLE);
                     updateRbs();
                     break;
             }
@@ -162,4 +163,10 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
         }
     }
 
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+        }
+    }
 }

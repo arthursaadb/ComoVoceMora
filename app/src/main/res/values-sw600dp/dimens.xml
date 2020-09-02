@@ -23,11 +23,15 @@
     <!--Custom Selected View-->
     <dimen name="selected_view_image_width">160dp</dimen>
     <dimen name="selected_view_image_height">65dp</dimen>
-    <dimen name="selected_view_text_height">60dp</dimen>
-    <dimen name="selected_size">135dp</dimen>
+    <dimen name="selected_view_text_height">85dp</dimen>
+    <dimen name="selected_size">150dp</dimen>
+    <dimen name="fit_cel_size">160dp</dimen>
 
     <!-- Mr Clipboard Ball -->
     <dimen name="image_mr_clipboard_ball">150dp</dimen>
+
+    <!-- Volume Horizontal -->
+    <dimen name="volume_horizontal_line">150dp</dimen>
 
     <!-- Multi Select -->
     <dimen name="multi_select_text_height">60dp</dimen>

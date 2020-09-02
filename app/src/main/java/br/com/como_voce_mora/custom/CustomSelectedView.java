@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import br.com.como_voce_mora.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +49,7 @@ public class CustomSelectedView extends RelativeLayout {
 
     public void setChecked(boolean selected) {
         this.selected = selected;
-
+        mTvName.setTextColor(ContextCompat.getColor(getContext(), selected ?  R.color.colorWhite :  R.color.colorGray));
         mTvName.setBackgroundResource(selected ? R.drawable.bg_ballon_pressed_type_1 : R.drawable.bg_ballon_normal_type_1);
     }
 
