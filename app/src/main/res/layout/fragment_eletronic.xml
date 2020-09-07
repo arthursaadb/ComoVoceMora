@@ -15,7 +15,6 @@
         android:id="@+id/water_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:scaleType="fitXY"
         android:src="@drawable/baterialixo"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
         app:layout_constraintStart_toEndOf="@+id/bt_back"

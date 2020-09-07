@@ -40,21 +40,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_padding"
+        android:layout_marginTop="32dp"
         android:text="Você sabia?"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/title_text_size"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/explanation_tv"
-        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintEnd_toStartOf="@id/bt_next" />
 
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="@dimen/default_margin"
         android:layout_marginTop="100dp"
         android:src="@drawable/medicamentovencido"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +63,8 @@
     <TextView
         android:id="@+id/explanation_tv"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginEnd="@dimen/default_margin"
         android:text="Remédios vencidos não devem ser descartados diretamente no lixo comum. Como são produtos químicos, eles podem causar impacto ambiental, principalmente se entrarem em contato com a água. Os pontos de coleta são farmácias, departamento de vigilância sanitária e alguns supermercados."

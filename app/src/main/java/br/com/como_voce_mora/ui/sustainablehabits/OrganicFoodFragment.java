@@ -39,6 +39,7 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD;
     AnswerRequest answerRequest;
     BaseFragment mNextFrag;
+    Boolean anyOptionChecked = false;
 
     public static OrganicFoodFragment newInstance() {
         return new OrganicFoodFragment();
@@ -51,7 +52,7 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && mNextFrag != null) {
+        if (getActivity() != null && mNextFrag != null && anyOptionChecked) {
             ResearchFlow.addAnswer(answerRequest, this);
             ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
         }
@@ -68,12 +69,14 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.HABITS);
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
+        rbDishes.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
@@ -87,20 +90,6 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
                     mNextFrag = OrganicFoodWhyNot.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
-
-                    updateViews();
-                    break;
-            }
-        }
-         else {
-            switch (buttonView.getId()) {
-                case R.id.rbBrushMyTeeth:
-                    rbBrushMyTeeth.setChecked(false);
-
-                    updateViews();
-                    break;
-                case R.id.rbDishes:
-                    rbDishes.setChecked(false);
 
                     updateViews();
                     break;
