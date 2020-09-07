@@ -71,7 +71,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
-                    saude = csv.getText();        mNextFrag = WhyReasonEquipamentFragment.newInstance();
+                    saude = csv.getText();
                     answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
                             sustainableHabitsAnswer.getQuestionPartId(), saude));
                     break;
@@ -91,10 +91,10 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
-                    mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
                     mNextFrag = DoYouSeparateGarbageFragment.newInstance();
                     cultura = csv.getText();
@@ -104,10 +104,11 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
             case R.id.cvsNone:
                 if (!csv.isChecked()) {
-                    mNextFrag = DoYouSeparateGarbageFragment.newInstance();
+                    mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
                     lazer = csv.getText();
                     answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
@@ -116,6 +117,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 } else {
                     csv.setChecked(false);
                     removeItem(sustainableHabitsAnswer.getQuestion());
+                    break;
                 }
         }
 
@@ -125,7 +127,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             setAnswer();
-            ((AboutYouActivity) requireActivity()).addFragment(WhyReasonEquipamentFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
         }
     }
 

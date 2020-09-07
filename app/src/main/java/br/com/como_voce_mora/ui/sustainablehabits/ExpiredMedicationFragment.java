@@ -35,6 +35,7 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.MEDICAMENT_EXPIRED;
     AnswerRequest answerRequest;
+    BaseFragment mNextFrag;
 
     public static ExpiredMedicationFragment newInstance() {
         return new ExpiredMedicationFragment();
@@ -49,7 +50,7 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowMedicamentExpiredFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
         }
     }
 
@@ -75,6 +76,7 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
+                    mNextFrag = DoYouKnowMedicamentExpiredFragment.newInstance();
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
@@ -82,6 +84,7 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
                     updateViews();
                     break;
                 case R.id.rbDishes:
+                    mNextFrag = DoYouKnowMedicamentExpiredFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
@@ -89,6 +92,7 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
+                    mNextFrag = OrganicFoodFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);

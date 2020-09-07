@@ -13,7 +13,7 @@ public enum SustainableHabitsAnswer {
     SEPARATE_GARBAGE("Você separa o lixo entre reciclável e comum?", "20250b0a-3b37-4385-a270-b2a89f468e41"),
     WHERE_GO_GARBAGE("Você sabe para onde o lixo reciclável da sua cidade vai?", "865d4d09-ad88-4707-aa87-e09f39e0a0d8"),
     ECOPOINT("Você conhece algum Ecoponto próximo da sua residência?", "6fc85561-cdd7-46cc-9ffa-08085d090c3c"),
-    SEPARATE_OIL("Você separa o óleo dos outros tipos de resíduos, por que?","156b325d-5528-4904-9dc2-371ecf9f3459"),
+    SEPARATE_OIL("Você separa o óleo dos outros tipos de resíduos? Por quê?","156b325d-5528-4904-9dc2-371ecf9f3459"),
     CONSTRUCTION("O que você faz com resíduos de construção civil?","47ae10c6-25ff-4ade-9f24-99f2621f065c"),
     ELETRONIC("Como você realiza o descarte de baterias e equipamentos eletrônicos?","9a00c5a6-0e49-4f2d-8d85-3a7602658fdc"),
     MEDICAMENT_EXPIRED("Como você realiza o descarte de medicamentos vencidos?","d2b057a1-c7ce-4c68-99e2-124608adc583"),

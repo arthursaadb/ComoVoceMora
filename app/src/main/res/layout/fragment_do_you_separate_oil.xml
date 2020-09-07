@@ -13,28 +13,33 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="150dp"
         android:scaleType="fitXY"
         android:src="@drawable/residuos"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"
+        app:layout_constraintEnd_toStartOf="@id/optionYes"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@+id/bt_back"
         app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard"
         tools:ignore="NotSibling,UnknownIdInLayout" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/optionYes"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Sim"
+        app:layout_constraintEnd_toStartOf="@id/rbBillsPrice"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintTop_toBottomOf="@id/tv_question"
         tools:ignore="NotSibling" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/optionNo"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Não"
@@ -46,7 +51,8 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBillsPrice"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:button="@color/colorTransparent"
         android:text="Reutilizo o óleo para\noutros fins"
         android:textAlignment="center"
@@ -57,7 +63,8 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbLessAmbientalDamage"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:layout_marginEnd="@dimen/small_margin"
         android:layout_marginRight="@dimen/small_margin"
         android:button="@color/colorTransparent"
@@ -71,77 +78,83 @@
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbDry"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:layout_marginTop="@dimen/small_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Levo até os locais\nque coletam óleo"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@id/rbBillsPrice"
         app:layout_constraintStart_toStartOf="@id/rbBillsPrice"
         app:layout_constraintTop_toBottomOf="@id/rbBillsPrice" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbOthers"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:layout_marginTop="@dimen/small_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Outros"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@id/rbLessAmbientalDamage"
         app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"
         app:layout_constraintTop_toBottomOf="@id/rbLessAmbientalDamage" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbAbundantResource"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:layout_marginBottom="@dimen/small_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Não vejo necessidade"
-        app:layout_constraintEnd_toStartOf="@id/rbOthersNo"
         android:textAlignment="center"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@id/optionNo"
-        app:layout_constraintBottom_toTopOf="@id/rbNoNeed" />
+        app:layout_constraintBottom_toTopOf="@id/rbNoNeed"
+        app:layout_constraintEnd_toStartOf="@id/rbOthersNo"
+        app:layout_constraintStart_toEndOf="@id/optionNo" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbOthersNo"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:layout_marginEnd="@dimen/small_margin"
         android:layout_marginBottom="@dimen/small_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Acho difícil separar"
         android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/rbLowCost"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbAbundantResource"
-        app:layout_constraintBottom_toTopOf="@id/rbLowCost"
         tools:ignore="UnknownIdInLayout" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbNoNeed"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Não utilizo"
         android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@id/rbLowCost"
         app:layout_constraintStart_toEndOf="@id/optionNo"
         app:layout_constraintTop_toTopOf="@id/optionNo"
-        app:layout_constraintEnd_toStartOf="@id/rbLowCost"
         tools:ignore="NotSibling" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbLowCost"
-        style="@style/CustomRadioButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
         android:layout_marginEnd="@dimen/small_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
         android:text="Outros"
-        app:layout_constraintEnd_toStartOf="@+id/bt_next"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@id/rbNoNeed"
         app:layout_constraintBottom_toBottomOf="@id/optionNo"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next"
+        app:layout_constraintStart_toEndOf="@id/rbNoNeed"
         tools:ignore="NotSibling" />
 </androidx.constraintlayout.widget.ConstraintLayout>

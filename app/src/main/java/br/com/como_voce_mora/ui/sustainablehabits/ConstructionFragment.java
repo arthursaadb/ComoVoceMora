@@ -132,7 +132,7 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
 
                     updateViews();
                     break;
-                case R.id.rbFewDevices:
+                case R.id.rbOthers  :
                     rbOthers.setChecked(false);
 
                     updateViews();

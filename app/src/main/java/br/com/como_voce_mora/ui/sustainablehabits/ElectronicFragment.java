@@ -39,7 +39,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouKnowBatteryFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
         }
     }
 
@@ -66,7 +66,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
-                    mNextFrag = DoYouKnowMedicamentExpiredFragment.newInstance();
+                    mNextFrag = DoYouKnowBatteryFragment.newInstance();
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
@@ -74,7 +74,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    mNextFrag = DoYouKnowMedicamentExpiredFragment.newInstance();
+                    mNextFrag = DoYouKnowBatteryFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
@@ -82,7 +82,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
                     updateViews();
                     break;
                 case R.id.rbWashMachineCapacity:
-                    mNextFrag = OrganicFoodFragment.newInstance();
+                    mNextFrag = ExpiredMedicationFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
@@ -90,7 +90,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
                     updateViews();
                     break;
                 case R.id.rbUnknow:
-                    mNextFrag = OrganicFoodFragment.newInstance();
+                    mNextFrag = DoYouKnowBatteryFragment.newInstance();
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);

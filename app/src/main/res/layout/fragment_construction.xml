@@ -60,7 +60,7 @@
         style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Levo para\necoponto"
+        android:text="Levo para ecoponto"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"

@@ -39,7 +39,7 @@
         style="@style/CustomRadioButton"
         android:layout_marginTop="@dimen/default_margin"
         android:gravity="center"
-        android:text="Separo, mas deixo na\nlixeira"
+        android:text="Separo, mas deixo na lixeira"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
@@ -50,7 +50,7 @@
         android:layout_marginTop="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Levo para o ponto de\ncoleta"
+        android:text="Levo para o ponto de coleta"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintStart_toStartOf="@id/rbDishes"

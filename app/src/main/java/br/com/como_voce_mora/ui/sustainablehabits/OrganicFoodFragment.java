@@ -90,9 +90,17 @@ public class OrganicFoodFragment extends BaseFragment implements CustomRadioButt
 
                     updateViews();
                     break;
-                case R.id.rbWashMachineCapacity:
-                    mNextFrag = OrganicFoodWhyFragment.newInstance();
+            }
+        }
+         else {
+            switch (buttonView.getId()) {
+                case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDishes:
+                    rbDishes.setChecked(false);
 
                     updateViews();
                     break;

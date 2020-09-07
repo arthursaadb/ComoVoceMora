@@ -13,14 +13,13 @@
 
     <ImageView
         android:id="@+id/water_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginTop="100dp"
         android:src="@drawable/alimentos"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintStart_toEndOf="@+id/bt_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_mr_clipboard" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbBrushMyTeeth"
@@ -28,8 +27,7 @@
         android:layout_marginStart="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Preocupação\nsaúde"
-        android:textSize="@dimen/micro_text_size"
+        android:text="Preocupação saúde"
         app:layout_constraintEnd_toStartOf="@id/rbQuickShowers"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@id/water_iv"
@@ -41,7 +39,7 @@
         android:layout_marginTop="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Reduzir danos\nambientais"
+        android:text="Reduzir danos ambientais"
         app:layout_constraintEnd_toEndOf="@id/rbBrushMyTeeth"
         app:layout_constraintStart_toStartOf="@id/rbBrushMyTeeth"
         app:layout_constraintTop_toBottomOf="@id/rbBrushMyTeeth" />
@@ -53,7 +51,7 @@
         android:layout_marginEnd="@dimen/default_margin"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="São mais \nsaborosos"
+        android:text="São mais saborosos"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@+id/rbBrushMyTeeth"

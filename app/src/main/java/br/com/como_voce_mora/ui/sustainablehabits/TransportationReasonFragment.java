@@ -123,7 +123,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
 
                     updateViews();
                     break;
-                case R.id.rbOther:
+                case R.id.rbOthers:
                     rbOthers.setChecked(true);
 
                     updateViews();
@@ -166,7 +166,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
 
                     updateViews();
                     break;
-                case R.id.rbOther:
+                case R.id.rbOthers:
                     rbOthers.setChecked(false);
 
                     updateViews();

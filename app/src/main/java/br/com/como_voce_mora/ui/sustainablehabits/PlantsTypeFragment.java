@@ -73,7 +73,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
                     updateViews();
                     break;
                 case R.id.rbDishes:
-                    rbDishes.setChecked(false);
+                    rbDishes.setChecked(true);
 
                     updateViews();
                     break;
