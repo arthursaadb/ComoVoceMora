@@ -4,11 +4,6 @@ import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
-import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
-import br.com.como_voce_mora.ui.sustainablehabits.TransportationFragment;
-import br.com.como_voce_mora.ui.sustainablehabits.TransportationReasonFragment;
-import br.com.como_voce_mora.ui.sustainablehabits.WhyYouSaveWaterFragment;
-import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 
 public class AboutYouActivity extends BaseActivity {
     public static final String SCREEN_FRAGMENT = "screen-fragment";

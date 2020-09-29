@@ -12,12 +12,23 @@ import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.BuildingReasonChoiceFragment;
 import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import br.com.como_voce_mora.ui.currentresidence.WhatsYourSatisfactionFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BALCONY;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BATHROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BIGROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_DINNERROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_KITCHEN;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_ROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_SERVICE_AREA;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_SINGLEROMM;
 
 public class UnityRoomsFragment extends BaseFragment {
     @BindView(R.id.progress_bar)
@@ -25,6 +36,7 @@ public class UnityRoomsFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    List<UnityAnswer> roomList = new ArrayList<>();
     List<AnswerRequest> answerRequests = new ArrayList<>();
     private boolean anyOptionChecked = false;
 
@@ -55,11 +67,65 @@ public class UnityRoomsFragment extends BaseFragment {
         CustomSelectedView csv = (CustomSelectedView) view;
         if (!csv.isChecked()) {
             csv.setChecked(true);
+
+            switch (view.getId()) {
+                case R.id.csvServico:
+                    roomList.add(CHARACTERISTICS_SATISFACTION_SERVICE_AREA);
+                    break;
+                case R.id.csvBanheiro:
+                    roomList.add(CHARACTERISTICS_SATISFACTION_BATHROOM);
+                    break;
+                case R.id.csvCasal:
+                    roomList.add(CHARACTERISTICS_SATISFACTION_BIGROOM);
+                    break;
+                case R.id.csvSolteiro:
+                    roomList.add(CHARACTERISTICS_SATISFACTION_SINGLEROMM);
+                    break;
+                case R.id.csvSala:
+                    roomList.add(CHARACTERISTICS_SATISFACTION_ROOM);
+                    break;
+                case R.id.csvCopa:
+                    roomList.add(CHARACTERISTICS_SATISFACTION_DINNERROOM);
+                    break;
+                case R.id.csvVaranda:
+                    roomList.add(CHARACTERISTICS_SATISFACTION_BALCONY);
+                    break;
+                case R.id.csvCozinha:
+                    roomList.add(CHARACTERISTICS_SATISFACTION_KITCHEN);
+                    break;
+            }
 //                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
 //                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
         } else {
             csv.setChecked(false);
             removeItem(csv.getText());
+
+            switch (view.getId()) {
+                case R.id.csvServico:
+                    roomList.remove(CHARACTERISTICS_SATISFACTION_SERVICE_AREA);
+                    break;
+                case R.id.csvBanheiro:
+                    roomList.remove(CHARACTERISTICS_SATISFACTION_BATHROOM);
+                    break;
+                case R.id.csvCasal:
+                    roomList.remove(CHARACTERISTICS_SATISFACTION_BIGROOM);
+                    break;
+                case R.id.csvSolteiro:
+                    roomList.remove(CHARACTERISTICS_SATISFACTION_SINGLEROMM);
+                    break;
+                case R.id.csvSala:
+                    roomList.remove(CHARACTERISTICS_SATISFACTION_ROOM);
+                    break;
+                case R.id.csvCopa:
+                    roomList.remove(CHARACTERISTICS_SATISFACTION_DINNERROOM);
+                    break;
+                case R.id.csvVaranda:
+                    roomList.remove(CHARACTERISTICS_SATISFACTION_BALCONY);
+                    break;
+                case R.id.csvCozinha:
+                    roomList.remove(CHARACTERISTICS_SATISFACTION_KITCHEN);
+                    break;
+            }
         }
     }
 
@@ -81,7 +147,7 @@ public class UnityRoomsFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (anyOptionChecked) {
 //        setAnswer();
-            ((AboutYouActivity) requireActivity()).addFragment(UnityRateRoomsFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(UnityRateRoomsFragment.newInstance(roomList));
         }
     }
 

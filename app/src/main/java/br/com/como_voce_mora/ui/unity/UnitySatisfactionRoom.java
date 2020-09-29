@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,7 @@ import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTI
 import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_DINNERROOM;
 import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_KITCHEN;
 import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_ROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_SERVICE_AREA;
 import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_SINGLEROMM;
 
 public class UnitySatisfactionRoom extends BaseFragment {
@@ -48,7 +50,6 @@ public class UnitySatisfactionRoom extends BaseFragment {
     ImageView ivPhoto;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
-    private UnityAnswer roomType = CHARACTERISTICS_SATISFACTION_BATHROOM;
     private UnityAnswer size = UnityAnswer.SIZE_SATISFACTION;
     private UnityAnswer division = UnityAnswer.EASE_OF_FURNISHINGS;
     private UnityAnswer quality = UnityAnswer.TEMPERATURE;
@@ -57,14 +58,15 @@ public class UnitySatisfactionRoom extends BaseFragment {
     private UnityAnswer privacy = UnityAnswer.NOISE_LEVEL;
     private List<String> texts = new ArrayList<>();
     private boolean anyOptionChecked = false;
+    private UnityAnswer roomType;
+    private List<UnityAnswer> listRoomType;
 
-    public static UnitySatisfactionRoom newInstance(UnityAnswer room) {
+    public static UnitySatisfactionRoom newInstance(List<UnityAnswer> room) {
 
         Bundle args = new Bundle();
-
+        args.putSerializable("list", (Serializable) room);
         UnitySatisfactionRoom fragment = new UnitySatisfactionRoom();
         fragment.setArguments(args);
-        fragment.roomType = room;
         return fragment;
     }
 
@@ -75,6 +77,9 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
     @Override
     public void init() {
+        listRoomType = (List<UnityAnswer>) getArguments().getSerializable("list");
+        roomType = listRoomType.get(0);
+        listRoomType.remove(0);
         tvQuestion.setText(roomType.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
         texts.add("Muito Ruim");
@@ -91,20 +96,22 @@ public class UnitySatisfactionRoom extends BaseFragment {
         vhPrivacy.setMax(texts.size() - 1);
         initVolumes();
 
-        if (roomType==CHARACTERISTICS_SATISFACTION_BATHROOM) {
+        if (roomType == CHARACTERISTICS_SATISFACTION_BATHROOM) {
             ivPhoto.setImageResource(R.drawable.banheiro);
-        } else if (roomType==CHARACTERISTICS_SATISFACTION_BIGROOM) {
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_BIGROOM) {
             ivPhoto.setImageResource(R.drawable.dorm_casal);
-        } else if (roomType==CHARACTERISTICS_SATISFACTION_SINGLEROMM) {
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_SINGLEROMM) {
             ivPhoto.setImageResource(R.drawable.dorm_solteiro);
-        } else if (roomType==CHARACTERISTICS_SATISFACTION_ROOM) {
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_ROOM) {
             ivPhoto.setImageResource(R.drawable.estar);
-        } else if (roomType==CHARACTERISTICS_SATISFACTION_DINNERROOM) {
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_DINNERROOM) {
             ivPhoto.setImageResource(R.drawable.sala_jantar);
-        } else if (roomType==CHARACTERISTICS_SATISFACTION_BALCONY) {
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_BALCONY) {
             ivPhoto.setImageResource(R.drawable.varanda);
-        } else if (roomType==CHARACTERISTICS_SATISFACTION_KITCHEN) {
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_KITCHEN) {
             ivPhoto.setImageResource(R.drawable.cozinha);
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_SERVICE_AREA) {
+            ivPhoto.setImageResource(R.drawable.service);
         }
     }
 
@@ -141,20 +148,10 @@ public class UnitySatisfactionRoom extends BaseFragment {
         if (anyOptionChecked) {
             if (getActivity() != null) {
                 setAnswers();
-                if (roomType == CHARACTERISTICS_SATISFACTION_BATHROOM) {
-                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_BIGROOM));
-                } else if (roomType == CHARACTERISTICS_SATISFACTION_BIGROOM) {
-                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_SINGLEROMM));
-                } else if (roomType == CHARACTERISTICS_SATISFACTION_SINGLEROMM) {
-                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_ROOM));
-                } else if (roomType == CHARACTERISTICS_SATISFACTION_ROOM) {
-                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_DINNERROOM));
-                } else if (roomType == CHARACTERISTICS_SATISFACTION_DINNERROOM) {
-                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_BALCONY));
-                } else if (roomType == CHARACTERISTICS_SATISFACTION_BALCONY) {
-                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_KITCHEN));
-                } else if (roomType == CHARACTERISTICS_SATISFACTION_KITCHEN) {
+                if (listRoomType.isEmpty()) {
                     ((AboutYouActivity) getActivity()).addFragment(UnityReformFragment.newInstance());
+                } else {
+                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(listRoomType));
                 }
             }
         }
@@ -169,7 +166,7 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
     private void setAnswers() {
         for (AnswerRequest r : answerRequests) {
-            ResearchFlow.addAnswer(r,this);
+            ResearchFlow.addAnswer(r, this);
         }
     }
 

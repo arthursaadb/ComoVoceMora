@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -38,17 +39,19 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
     private AnswerRequest answerRequest;
     private UnityAnswer unityAnswer = UnityAnswer.SATISFACTION_FOR_ROOMS;
 
+    private List<UnityAnswer> roomsList;
     private List<Integer> images;
     private List<String> texts;
 
-    public static UnityRateRoomsFragment newInstance() {
+    public static UnityRateRoomsFragment newInstance(List<UnityAnswer> roomList) {
 
         Bundle args = new Bundle();
-
+        args.putSerializable("list", (Serializable) roomList);
         UnityRateRoomsFragment fragment = new UnityRateRoomsFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public int getResLayout() {
         return R.layout.fragment_unity_rate_rooms;
@@ -79,6 +82,7 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
         answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), texts.get(0));
+        roomsList = (List<UnityAnswer>) getArguments().getSerializable("list");
     }
 
     @Override
@@ -92,8 +96,8 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest,this);
-            ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(CHARACTERISTICS_SATISFACTION_BATHROOM));
+            ResearchFlow.addAnswer(answerRequest, this);
+            ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(roomsList));
         }
     }
 

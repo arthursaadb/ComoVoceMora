@@ -1,6 +1,8 @@
 package br.com.como_voce_mora.model;
 
-public enum UnityAnswer {
+import java.io.Serializable;
+
+public enum UnityAnswer implements Serializable {
 
     HOUSING_STATE("Qual é o estado de aquisição da sua moradia?", "c0ef6d0a-9239-4c85-b543-788beea7c322"),
     APARTMENT_TYPE("Qual é o tipo do seu apartamento?", "e3b5d26a-3351-40cb-9089-e66cf88da694"),
@@ -55,6 +57,7 @@ public enum UnityAnswer {
     CHARACTERISTICS_SATISFACTION_DINNERROOM("Agora avalie a SALA DE JANTAR . Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea2802"),
     CHARACTERISTICS_SATISFACTION_BALCONY("Agora avalie a VARANDA. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea280f"),
     CHARACTERISTICS_SATISFACTION_KITCHEN("Agora avalie a COZINHA. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea27f8"),
+    CHARACTERISTICS_SATISFACTION_SERVICE_AREA("Agora avalie a ÁREA DE SERVIÇO. Para cada característica, informe o seu nível de satisfação.","590b5fd61e4d3f620eea2813"),
     EASE_OF_FURNISHINGS("Facilidade de mobiliar", "5d0975d22771712aa06c6bf8"),
     TEMPERATURE("Temperatura", "5d0975832771712aa06c6bf6"),
     NATURAL_VENTILATION("Nível de Convivência", "590b5fd61e4d3f620eea2700"),
