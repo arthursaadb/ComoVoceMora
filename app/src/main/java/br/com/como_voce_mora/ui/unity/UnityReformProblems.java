@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,10 +46,10 @@ public class UnityReformProblems extends BaseFragment {
     private List<String> texts = new ArrayList<>();
     private boolean anyOptionChecked = false;
 
-    public static UnityReformProblems newInstance() {
+    public static UnityReformProblems newInstance(List<UnityAnswer> room) {
 
         Bundle args = new Bundle();
-
+        args.putSerializable("list", (Serializable) room);
         UnityReformProblems fragment = new UnityReformProblems();
         fragment.setArguments(args);
         return fragment;
@@ -105,7 +106,7 @@ public class UnityReformProblems extends BaseFragment {
         if (anyOptionChecked) {
             if (getActivity() != null) {
                 setAnswers();
-                ((AboutYouActivity) getActivity()).addFragment(UnityMadeChanges.newInstance());
+                ((AboutYouActivity) getActivity()).addFragment(UnityMadeChanges.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             }
         }
     }

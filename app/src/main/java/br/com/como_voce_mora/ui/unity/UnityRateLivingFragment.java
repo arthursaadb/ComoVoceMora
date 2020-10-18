@@ -87,26 +87,26 @@ public class UnityRateLivingFragment extends BaseFragment {
         vhSize.setListener(position -> {
             anyOptionChecked = true;
             vhSize.setInfo(texts.get(position));
-            ivPhoto.setImageResource(R.drawable.apartamento);
+            ivPhoto.setImageResource(R.drawable.apto_tamanho);
             answerRequests.add(new AnswerRequest(size.getQuestion(), size.getQuestionPartId(), texts.get(position)));
         });
         vhDivision.setListener(position -> {
-            ivPhoto.setImageResource(R.drawable.apartamento);
+            ivPhoto.setImageResource(R.drawable.apto_divisao_comodos);
             vhDivision.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(division.getQuestion(), division.getQuestionPartId(), texts.get(position)));
         });
         vhQuality.setListener(position -> {
-            ivPhoto.setImageResource(R.drawable.apartamento);
+            ivPhoto.setImageResource(R.drawable.apto_qualidade_materiais);
             vhQuality.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(quality.getQuestion(), quality.getQuestionPartId(), texts.get(position)));
         });
         vhClean.setListener(position -> {
-            ivPhoto.setImageResource(R.drawable.apartamento);
+            ivPhoto.setImageResource(R.drawable.apto_auto_limpeza);
             vhClean.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(clean.getQuestion(), clean.getQuestionPartId(), texts.get(position)));
         });
         vhAdaptation.setListener(position -> {
-            ivPhoto.setImageResource(R.drawable.apartamento);
+            ivPhoto.setImageResource(R.drawable.apto_iluminacao_natural);
             vhAdaptation.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(adaptation.getQuestion(), adaptation.getQuestionPartId(), texts.get(position)));
         });

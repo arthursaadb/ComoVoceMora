@@ -14,6 +14,7 @@ import br.com.como_voce_mora.custom.VolumeHorizontal;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.UnityAnswer;
+import br.com.como_voce_mora.model.UnityRoomsImages;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
@@ -60,11 +61,14 @@ public class UnitySatisfactionRoom extends BaseFragment {
     private boolean anyOptionChecked = false;
     private UnityAnswer roomType;
     private List<UnityAnswer> listRoomType;
+    private int index;
+    private UnityRoomsImages images;
 
-    public static UnitySatisfactionRoom newInstance(List<UnityAnswer> room) {
+    public static UnitySatisfactionRoom newInstance(List<UnityAnswer> room, int index) {
 
         Bundle args = new Bundle();
         args.putSerializable("list", (Serializable) room);
+        args.putInt("index", index);
         UnitySatisfactionRoom fragment = new UnitySatisfactionRoom();
         fragment.setArguments(args);
         return fragment;
@@ -78,8 +82,9 @@ public class UnitySatisfactionRoom extends BaseFragment {
     @Override
     public void init() {
         listRoomType = (List<UnityAnswer>) getArguments().getSerializable("list");
-        roomType = listRoomType.get(0);
-        listRoomType.remove(0);
+        index = getArguments().getInt("index");
+        roomType = listRoomType.get(index);
+        index++;
         tvQuestion.setText(roomType.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
         texts.add("Muito Ruim");
@@ -98,20 +103,28 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
         if (roomType == CHARACTERISTICS_SATISFACTION_BATHROOM) {
             ivPhoto.setImageResource(R.drawable.banheiro);
+            images = UnityRoomsImages.BATHROOM;
         } else if (roomType == CHARACTERISTICS_SATISFACTION_BIGROOM) {
             ivPhoto.setImageResource(R.drawable.dorm_casal);
+            images = UnityRoomsImages.BIGROOM;
         } else if (roomType == CHARACTERISTICS_SATISFACTION_SINGLEROMM) {
             ivPhoto.setImageResource(R.drawable.dorm_solteiro);
+            images = UnityRoomsImages.SINGLEROOM;
         } else if (roomType == CHARACTERISTICS_SATISFACTION_ROOM) {
             ivPhoto.setImageResource(R.drawable.estar);
+            images = UnityRoomsImages.ROOM;
         } else if (roomType == CHARACTERISTICS_SATISFACTION_DINNERROOM) {
             ivPhoto.setImageResource(R.drawable.sala_jantar);
+            images = UnityRoomsImages.DINNERROOM;
         } else if (roomType == CHARACTERISTICS_SATISFACTION_BALCONY) {
             ivPhoto.setImageResource(R.drawable.varanda);
+            images = UnityRoomsImages.BALCONY;
         } else if (roomType == CHARACTERISTICS_SATISFACTION_KITCHEN) {
             ivPhoto.setImageResource(R.drawable.cozinha);
+            images = UnityRoomsImages.KITCHEN;
         } else if (roomType == CHARACTERISTICS_SATISFACTION_SERVICE_AREA) {
             ivPhoto.setImageResource(R.drawable.service);
+            images = UnityRoomsImages.SERVICE;
         }
     }
 
@@ -119,26 +132,32 @@ public class UnitySatisfactionRoom extends BaseFragment {
         vhSize.setListener(position -> {
             anyOptionChecked = true;
             vhSize.setInfo(texts.get(position));
+            ivPhoto.setImageResource(images.getTamanho());
             answerRequests.add(new AnswerRequest(size.getQuestion(), size.getQuestionPartId(), texts.get(position)));
         });
         vhDivision.setListener(position -> {
             vhDivision.setInfo(texts.get(position));
+            ivPhoto.setImageResource(images.getMobiliar());
             answerRequests.add(new AnswerRequest(division.getQuestion(), division.getQuestionPartId(), texts.get(position)));
         });
         vhQuality.setListener(position -> {
             vhQuality.setInfo(texts.get(position));
+            ivPhoto.setImageResource(images.getTemperatura());
             answerRequests.add(new AnswerRequest(quality.getQuestion(), quality.getQuestionPartId(), texts.get(position)));
         });
         vhClean.setListener(position -> {
             vhClean.setInfo(texts.get(position));
+            ivPhoto.setImageResource(images.getVentilacao());
             answerRequests.add(new AnswerRequest(clean.getQuestion(), clean.getQuestionPartId(), texts.get(position)));
         });
         vhAdaptation.setListener(position -> {
             vhAdaptation.setInfo(texts.get(position));
+            ivPhoto.setImageResource(images.getIluminacao());
             answerRequests.add(new AnswerRequest(adaptation.getQuestion(), adaptation.getQuestionPartId(), texts.get(position)));
         });
         vhPrivacy.setListener(position -> {
             vhPrivacy.setInfo(texts.get(position));
+            ivPhoto.setImageResource(images.getRuido());
             answerRequests.add(new AnswerRequest(privacy.getQuestion(), privacy.getQuestionPartId(), texts.get(position)));
         });
     }
@@ -148,10 +167,10 @@ public class UnitySatisfactionRoom extends BaseFragment {
         if (anyOptionChecked) {
             if (getActivity() != null) {
                 setAnswers();
-                if (listRoomType.isEmpty()) {
-                    ((AboutYouActivity) getActivity()).addFragment(UnityReformFragment.newInstance());
+                if (index == listRoomType.size()) {
+                    ((AboutYouActivity) getActivity()).addFragment(UnityReformFragment.newInstance(listRoomType));
                 } else {
-                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(listRoomType));
+                    ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(listRoomType, index++));
                 }
             }
         }

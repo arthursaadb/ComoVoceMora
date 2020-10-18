@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
@@ -15,7 +17,6 @@ import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
-import br.com.como_voce_mora.ui.currentresidence.CurrentHomeFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -23,6 +24,14 @@ import butterknife.OnClick;
 import static br.com.como_voce_mora.model.UnityAnswer.BALCONY_ACTIVITIES;
 import static br.com.como_voce_mora.model.UnityAnswer.BATHROOM_ACTIVITIES;
 import static br.com.como_voce_mora.model.UnityAnswer.BIGROOM_ACTIVITIES;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BALCONY;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BATHROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_BIGROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_DINNERROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_KITCHEN;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_ROOM;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_SERVICE_AREA;
+import static br.com.como_voce_mora.model.UnityAnswer.CHARACTERISTICS_SATISFACTION_SINGLEROMM;
 import static br.com.como_voce_mora.model.UnityAnswer.DINNERROOM_ACTIVITIES;
 import static br.com.como_voce_mora.model.UnityAnswer.KITCHEN_ACTIVITIES;
 import static br.com.como_voce_mora.model.UnityAnswer.ROOM_ACTIVITIES;
@@ -75,15 +84,16 @@ public class UnityActivitiesByRoom extends BaseFragment {
 
 
     private ArrayList<AnswerRequest> answerRequests = new ArrayList<>();
-    private UnityAnswer roomType = KITCHEN_ACTIVITIES;
+    private UnityAnswer roomTypeActivity;
+    private UnityAnswer roomType;
+    private List<UnityAnswer> listRoomType;
 
-    public static UnityActivitiesByRoom newInstance(UnityAnswer room) {
+    public static UnityActivitiesByRoom newInstance(List<UnityAnswer> room) {
 
         Bundle args = new Bundle();
-
+        args.putSerializable("list", (Serializable) room);
         UnityActivitiesByRoom fragment = new UnityActivitiesByRoom();
         fragment.setArguments(args);
-        fragment.roomType = room;
         return fragment;
     }
 
@@ -95,186 +105,28 @@ public class UnityActivitiesByRoom extends BaseFragment {
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        tvQuestion.setText(roomType.getQuestion());
-        setImages();
+        listRoomType = (List<UnityAnswer>) getArguments().getSerializable("list");
+        roomType = listRoomType.get(0);
+        listRoomType.remove(0);
+        configQuestionAndImages();
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
             setAnswer();
-            if (roomType == KITCHEN_ACTIVITIES) {
-                ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(BALCONY_ACTIVITIES));
-            } else if (roomType == BALCONY_ACTIVITIES) {
-                ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(DINNERROOM_ACTIVITIES));
-            } else if (roomType == DINNERROOM_ACTIVITIES) {
-                ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(ROOM_ACTIVITIES));
-            } else if (roomType == ROOM_ACTIVITIES) {
-                ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(SINGLEROMM_ACTIVITIES));
-            } else if (roomType == SINGLEROMM_ACTIVITIES) {
-                ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(BIGROOM_ACTIVITIES));
-            } else if (roomType == BIGROOM_ACTIVITIES) {
-                ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(BATHROOM_ACTIVITIES));
-            } else if (roomType == BATHROOM_ACTIVITIES) {
-                ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(SERVICE_AREA_ACTIVITIES));
-            } else if (roomType == SERVICE_AREA_ACTIVITIES) {
+            if(listRoomType.isEmpty()){
                 ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsIntroFragment.newInstance());
+            } else {
+                ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(listRoomType));
             }
         }
     }
 
-    private void setImages() {
-        if (roomType==KITCHEN_ACTIVITIES) {
-            csv1.setImage(R.drawable.estender_roupa);
-            csv1.setText("ESTENDER A ROUPA");
-            csv2.setImage(R.drawable.armazenar_coisas);
-            csv2.setText("ARMAZENAR COISAS");
-            csv3.setImage(R.drawable.passar_roupa);
-            csv3.setText("PASSAR A ROUPA");
-            csv4.setImage(R.drawable.receber_pessoas);
-            csv4.setText("RECEBER CONVIDADOS");
-            csv5.setImage(R.drawable.usar_computador);
-            csv5.setText("USAR COMPUTADOR/CELULAR");
-            csv6.setImage(R.drawable.trabalhos_manuais);
-            csv6.setText("FAZER TRABALHOS MANUAIS");
-            csv7.setImage(R.drawable.tocar);
-            csv7.setText("TOCAR INSTRUMENTO");
-            csv8.setImage(R.drawable.ler);
-            csv8.setText("LER/ESTUDAR");
-            csv9.setImage(R.drawable.lavar_roupa);
-            csv9.setText("LAVAR ROUPA");
-            csv10.setImage(R.drawable.outros);
-            csv10.setText("OUTROS");
-            csv11.setImage(R.drawable.tv);
-            csv11.setText("ASSISTIR TV");
-            csv12.setImage(R.drawable.nenhum);
-            csv12.setText("NENHUM");
-        } else if (roomType==BALCONY_ACTIVITIES) {
-            csv1.setImage(R.drawable.estender_roupa);
-            csv1.setText("ESTENDER A ROUPA");
-            csv2.setImage(R.drawable.armazenar_coisas);
-            csv2.setText("ARMAZENAR COISAS");
-            csv3.setImage(R.drawable.passar_roupa);
-            csv3.setText("PASSAR A ROUPA");
-            csv4.setImage(R.drawable.receber_pessoas);
-            csv4.setText("RECEBER CONVIDADOS");
-            csv5.setImage(R.drawable.usar_computador);
-            csv5.setText("USAR COMPUTADOR/CELULAR");
-            csv6.setImage(R.drawable.exercitar);
-            csv6.setText("EXERCITAR-SE");
-            csv7.setImage(R.drawable.tocar);
-            csv7.setText("TOCAR INSTRUMENTO");
-            csv8.setImage(R.drawable.ler);
-            csv8.setText("LER/ESTUDAR");
-            csv9.setImage(R.drawable.almocar);
-            csv9.setText("ALMOÇAR");
-            csv10.setImage(R.drawable.outros);
-            csv10.setText("OUTROS");
-            csv11.setImage(R.drawable.jantar);
-            csv11.setText("JANTAR");
-            csv12.setImage(R.drawable.nenhum);
-            csv12.setText("NENHUM");
-        } else if (roomType==DINNERROOM_ACTIVITIES) {
-            csv1.setImage(R.drawable.trabalhos_manuais);
-            csv1.setText("FAZER TRABALHOS MANUAIS");
-            csv2.setImage(R.drawable.armazenar_coisas);
-            csv2.setText("ARMAZENAR COISAS");
-            csv3.setImage(R.drawable.passar_roupa);
-            csv3.setText("PASSAR A ROUPA");
-            csv4.setImage(R.drawable.internet);
-            csv4.setText("USAR INTERNET");
-            csv5.setImage(R.drawable.usar_computador);
-            csv5.setText("USAR COMPUTADOR/CELULAR");
-            csv6.setImage(R.drawable.exercitar);
-            csv6.setText("EXERCITAR-SE");
-            csv7.setImage(R.drawable.tocar);
-            csv7.setText("TOCAR INSTRUMENTO");
-            csv8.setImage(R.drawable.ler);
-            csv8.setText("LER/ESTUDAR");
-            csv9.setImage(R.drawable.dormir);
-            csv9.setText("DORMIR");
-            csv10.setImage(R.drawable.outros);
-            csv10.setText("OUTROS");
-            csv11.setImage(R.drawable.jogar);
-            csv11.setText("JOGAR");
-            csv12.setImage(R.drawable.nenhum);
-            csv12.setText("NENHUM");
-        } else if (roomType==ROOM_ACTIVITIES) {
-            csv1.setImage(R.drawable.dormir);
-            csv1.setText("DORMIR");
-            csv2.setImage(R.drawable.armazenar_coisas);
-            csv2.setText("ARMAZENAR COISAS");
-            csv3.setImage(R.drawable.passar_roupa);
-            csv3.setText("PASSAR A ROUPA");
-            csv4.setImage(R.drawable.receber_pessoas);
-            csv4.setText("RECEBER CONVIDADOS");
-            csv5.setImage(R.drawable.trabalhos_manuais);
-            csv5.setText("FAZER TRABALHOS MANUAIS");
-            csv6.setImage(R.drawable.exercitar);
-            csv6.setText("EXERCITAR-SE");
-            csv7.setImage(R.drawable.tocar);
-            csv7.setText("TOCAR INSTRUMENTO");
-            csv8.setImage(R.drawable.ler);
-            csv8.setText("LER/ESTUDAR");
-            csv9.setImage(R.drawable.almocar);
-            csv9.setText("ALMOÇAR");
-            csv10.setImage(R.drawable.outros);
-            csv10.setText("OUTROS");
-            csv11.setImage(R.drawable.jantar);
-            csv11.setText("JANTAR");
-            csv12.setImage(R.drawable.nenhum);
-            csv12.setText("NENHUM");
-        } else if (roomType==SINGLEROMM_ACTIVITIES) {
-            csv1.setImage(R.drawable.refeicao);
-            csv1.setText("REFEIÇÃO RÁPIDA");
-            csv2.setImage(R.drawable.armazenar_coisas);
-            csv2.setText("ARMAZENAR COISAS");
-            csv3.setImage(R.drawable.passar_roupa);
-            csv3.setText("PASSAR A ROUPA");
-            csv4.setImage(R.drawable.internet);
-            csv4.setText("USAR INTERNET");
-            csv5.setImage(R.drawable.usar_computador);
-            csv5.setText("USAR COMPUTADOR/CELULAR");
-            csv6.setImage(R.drawable.trabalhos_manuais);
-            csv6.setText("FAZER TRABALHOS MANUAIS");
-            csv7.setImage(R.drawable.tocar);
-            csv7.setText("TOCAR INSTRUMENTO");
-            csv8.setImage(R.drawable.ler);
-            csv8.setText("LER/ESTUDAR");
-            csv9.setImage(R.drawable.jogar);
-            csv9.setText("JOGAR");
-            csv10.setImage(R.drawable.outros);
-            csv10.setText("OUTROS");
-            csv11.setImage(R.drawable.trabalhar);
-            csv11.setText("TRABALHAR");
-            csv12.setImage(R.drawable.nenhum);
-            csv12.setText("NENHUM");
-        } else if (roomType==BIGROOM_ACTIVITIES) {
-            csv1.setImage(R.drawable.refeicao);
-            csv1.setText("REFEIÇÃO RÁPIDA");
-            csv2.setImage(R.drawable.armazenar_coisas);
-            csv2.setText("ARMAZENAR COISAS");
-            csv3.setImage(R.drawable.internet);
-            csv3.setText("USAR INTERNET");
-            csv4.setImage(R.drawable.receber_pessoas);
-            csv4.setText("RECEBER CONVIDADOS");
-            csv5.setImage(R.drawable.usar_computador);
-            csv5.setText("USAR COMPUTADOR/CELULAR");
-            csv6.setImage(R.drawable.trabalhar);
-            csv6.setText("TRABALHAR");
-            csv7.setImage(R.drawable.tocar);
-            csv7.setText("TOCAR INSTRUMENTO");
-            csv8.setImage(R.drawable.ler);
-            csv8.setText("LER/ESTUDAR");
-            csv9.setImage(R.drawable.trabalhos_manuais);
-            csv9.setText("FAZER TRABALHOS MANUAIS");
-            csv10.setImage(R.drawable.outros);
-            csv10.setText("OUTROS");
-            csv11.setImage(R.drawable.jogar);
-            csv11.setText("JOGAR");
-            csv12.setImage(R.drawable.nenhum);
-            csv12.setText("NENHUM");
-        } else if (roomType==BATHROOM_ACTIVITIES) {
+    private void configQuestionAndImages() {
+        if (roomType == CHARACTERISTICS_SATISFACTION_BATHROOM) {
+            roomTypeActivity = BATHROOM_ACTIVITIES;
+            tvQuestion.setText(BATHROOM_ACTIVITIES.getQuestion());
             csv1.setImage(R.drawable.estender_roupa);
             csv1.setText("ESTENDER A ROUPA");
             csv2.setImage(R.drawable.armazenar_coisas);
@@ -299,7 +151,171 @@ public class UnityActivitiesByRoom extends BaseFragment {
             csv11.setText("JOGAR");
             csv12.setImage(R.drawable.nenhum);
             csv12.setText("NENHUM");
-        } else if (roomType==SERVICE_AREA_ACTIVITIES) {
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_BIGROOM) {
+            roomTypeActivity = BIGROOM_ACTIVITIES;
+            tvQuestion.setText(BIGROOM_ACTIVITIES.getQuestion());
+            csv1.setImage(R.drawable.refeicao);
+            csv1.setText("REFEIÇÃO RÁPIDA");
+            csv2.setImage(R.drawable.armazenar_coisas);
+            csv2.setText("ARMAZENAR COISAS");
+            csv3.setImage(R.drawable.internet);
+            csv3.setText("USAR INTERNET");
+            csv4.setImage(R.drawable.receber_pessoas);
+            csv4.setText("RECEBER CONVIDADOS");
+            csv5.setImage(R.drawable.usar_computador);
+            csv5.setText("USAR COMPUTADOR/CELULAR");
+            csv6.setImage(R.drawable.trabalhar);
+            csv6.setText("TRABALHAR");
+            csv7.setImage(R.drawable.tocar);
+            csv7.setText("TOCAR INSTRUMENTO");
+            csv8.setImage(R.drawable.ler);
+            csv8.setText("LER/ESTUDAR");
+            csv9.setImage(R.drawable.trabalhos_manuais);
+            csv9.setText("FAZER TRABALHOS MANUAIS");
+            csv10.setImage(R.drawable.outros);
+            csv10.setText("OUTROS");
+            csv11.setImage(R.drawable.jogar);
+            csv11.setText("JOGAR");
+            csv12.setImage(R.drawable.nenhum);
+            csv12.setText("NENHUM");
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_SINGLEROMM) {
+            roomTypeActivity = SINGLEROMM_ACTIVITIES;
+            tvQuestion.setText(SINGLEROMM_ACTIVITIES.getQuestion());
+            csv1.setImage(R.drawable.refeicao);
+            csv1.setText("REFEIÇÃO RÁPIDA");
+            csv2.setImage(R.drawable.armazenar_coisas);
+            csv2.setText("ARMAZENAR COISAS");
+            csv3.setImage(R.drawable.passar_roupa);
+            csv3.setText("PASSAR A ROUPA");
+            csv4.setImage(R.drawable.internet);
+            csv4.setText("USAR INTERNET");
+            csv5.setImage(R.drawable.usar_computador);
+            csv5.setText("USAR COMPUTADOR/CELULAR");
+            csv6.setImage(R.drawable.trabalhos_manuais);
+            csv6.setText("FAZER TRABALHOS MANUAIS");
+            csv7.setImage(R.drawable.tocar);
+            csv7.setText("TOCAR INSTRUMENTO");
+            csv8.setImage(R.drawable.ler);
+            csv8.setText("LER/ESTUDAR");
+            csv9.setImage(R.drawable.jogar);
+            csv9.setText("JOGAR");
+            csv10.setImage(R.drawable.outros);
+            csv10.setText("OUTROS");
+            csv11.setImage(R.drawable.trabalhar);
+            csv11.setText("TRABALHAR");
+            csv12.setImage(R.drawable.nenhum);
+            csv12.setText("NENHUM");
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_ROOM) {
+            roomTypeActivity = ROOM_ACTIVITIES;
+            tvQuestion.setText(ROOM_ACTIVITIES.getQuestion());
+            csv1.setImage(R.drawable.dormir);
+            csv1.setText("DORMIR");
+            csv2.setImage(R.drawable.armazenar_coisas);
+            csv2.setText("ARMAZENAR COISAS");
+            csv3.setImage(R.drawable.passar_roupa);
+            csv3.setText("PASSAR A ROUPA");
+            csv4.setImage(R.drawable.receber_pessoas);
+            csv4.setText("RECEBER CONVIDADOS");
+            csv5.setImage(R.drawable.trabalhos_manuais);
+            csv5.setText("FAZER TRABALHOS MANUAIS");
+            csv6.setImage(R.drawable.exercitar);
+            csv6.setText("EXERCITAR-SE");
+            csv7.setImage(R.drawable.tocar);
+            csv7.setText("TOCAR INSTRUMENTO");
+            csv8.setImage(R.drawable.ler);
+            csv8.setText("LER/ESTUDAR");
+            csv9.setImage(R.drawable.almocar);
+            csv9.setText("ALMOÇAR");
+            csv10.setImage(R.drawable.outros);
+            csv10.setText("OUTROS");
+            csv11.setImage(R.drawable.jantar);
+            csv11.setText("JANTAR");
+            csv12.setImage(R.drawable.nenhum);
+            csv12.setText("NENHUM");
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_DINNERROOM) {
+            roomTypeActivity = DINNERROOM_ACTIVITIES;
+            tvQuestion.setText(DINNERROOM_ACTIVITIES.getQuestion());
+            csv1.setImage(R.drawable.trabalhos_manuais);
+            csv1.setText("FAZER TRABALHOS MANUAIS");
+            csv2.setImage(R.drawable.armazenar_coisas);
+            csv2.setText("ARMAZENAR COISAS");
+            csv3.setImage(R.drawable.passar_roupa);
+            csv3.setText("PASSAR A ROUPA");
+            csv4.setImage(R.drawable.internet);
+            csv4.setText("USAR INTERNET");
+            csv5.setImage(R.drawable.usar_computador);
+            csv5.setText("USAR COMPUTADOR/CELULAR");
+            csv6.setImage(R.drawable.exercitar);
+            csv6.setText("EXERCITAR-SE");
+            csv7.setImage(R.drawable.tocar);
+            csv7.setText("TOCAR INSTRUMENTO");
+            csv8.setImage(R.drawable.ler);
+            csv8.setText("LER/ESTUDAR");
+            csv9.setImage(R.drawable.dormir);
+            csv9.setText("DORMIR");
+            csv10.setImage(R.drawable.outros);
+            csv10.setText("OUTROS");
+            csv11.setImage(R.drawable.jogar);
+            csv11.setText("JOGAR");
+            csv12.setImage(R.drawable.nenhum);
+            csv12.setText("NENHUM");
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_BALCONY) {
+            roomTypeActivity = BALCONY_ACTIVITIES;
+            tvQuestion.setText(BALCONY_ACTIVITIES.getQuestion());
+            csv1.setImage(R.drawable.estender_roupa);
+            csv1.setText("ESTENDER A ROUPA");
+            csv2.setImage(R.drawable.armazenar_coisas);
+            csv2.setText("ARMAZENAR COISAS");
+            csv3.setImage(R.drawable.passar_roupa);
+            csv3.setText("PASSAR A ROUPA");
+            csv4.setImage(R.drawable.receber_pessoas);
+            csv4.setText("RECEBER CONVIDADOS");
+            csv5.setImage(R.drawable.usar_computador);
+            csv5.setText("USAR COMPUTADOR/CELULAR");
+            csv6.setImage(R.drawable.exercitar);
+            csv6.setText("EXERCITAR-SE");
+            csv7.setImage(R.drawable.tocar);
+            csv7.setText("TOCAR INSTRUMENTO");
+            csv8.setImage(R.drawable.ler);
+            csv8.setText("LER/ESTUDAR");
+            csv9.setImage(R.drawable.almocar);
+            csv9.setText("ALMOÇAR");
+            csv10.setImage(R.drawable.outros);
+            csv10.setText("OUTROS");
+            csv11.setImage(R.drawable.jantar);
+            csv11.setText("JANTAR");
+            csv12.setImage(R.drawable.nenhum);
+            csv12.setText("NENHUM");
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_KITCHEN) {
+            roomTypeActivity = KITCHEN_ACTIVITIES;
+            tvQuestion.setText(KITCHEN_ACTIVITIES.getQuestion());
+            csv1.setImage(R.drawable.estender_roupa);
+            csv1.setText("ESTENDER A ROUPA");
+            csv2.setImage(R.drawable.armazenar_coisas);
+            csv2.setText("ARMAZENAR COISAS");
+            csv3.setImage(R.drawable.passar_roupa);
+            csv3.setText("PASSAR A ROUPA");
+            csv4.setImage(R.drawable.receber_pessoas);
+            csv4.setText("RECEBER CONVIDADOS");
+            csv5.setImage(R.drawable.usar_computador);
+            csv5.setText("USAR COMPUTADOR/CELULAR");
+            csv6.setImage(R.drawable.trabalhos_manuais);
+            csv6.setText("FAZER TRABALHOS MANUAIS");
+            csv7.setImage(R.drawable.tocar);
+            csv7.setText("TOCAR INSTRUMENTO");
+            csv8.setImage(R.drawable.ler);
+            csv8.setText("LER/ESTUDAR");
+            csv9.setImage(R.drawable.lavar_roupa);
+            csv9.setText("LAVAR ROUPA");
+            csv10.setImage(R.drawable.outros);
+            csv10.setText("OUTROS");
+            csv11.setImage(R.drawable.tv);
+            csv11.setText("ASSISTIR TV");
+            csv12.setImage(R.drawable.nenhum);
+            csv12.setText("NENHUM");
+        } else if (roomType == CHARACTERISTICS_SATISFACTION_SERVICE_AREA) {
+            roomTypeActivity = SERVICE_AREA_ACTIVITIES;
+            tvQuestion.setText(SERVICE_AREA_ACTIVITIES.getQuestion());
             csv1.setImage(R.drawable.refeicao);
             csv1.setText("REFEIÇÃO RÁPIDA");
             csv2.setImage(R.drawable.armazenar_coisas);
@@ -326,6 +342,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
             csv12.setText("NENHUM");
         }
     }
+
 
     private void setAnswer() {
         if (answerCsv1 != null) {
@@ -388,7 +405,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     csv1.setChecked(false);
                     answerCsv1 = null;
                 } else {
-                    answerCsv1 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv1 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv1.setChecked(true);
                 }
                 break;
@@ -397,7 +414,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv2 = null;
                     csv2.setChecked(false);
                 } else {
-                    answerCsv2 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv2 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv2.setChecked(true);
                 }
                 break;
@@ -406,7 +423,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv3 = null;
                     csv3.setChecked(false);
                 } else {
-                    answerCsv3 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv3 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv3.setChecked(true);
                 }
                 break;
@@ -415,7 +432,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv4 = null;
                     csv4.setChecked(false);
                 } else {
-                    answerCsv4 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv4 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv4.setChecked(true);
                 }
 
@@ -425,7 +442,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv5 = null;
                     csv5.setChecked(false);
                 } else {
-                    answerCsv5 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv5 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv5.setChecked(true);
                 }
 
@@ -435,7 +452,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv6 = null;
                     csv6.setChecked(false);
                 } else {
-                    answerCsv6 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv6 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv6.setChecked(true);
                 }
 
@@ -445,7 +462,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv7 = null;
                     csv7.setChecked(false);
                 } else {
-                    answerCsv7 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv7 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv7.setChecked(true);
                 }
                 break;
@@ -454,7 +471,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv8 = null;
                     csv8.setChecked(false);
                 } else {
-                    answerCsv8 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv8 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv8.setChecked(true);
                 }
                 break;
@@ -463,7 +480,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv9 = null;
                     csv9.setChecked(false);
                 } else {
-                    answerCsv9 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv9 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv9.setChecked(true);
                 }
                 break;
@@ -472,7 +489,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv10 = null;
                     csv10.setChecked(false);
                 } else {
-                    answerCsv10 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv10 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv10.setChecked(true);
                 }
                 break;
@@ -481,7 +498,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv11 = null;
                     csv11.setChecked(false);
                 } else {
-                    answerCsv11 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv11 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv11.setChecked(true);
                 }
                 break;
@@ -490,7 +507,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerCsv12 = null;
                     csv12.setChecked(false);
                 } else {
-                    answerCsv12 = new AnswerRequest(roomType.getQuestion(), roomType.getQuestionPartId(), text);
+                    answerCsv12 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
                     csv12.setChecked(true);
                 }
                 break;

@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.io.Serializable;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -55,10 +58,10 @@ public class UnityReformFragment extends BaseFragment implements View.OnClickLis
     private  Boolean none = false;
 
 
-    public static UnityReformFragment newInstance() {
+    public static UnityReformFragment newInstance(List<UnityAnswer> room) {
 
         Bundle args = new Bundle();
-
+        args.putSerializable("list", (Serializable) room);
         UnityReformFragment fragment = new UnityReformFragment();
         fragment.setArguments(args);
         return fragment;
@@ -152,9 +155,9 @@ public class UnityReformFragment extends BaseFragment implements View.OnClickLis
         if (getActivity() != null) {
             setAnswer();
             if (none) {
-                ((AboutYouActivity) requireActivity()).addFragment(UnityReformssNeeds.newInstance());
+                ((AboutYouActivity) requireActivity()).addFragment(UnityReformssNeeds.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             } else {
-                ((AboutYouActivity) getActivity()).addFragment(UnityReformReasonFragment.newInstance());
+                ((AboutYouActivity) getActivity()).addFragment(UnityReformReasonFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             }
         }
     }

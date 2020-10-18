@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,10 +53,10 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
         return R.layout.fragment_unity_rooms_sunlight;
     }
 
-    public static UnityRoomsSunlightFragment newInstance() {
+    public static UnityRoomsSunlightFragment newInstance(List<UnityAnswer> room) {
 
         Bundle args = new Bundle();
-
+        args.putSerializable("list", (Serializable) room);
         UnityRoomsSunlightFragment fragment = new UnityRoomsSunlightFragment();
         fragment.setArguments(args);
         return fragment;
@@ -181,7 +182,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
 //        setAnswer();
-        ((AboutYouActivity) requireActivity()).addFragment(UnityActivitiesByRoom.newInstance(KITCHEN_ACTIVITIES));
+        ((AboutYouActivity) requireActivity()).addFragment(UnityActivitiesByRoom.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
     }
 
 //    private void setAnswer() {

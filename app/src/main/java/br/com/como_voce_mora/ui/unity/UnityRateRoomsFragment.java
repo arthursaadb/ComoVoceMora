@@ -97,7 +97,7 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
     public void onBtNextClicked() {
         if (getActivity() != null) {
             ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(roomsList));
+            ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(roomsList, 0));
         }
     }
 

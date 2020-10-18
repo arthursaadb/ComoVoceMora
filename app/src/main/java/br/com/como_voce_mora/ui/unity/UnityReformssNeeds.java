@@ -1,7 +1,11 @@
 package br.com.como_voce_mora.ui.unity;
 
+import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import java.io.Serializable;
+import java.util.List;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
@@ -36,8 +40,13 @@ import butterknife.OnClick;
     private AnswerRequest answerRequests;
     private boolean yesChecked = false;
 
-    public static UnityReformssNeeds newInstance() {
-        return new UnityReformssNeeds();
+    public static UnityReformssNeeds newInstance(List<UnityAnswer> room) {
+
+        Bundle args = new Bundle();
+        args.putSerializable("list", (Serializable) room);
+        UnityReformssNeeds fragment = new UnityReformssNeeds();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -50,9 +59,9 @@ import butterknife.OnClick;
         if (anyOneSelected) {
             ResearchFlow.addAnswer(answerRequests, this);
             if (yesChecked) {
-                ((AboutYouActivity) requireActivity()).addFragment(UnityReformDificult.newInstance());
+                ((AboutYouActivity) requireActivity()).addFragment(UnityReformDificult.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             } else {
-                ((AboutYouActivity) requireActivity()).addFragment(UnitySunLightFragment.newInstance());
+                ((AboutYouActivity) requireActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             }
         }
     }

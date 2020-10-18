@@ -1,9 +1,11 @@
 package br.com.como_voce_mora.ui.unity;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +45,13 @@ public class UnityReformReasonFragment extends BaseFragment {
     private UnityAnswer outraRasao = UnityAnswer.OTHER_REASON;
     private UnityAnswer eliminar = UnityAnswer.ELIMINATE_ROOM;
 
-    public static UnityReformReasonFragment newInstance() {
-        return new UnityReformReasonFragment();
+    public static UnityReformReasonFragment newInstance(List<UnityAnswer> room) {
+
+        Bundle args = new Bundle();
+        args.putSerializable("list", (Serializable) room);
+        UnityReformReasonFragment fragment = new UnityReformReasonFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -113,7 +120,7 @@ public class UnityReformReasonFragment extends BaseFragment {
     public void onBtNextClicked() {
         if (getActivity() != null) {
             setAnswers();
-            ((AboutYouActivity) getActivity()).addFragment(UnityReformssNeeds.newInstance());
+            ((AboutYouActivity) getActivity()).addFragment(UnityReformssNeeds.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
         }
     }
 

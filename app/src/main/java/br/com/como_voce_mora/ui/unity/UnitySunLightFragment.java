@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.io.Serializable;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -30,10 +33,10 @@ public class UnitySunLightFragment extends BaseFragment implements CustomRadioBu
     private AnswerRequest answerRequest;
     private UnityAnswer unityAnswer = UnityAnswer.SUN_RECEIVE;
 
-    public static UnitySunLightFragment newInstance() {
+    public static UnitySunLightFragment newInstance(List<UnityAnswer> room) {
 
         Bundle args = new Bundle();
-
+        args.putSerializable("list", (Serializable) room);
         UnitySunLightFragment fragment = new UnitySunLightFragment();
         fragment.setArguments(args);
         return fragment;
@@ -86,7 +89,7 @@ public class UnitySunLightFragment extends BaseFragment implements CustomRadioBu
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) requireActivity()).addFragment(UnityRoomsSunlightFragment.newInstance());
+            ((AboutYouActivity) requireActivity()).addFragment(UnityRoomsSunlightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
         }
     }
 

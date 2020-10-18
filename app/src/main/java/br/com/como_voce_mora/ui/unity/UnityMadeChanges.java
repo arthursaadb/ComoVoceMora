@@ -1,9 +1,13 @@
 package br.com.como_voce_mora.ui.unity;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
+
+import java.io.Serializable;
+import java.util.List;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
@@ -50,8 +54,13 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
     private AnswerRequest answerRequest;
     private UnityAnswer unityAnswer = UnityAnswer.MADE_LIST_CHANGES;
 
-    public static UnityMadeChanges newInstance() {
-        return new UnityMadeChanges();
+    public static UnityMadeChanges newInstance(List<UnityAnswer> room) {
+
+        Bundle args = new Bundle();
+        args.putSerializable("list", (Serializable) room);
+        UnityMadeChanges fragment = new UnityMadeChanges();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -151,7 +160,7 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
         if (anyOptionChecked) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(answerRequest, this);
-                ((AboutYouActivity) getActivity()).addFragment(UnitySunLightFragment.newInstance());
+                ((AboutYouActivity) getActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             }
         }
     }
