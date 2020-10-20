@@ -337,7 +337,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
             csv10.setImage(R.drawable.outros);
             csv10.setText("OUTROS");
             csv11.setImage(R.drawable.internet);
-            csv11.setText("USAR INNTERNET");
+            csv11.setText("USAR INTERNET");
             csv12.setImage(R.drawable.nenhum);
             csv12.setText("NENHUM");
         }

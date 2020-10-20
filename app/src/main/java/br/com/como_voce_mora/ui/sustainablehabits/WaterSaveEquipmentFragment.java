@@ -14,6 +14,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.SustainableHabitsAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -177,6 +178,13 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
         ResearchFlow.addAnswer(answerRequest, this);
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(UnitySplashFragment.newInstance());
         }
     }
 }

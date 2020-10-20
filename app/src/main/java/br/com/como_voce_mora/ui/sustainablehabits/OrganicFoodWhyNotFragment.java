@@ -13,6 +13,7 @@ import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.SustainableHabitsAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -115,5 +116,12 @@ public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRad
 
     private void setAnswer(String text) {
         answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(UnitySplashFragment.newInstance());
+        }
     }
 }

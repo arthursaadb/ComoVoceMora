@@ -24,6 +24,7 @@ import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
 import br.com.como_voce_mora.ui.currentresidence.ClassifyAspectesFragment;
 import br.com.como_voce_mora.ui.currentresidence.WhatsYourSatisfactionFragment;
+import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -117,6 +118,13 @@ public class TransportationFragment extends BaseFragment {
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(UnitySplashFragment.newInstance());
         }
     }
 }
