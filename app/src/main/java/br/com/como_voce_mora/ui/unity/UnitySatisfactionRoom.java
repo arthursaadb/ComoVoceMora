@@ -142,17 +142,17 @@ public class UnitySatisfactionRoom extends BaseFragment {
         });
         vhQuality.setListener(position -> {
             vhQuality.setInfo(texts.get(position));
-            ivPhoto.setImageResource(images.getTemperatura());
+            ivPhoto.setImageResource(images.getVentilacao());
             answerRequests.add(new AnswerRequest(quality.getQuestion(), quality.getQuestionPartId(), texts.get(position)));
         });
         vhClean.setListener(position -> {
             vhClean.setInfo(texts.get(position));
-            ivPhoto.setImageResource(images.getVentilacao());
+            ivPhoto.setImageResource(images.getIluminacao());
             answerRequests.add(new AnswerRequest(clean.getQuestion(), clean.getQuestionPartId(), texts.get(position)));
         });
         vhAdaptation.setListener(position -> {
             vhAdaptation.setInfo(texts.get(position));
-            ivPhoto.setImageResource(images.getIluminacao());
+            ivPhoto.setImageResource(images.getTemperatura());
             answerRequests.add(new AnswerRequest(adaptation.getQuestion(), adaptation.getQuestionPartId(), texts.get(position)));
         });
         vhPrivacy.setListener(position -> {
