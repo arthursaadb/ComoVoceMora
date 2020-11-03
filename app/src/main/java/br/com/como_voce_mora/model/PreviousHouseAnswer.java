@@ -2,21 +2,21 @@ package br.com.como_voce_mora.model;
 
 public enum PreviousHouseAnswer {
 
-    LIVED_IN_SAME_PLACE("Você sempre morou no mesmo local ou já morou em outro local?", "92cd330f-b184-4004-9fb9-8d24a0d6cd09"),
-    LIVE_IN_CONDOMINIUM("A sua moradia anterior pertencia a um condomínio?", "fa0212cd-3ea2-42df-8dc3-5916719e5989"),
-    PREVIUS_PLACE_TYPE("Qual era o tipo da sua moradia anterior?", "bdd6ac48-01f9-4249-92e6-0384f77811ff"),
-    PREVIUS_APARTAMENT_TYPE("Que tipo de apartamento era?", "ad014bc3-b05b-4d56-8e0d-d5cff9a1c4cd"),
-    PREVIUS_HOUSE_TYPE("Que tipo de casa era?", "a3d75d2e-4a8c-44ee-936d-f3cb78a004fc"),
-    BUY_TYPE("Qual era o estado de aquisição?", "38be2056-927c-4759-81f3-211c3b7fcfc9"),
+    LIVED_IN_SAME_PLACE("Você sempre morou no mesmo local ou já morou em outro local?", "c5ecabce-639e-4594-957f-b4fa2c9af6e2"),
+    LIVE_IN_CONDOMINIUM("A sua moradia anterior pertencia a um condomínio?", "d0e72e35-eb3a-46c1-83d5-33a01ef4d479"),
+    PREVIUS_PLACE_TYPE("Qual era o tipo da sua moradia anterior?", "ba676592-3a90-4a9c-a83c-9cdc53c423da"),
+    PREVIUS_APARTAMENT_TYPE("Que tipo de apartamento era?", "1835d2b9-efd4-493c-b9f1-ab2735a57743"),
+    PREVIUS_HOUSE_TYPE("Que tipo de casa era?", "5b43b21b-73b5-4688-9bd4-ceb8e167f839"),
+    BUY_TYPE("Qual era o estado de aquisição?", "e27f989e-a61b-4473-8a1a-694f85cc018e"),
 
     PREVIUS_HOUSE_SATISFACTION("Sobre a moradia anterior, indique seu grau de satisfação em relação a:", "070fe97e-a155-418b-ba94-26da321017b0"),
-    GENERAL_ASPECTS("Aspectos Gerais", "59c54861f9a75c213d64b214"),
-    COST_BENEFIT("Relação de Custo Benefício", "590b5fd61e4d3f620eea271a"),
-    FINISHHING("Acabamento", "590b5fd51e4d3f620eea26d3"),
-    LOCATION("Localização", "590b5fd61e4d3f620eea2790"),
-    SIZE("Tamanho", "59c5489bf9a75c213d64b215"),
+    GENERAL_ASPECTS("Aspectos Gerais", "e038d74e-68aa-4404-9a4d-badbddea1d8c"),
+    COST_BENEFIT("Relação de Custo Benefício", "a18cc874-83be-44ba-8b99-4be2bd323eee"),
+    FINISHHING("Acabamento", "4c8618db-e472-4857-98f8-1077d51ceb13"),
+    LOCATION("Localização", "2a4efa01-82ca-4d5c-8352-ca4862dec833"),
+    SIZE("Tamanho", "d0a78d40-72da-4e86-b847-0a45f0a99ddb"),
 
-    STAY_TIME("Qual o tempo de permanência na moradia anterior?", "471000f6-2f09-4227-ba7d-00e729e062d0"),
+    STAY_TIME("Qual o tempo de permanência na moradia anterior?", "31e45ecf-9511-451e-b181-dc8922f8ae2f"),
     LATITUDE_LONGITUDE("Informe a latitude e longitude da moradia anterior.", "840ab2d4-ef57-47c9-89c6-dc74b08f1882");
 
 

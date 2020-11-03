@@ -58,8 +58,8 @@ public class PublicAreaFragment extends BaseFragment {
             case R.id.csvPraca:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                        currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.PRACA.getQuestion(),
+                            CurrentResidenceAnswer.PRACA.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -69,8 +69,8 @@ public class PublicAreaFragment extends BaseFragment {
             case R.id.csvParque:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                        currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.PARQUE.getQuestion(),
+                            CurrentResidenceAnswer.PARQUE.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -79,8 +79,8 @@ public class PublicAreaFragment extends BaseFragment {
             case R.id.csvAcademia:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                        currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.ACADEMIA_AO_AR_LIVRE.getQuestion(),
+                            CurrentResidenceAnswer.ACADEMIA_AO_AR_LIVRE.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);
@@ -89,8 +89,8 @@ public class PublicAreaFragment extends BaseFragment {
             case R.id.csvQuadra:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                        currentResidenceAnswer.getQuestionPartId(), csv.getText()));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.ESPACO_ESPORTIVO.getQuestion(),
+                            CurrentResidenceAnswer.ESPACO_ESPORTIVO.getQuestionPartId(), csv.getText()));
                     break;
                 } else {
                     csv.setChecked(false);

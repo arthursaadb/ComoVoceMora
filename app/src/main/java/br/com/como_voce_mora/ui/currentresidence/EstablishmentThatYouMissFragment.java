@@ -97,72 +97,72 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 if (!csvBanco.isChecked()) {
                     csvBanco.setChecked(true);
                     banco = csvBanco.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), banco));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.BANCO.getQuestion(),
+                            CurrentResidenceAnswer.BANCO.getQuestionPartId(), banco));
                     break;
                 } else {
                     csvBanco.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.BANCO.getQuestion());
                     break;
                 }
             case R.id.csvLoterica:
                 if (!csvLoterica.isChecked()) {
                     csvLoterica.setChecked(true);
                     loterica = csvLoterica.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), loterica));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.LOTERICA.getQuestion(),
+                            CurrentResidenceAnswer.LOTERICA.getQuestionPartId(), loterica));
                     break;
                 } else {
                     csvLoterica.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.LOTERICA.getQuestion());
                     break;
                 }
             case R.id.csvMercado:
                 if (!csvMercado.isChecked()) {
                     csvMercado.setChecked(true);
                     mercado = csvMercado.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), mercado));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.MERCADO.getQuestion(),
+                            CurrentResidenceAnswer.MERCADO.getQuestionPartId(), mercado));
                     break;
                 } else {
                     csvMercado.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.MERCADO.getQuestion());
                     break;
                 }
             case R.id.csvLoja:
                 if (!csvLoja.isChecked()) {
                     csvLoja.setChecked(true);
                     loja = csvLoja.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), loja));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.LOJA.getQuestion(),
+                            CurrentResidenceAnswer.LOJA.getQuestionPartId(), loja));
                     break;
                 } else {
                     csvLoja.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.LOJA.getQuestion());
                     break;
                 }
             case R.id.csvFarmacia:
                 if (!csvFarmacia.isChecked()) {
                     csvFarmacia.setChecked(true);
                     farmacia = csvFarmacia.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), farmacia));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.FARMACIA.getQuestion(),
+                            CurrentResidenceAnswer.FARMACIA.getQuestionPartId(), farmacia));
                     break;
                 } else {
                     csvFarmacia.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.FARMACIA.getQuestion());
                     break;
                 }
             case R.id.csvPosto:
                 if (!csvPosto.isChecked()) {
                     csvPosto.setChecked(true);
                     posto = csvPosto.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), posto));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.POSTO_DE_GASOLINA.getQuestion(),
+                            CurrentResidenceAnswer.POSTO_DE_GASOLINA.getQuestionPartId(), posto));
                     break;
                 } else {
                     csvPosto.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.POSTO_DE_GASOLINA.getQuestion());
                     break;
                 }
 
@@ -170,12 +170,12 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 if (!csvAcademia.isChecked()) {
                     csvAcademia.setChecked(true);
                     academia = csvAcademia.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), academia));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.ACADEMIA.getQuestion(),
+                            CurrentResidenceAnswer.ACADEMIA.getQuestionPartId(), academia));
                     break;
                 } else {
                     csvAcademia.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.ACADEMIA.getQuestion());
                     break;
                 }
 
@@ -183,12 +183,12 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 if (!csvPadaria.isChecked()) {
                     csvPadaria.setChecked(true);
                     padaria = csvPadaria.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), padaria));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.PADARIA.getQuestion(),
+                            CurrentResidenceAnswer.PADARIA.getQuestionPartId(), padaria));
                     break;
                 } else {
                     csvPadaria.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.PADARIA.getQuestion());
                     break;
                 }
 
@@ -196,12 +196,12 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 if (!csvAcougue.isChecked()) {
                     csvAcougue.setChecked(true);
                     acougue = csvAcougue.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), acougue));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.ACOUGUE.getQuestion(),
+                            CurrentResidenceAnswer.ACOUGUE.getQuestionPartId(), acougue));
                     break;
                 } else {
                     csvAcougue.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.ACOUGUE.getQuestion());
                     break;
                 }
 
@@ -209,12 +209,12 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 if (!csvRestaurante.isChecked()) {
                     csvRestaurante.setChecked(true);
                     restaurante = csvRestaurante.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), restaurante));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.RESTAURANTE.getQuestion(),
+                            CurrentResidenceAnswer.RESTAURANTE.getQuestionPartId(), restaurante));
                     break;
                 } else {
                     csvRestaurante.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.RESTAURANTE.getQuestion());
                     break;
                 }
 
@@ -222,12 +222,12 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 if (!csvOutros.isChecked()) {
                     csvOutros.setChecked(true);
                     outros = csvOutros.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), outros));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.OUTROS.getQuestion(),
+                            CurrentResidenceAnswer.OUTROS.getQuestionPartId(), outros));
                     break;
                 } else {
                     csvOutros.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.OUTROS.getQuestion());
                     break;
                 }
 
@@ -235,12 +235,12 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                 if (!csvNenhum.isChecked()) {
                     csvNenhum.setChecked(true);
                     nenhum = csvNenhum.getText();
-                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-                            currentResidenceAnswer.getQuestionPartId(), nenhum));
+                    answerRequests.add(new AnswerRequest(CurrentResidenceAnswer.NENHUM.getQuestion(),
+                            CurrentResidenceAnswer.NENHUM.getQuestionPartId(), nenhum));
                     break;
                 } else {
                     csvNenhum.setChecked(false);
-                    removeItem(currentResidenceAnswer.getQuestion());
+                    removeItem(CurrentResidenceAnswer.NENHUM.getQuestion());
                     break;
                 }
         }

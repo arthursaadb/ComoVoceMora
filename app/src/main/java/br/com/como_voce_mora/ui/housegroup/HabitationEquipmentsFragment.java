@@ -122,7 +122,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     csvGamesRoom.setChecked(false);
                     answerGameRoom = null;
                 } else {
-                    answerGameRoom = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    answerGameRoom = new AnswerRequest(HouseGroupAnswer.SALAO_DE_JOGOS.getQuestion(), HouseGroupAnswer.SALAO_DE_JOGOS.getQuestionPartId(), text);
                     csvGamesRoom.setChecked(true);
                 }
                 break;
@@ -131,7 +131,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerGym = null;
                     csvGymRoom.setChecked(false);
                 } else {
-                    answerGym = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    answerGym = new AnswerRequest(HouseGroupAnswer.ACADEMIA.getQuestion(), HouseGroupAnswer.ACADEMIA.getQuestionPartId(), text);
                     csvGymRoom.setChecked(true);
                 }
                 break;
@@ -140,7 +140,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerParty = null;
                     csvPartyRoom.setChecked(false);
                 } else {
-                    answerParty = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    answerParty = new AnswerRequest(HouseGroupAnswer.SALAO_DE_FESTAS.getQuestion(), HouseGroupAnswer.SALAO_DE_FESTAS.getQuestionPartId(), text);
                     csvPartyRoom.setChecked(true);
                 }
                 break;
@@ -149,7 +149,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerAdultPool = null;
                     csvPoolPlusEighteen.setChecked(false);
                 } else {
-                    answerAdultPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    answerAdultPool = new AnswerRequest(HouseGroupAnswer.PISCINA_ADULTO.getQuestion(), HouseGroupAnswer.PISCINA_ADULTO.getQuestionPartId(), text);
                     csvPoolPlusEighteen.setChecked(true);
                 }
 
@@ -159,7 +159,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerGourmet = null;
                     csvGourmet.setChecked(false);
                 } else {
-                    answerGourmet = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    answerGourmet = new AnswerRequest(HouseGroupAnswer.ESPACO_GOURMET.getQuestion(), HouseGroupAnswer.ESPACO_GOURMET.getQuestionPartId(), text);
                     csvGourmet.setChecked(true);
                 }
 
@@ -169,7 +169,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerPlayGround = null;
                     csvPlayGround.setChecked(false);
                 } else {
-                    answerPlayGround = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    answerPlayGround = new AnswerRequest(HouseGroupAnswer.PLAYGROUND.getQuestion(), HouseGroupAnswer.PLAYGROUND.getQuestionPartId(), text);
                     csvPlayGround.setChecked(true);
                 }
 
@@ -179,7 +179,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerSquare = null;
                     csvSquare.setChecked(false);
                 } else {
-                    answerSquare = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    answerSquare = new AnswerRequest(HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestion(), HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestionPartId(), text);
                     csvSquare.setChecked(true);
                 }
                 break;
@@ -188,7 +188,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerChildPool = null;
                     csvChildPool.setChecked(false);
                 } else {
-                    answerChildPool = new AnswerRequest(houseGroupAnser.getQuestion(), houseGroupAnser.getQuestionPartId(), text);
+                    answerChildPool = new AnswerRequest(HouseGroupAnswer.PISCINA_INFANTIL.getQuestion(), HouseGroupAnswer.PISCINA_INFANTIL.getQuestionPartId(), text);
                     csvChildPool.setChecked(true);
                 }
 

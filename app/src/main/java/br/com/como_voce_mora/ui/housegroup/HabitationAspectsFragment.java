@@ -39,10 +39,10 @@ public class HabitationAspectsFragment extends BaseFragment {
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private boolean anyOptionChecked = false;
     HouseGroupAnswer satisfaction = HouseGroupAnswer.SATISFACTION_OF_HOME_ASPECTS;
-    HouseGroupAnswer acessibilidade = HouseGroupAnswer.SATISFACTION_OF_HOME_ASPECTS;
-    HouseGroupAnswer construction = HouseGroupAnswer.SATISFACTION_OF_HOME_ASPECTS;
-    HouseGroupAnswer general = HouseGroupAnswer.SATISFACTION_OF_HOME_ASPECTS;
-    HouseGroupAnswer clean = HouseGroupAnswer.SATISFACTION_OF_HOME_ASPECTS;
+    HouseGroupAnswer acessibilidade = HouseGroupAnswer.ACCESSIBILITY;
+    HouseGroupAnswer construction = HouseGroupAnswer.CONSTRUCTION_QUALITY_OF_HOME;
+    HouseGroupAnswer general = HouseGroupAnswer.GENERAL_APARENCE;
+    HouseGroupAnswer clean = HouseGroupAnswer.CLEANS_AND_PRESERVATION;
     private List<String> texts = new ArrayList<>();
 
 
