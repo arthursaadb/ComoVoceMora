@@ -27,15 +27,15 @@ public enum HouseGroupAnswer {
 
     //VOLUME HORIZONTAL QUESTION
     ASPECTS("O que você acha desses aspectos?", "e2ca70eb-4426-44ec-8806-63f27b8eeade"),
-    ASPECTS_SECURITY("Segurança", "590b5fd61e4d3f620eea271a"),
-    ASPECTS_STREET_SECURITY("Segurança em relação à rua", "590b5fd61e4d3f620eea2735"),
-    ASPECTS_CONVIVENCE("Nível de Convivência", "590b5fd61e4d3f620eea2719"),
-    ASPECTS_PRIVACY("Privacidade", "590b5fd61e4d3f620eea26f5"),
+    ASPECTS_SECURITY("Relação de custo benefício", "594b0e04-2c5c-41bf-9efc-900bdcac07cc"),
+    ASPECTS_STREET_SECURITY("Segurança em relação à rua", "a226341e-e98f-4fa2-85d4-825d795aff92"),
+    ASPECTS_CONVIVENCE("Nível de Convivência", "73da3857-e8a1-446e-9609-b8f228875898"),
+    ASPECTS_PRIVACY("Privacidade", "3bc5152c-81a2-41dc-bf4e-19c3ec82594e"),
 
     EQUIPMENTS_TO_ADD("Indique quais desses equipamentos você gostaria que seu edifício possuísse:", "3457ec97-99fd-4be0-a919-4ce991aae20b"),
-    EXISTENCE_OF_GREEN_AREA("Existem áreas verdes no seu edifício?", "ec1cd8cc-2eee-4326-9ba2-d3cc1c471687"),
-    MISS_GREEN_AREA("Você sente falta dessas áreas?", "f56106f2-a57d-41be-8378-6961efd27fbb"),
-    GREEN_AREA_SATISFACTION("Qual a sua satisfação em relação à  quantidade dessas áreas verdes?", "058b4850-21f6-498e-be57-8abae21786c2"),
+    EXISTENCE_OF_GREEN_AREA("Existem áreas verdes no seu edifício?", "2aa66471-a14a-4f54-9edb-e24a997de117"),
+    MISS_GREEN_AREA("Você sente falta dessas áreas?", "a9761983-a589-4fb4-ae66-47e04bdaf501"),
+    GREEN_AREA_SATISFACTION("Qual a sua satisfação em relação à  quantidade dessas áreas verdes?", "85fff6f3-3ec4-4820-9de3-3a078f933c48"),
     DELIMITATION("Existe delimitação entre sua residência e a vizinhança?", "6a1601b4-3a30-4e86-a2d9-e766a2375b4e"),
     DELIMITATION_TYPE("Que delimitação existem entre sua residência e a vizinhança?", "f0ce08bf-d19e-4946-bf47-bb63329c37a0"),
     BLOCK_TYPE("Existe algum elemento de identificação no espaço do seu conjunto? (Em que seu bloco se diferencia dos demais)", "e7268e97-77fc-4e01-a29b-5454a3d67acc"),

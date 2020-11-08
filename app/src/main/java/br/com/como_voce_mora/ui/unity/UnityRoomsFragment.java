@@ -38,6 +38,7 @@ public class UnityRoomsFragment extends BaseFragment {
 
     List<UnityAnswer> roomList = new ArrayList<>();
     List<AnswerRequest> answerRequests = new ArrayList<>();
+    UnityAnswer question = UnityAnswer.EXISTING_ROOMS;
     private boolean anyOptionChecked = false;
 
     @Override
@@ -57,7 +58,7 @@ public class UnityRoomsFragment extends BaseFragment {
     @Override
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        tvQuestion.setText("Muito bem. Agora selecione os cômodos ou espaços que existem na sua moradia.");
+        tvQuestion.setText(question.getQuestion());
     }
 
     @OnClick({R.id.csvServico, R.id.csvBanheiro, R.id.csvCasal,

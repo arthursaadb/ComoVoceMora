@@ -41,10 +41,9 @@ public enum BuildingAnswer {
 
     //VOLUME HORIZONTAL QUESTION
     LOT_REVIEW("Qual a sua satisfação em relação ao seu lote?", "affe770a-0464-4e31-b47c-8953ac33fc48"),
-    LOT_SIZE("Tamanho", "59c5489bf9a75c213d64b215"),
-    LOT_EVOLUTION("Capacidade de ampliação", "590b5fd61e4d3f620eea26ec"),
-    LOT_CONSTROCTION("Aproveitamento da construção", "5a427ec8f9a75c50ae7eb285")
-    ;
+    LOT_SIZE("Tamanho", "9db4d136-c1cf-418b-ab82-1bc9dba85dfe"),
+    LOT_EVOLUTION("Capacidade de ampliação", "10319b40-e17a-41c2-9580-fab0866a7080"),
+    LOT_CONSTROCTION("Aproveitamento da construção", "ff9c97f1-48b9-4a46-aa6b-62d612af11a5");
 
     String question;
     String questionPartId;
