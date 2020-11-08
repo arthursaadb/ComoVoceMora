@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -49,6 +52,8 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHY_YOU_SAVE_ELECTRICITY;
     AnswerRequest answerRequest;
+    List<AnswerRequest> answerRequestsYes = new ArrayList<>();
+    List<AnswerRequest> answerRequestsNo = new ArrayList<>();
     BaseFragment mNextFragment;
     Boolean anyOptionChecked = false;
 
@@ -64,8 +69,20 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null && mNextFragment != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
+        }
+    }
+
+    private void setAnswers() {
+        ResearchFlow.addAnswer(answerRequest, this);
+
+        for (AnswerRequest r : answerRequestsYes) {
+            ResearchFlow.addAnswer(r, this);
+        }
+
+        for (AnswerRequest r : answerRequestsNo) {
+            ResearchFlow.addAnswer(r, this);
         }
     }
 
@@ -123,10 +140,6 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if(isChecked){
-            setAnswer(buttonView.getText().toString());
-        }
-
         switch (buttonView.getId()) {
             case R.id.optionYes:
                 if (isChecked) {
@@ -139,7 +152,7 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
-
+                    setAnswer(buttonView.getText().toString());
                 }
                 updateViews();
                 break;
@@ -154,51 +167,52 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
+                    setAnswer(buttonView.getText().toString());
                 }
                 updateViews();
                 break;
             case R.id.rbBillsPrice:
                 rbBillsPrice.setChecked(isChecked);
-
+                setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
             case R.id.rbLessAmbientalDamage:
                 rbLessAmbientalDamage.setChecked(isChecked);
-
+                setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
             case R.id.rbDry:
                 rbDry.setChecked(isChecked);
-
+                setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
             case R.id.rbOthers:
                 rbOthers.setChecked(isChecked);
-
+                setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
 
             case R.id.rbAbundantResource:
                 rbAbundantResource.setChecked(isChecked);
-
+                setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
 
             case R.id.rbOthersNo:
                 rbOthersNo.setChecked(isChecked);
-
+                setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
 
             case R.id.rbNoNeed:
                 rbNoNeed.setChecked(isChecked);
-
+                setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
 
             case R.id.rbLowCost:
                 rbLowCost.setChecked(isChecked);
-
+                setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
         }
@@ -219,6 +233,18 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
 
     private void setAnswer(String text) {
         answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+    }
+
+    private void setAnswerYes(String text, boolean isChecked) {
+        if (isChecked) {
+            answerRequestsYes.add(new AnswerRequest(SustainableHabitsAnswer.WHY_ENERGY.getQuestion(), SustainableHabitsAnswer.WHY_ENERGY.getQuestionPartId(), text));
+        }
+    }
+
+    private void setAnswerNo(String text, boolean isChecked) {
+        if (isChecked) {
+            answerRequestsYes.add(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestion(), SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestionPartId(), text));
+        }
     }
 
     @OnClick(R.id.btPreviousSession)

@@ -55,9 +55,21 @@ public enum UnityAnswer implements Serializable {
     BETTER_SUN("Quais cômodos da sua moradia recebem mais sol?", "c5d16ef3-dcd2-4401-b37c-a80d72052408"),
 
     EXISTING_ROOMS("Muito bem. Agora selecione os cômodos ou espaços que existem na sua moradia.", "4e190989-5d7e-4c41-875a-b1f2f98b4edb"),
-    CHANGES_MADE("Se foram feitas alterações, quais? ", "6596d3a3-6957-4605-8548-7dd5d9ad8fec"),
-    NO_CHANGES_MADE("Se nenhuma alteração foi feita, qual (is) o(s) motivo(s)?", "7ff06bfe-9fa7-4093-b366-1a31dfefa02d"),
-    MADE_LIST_CHANGES("Você já realizou alguma das alterações listadas na questão anterior?", "30d1f4d4-51ff-441b-961d-2ab4bf1aaabc"),
+    SALA_TV("Sala de TV/Estar", "08cb63f0-e52d-49d1-88a9-71274c70ed8b"),
+    COZINHA("Cozinha","fcb91912-9be5-4fbc-9431-4e82e57e3c2a"),
+    QUARTO_SOLTEIRO("Quarto Solteiro","a9f26702-5bee-4f2f-b315-5b8cd1d36ad2"),
+    QUARTO_CASAL("Quarto Casal","1863e65b-43cd-4b96-a6ca-33dbdf3f72c9"),
+    SALA_JANTAR("Sala de Jantar", "08745e79-a012-4534-bb14-dfaad77126b5"),
+    BANHEIROS("Banheiros","51762e29-522c-4e86-9c07-bcd4e1eb0f44"),
+    VARANDA("Varanda","2fb18b32-08aa-4c21-a1d5-389e7d02d00a"),
+    AREA_SERVICO("Área de serviço","caceae0c-b2a0-4561-be51-8f3f81952d93"),
+
+    CHANGES_MADE("Se foram feitas alterações, quais? ", "9ced6daa-73c8-4422-86b4-630b5983b52a"),
+
+    NO_CHANGES_MADE("Se nenhuma alteração foi feita, qual (is) o(s) motivo(s)?", "1df2708b-e6c1-44cf-83d9-a083d27c1e24"),
+
+    MADE_LIST_CHANGES("Você já realizou alguma das alterações listadas na questão anterior?", "4dfb331c-d1fd-4da8-a763-e11fdfa42a31"),
+
     NEIGHBORHOOD_DELIMITATION_TYPE("Existe alguma delimitação/barreira entre a sua moradia e a vizinhança?", "f0ce08bf-d19e-4946-bf47-bb63329c37a0"),
     KITCHEN_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na COZINHA?","3f60ae3f-1439-4692-a0b8-97b08590fd5a"),
     BALCONY_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na VARANDA?","3ea3e786-8acc-4f8f-9dea-a4146ae7fd09"),

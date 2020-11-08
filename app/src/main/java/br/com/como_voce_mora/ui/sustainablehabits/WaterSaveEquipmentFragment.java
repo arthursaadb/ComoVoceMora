@@ -71,60 +71,60 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     saude = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), saude));
+                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.MAQUINA_LAVAR_REUSO.getQuestion(),
+                            SustainableHabitsAnswer.MAQUINA_LAVAR_REUSO.getQuestionPartId(), saude));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    removeItem(SustainableHabitsAnswer.MAQUINA_LAVAR_REUSO.getQuestion());
                     break;
                 }
             case R.id.csvPhotovoltaicPanels:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     escola = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), escola));
+                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.CAIXA_DE_AGUA.getQuestion(),
+                            SustainableHabitsAnswer.CAIXA_DE_AGUA.getQuestionPartId(), escola));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    removeItem(SustainableHabitsAnswer.CAIXA_DE_AGUA.getQuestion());
                     break;
                 }
             case R.id.csv5:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     cultura = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), cultura));
+                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.DESCARGA_DUPLO_FLUXO.getQuestion(),
+                            SustainableHabitsAnswer.DESCARGA_DUPLO_FLUXO.getQuestionPartId(), cultura));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    removeItem(SustainableHabitsAnswer.DESCARGA_DUPLO_FLUXO.getQuestion());
                     break;
                 }
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     lazer = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), lazer));
+                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.VASO_CAIXA_ACOPLADA.getQuestion(),
+                            SustainableHabitsAnswer.VASO_CAIXA_ACOPLADA.getQuestionPartId(), lazer));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    removeItem(SustainableHabitsAnswer.VASO_CAIXA_ACOPLADA.getQuestion());
                     break;
                 }
             case R.id.cvsNone:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     five = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), five));
+                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.TORNEIRA_ECONOMICA.getQuestion(),
+                            SustainableHabitsAnswer.TORNEIRA_ECONOMICA.getQuestionPartId(), five));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    removeItem(SustainableHabitsAnswer.TORNEIRA_ECONOMICA.getQuestion());
                     break;
                 }
 
@@ -132,12 +132,12 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     six = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), six));
+                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.OUTRO.getQuestion(),
+                            SustainableHabitsAnswer.OUTRO.getQuestionPartId(), six));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    removeItem(SustainableHabitsAnswer.OUTRO.getQuestion());
                     break;
                 }
         }
@@ -174,8 +174,6 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
     }
 
     private void setAnswer() {
-        AnswerRequest answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), "");
-        ResearchFlow.addAnswer(answerRequest, this);
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
         }

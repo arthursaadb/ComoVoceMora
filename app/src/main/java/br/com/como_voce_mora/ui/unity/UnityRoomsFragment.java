@@ -72,31 +72,37 @@ public class UnityRoomsFragment extends BaseFragment {
             switch (view.getId()) {
                 case R.id.csvServico:
                     roomList.add(CHARACTERISTICS_SATISFACTION_SERVICE_AREA);
+                    answerRequests.add(new AnswerRequest(UnityAnswer.AREA_SERVICO.getQuestion(), UnityAnswer.AREA_SERVICO.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvBanheiro:
                     roomList.add(CHARACTERISTICS_SATISFACTION_BATHROOM);
+                    answerRequests.add(new AnswerRequest(UnityAnswer.BANHEIROS.getQuestion(), UnityAnswer.BANHEIROS.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvCasal:
                     roomList.add(CHARACTERISTICS_SATISFACTION_BIGROOM);
+                    answerRequests.add(new AnswerRequest(UnityAnswer.QUARTO_CASAL.getQuestion(), UnityAnswer.QUARTO_CASAL.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvSolteiro:
                     roomList.add(CHARACTERISTICS_SATISFACTION_SINGLEROMM);
+                    answerRequests.add(new AnswerRequest(UnityAnswer.QUARTO_SOLTEIRO.getQuestion(), UnityAnswer.QUARTO_SOLTEIRO.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvSala:
                     roomList.add(CHARACTERISTICS_SATISFACTION_ROOM);
+                    answerRequests.add(new AnswerRequest(UnityAnswer.SALA_TV.getQuestion(), UnityAnswer.SALA_TV.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvCopa:
                     roomList.add(CHARACTERISTICS_SATISFACTION_DINNERROOM);
+                    answerRequests.add(new AnswerRequest(UnityAnswer.SALA_JANTAR.getQuestion(), UnityAnswer.SALA_JANTAR.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvVaranda:
                     roomList.add(CHARACTERISTICS_SATISFACTION_BALCONY);
+                    answerRequests.add(new AnswerRequest(UnityAnswer.VARANDA.getQuestion(), UnityAnswer.VARANDA.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvCozinha:
                     roomList.add(CHARACTERISTICS_SATISFACTION_KITCHEN);
+                    answerRequests.add(new AnswerRequest(UnityAnswer.COZINHA.getQuestion(), UnityAnswer.AREA_SERVICO.getQuestionPartId(), csv.getText()));
                     break;
             }
-//                    answerRequests.add(new AnswerRequest(currentResidenceAnswer.getQuestion(),
-//                            currentResidenceAnswer.getQuestionPartId(), csv.getText()));
         } else {
             csv.setChecked(false);
             removeItem(csv.getText());
@@ -104,27 +110,35 @@ public class UnityRoomsFragment extends BaseFragment {
             switch (view.getId()) {
                 case R.id.csvServico:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_SERVICE_AREA);
+                    answerRequests.remove(new AnswerRequest(UnityAnswer.AREA_SERVICO.getQuestion(), UnityAnswer.AREA_SERVICO.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvBanheiro:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_BATHROOM);
+                    answerRequests.remove(new AnswerRequest(UnityAnswer.BANHEIROS.getQuestion(), UnityAnswer.BANHEIROS.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvCasal:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_BIGROOM);
+                    answerRequests.remove(new AnswerRequest(UnityAnswer.QUARTO_CASAL.getQuestion(), UnityAnswer.QUARTO_CASAL.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvSolteiro:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_SINGLEROMM);
+                    answerRequests.remove(new AnswerRequest(UnityAnswer.QUARTO_SOLTEIRO.getQuestion(), UnityAnswer.QUARTO_SOLTEIRO.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvSala:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_ROOM);
+                    answerRequests.remove(new AnswerRequest(UnityAnswer.SALA_TV.getQuestion(), UnityAnswer.SALA_TV.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvCopa:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_DINNERROOM);
+                    answerRequests.remove(new AnswerRequest(UnityAnswer.SALA_JANTAR.getQuestion(), UnityAnswer.SALA_JANTAR.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvVaranda:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_BALCONY);
+                    answerRequests.remove(new AnswerRequest(UnityAnswer.VARANDA.getQuestion(), UnityAnswer.VARANDA.getQuestionPartId(), csv.getText()));
                     break;
                 case R.id.csvCozinha:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_KITCHEN);
+                    answerRequests.remove(new AnswerRequest(UnityAnswer.COZINHA.getQuestion(), UnityAnswer.COZINHA.getQuestionPartId(), csv.getText()));
                     break;
             }
         }
@@ -147,18 +161,16 @@ public class UnityRoomsFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (anyOptionChecked) {
-//        setAnswer();
+            setAnswer();
             ((AboutYouActivity) requireActivity()).addFragment(UnityRateRoomsFragment.newInstance(roomList));
         }
     }
 
-//    private void setAnswer() {
-//        AnswerRequest answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), "");
-//        ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
-//        for (AnswerRequest r : answerRequests) {
-//            ResearchFlow.addAnswer(r.getDwellerId(), r);
-//        }
-//    }
+    private void setAnswer() {
+        for (AnswerRequest r : answerRequests) {
+            ResearchFlow.addAnswer(r, this);
+        }
+    }
 
     @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
