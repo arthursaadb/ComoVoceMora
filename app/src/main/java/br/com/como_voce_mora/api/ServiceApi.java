@@ -9,9 +9,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ServiceApi {
-    @GET("getdwellerId")
-    public Call<DwellerId> getUserData();
+    @POST("postdwellerId")
+    Call<DwellerId> getUserData();
 
     @POST("save")
-    public Call<AnswerRequest> saveAnswer(@Body AnswerRequest answerRequest);
+    Call<AnswerRequest> saveAnswer(@Body AnswerRequest answerRequest);
 }
