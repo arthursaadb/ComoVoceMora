@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -48,7 +51,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.TRANSPORTATION_REASON;
-    AnswerRequest answerRequest;
+    List<AnswerRequest> answerRequests = new ArrayList<>();
 
     public static TransportationReasonFragment newInstance() {
         return new TransportationReasonFragment();
@@ -62,7 +65,9 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            for (AnswerRequest r : answerRequests) {
+                ResearchFlow.addAnswer(r, this);
+            }
             ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsEndFragment.newInstance());
         }
     }
@@ -136,6 +141,8 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
                     break;
             }
         } else {
+            removeAnswer(buttonView.getText().toString());
+
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -193,7 +200,11 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+        answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text));
+    }
+
+    private void removeAnswer(String text) {
+        answerRequests.remove(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text));
     }
 
     @OnClick(R.id.btPreviousSession)

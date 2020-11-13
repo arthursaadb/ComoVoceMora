@@ -72,6 +72,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
+
                     saude = csv.getText();
                     answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
                             sustainableHabitsAnswer.getQuestionPartId(), saude));

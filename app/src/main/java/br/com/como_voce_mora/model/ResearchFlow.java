@@ -55,7 +55,7 @@ public class ResearchFlow {
         SQLiteDatabase db = AppController.getInstance().getDbHelper().getReadableDatabase();
         try {
             String currentResident = String.valueOf(SingletonCurrentResident.getInstance().getCurrentResident());
-            Cursor cursor = db.rawQuery("SELECT * FROM "+PostContract.PostEntry.TABLE_NAME_APO + " WHERE " + PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + " = ?", new String[]{currentResident});
+            Cursor cursor = db.rawQuery("SELECT * FROM " + PostContract.PostEntry.TABLE_NAME_APO + " WHERE " + PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + " = ?", new String[]{currentResident});
 
             if (cursor.moveToFirst()) {
                 do {
@@ -63,7 +63,7 @@ public class ResearchFlow {
 
                     answerRequest.setDwellerId(cursor.getString(cursor.getColumnIndex(PostContract.PostEntry.COLUMN_NAME_DWELLER_ID)));
                     answerRequest.setQuestionPartId(cursor.getString(cursor.getColumnIndex(PostContract.PostEntry.COLUMN_NAME_QUESTION_PART_ID)));
-                    answerRequest.setTexto(cursor.getString(cursor.getColumnIndex(PostContract.PostEntry.COLUMN_NAME_TEXTO)));
+                    answerRequest.setTexto(cursor.getString(cursor.getColumnIndex(PostContract.PostEntry.COLUMN_NAME_TEXTO)).replaceAll("\\n", ""));
                     answerRequest.setEvaluationId(cursor.getString(cursor.getColumnIndex(PostContract.PostEntry.COLUMN_NAME_EVALUATION_ID)));
 
                     listAnswerRequest.add(answerRequest);

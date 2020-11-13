@@ -65,7 +65,6 @@ public class WhyYouSaveWaterFragment extends BaseFragment implements CustomRadio
     public void onBtNextClicked() {
         if (getActivity() != null && mNextFragment != null) {
             setAnswers();
-
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }
     }

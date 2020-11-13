@@ -10,17 +10,18 @@ public enum UnityAnswer implements Serializable {
     HOUSE_TYPE("Qual é o tipo da sua casa?", "2619d540-2003-42e2-b278-ada889b665e0"),
 
     HOME_TYPE("O que a sua moradia significa pra você?", "1b010a14-85c7-45e8-abb1-3984eef1e5f5"),
-    INVESTIMENTO("Investimento","617da375-d631-403b-924b-05448e3022ea"),
-    LOCAL_EM_QUE_PASSO_MAIS_TEMPO("Local em que passo mais tempo","eb925fe8-56b5-4753-a7b6-141ef8d242a0"),
-    LOCAL_SEGURO("Local Seguro","da437930-4762-461c-bc4f-c9b68bde1bf3"),
-    LOCAL_COM_O_QUE_MAIS_ME_IDENTIFICO("Local com o qual me identifico","d4c0d060-b74d-491d-87e2-65a173206d41"),
-    LOCAL_PERTENCES("Local onde estão meus pertences","a115f453-660f-42e7-9a7d-fce85a71e6a7"),
-    LOCAL_DURMO("Local onde apenas durmo\"","fbdd0f01-d30f-4165-860f-2e109286a646"),
-    LOCAL_PESSOAS_INTERESSAM("Local onde estão as pessoas que me interessam","1c7cbb74-da22-4ec1-85b7-5587ce228204"),
-    LOCAL_ATIVIDADES("Local no qual consigo realizar minhas atividades","250bb5fd-966e-4d73-8902-e197de7bdc1b"),
-    OUTRO("Outro","5f06efa4-7612-483a-9e07-78097e405240"),
+    INVESTIMENTO("Investimento", "617da375-d631-403b-924b-05448e3022ea"),
+    LOCAL_EM_QUE_PASSO_MAIS_TEMPO("Local em que passo mais tempo", "eb925fe8-56b5-4753-a7b6-141ef8d242a0"),
+    LOCAL_SEGURO("Local Seguro", "da437930-4762-461c-bc4f-c9b68bde1bf3"),
+    LOCAL_COM_O_QUE_MAIS_ME_IDENTIFICO("Local com o qual me identifico", "d4c0d060-b74d-491d-87e2-65a173206d41"),
+    LOCAL_PERTENCES("Local onde estão meus pertences", "a115f453-660f-42e7-9a7d-fce85a71e6a7"),
+    LOCAL_DURMO("Local onde apenas durmo\"", "fbdd0f01-d30f-4165-860f-2e109286a646"),
+    LOCAL_PESSOAS_INTERESSAM("Local onde estão as pessoas que me interessam", "1c7cbb74-da22-4ec1-85b7-5587ce228204"),
+    LOCAL_ATIVIDADES("Local no qual consigo realizar minhas atividades", "250bb5fd-966e-4d73-8902-e197de7bdc1b"),
+    OUTRO("Outro", "5f06efa4-7612-483a-9e07-78097e405240"),
 
     KEEP_FURNISHINGS("Na sua moradia, foi possível acomodar seus antigos móveis e eletrodomésticos?", "c0bbed6d-0847-4c4c-b6d4-c6b3e5d435e9"),
+    KEEP_FURNISHINGS_WHY("Por que não houve dificuldade em acomodar os antigos móveis e eletrodomésticos?", "045ab70a-dbd8-4a21-b01a-85416b56eb42"),
 
     DIFFICULTY_KEEP_FURNISHINGS("Informe o grau de dificuldade para a acomodação dos móveis e eletrodomésticos.", "cfca5271-bf24-4a5a-9491-dfe618587474"),
 
@@ -31,6 +32,7 @@ public enum UnityAnswer implements Serializable {
     HAS_ADAPTED_HOME("Você se adaptou à sua moradia e se identifica com ela?", "5cc778e8-d0c7-4977-967f-4ddea9439e73"),
 
     USE_AS_EXTRA("Você utiliza sua moradia para adquirir alguma renda extra?", "d24687d4-b946-414c-8e87-b05b07f9186d"),
+    USE_AS_EXTRA_YES("Que atividade(s) você realiza como fonte de renda em casa?","5568d4a6-5adc-4603-baa9-27897b94f94f"),
 
     PERSONS_USES_AS_EXTRA("Quantos moradores utilizam a moradia como fonte de renda?", "fc37e38c-9a6d-4516-ae4d-9a7901f10f6d"),
 
@@ -56,13 +58,13 @@ public enum UnityAnswer implements Serializable {
 
     EXISTING_ROOMS("Muito bem. Agora selecione os cômodos ou espaços que existem na sua moradia.", "4e190989-5d7e-4c41-875a-b1f2f98b4edb"),
     SALA_TV("Sala de TV/Estar", "08cb63f0-e52d-49d1-88a9-71274c70ed8b"),
-    COZINHA("Cozinha","fcb91912-9be5-4fbc-9431-4e82e57e3c2a"),
-    QUARTO_SOLTEIRO("Quarto Solteiro","a9f26702-5bee-4f2f-b315-5b8cd1d36ad2"),
-    QUARTO_CASAL("Quarto Casal","1863e65b-43cd-4b96-a6ca-33dbdf3f72c9"),
+    COZINHA("Cozinha", "fcb91912-9be5-4fbc-9431-4e82e57e3c2a"),
+    QUARTO_SOLTEIRO("Quarto Solteiro", "a9f26702-5bee-4f2f-b315-5b8cd1d36ad2"),
+    QUARTO_CASAL("Quarto Casal", "1863e65b-43cd-4b96-a6ca-33dbdf3f72c9"),
     SALA_JANTAR("Sala de Jantar", "08745e79-a012-4534-bb14-dfaad77126b5"),
-    BANHEIROS("Banheiros","51762e29-522c-4e86-9c07-bcd4e1eb0f44"),
-    VARANDA("Varanda","2fb18b32-08aa-4c21-a1d5-389e7d02d00a"),
-    AREA_SERVICO("Área de serviço","caceae0c-b2a0-4561-be51-8f3f81952d93"),
+    BANHEIROS("Banheiros", "51762e29-522c-4e86-9c07-bcd4e1eb0f44"),
+    VARANDA("Varanda", "2fb18b32-08aa-4c21-a1d5-389e7d02d00a"),
+    AREA_SERVICO("Área de serviço", "caceae0c-b2a0-4561-be51-8f3f81952d93"),
 
     CHANGES_MADE("Se foram feitas alterações, quais? ", "9ced6daa-73c8-4422-86b4-630b5983b52a"),
 
@@ -71,14 +73,14 @@ public enum UnityAnswer implements Serializable {
     MADE_LIST_CHANGES("Você já realizou alguma das alterações listadas na questão anterior?", "4dfb331c-d1fd-4da8-a763-e11fdfa42a31"),
 
     NEIGHBORHOOD_DELIMITATION_TYPE("Existe alguma delimitação/barreira entre a sua moradia e a vizinhança?", "f0ce08bf-d19e-4946-bf47-bb63329c37a0"),
-    KITCHEN_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na COZINHA?","3f60ae3f-1439-4692-a0b8-97b08590fd5a"),
-    BALCONY_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na VARANDA?","3ea3e786-8acc-4f8f-9dea-a4146ae7fd09"),
-    DINNERROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na SALA DE JANTAR?","960269fb-8a0f-4063-842e-2eee996678d0"),
-    ROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na SALA DE ESTAR?","39bb42b5-f4f7-4c60-82a2-79c0e52e9900"),
-    SINGLEROMM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no DORMITÓRIO DE SOLTEIRO?","2967af1f-d224-4f6e-83cb-297b10d3ef92"),
-    BIGROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no DORMITÓRIO DE CASAL?","86b74aeb-103a-4f39-8625-c9712bd90076"),
-    BATHROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no BANHEIRO?","6e04223a-0c4b-4b50-bddb-790f6a1be339"),
-    SERVICE_AREA_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na ÁREA DE SERVIÇO?","0b347736-9b46-4807-a5dd-8d46a1a9b579"),
+    KITCHEN_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na COZINHA?", "3f60ae3f-1439-4692-a0b8-97b08590fd5a"),
+    BALCONY_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na VARANDA?", "3ea3e786-8acc-4f8f-9dea-a4146ae7fd09"),
+    DINNERROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na SALA DE JANTAR?", "960269fb-8a0f-4063-842e-2eee996678d0"),
+    ROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na SALA DE ESTAR?", "39bb42b5-f4f7-4c60-82a2-79c0e52e9900"),
+    SINGLEROMM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no DORMITÓRIO DE SOLTEIRO?", "2967af1f-d224-4f6e-83cb-297b10d3ef92"),
+    BIGROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no DORMITÓRIO DE CASAL?", "86b74aeb-103a-4f39-8625-c9712bd90076"),
+    BATHROOM_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem no BANHEIRO?", "6e04223a-0c4b-4b50-bddb-790f6a1be339"),
+    SERVICE_AREA_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na ÁREA DE SERVIÇO?", "0b347736-9b46-4807-a5dd-8d46a1a9b579"),
 
 
     //VOLUME HORIZONTAL QUESTION
@@ -98,7 +100,7 @@ public enum UnityAnswer implements Serializable {
     CHARACTERISTICS_SATISFACTION_DINNERROOM("Agora avalie a SALA DE JANTAR . Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea2802"),
     CHARACTERISTICS_SATISFACTION_BALCONY("Agora avalie a VARANDA. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea280f"),
     CHARACTERISTICS_SATISFACTION_KITCHEN("Agora avalie a COZINHA. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea27f8"),
-    CHARACTERISTICS_SATISFACTION_SERVICE_AREA("Agora avalie a ÁREA DE SERVIÇO. Para cada característica, informe o seu nível de satisfação.","590b5fd61e4d3f620eea2813"),
+    CHARACTERISTICS_SATISFACTION_SERVICE_AREA("Agora avalie a ÁREA DE SERVIÇO. Para cada característica, informe o seu nível de satisfação.", "590b5fd61e4d3f620eea2813"),
     EASE_OF_FURNISHINGS("Facilidade de mobiliar", "5d0975d22771712aa06c6bf8"),
     TEMPERATURE("Temperatura", "5d0975832771712aa06c6bf6"),
     NATURAL_VENTILATION("Nível de Convivência", "590b5fd61e4d3f620eea2700"),

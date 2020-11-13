@@ -98,7 +98,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Onde estão percentes" />
+                    android:text="Onde estão pertences" />
 
                 <Button
                     android:id="@+id/btSixOption"
