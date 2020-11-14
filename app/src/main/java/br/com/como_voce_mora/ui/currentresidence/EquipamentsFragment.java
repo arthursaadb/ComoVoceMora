@@ -31,7 +31,6 @@ public class EquipamentsFragment extends BaseFragment {
     private String lazer = "";
     private String esporte = "";
     private String seguranca = "";
-    String answer = "";
     private Boolean recreation = false;
     boolean anyOneSelected = false;
 
@@ -183,8 +182,6 @@ public class EquipamentsFragment extends BaseFragment {
     }
 
     private void setAnswer() {
-        AnswerRequest answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), "");
-        ResearchFlow.addAnswer(answerRequest, this);
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
         }

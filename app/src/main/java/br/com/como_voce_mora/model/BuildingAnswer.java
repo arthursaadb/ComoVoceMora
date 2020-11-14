@@ -1,7 +1,7 @@
 package br.com.como_voce_mora.model;
 
 public enum BuildingAnswer {
-    CHOOSE_HOUSE("Você escolheu viver nessa moradia ou não teve escolha?", "84d0863d-a8eb-4b4d-b6f0-092b1a030a1d"),
+    CHOOSE_HOUSE("Você escolheu viver nessa moradia ou não teve escolha?", "9182bae9-8908-48e2-b7a3-4c3cc8e65c15"),
 
     HELPED_IN_PROJECT("Você ou sua família participaram da elaboração do desenho da moradia original (sem reformas)?", "d4b1491c-cdbd-45be-979e-c82354aa7151"),
 

@@ -61,7 +61,6 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
     private String restaurante = "";
     private String outros = "";
     private String nenhum = "";
-    String answer = "";
     boolean anyOneSelected = false;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
@@ -277,8 +276,6 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
     }
 
     private void setAnswer() {
-        AnswerRequest answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), "");
-        ResearchFlow.addAnswer(answerRequest, this);
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
         }
