@@ -124,7 +124,10 @@ public class OrganizationFragment extends BaseFragment implements CustomRadioBut
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (anyOptionChecked) {
-            answerRequestList.add(new AnswerRequest(currentResidenceAnswerIfYes.getQuestion(), currentResidenceAnswerIfYes.getQuestionPartId(), etAdress.getText().toString()));
+            if (!etAdress.getText().toString().isEmpty()) {
+                answerRequestList.add(new AnswerRequest(currentResidenceAnswerIfYes.getQuestion(), currentResidenceAnswerIfYes.getQuestionPartId(), etAdress.getText().toString()));
+            }
+
             setAnswer();
             ((AboutYouActivity) requireActivity()).addFragment(CityIntegrationFragment.newInstance());
         }
@@ -132,9 +135,6 @@ public class OrganizationFragment extends BaseFragment implements CustomRadioBut
     }
 
     private void setAnswer() {
-        AnswerRequest answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), "");
-        ResearchFlow.addAnswer(answerRequest, this);
-        Utils.hideKeyboard(getActivity());
         for (AnswerRequest r : answerRequestList) {
             ResearchFlow.addAnswer(r, this);
         }

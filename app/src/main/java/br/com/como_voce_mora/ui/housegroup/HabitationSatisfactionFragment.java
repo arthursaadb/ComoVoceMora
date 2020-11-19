@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -48,7 +51,7 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
     @BindView(R.id.rbOther)
     CustomRadioButton mRbOther;
 
-    private AnswerRequest answerRequest;
+    private List<AnswerRequest> answerRequests = new ArrayList<>();
     HouseGroupAnswer houseGroupAnswer = HouseGroupAnswer.EQUIPMENTS_TO_ADD;
     private boolean anyOptionChecked = false;
 
@@ -89,7 +92,7 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
         CustomRadioButton  option = (CustomRadioButton) v;
         anyOptionChecked = true;
         if (v.isPressed()) {
-            setAnswer(option.getText().toString());
+            answerRequests.add(new AnswerRequest(houseGroupAnswer.getQuestion(), houseGroupAnswer.getQuestionPartId(), option.getText().toString()));
             updateRbs();
         }
     }
@@ -109,15 +112,14 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
         mRbOther.updateView();
     }
 
-    private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(houseGroupAnswer.getQuestion(), houseGroupAnswer.getQuestionPartId(), text);
-    }
-
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             if (getActivity() != null) {
-                ResearchFlow.addAnswer(answerRequest, this);
+                for(AnswerRequest answerRequest: answerRequests){
+                    ResearchFlow.addAnswer(answerRequest, this);
+                }
+
                 ((AboutYouActivity) getActivity()).addFragment(HabitationEquipmentsMeaningFragment.newInstance());
             }
         }

@@ -74,11 +74,12 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     saude = csv.getText();
                     answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(),
-                            saudeCurrentResidenceAnswer.getQuestionPartId(), saude));
+                            saudeCurrentResidenceAnswer.getQuestionPartId(), "sim"));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(saudeCurrentResidenceAnswer.getQuestion());
+                    answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(),
+                            saudeCurrentResidenceAnswer.getQuestionPartId(), "não"));
                     break;
                 }
             case R.id.csvEscola:
@@ -86,11 +87,12 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     escola = csv.getText();
                     answerRequests.add(new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(),
-                            escolaCurrentResidenceAnswer.getQuestionPartId(), escola));
+                            escolaCurrentResidenceAnswer.getQuestionPartId(), "sim"));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(escolaCurrentResidenceAnswer.getQuestion());
+                    answerRequests.add(new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(),
+                            escolaCurrentResidenceAnswer.getQuestionPartId(), "não"));
                     break;
                 }
             case R.id.csvCultura:
@@ -98,11 +100,12 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     cultura = csv.getText();
                     answerRequests.add(new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(),
-                            culturaCurrentResidenceAnswer.getQuestionPartId(), cultura));
+                            culturaCurrentResidenceAnswer.getQuestionPartId(), "sim"));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(culturaCurrentResidenceAnswer.getQuestion());
+                    answerRequests.add(new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(),
+                            culturaCurrentResidenceAnswer.getQuestionPartId(), "não"));
                     break;
                 }
             case R.id.csvLazer:
@@ -111,12 +114,13 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     lazer = csv.getText();
                     answerRequests.add(new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(),
-                            lazerCurrentResidenceAnswer.getQuestionPartId(), lazer));
+                            lazerCurrentResidenceAnswer.getQuestionPartId(), "sim"));
                     break;
                 } else {
                     recreation = false;
                     csv.setChecked(false);
-                    removeItem(lazerCurrentResidenceAnswer.getQuestion());
+                    answerRequests.add(new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(),
+                            lazerCurrentResidenceAnswer.getQuestionPartId(), "não"));
                     break;
                 }
             case R.id.csvEsporte:
@@ -125,12 +129,13 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     esporte = csv.getText();
                     answerRequests.add(new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(),
-                            esporteCurrentResidenceAnswer.getQuestionPartId(), esporte));
+                            esporteCurrentResidenceAnswer.getQuestionPartId(), "sim"));
                     break;
                 } else {
                     recreation = false;
                     csv.setChecked(false);
-                    removeItem(esporteCurrentResidenceAnswer.getQuestion());
+                    answerRequests.add(new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(),
+                            esporteCurrentResidenceAnswer.getQuestionPartId(), "não"));
                     break;
                 }
             case R.id.csvSeguranca:
@@ -138,11 +143,12 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     seguranca = csv.getText();
                     answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(),
-                            segurancaCurrentResidenceAnswer.getQuestionPartId(), seguranca));
+                            segurancaCurrentResidenceAnswer.getQuestionPartId(), "sim"));
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(segurancaCurrentResidenceAnswer.getQuestion());
+                    answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(),
+                            segurancaCurrentResidenceAnswer.getQuestionPartId(), "não"));
                 }
         }
     }

@@ -13,14 +13,14 @@ public class AnswerRequest {
         this.dwellerId = dwellerId;
         this.questionPartId = questionPartId;
         this.texto = texto;
-        this.evaluationId = evaluationId;
+        this.evaluationId = "5dc4a37451f72163e4182fe9";
     }
 
     public AnswerRequest(String dwellerId, String questionPartId, String texto) {
         this.dwellerId = dwellerId;
         this.questionPartId = questionPartId;
         this.texto = texto;
-        this.evaluationId = "";
+        this.evaluationId = "5dc4a37451f72163e4182fe9";
     }
 
     public String getDwellerId() {
