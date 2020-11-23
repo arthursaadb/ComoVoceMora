@@ -2,11 +2,13 @@ package br.com.como_voce_mora.ui.unity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -14,6 +16,7 @@ import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.SustainableHabitsAnswer;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
@@ -21,7 +24,10 @@ import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class UnityMadeChanges extends BaseFragment implements View.OnClickListener {
+import static br.com.como_voce_mora.model.UnityAnswer.MADE_LIST_CHANGES_NO;
+import static br.com.como_voce_mora.model.UnityAnswer.MADE_LIST_CHANGES_YES;
+
+public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
     @BindView(R.id.rbYes)
@@ -51,7 +57,10 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
 
 
     private boolean anyOptionChecked = false;
+    boolean isYesOption = false;
     private AnswerRequest answerRequest;
+    private List<AnswerRequest> answerRequestYes = new ArrayList<>();
+    private List<AnswerRequest> answerRequestNo = new ArrayList<>();
     private UnityAnswer unityAnswer = UnityAnswer.MADE_LIST_CHANGES;
 
     public static UnityMadeChanges newInstance(List<UnityAnswer> room) {
@@ -72,26 +81,24 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
     public void init() {
         tvQuestion.setText(unityAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        mRb1.setOnClickListener(this);
-        mRb2.setOnClickListener(this);
-        mRbEletroPequeno.setOnClickListener(this);
-        mRbEletroGrande.setOnClickListener(this);
-        rbMoveisPequenos.setOnClickListener(this);
-        rbMoveisGrandes.setOnClickListener(this);
-        mRbPortas.setOnClickListener(this);
-        mRbPosicaoRuim.setOnClickListener(this);
-        mRbMoveisNovos.setOnClickListener(this);
-        mRbIlumination.setOnClickListener(this);
+        mRb1.setOnCheckedChangeListener(this);
+        mRb2.setOnCheckedChangeListener(this);
+        mRbEletroPequeno.setOnCheckedChangeListener(this);
+        mRbEletroGrande.setOnCheckedChangeListener(this);
+        rbMoveisPequenos.setOnCheckedChangeListener(this);
+        rbMoveisGrandes.setOnCheckedChangeListener(this);
+        mRbPortas.setOnCheckedChangeListener(this);
+        mRbPosicaoRuim.setOnCheckedChangeListener(this);
+        mRbMoveisNovos.setOnCheckedChangeListener(this);
+        mRbIlumination.setOnCheckedChangeListener(this);
     }
 
     @Override
-    public void onClick(View v) {
-        CustomRadioButton  option = (CustomRadioButton) v;
-        if (v.isPressed()) {
-            anyOptionChecked = true;
-            setAnswer(option.getText().toString());
-            switch (option.getId()) {
-                case R.id.rbYes:
+    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        switch (compoundButton.getId()) {
+            case R.id.rbYes:
+                if (isChecked) {
+                    anyOptionChecked = true;
                     mRb1.setChecked(true);
                     mRb2.setChecked(false);
                     mRbEletroPequeno.setText("Variar posição dos móveis");
@@ -110,9 +117,14 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
                     mRbPortas.setChecked(false);
                     mRbPosicaoRuim.setChecked(false);
                     mRbMoveisNovos.setChecked(false);
-                    updateRbs();
-                    break;
-                case R.id.rbNo:
+                    answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), "Sim");
+                    isYesOption = true;
+                }
+                updateRbs();
+                break;
+            case R.id.rbNo:
+                if (isChecked) {
+                    anyOptionChecked = true;
                     mRb1.setChecked(false);
                     mRb2.setChecked(true);
                     mRbEletroPequeno.setText("Limitações financeiras");
@@ -132,14 +144,75 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
                     mRbMoveisNovos.setChecked(false);
                     mRbIlumination.setChecked(false);
                     mScrollView.setVisibility(View.VISIBLE);
-                    updateRbs();
-                    break;
+                    answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), "Não");
+                    isYesOption = false;
+                }
+                updateRbs();
+                break;
+            case R.id.rbEletroPequeno:
+                mRbEletroPequeno.setChecked(isChecked);
+                setAnswers("Variar posição dos móveis", "Limitações financeiras", isChecked, isYesOption);
+                updateRbs();
+                break;
+            case R.id.rbEletroGrande:
+                mRbEletroGrande.setChecked(isChecked);
+                setAnswers("Variar posição dos eletrodomésticos", "Já estou satisfeita(o)", isChecked, isYesOption);
+                updateRbs();
+                break;
+            case R.id.rbMoveisPequeno:
+                rbMoveisPequenos.setChecked(isChecked);
+                setAnswers("Inserir flores e plantas naturais", "Falta de assistência profissional", isChecked, isYesOption);
+                updateRbs();
+                break;
+            case R.id.rbPortas:
+                mRbPortas.setChecked(isChecked);
+                setAnswers("Pintar e/ou usar papel de parede", "Não tenho esses objetos", isChecked, isYesOption);
+                updateRbs();
+                break;
+            case R.id.rbPosicaoRuim:
+                mRbPosicaoRuim.setChecked(isChecked);
+                setAnswers("Abrir vãos e/ou derrubar paredes", "Vou me mudar em breve", isChecked, isYesOption);
+                updateRbs();
+                break;
+            case R.id.rbMoveisNovos:
+                mRbMoveisNovos.setChecked(isChecked);
+                setAnswers("Colocar forro de gesso", "Moro de aluguel", isChecked, isYesOption);
+                updateRbs();
+                break;
+            case R.id.rbMoveisGrandes:
+                rbMoveisGrandes.setChecked(isChecked);
+                setAnswers("Inserir objetos decorativos", "Não gosto desses objetos", isChecked, isYesOption);
+                updateRbs();
+                break;
+            case R.id.rbIlumination:
+                mRbIlumination.setChecked(isChecked);
+                setAnswers("Acrescentar iluminação", "Mudei recentemente", isChecked, isYesOption);
+                updateRbs();
+                break;
+
+        }
+    }
+
+    private void setAnswers(String textYes, String textNo, boolean isChecked, boolean isYesOption) {
+        if (isChecked) {
+            if (isYesOption) {
+                answerRequestYes.add(new AnswerRequest(MADE_LIST_CHANGES_YES.getQuestion(), MADE_LIST_CHANGES_YES.getQuestionPartId(), textYes));
+            } else {
+                answerRequestNo.add(new AnswerRequest(MADE_LIST_CHANGES_NO.getQuestion(), MADE_LIST_CHANGES_NO.getQuestionPartId(), textNo));
             }
         }
     }
 
-    private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), text);
+    private void setAnswer() {
+        ResearchFlow.addAnswer(answerRequest, this);
+
+        for (AnswerRequest r : answerRequestNo) {
+            ResearchFlow.addAnswer(r, this);
+        }
+
+        for (AnswerRequest b : answerRequestYes) {
+            ResearchFlow.addAnswer(b, this);
+        }
     }
 
     private void updateRbs() {
@@ -159,7 +232,7 @@ public class UnityMadeChanges extends BaseFragment implements View.OnClickListen
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             if (getActivity() != null) {
-                ResearchFlow.addAnswer(answerRequest, this);
+                setAnswer();
                 ((AboutYouActivity) getActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             }
         }

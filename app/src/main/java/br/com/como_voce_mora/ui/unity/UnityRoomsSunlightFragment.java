@@ -12,6 +12,7 @@ import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
@@ -80,7 +81,6 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvServico.setChecked(false);
-                    removeItem(csvServico.getText());
                     break;
                 }
             case R.id.csvBanheiro:
@@ -91,7 +91,6 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvBanheiro.setChecked(false);
-                    removeItem(csvBanheiro.getText());
                     break;
                 }
             case R.id.csvCasal:
@@ -102,7 +101,6 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvCasal.setChecked(false);
-                    removeItem(csvCasal.getText());
                     break;
                 }
             case R.id.csvSolteiro:
@@ -113,7 +111,6 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvSolteiro.setChecked(false);
-                    removeItem(csvSolteiro.getText());
                     break;
                 }
 
@@ -125,7 +122,6 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvSala.setChecked(false);
-                    removeItem(csvSala.getText());
                     break;
                 }
 
@@ -137,7 +133,6 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvCopa.setChecked(false);
-                    removeItem(csvCopa.getText());
                     break;
                 }
 
@@ -149,7 +144,6 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvVaranda.setChecked(false);
-                    removeItem(csvVaranda.getText());
                     break;
                 }
             case R.id.csvCozinha:
@@ -160,38 +154,21 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvCozinha.setChecked(false);
-                    removeItem(csvCozinha.getText());
                 }
-        }
-    }
-
-    private void removeItem(String question) {
-        int cont = 0;
-        int pos = cont;
-        if (!answerRequests.isEmpty()) {
-            for (AnswerRequest r : answerRequests) {
-                if (r.getDwellerId().equals(question)) {
-                    pos = cont;
-                }
-                cont++;
-            }
-            answerRequests.remove(pos);
         }
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-//        setAnswer();
+        setAnswer();
         ((AboutYouActivity) requireActivity()).addFragment(UnityActivitiesByRoom.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
     }
 
-//    private void setAnswer() {
-//        AnswerRequest answerRequest = new AnswerRequest(currentResidenceAnswer.getQuestion(), currentResidenceAnswer.getQuestionPartId(), "");
-//        ResearchFlow.addAnswer(currentResidenceAnswer.getQuestion(), answerRequest);
-//        for (AnswerRequest r : answerRequests) {
-//            ResearchFlow.addAnswer(r.getDwellerId(), r);
-//        }
-//    }
+    private void setAnswer() {
+        for (AnswerRequest r : answerRequests) {
+            ResearchFlow.addAnswer(r, this);
+        }
+    }
 
     @OnClick(R.id.bt_back)
     public void onBtBackClicked() {

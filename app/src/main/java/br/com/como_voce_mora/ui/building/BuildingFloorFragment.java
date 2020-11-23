@@ -113,7 +113,7 @@ public class BuildingFloorFragment extends BaseFragment implements VolumeVertica
         mTvSchool.setText(texts.get(position));
         mTvSchool.setVisibility(View.VISIBLE);
         anyOneSelected = true;
-        answerRequest = new AnswerRequest(buildingAnswer.getQuestion(), buildingAnswer.getQuestionPartId(), texts.get(position));
+        answerRequest = new AnswerRequest(buildingAnswer.getQuestion(), buildingAnswer.getQuestionPartId(), texts.get(position).replace("°", ""));
     }
 
     @OnClick(R.id.bt_next)

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,18 +8,18 @@
     <include layout="@layout/fragment_mr_clipboard_ball" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbYes"
-        android:text="Sim"
+        style="@style/CustomRadioButton"
         android:gravity="center"
+        android:text="Sim"
         app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard"
         app:layout_constraintTop_toBottomOf="@id/iv_mr_clipboard" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
-        style="@style/CustomRadioButton"
         android:id="@+id/rbNo"
-        android:text="Nao"
+        style="@style/CustomRadioButton"
         android:gravity="center"
+        android:text="Nao"
         app:layout_constraintBottom_toTopOf="@id/btPreviousSession"
         app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard" />
 
@@ -28,10 +27,10 @@
         android:id="@+id/scrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:fillViewport="true"
         android:fadeScrollbars="false"
+        android:fillViewport="true"
         android:scrollbars="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/rbNo"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbNo">
@@ -41,66 +40,66 @@
             android:layout_height="match_parent">
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
                 android:id="@+id/rbEletroPequeno"
-                android:text="Eletrodomésticos\npequenos"
+                style="@style/CustomRadioButton"
                 android:gravity="center"
+                android:text="Eletrodomésticos pequenos"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
                 android:id="@+id/rbEletroGrande"
-                android:text="Eletrodomésticos\ngrandes"
+                style="@style/CustomRadioButton"
                 android:gravity="center"
+                android:text="Eletrodomésticos grandes"
                 app:layout_constraintStart_toStartOf="@id/rbEletroPequeno"
                 app:layout_constraintTop_toBottomOf="@id/rbEletroPequeno" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
                 android:id="@+id/rbMoveisPequeno"
-                android:text="Móveis pequenos"
+                style="@style/CustomRadioButton"
                 android:gravity="center"
+                android:text="Móveis pequenos"
                 app:layout_constraintStart_toStartOf="@id/rbEletroGrande"
                 app:layout_constraintTop_toBottomOf="@id/rbEletroGrande" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
                 android:id="@+id/rbMoveisGrandes"
-                android:text="Móveis grandes"
+                style="@style/CustomRadioButton"
                 android:gravity="center"
+                android:text="Móveis grandes"
                 app:layout_constraintStart_toEndOf="@id/rbEletroPequeno"
                 app:layout_constraintTop_toTopOf="@id/rbEletroPequeno" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
                 android:id="@+id/rbPortas"
-                android:text="Portas muito\nestreitas"
+                style="@style/CustomRadioButton"
                 android:gravity="center"
+                android:text="Portas muito estreitas"
                 app:layout_constraintStart_toEndOf="@id/rbEletroGrande"
                 app:layout_constraintTop_toTopOf="@id/rbEletroGrande" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
                 android:id="@+id/rbPosicaoRuim"
-                android:text="Posição ruim de\nportas e janelas"
+                style="@style/CustomRadioButton"
                 android:gravity="center"
+                android:text="Posição ruim de portas e janelas"
                 app:layout_constraintStart_toEndOf="@id/rbMoveisPequeno"
                 app:layout_constraintTop_toTopOf="@id/rbMoveisPequeno" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
                 android:id="@+id/rbMoveisNovos"
-                android:text="Móveis novos"
+                style="@style/CustomRadioButton"
                 android:gravity="center"
+                android:text="Móveis novos"
                 app:layout_constraintStart_toEndOf="@id/rbMoveisGrandes"
                 app:layout_constraintTop_toTopOf="@id/rbMoveisGrandes" />
 
             <br.com.como_voce_mora.custom.CustomRadioButton
-                style="@style/CustomRadioButton"
                 android:id="@+id/rbExcesso"
-                android:text="Excesso de móveis e\neletrodomésticos"
+                style="@style/CustomRadioButton"
                 android:gravity="center"
+                android:text="Excesso de móveis e eletrodomésticos"
                 app:layout_constraintStart_toEndOf="@id/rbPortas"
                 app:layout_constraintTop_toTopOf="@id/rbPortas" />
         </androidx.constraintlayout.widget.ConstraintLayout>

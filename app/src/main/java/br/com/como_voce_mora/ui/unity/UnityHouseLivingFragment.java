@@ -42,6 +42,7 @@ public class UnityHouseLivingFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
     private UnityAnswer unityAnswer = UnityAnswer.HOME_TYPE;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private boolean anyOptionChecked = false;
@@ -79,8 +80,44 @@ public class UnityHouseLivingFragment extends BaseFragment {
     }
 
     private void setAnswers() {
-        for (AnswerRequest r : answerRequests) {
-            ResearchFlow.addAnswer(r, this);
+        String[] podiumSelected = customPodium.getPodium();
+        if (podiumSelected != null) {
+            for (int i = 0; i < podiumSelected.length; i++) {
+                String pos = podiumSelected[i];
+                String position = positions[i];
+                switch (pos) {
+                    case "Familia/Amigos":
+                        answerRequests.add(new AnswerRequest(LOCAL_PESSOAS_INTERESSAM.getQuestion(), LOCAL_PESSOAS_INTERESSAM.getQuestionPartId(), position));
+                        break;
+                    case "Local onde durmo":
+                        answerRequests.add(new AnswerRequest(LOCAL_SEGURO.getQuestion(), LOCAL_SEGURO.getQuestionPartId(), position));
+                        break;
+                    case "Passo mais tempo":
+                        answerRequests.add(new AnswerRequest(LOCAL_DURMO.getQuestion(), LOCAL_DURMO.getQuestionPartId(), position));
+                        break;
+                    case "Local com que identifico":
+                        answerRequests.add(new AnswerRequest(LOCAL_PERTENCES.getQuestion(), LOCAL_PERTENCES.getQuestionPartId(), position));
+                        break;
+                    case "Investimento material":
+                        answerRequests.add(new AnswerRequest(LOCAL_EM_QUE_PASSO_MAIS_TEMPO.getQuestion(), LOCAL_EM_QUE_PASSO_MAIS_TEMPO.getQuestionPartId(), position));
+                        break;
+                    case"Local seguro":
+                        answerRequests.add(new AnswerRequest(LOCAL_ATIVIDADES.getQuestion(), LOCAL_ATIVIDADES.getQuestionPartId(),position));
+                        break;
+                    case "Onde estão pertences":
+                        answerRequests.add(new AnswerRequest(LOCAL_COM_O_QUE_MAIS_ME_IDENTIFICO.getQuestion(), LOCAL_COM_O_QUE_MAIS_ME_IDENTIFICO.getQuestionPartId(), position));
+                        break;
+                    case "Onde realizo atividades":
+                        answerRequests.add(new AnswerRequest(OUTRO.getQuestion(), OUTRO.getQuestionPartId(), position));
+                        break;
+                    case "Outros":
+                        answerRequests.add(new AnswerRequest(INVESTIMENTO.getQuestion(), INVESTIMENTO.getQuestionPartId(),position));
+                        break;
+                }
+            }
+            for (AnswerRequest r : answerRequests) {
+                ResearchFlow.addAnswer(r, this);
+            }
         }
     }
 
@@ -99,36 +136,6 @@ public class UnityHouseLivingFragment extends BaseFragment {
         anyOptionChecked = true;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
-
-        switch (view.getId()) {
-            case R.id.btFirstOption:
-                answerRequests.add(new AnswerRequest(LOCAL_PESSOAS_INTERESSAM.getQuestion(), LOCAL_PESSOAS_INTERESSAM.getQuestionPartId(), textView.getText().toString()));
-                break;
-            case R.id.btSecondOption:
-                answerRequests.add(new AnswerRequest(LOCAL_SEGURO.getQuestion(), LOCAL_SEGURO.getQuestionPartId(), textView.getText().toString()));
-                break;
-            case R.id.btThirdOption:
-                answerRequests.add(new AnswerRequest(LOCAL_DURMO.getQuestion(), LOCAL_DURMO.getQuestionPartId(), textView.getText().toString()));
-                break;
-            case R.id.btForthOption:
-                answerRequests.add(new AnswerRequest(LOCAL_PERTENCES.getQuestion(), LOCAL_PERTENCES.getQuestionPartId(), textView.getText().toString()));
-                break;
-            case R.id.btFifthOption:
-                answerRequests.add(new AnswerRequest(LOCAL_EM_QUE_PASSO_MAIS_TEMPO.getQuestion(), LOCAL_EM_QUE_PASSO_MAIS_TEMPO.getQuestionPartId(), textView.getText().toString()));
-                break;
-            case R.id.btSixOption:
-                answerRequests.add(new AnswerRequest(LOCAL_ATIVIDADES.getQuestion(), LOCAL_ATIVIDADES.getQuestionPartId(), textView.getText().toString()));
-                break;
-            case R.id.btSevenOption:
-                answerRequests.add(new AnswerRequest(LOCAL_COM_O_QUE_MAIS_ME_IDENTIFICO.getQuestion(), LOCAL_COM_O_QUE_MAIS_ME_IDENTIFICO.getQuestionPartId(), textView.getText().toString()));
-                break;
-            case R.id.btEightOption:
-                answerRequests.add(new AnswerRequest(OUTRO.getQuestion(), OUTRO.getQuestionPartId(), textView.getText().toString()));
-                break;
-            case R.id.btNineOption:
-                answerRequests.add(new AnswerRequest(INVESTIMENTO.getQuestion(), INVESTIMENTO.getQuestionPartId(), textView.getText().toString()));
-                break;
-        }
     }
 
     @OnClick(R.id.btPreviousSession)

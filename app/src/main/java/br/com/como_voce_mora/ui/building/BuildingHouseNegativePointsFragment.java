@@ -32,6 +32,7 @@ public class BuildingHouseNegativePointsFragment extends BaseFragment {
     TextView tvQuestion;
 
     private boolean anyOneSelected = false;
+    String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private BuildingAnswer houseGroupAnswer = BuildingAnswer.NEGATIVE_POINTS_LIVE_IN_HOUSE;
     private BuildingAnswer vizinhos = BuildingAnswer.COEXISTENCE_BBETWEEN_NEIGHBORS;
@@ -78,28 +79,30 @@ public class BuildingHouseNegativePointsFragment extends BaseFragment {
     private void setAnswers() {
         String[] podiumSelected = customPodium.getPodium();
         if (podiumSelected != null) {
-            for (String pos : podiumSelected) {
+            for (int i = 0; i < podiumSelected.length; i++) {
+                String pos = podiumSelected[i];
+                String position = positions[i];
                 switch (pos) {
-                    case "FALTA DE SEGURANÇA":
-                        answerRequests.add(new AnswerRequest(faltaSeguranca.getQuestion(), faltaSeguranca.getQuestionPartId(), pos));
+                    case "Falta de Segurança":
+                        answerRequests.add(new AnswerRequest(faltaSeguranca.getQuestion(), faltaSeguranca.getQuestionPartId(), position));
                         break;
-                    case "ESPAÇO REDUZIDO":
-                        answerRequests.add(new AnswerRequest(faltaEspaco.getQuestion(), faltaEspaco.getQuestionPartId(), pos));
+                    case "Espaço Reduzido":
+                        answerRequests.add(new AnswerRequest(faltaEspaco.getQuestion(), faltaEspaco.getQuestionPartId(), position));
                         break;
-                    case "LIMITAÇÃO A REFORMAS":
-                        answerRequests.add(new AnswerRequest(dificuldadeReforma.getQuestion(), dificuldadeReforma.getQuestionPartId(), pos));
+                    case "Limitação a reformas":
+                        answerRequests.add(new AnswerRequest(dificuldadeReforma.getQuestion(), dificuldadeReforma.getQuestionPartId(), position));
                         break;
-                    case "CONVIVENCIA COM VIZINHOS":
-                        answerRequests.add(new AnswerRequest(vizinhos.getQuestion(), vizinhos.getQuestionPartId(), pos));
+                    case "Convivencia com vizinhos":
+                        answerRequests.add(new AnswerRequest(vizinhos.getQuestion(), vizinhos.getQuestionPartId(), position));
                         break;
-                    case "FALTA DE PRIVACIDADE":
-                        answerRequests.add(new AnswerRequest(privacidade.getQuestion(), privacidade.getQuestionPartId(), pos));
+                    case "Falta de Privacidade":
+                        answerRequests.add(new AnswerRequest(privacidade.getQuestion(), privacidade.getQuestionPartId(), position));
                         break;
-                    case "VIDA SOCIAL CONTROLADA":
-                        answerRequests.add(new AnswerRequest(vidaSocial.getQuestion(), vidaSocial.getQuestionPartId(), pos));
+                    case "Vida Social Controlada":
+                        answerRequests.add(new AnswerRequest(vidaSocial.getQuestion(), vidaSocial.getQuestionPartId(), position));
                         break;
-                    case "OUTROS":
-                        answerRequests.add(new AnswerRequest(outros.getQuestion(), outros.getQuestionPartId(), pos));
+                    case "Outros":
+                        answerRequests.add(new AnswerRequest(outros.getQuestion(), outros.getQuestionPartId(), position));
                         break;
                 }
             }

@@ -40,18 +40,16 @@ public class HabitationEquipmentsFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
-    private AnswerRequest answerGameRoom;
-    private AnswerRequest answerGym;
-    private AnswerRequest answerParty;
-    private AnswerRequest answerAdultPool;
-    private AnswerRequest answerGourmet;
-    private AnswerRequest answerSquare;
-    private AnswerRequest answerChildPool;
-    private AnswerRequest answerPlayGround;
-
-
     private ArrayList<AnswerRequest> answerRequests = new ArrayList<>();
     private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.CONDOMINIUM_PUBLIC_EQUIPMENT;
+    private AnswerRequest academiaNao = new AnswerRequest(HouseGroupAnswer.ACADEMIA.getQuestion(), HouseGroupAnswer.ACADEMIA.getQuestionPartId(), "Não");
+    private AnswerRequest salaoFestasNao = new AnswerRequest(HouseGroupAnswer.SALAO_DE_FESTAS.getQuestion(), HouseGroupAnswer.SALAO_DE_FESTAS.getQuestionPartId(), "Não");
+    private AnswerRequest playgroundNao = new AnswerRequest(HouseGroupAnswer.PLAYGROUND.getQuestion(), HouseGroupAnswer.PLAYGROUND.getQuestionPartId(), "Não");
+    private AnswerRequest quadraNao = new AnswerRequest(HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestion(), HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestionPartId(), "Não");
+    private AnswerRequest salaJogosNao = new AnswerRequest(HouseGroupAnswer.SALAO_DE_JOGOS.getQuestion(), HouseGroupAnswer.SALAO_DE_JOGOS.getQuestionPartId(), "Não");
+    private AnswerRequest gourmetNao = new AnswerRequest(HouseGroupAnswer.ESPACO_GOURMET.getQuestion(), HouseGroupAnswer.ESPACO_GOURMET.getQuestionPartId(), "Não");
+    private AnswerRequest piscinaAdultoNao = new AnswerRequest(HouseGroupAnswer.PISCINA_ADULTO.getQuestion(), HouseGroupAnswer.PISCINA_ADULTO.getQuestionPartId(), "Não");
+    private AnswerRequest piscinaInfantilNao = new AnswerRequest(HouseGroupAnswer.PISCINA_INFANTIL.getQuestion(), HouseGroupAnswer.PISCINA_INFANTIL.getQuestionPartId(), "Não");
 
     public static HabitationEquipmentsFragment newInstance() {
         return new HabitationEquipmentsFragment();
@@ -66,39 +64,27 @@ public class HabitationEquipmentsFragment extends BaseFragment {
     public void init() {
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
         tvQuestion.setText(houseGroupAnser.getQuestion());
+        initList();
+    }
+
+    private void initList() {
+        answerRequests.add(academiaNao);
+        answerRequests.add(salaoFestasNao);
+        answerRequests.add(playgroundNao);
+        answerRequests.add(quadraNao);
+        answerRequests.add(salaJogosNao);
+        answerRequests.add(gourmetNao);
+        answerRequests.add(piscinaAdultoNao);
+        answerRequests.add(piscinaInfantilNao);
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-            setAnswer();
-            ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
+        setAnswer();
+        ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
     }
 
     private void setAnswer() {
-        if (answerGameRoom != null) {
-            answerRequests.add(answerGameRoom);
-        }
-        if (answerGym != null) {
-            answerRequests.add(answerGym);
-        }
-        if (answerParty != null) {
-            answerRequests.add(answerParty);
-        }
-        if (answerAdultPool != null) {
-            answerRequests.add(answerAdultPool);
-        }
-        if (answerGourmet != null) {
-            answerRequests.add(answerGourmet);
-        }
-        if (answerSquare != null) {
-            answerRequests.add(answerSquare);
-        }
-        if (answerChildPool != null) {
-            answerRequests.add(answerChildPool);
-        }
-        if (answerPlayGround != null) {
-            answerRequests.add(answerPlayGround);
-        }
         for (AnswerRequest r : answerRequests) {
             ResearchFlow.addAnswer(r, this);
         }
@@ -115,83 +101,89 @@ public class HabitationEquipmentsFragment extends BaseFragment {
     @OnClick({R.id.csvGamesRoom, R.id.csvGym, R.id.csvPartyRoom, R.id.csvPoolPlusEighteen, R.id.csvGourmet,
             R.id.csvPlayGround, R.id.csvSqaure, R.id.csvChildPool})
     public void onClickViews(View view) {
-        String text = ((CustomSelectedView) view).getText();
         switch (view.getId()) {
             case R.id.csvGamesRoom:
                 if (csvGamesRoom.isChecked()) {
                     csvGamesRoom.setChecked(false);
-                    answerGameRoom = null;
+                    answerRequests.add(salaJogosNao);
                 } else {
-                    answerGameRoom = new AnswerRequest(HouseGroupAnswer.SALAO_DE_JOGOS.getQuestion(), HouseGroupAnswer.SALAO_DE_JOGOS.getQuestionPartId(), text);
+                    answerRequests.remove(salaJogosNao);
+                    answerRequests.add(new AnswerRequest(HouseGroupAnswer.SALAO_DE_JOGOS.getQuestion(), HouseGroupAnswer.SALAO_DE_JOGOS.getQuestionPartId(), "Sim"));
                     csvGamesRoom.setChecked(true);
                 }
                 break;
             case R.id.csvGym:
                 if (csvGymRoom.isChecked()) {
-                    answerGym = null;
+                    answerRequests.add(academiaNao);
                     csvGymRoom.setChecked(false);
                 } else {
-                    answerGym = new AnswerRequest(HouseGroupAnswer.ACADEMIA.getQuestion(), HouseGroupAnswer.ACADEMIA.getQuestionPartId(), text);
+                    answerRequests.remove(academiaNao);
+                    answerRequests.add(new AnswerRequest(HouseGroupAnswer.ACADEMIA.getQuestion(), HouseGroupAnswer.ACADEMIA.getQuestionPartId(), "Sim"));
                     csvGymRoom.setChecked(true);
                 }
                 break;
             case R.id.csvPartyRoom:
                 if (csvPartyRoom.isChecked()) {
-                    answerParty = null;
+                    answerRequests.add(salaoFestasNao);
                     csvPartyRoom.setChecked(false);
                 } else {
-                    answerParty = new AnswerRequest(HouseGroupAnswer.SALAO_DE_FESTAS.getQuestion(), HouseGroupAnswer.SALAO_DE_FESTAS.getQuestionPartId(), text);
+                    answerRequests.remove(salaoFestasNao);
+                    answerRequests.add(new AnswerRequest(HouseGroupAnswer.SALAO_DE_FESTAS.getQuestion(), HouseGroupAnswer.SALAO_DE_FESTAS.getQuestionPartId(), "Sim"));
                     csvPartyRoom.setChecked(true);
                 }
                 break;
             case R.id.csvPoolPlusEighteen:
                 if (csvPoolPlusEighteen.isChecked()) {
-                    answerAdultPool = null;
+                    answerRequests.add(piscinaAdultoNao);
                     csvPoolPlusEighteen.setChecked(false);
                 } else {
-                    answerAdultPool = new AnswerRequest(HouseGroupAnswer.PISCINA_ADULTO.getQuestion(), HouseGroupAnswer.PISCINA_ADULTO.getQuestionPartId(), text);
+                    answerRequests.remove(piscinaAdultoNao);
+                    answerRequests.add(new AnswerRequest(HouseGroupAnswer.PISCINA_ADULTO.getQuestion(), HouseGroupAnswer.PISCINA_ADULTO.getQuestionPartId(), "Sim"));
                     csvPoolPlusEighteen.setChecked(true);
                 }
 
                 break;
             case R.id.csvGourmet:
                 if (csvGourmet.isChecked()) {
-                    answerGourmet = null;
+                    answerRequests.add(gourmetNao);
                     csvGourmet.setChecked(false);
                 } else {
-                    answerGourmet = new AnswerRequest(HouseGroupAnswer.ESPACO_GOURMET.getQuestion(), HouseGroupAnswer.ESPACO_GOURMET.getQuestionPartId(), text);
+                    answerRequests.remove(gourmetNao);
+                    answerRequests.add(new AnswerRequest(HouseGroupAnswer.ESPACO_GOURMET.getQuestion(), HouseGroupAnswer.ESPACO_GOURMET.getQuestionPartId(), "Sim"));
                     csvGourmet.setChecked(true);
                 }
 
                 break;
             case R.id.csvPlayGround:
                 if (csvPlayGround.isChecked()) {
-                    answerPlayGround = null;
+                    answerRequests.add(playgroundNao);
                     csvPlayGround.setChecked(false);
                 } else {
-                    answerPlayGround = new AnswerRequest(HouseGroupAnswer.PLAYGROUND.getQuestion(), HouseGroupAnswer.PLAYGROUND.getQuestionPartId(), text);
+                    answerRequests.remove(playgroundNao);
+                    answerRequests.add(new AnswerRequest(HouseGroupAnswer.PLAYGROUND.getQuestion(), HouseGroupAnswer.PLAYGROUND.getQuestionPartId(), "Sim"));
                     csvPlayGround.setChecked(true);
                 }
 
                 break;
             case R.id.csvSqaure:
                 if (csvSquare.isChecked()) {
-                    answerSquare = null;
+                    answerRequests.add(quadraNao);
                     csvSquare.setChecked(false);
                 } else {
-                    answerSquare = new AnswerRequest(HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestion(), HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestionPartId(), text);
+                    answerRequests.remove(quadraNao);
+                    answerRequests.add(new AnswerRequest(HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestion(), HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestionPartId(), "Sim"));
                     csvSquare.setChecked(true);
                 }
                 break;
             case R.id.csvChildPool:
                 if (csvChildPool.isChecked()) {
-                    answerChildPool = null;
+                    answerRequests.add(piscinaInfantilNao);
                     csvChildPool.setChecked(false);
                 } else {
-                    answerChildPool = new AnswerRequest(HouseGroupAnswer.PISCINA_INFANTIL.getQuestion(), HouseGroupAnswer.PISCINA_INFANTIL.getQuestionPartId(), text);
+                    answerRequests.remove(piscinaInfantilNao);
+                    answerRequests.add(new AnswerRequest(HouseGroupAnswer.PISCINA_INFANTIL.getQuestion(), HouseGroupAnswer.PISCINA_INFANTIL.getQuestionPartId(), "Sim"));
                     csvChildPool.setChecked(true);
                 }
-
                 break;
         }
     }

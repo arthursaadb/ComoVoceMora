@@ -6,6 +6,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -21,7 +22,7 @@ import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class UnityReformFragment extends BaseFragment implements View.OnClickListener {
+public class UnityReformFragment extends BaseFragment implements CompoundButton.OnCheckedChangeListener {
 
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -45,7 +46,7 @@ public class UnityReformFragment extends BaseFragment implements View.OnClickLis
     CustomRadioButton mRb8;
 
     private UnityAnswer unityAnswer = UnityAnswer.REFORM_MADE;
-    private AnswerRequest answerRequest;
+    private List<AnswerRequest> answerRequests = new ArrayList<>();
     private String acabamento = "";
     private String portas = "";
     private String gesso = "";
@@ -55,7 +56,7 @@ public class UnityReformFragment extends BaseFragment implements View.OnClickLis
     private String rachaduras = "";
     private String nenhuma = "";
     private String answer = "";
-    private  Boolean none = false;
+    private Boolean none = false;
 
 
     public static UnityReformFragment newInstance(List<UnityAnswer> room) {
@@ -76,67 +77,27 @@ public class UnityReformFragment extends BaseFragment implements View.OnClickLis
     public void init() {
         mTvQuestion.setText(unityAnswer.getQuestion());
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        mRb1.setOnClickListener(this);
-        mRb2.setOnClickListener(this);
-        mRb3.setOnClickListener(this);
-        mRb4.setOnClickListener(this);
-        mRb6.setOnClickListener(this);
-        mRb5.setOnClickListener(this);
-        mRb7.setOnClickListener(this);
-        mRb8.setOnClickListener(this);
+        mRb1.setOnCheckedChangeListener(this);
+        mRb2.setOnCheckedChangeListener(this);
+        mRb3.setOnCheckedChangeListener(this);
+        mRb4.setOnCheckedChangeListener(this);
+        mRb6.setOnCheckedChangeListener(this);
+        mRb5.setOnCheckedChangeListener(this);
+        mRb7.setOnCheckedChangeListener(this);
+        mRb8.setOnCheckedChangeListener(this);
     }
 
-
     @Override
-    public void onClick(View v) {
-        CustomRadioButton  option = (CustomRadioButton) v;
-        if (v.isPressed()) {
-            none = false;
-            mRb8.setChecked(false);
-            switch (option.getId()) {
-                case R.id.rbAcabamento:
-                    acabamento = (String) option.getText();
-                    updateRbs();
-                    break;
-                case R.id.rbPortas:
-                    portas = (String) option.getText();
-                    updateRbs();
-                    break;
-                case R.id.rbGesso:
-                    gesso = (String) option.getText();
-                    updateRbs();
-                    break;
-                case R.id.rbPintura:
-                    pintura = (String) option.getText();
-                    updateRbs();
-                    break;
-                case R.id.rbArmario:
-                    armario = (String) option.getText();
-                    updateRbs();
-                    break;
-                case R.id.rbParedes:
-                    paredes = (String) option.getText();
-                    updateRbs();
-                    break;
-                case R.id.rbRachaduras:
-                    paredes = (String) option.getText();
-                    updateRbs();
-                    break;
-                case R.id.rbNenhuma:
-                    none = true;
-                    mRb1.setChecked(false);
-                    mRb2.setChecked(false);
-                    mRb3.setChecked(false);
-                    mRb4.setChecked(false);
-                    mRb5.setChecked(false);
-                    mRb6.setChecked(false);
-                    mRb7.setChecked(false);
-                    mRb8.setChecked(true);
-                    nenhuma = (String) option.getText();
-                    updateRbs();
-                    break;
-            }
+    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        if (isChecked) {
+            compoundButton.setChecked(true);
+            answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), compoundButton.getText().toString()));
+        } else {
+            answerRequests.remove(new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), compoundButton.getText().toString()));
+            compoundButton.setChecked(false);
         }
+
+        updateRbs();
     }
 
     private void updateRbs() {
@@ -163,33 +124,9 @@ public class UnityReformFragment extends BaseFragment implements View.OnClickLis
     }
 
     private void setAnswer() {
-        if (!acabamento.equals("")) {
-            answer += acabamento;
+        for (AnswerRequest r : answerRequests) {
+            ResearchFlow.addAnswer(r, this);
         }
-        if (!portas.equals("")) {
-            answer += portas;
-        }
-        if (!gesso.equals("")) {
-            answer += gesso;
-        }
-        if (!pintura.equals("")) {
-            answer += pintura;
-        }
-        if (!armario.equals("")) {
-            answer += armario;
-        }
-        if (!paredes.equals("")) {
-            answer += paredes;
-        }
-        if (!rachaduras.equals("")) {
-            answer += rachaduras;
-        }
-        if (!nenhuma.equals("")) {
-            answer += nenhuma;
-        }
-
-        answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), answer);
-        ResearchFlow.addAnswer(answerRequest, this);
     }
 
     @OnClick(R.id.bt_back)

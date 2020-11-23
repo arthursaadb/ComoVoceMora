@@ -31,6 +31,7 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
     @BindViews({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
             R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
     List<Button> mButtons;
+    String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
 
     private boolean anyOneSelected = false;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
@@ -82,28 +83,30 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
 
     private void setAnswers() {
         String[] podiumSelected = customPodium.getPodium();
-        for (String pos : podiumSelected) {
+        for (int i = 0; i < podiumSelected.length; i++) {
+            String pos = podiumSelected[i];
+            String position = positions[i];
             switch (pos) {
-                case "SEGURANÇA":
-                    answerRequests.add(new AnswerRequest(seguranca.getQuestion(), seguranca.getQuestionPartId(), pos));
+                case "Segurança":
+                    answerRequests.add(new AnswerRequest(seguranca.getQuestion(), seguranca.getQuestionPartId(), position));
                     break;
-                case "QUALIDADE":
-                    answerRequests.add(new AnswerRequest(qualidadeConstrucao.getQuestion(), qualidadeConstrucao.getQuestionPartId(), pos));
+                case "Qualidade":
+                    answerRequests.add(new AnswerRequest(qualidadeConstrucao.getQuestion(), qualidadeConstrucao.getQuestionPartId(), position));
                     break;
-                case "STATUS SOCIAL":
-                    answerRequests.add(new AnswerRequest(statusSocial.getQuestion(), statusSocial.getQuestionPartId(), pos));
+                case "Status Social":
+                    answerRequests.add(new AnswerRequest(statusSocial.getQuestion(), statusSocial.getQuestionPartId(), position));
                     break;
-                case "VISTA PRIVILEGIADA":
-                    answerRequests.add(new AnswerRequest(vista.getQuestion(), vista.getQuestionPartId(), pos));
+                case "Vista Privilegiada":
+                    answerRequests.add(new AnswerRequest(vista.getQuestion(), vista.getQuestionPartId(), position));
                     break;
-                case "LOCALIZAÇÃO":
-                    answerRequests.add(new AnswerRequest(localizao.getQuestion(), localizao.getQuestionPartId(), pos));
+                case "Localização":
+                    answerRequests.add(new AnswerRequest(localizao.getQuestion(), localizao.getQuestionPartId(), position));
                     break;
-                case "INVESTIMENTOS":
-                    answerRequests.add(new AnswerRequest(investimento.getQuestion(), investimento.getQuestionPartId(), pos));
+                case "Investimentos":
+                    answerRequests.add(new AnswerRequest(investimento.getQuestion(), investimento.getQuestionPartId(), position));
                     break;
-                case "OUTROS":
-                    answerRequests.add(new AnswerRequest(outros.getQuestion(), outros.getQuestionPartId(), pos));
+                case "Outros":
+                    answerRequests.add(new AnswerRequest(outros.getQuestion(), outros.getQuestionPartId(), position));
                     break;
             }
         }

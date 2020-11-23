@@ -47,7 +47,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Não signifca nada"
+                    android:text="Não significa nada"
                     android:visibility="visible"
                     tools:visibility="visible" />
 

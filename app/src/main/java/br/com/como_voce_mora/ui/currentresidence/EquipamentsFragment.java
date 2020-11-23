@@ -42,6 +42,12 @@ public class EquipamentsFragment extends BaseFragment {
     private CurrentResidenceAnswer lazerCurrentResidenceAnswer = CurrentResidenceAnswer.LAZER;
     private CurrentResidenceAnswer esporteCurrentResidenceAnswer = CurrentResidenceAnswer.ESPORTE;
     private CurrentResidenceAnswer segurancaCurrentResidenceAnswer = CurrentResidenceAnswer.SEGURANCA;
+    private AnswerRequest saudeNao = new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(), saudeCurrentResidenceAnswer.getQuestionPartId(), "Não");
+    private AnswerRequest escolaNao = new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(), escolaCurrentResidenceAnswer.getQuestionPartId(), "Não");
+    private AnswerRequest culturaNao = new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(), culturaCurrentResidenceAnswer.getQuestionPartId(), "Não");
+    private AnswerRequest lazerNao = new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(), lazerCurrentResidenceAnswer.getQuestionPartId(), "Não");
+    private AnswerRequest esporteNao = new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(), esporteCurrentResidenceAnswer.getQuestionPartId(), "Não");
+    private AnswerRequest segurancaNao = new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), "Não");
 
     public static EquipamentsFragment newInstance() {
 
@@ -61,6 +67,16 @@ public class EquipamentsFragment extends BaseFragment {
     public void init() {
         tvQuestion.setText(currentResidenceAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.ACTUAL_RESIDENCE);
+        initList();
+    }
+
+    private void initList() {
+        answerRequests.add(saudeNao);
+        answerRequests.add(escolaNao);
+        answerRequests.add(culturaNao);
+        answerRequests.add(lazerNao);
+        answerRequests.add(esporteNao);
+        answerRequests.add(segurancaNao);
     }
 
     @OnClick({R.id.csvSaude, R.id.csvEscola, R.id.csvCultura,
@@ -73,39 +89,39 @@ public class EquipamentsFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     saude = csv.getText();
+                    answerRequests.remove(saudeNao);
                     answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(),
-                            saudeCurrentResidenceAnswer.getQuestionPartId(), "sim"));
+                            saudeCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
                     break;
                 } else {
                     csv.setChecked(false);
-                    answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(),
-                            saudeCurrentResidenceAnswer.getQuestionPartId(), "não"));
+                    answerRequests.add(saudeNao);
                     break;
                 }
             case R.id.csvEscola:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     escola = csv.getText();
+                    answerRequests.remove(escolaNao);
                     answerRequests.add(new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(),
-                            escolaCurrentResidenceAnswer.getQuestionPartId(), "sim"));
+                            escolaCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
                     break;
                 } else {
                     csv.setChecked(false);
-                    answerRequests.add(new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(),
-                            escolaCurrentResidenceAnswer.getQuestionPartId(), "não"));
+                    answerRequests.add(escolaNao);
                     break;
                 }
             case R.id.csvCultura:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     cultura = csv.getText();
+                    answerRequests.remove(culturaNao);
                     answerRequests.add(new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(),
-                            culturaCurrentResidenceAnswer.getQuestionPartId(), "sim"));
+                            culturaCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
                     break;
                 } else {
                     csv.setChecked(false);
-                    answerRequests.add(new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(),
-                            culturaCurrentResidenceAnswer.getQuestionPartId(), "não"));
+                    answerRequests.add(culturaNao);
                     break;
                 }
             case R.id.csvLazer:
@@ -113,14 +129,14 @@ public class EquipamentsFragment extends BaseFragment {
                     recreation = true;
                     csv.setChecked(true);
                     lazer = csv.getText();
+                    answerRequests.remove(lazerNao);
                     answerRequests.add(new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(),
-                            lazerCurrentResidenceAnswer.getQuestionPartId(), "sim"));
+                            lazerCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
                     break;
                 } else {
                     recreation = false;
                     csv.setChecked(false);
-                    answerRequests.add(new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(),
-                            lazerCurrentResidenceAnswer.getQuestionPartId(), "não"));
+                    answerRequests.add(lazerNao);
                     break;
                 }
             case R.id.csvEsporte:
@@ -128,27 +144,28 @@ public class EquipamentsFragment extends BaseFragment {
                     recreation = true;
                     csv.setChecked(true);
                     esporte = csv.getText();
+                    answerRequests.remove(esporteNao);
                     answerRequests.add(new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(),
-                            esporteCurrentResidenceAnswer.getQuestionPartId(), "sim"));
+                            esporteCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
                     break;
                 } else {
                     recreation = false;
+                    answerRequests.add(esporteNao);
                     csv.setChecked(false);
-                    answerRequests.add(new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(),
-                            esporteCurrentResidenceAnswer.getQuestionPartId(), "não"));
                     break;
                 }
             case R.id.csvSeguranca:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     seguranca = csv.getText();
+                    answerRequests.remove(segurancaNao);
                     answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(),
-                            segurancaCurrentResidenceAnswer.getQuestionPartId(), "sim"));
+                            segurancaCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
                     break;
                 } else {
                     csv.setChecked(false);
-                    answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(),
-                            segurancaCurrentResidenceAnswer.getQuestionPartId(), "não"));
+                    answerRequests.add(segurancaNao);
+                    break;
                 }
         }
     }

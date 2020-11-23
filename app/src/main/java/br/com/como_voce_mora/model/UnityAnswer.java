@@ -66,11 +66,9 @@ public enum UnityAnswer implements Serializable {
     VARANDA("Varanda", "2fb18b32-08aa-4c21-a1d5-389e7d02d00a"),
     AREA_SERVICO("Área de serviço", "caceae0c-b2a0-4561-be51-8f3f81952d93"),
 
-    CHANGES_MADE("Se foram feitas alterações, quais? ", "9ced6daa-73c8-4422-86b4-630b5983b52a"),
-
-    NO_CHANGES_MADE("Se nenhuma alteração foi feita, qual (is) o(s) motivo(s)?", "1df2708b-e6c1-44cf-83d9-a083d27c1e24"),
-
     MADE_LIST_CHANGES("Você já realizou alguma das alterações listadas na questão anterior?", "4dfb331c-d1fd-4da8-a763-e11fdfa42a31"),
+    MADE_LIST_CHANGES_YES("Se foram feitas alterações, quais?", "9ced6daa-73c8-4422-86b4-630b5983b52a"),
+    MADE_LIST_CHANGES_NO("Se nenhuma alteração foi feita, qual (is) o(s) motivo(s)?","1df2708b-e6c1-44cf-83d9-a083d27c1e24"),
 
     NEIGHBORHOOD_DELIMITATION_TYPE("Existe alguma delimitação/barreira entre a sua moradia e a vizinhança?", "f0ce08bf-d19e-4946-bf47-bb63329c37a0"),
     KITCHEN_ACTIVITIES("Além das atividades convencionais, o que você e os demais moradores fazem na COZINHA?", "3f60ae3f-1439-4692-a0b8-97b08590fd5a"),

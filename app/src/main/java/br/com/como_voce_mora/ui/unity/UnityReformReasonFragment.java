@@ -35,6 +35,7 @@ public class UnityReformReasonFragment extends BaseFragment {
     TextView tvQuestion;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
+    String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
     private UnityAnswer unityAnswer = UnityAnswer.REFORM_REASON;
     private UnityAnswer ampliarComodo = UnityAnswer.ENLARGE_ROOM;
     private UnityAnswer melhorarAcabamento = UnityAnswer.IMPROVE_FINISHING;
@@ -75,31 +76,33 @@ public class UnityReformReasonFragment extends BaseFragment {
     private void setAnswers() {
         String[] podiumSelected = customPodium.getPodium();
         if (podiumSelected != null) {
-            for (String pos : podiumSelected) {
+            for (int i = 0; i < podiumSelected.length; i++) {
+                String pos = podiumSelected[i];
+                String position = positions[i];
                 switch (pos) {
-                    case "AMPLIAR COMODO":
-                        answerRequests.add(new AnswerRequest(ampliarComodo.getQuestion(), ampliarComodo.getQuestionPartId(), pos));
+                    case "Ampliar Comodo":
+                        answerRequests.add(new AnswerRequest(ampliarComodo.getQuestion(), ampliarComodo.getQuestionPartId(), position));
                         break;
-                    case "DIMINUIR COMODO":
-                        answerRequests.add(new AnswerRequest(diminuirComodo.getQuestion(), diminuirComodo.getQuestionPartId(), pos));
+                    case "Diminuir Comodo":
+                        answerRequests.add(new AnswerRequest(diminuirComodo.getQuestion(), diminuirComodo.getQuestionPartId(), position));
                         break;
-                    case "MELHORAR ACABAMENTO":
-                        answerRequests.add(new AnswerRequest(melhorarAcabamento.getQuestion(), melhorarAcabamento.getQuestionPartId(), pos));
+                    case "Melhorar Acabamento":
+                        answerRequests.add(new AnswerRequest(melhorarAcabamento.getQuestion(), melhorarAcabamento.getQuestionPartId(), position));
                         break;
-                    case "MELHORAR CONFORTO":
-                        answerRequests.add(new AnswerRequest(melhorarConforto.getQuestion(), melhorarConforto.getQuestionPartId(), pos));
+                    case "Melhorar Conforto":
+                        answerRequests.add(new AnswerRequest(melhorarConforto.getQuestion(), melhorarConforto.getQuestionPartId(), position));
                         break;
-                    case "PROBLEMA TECNICO":
-                        answerRequests.add(new AnswerRequest(resolverProblema.getQuestion(), resolverProblema.getQuestionPartId(), pos));
+                    case "Problema Tecnico":
+                        answerRequests.add(new AnswerRequest(resolverProblema.getQuestion(), resolverProblema.getQuestionPartId(), position));
                         break;
-                    case "ELIMINAR COMODO":
-                        answerRequests.add(new AnswerRequest(eliminar.getQuestion(), eliminar.getQuestionPartId(), pos));
+                    case "Eliminar Comodo":
+                        answerRequests.add(new AnswerRequest(eliminar.getQuestion(), eliminar.getQuestionPartId(), position));
                         break;
-                    case "FUNÇÃO DO COMODO":
-                        answerRequests.add(new AnswerRequest(funcaoCondicao.getQuestion(), funcaoCondicao.getQuestionPartId(), pos));
+                    case "Função do Comodo":
+                        answerRequests.add(new AnswerRequest(funcaoCondicao.getQuestion(), funcaoCondicao.getQuestionPartId(), position));
                         break;
-                    case "OUTROS":
-                        answerRequests.add(new AnswerRequest(outraRasao.getQuestion(), outraRasao.getQuestionPartId(), pos));
+                    case "Outros":
+                        answerRequests.add(new AnswerRequest(outraRasao.getQuestion(), outraRasao.getQuestionPartId(), position));
                         break;
                 }
             }
