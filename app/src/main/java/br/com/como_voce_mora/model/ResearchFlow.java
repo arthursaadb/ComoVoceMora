@@ -47,6 +47,8 @@ public class ResearchFlow {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        getList();
     }
 
     public static List<AnswerRequest> getList() {

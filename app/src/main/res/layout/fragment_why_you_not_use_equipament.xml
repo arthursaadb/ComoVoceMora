@@ -47,7 +47,7 @@
         style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Depende de\nreformas"
+        android:text="Depende de reformas"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="@id/rbDishes"

@@ -64,7 +64,7 @@
         style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
-        android:text="Reutilizo água da máquina\nde lavar"
+        android:text="Reutilizo água da máquina de lavar"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@id/rbOthers"
         app:layout_constraintStart_toEndOf="@id/rbBrushMyTeeth"

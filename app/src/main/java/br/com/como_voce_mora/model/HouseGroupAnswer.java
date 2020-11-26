@@ -32,7 +32,7 @@ public enum HouseGroupAnswer {
     ASPECTS_CONVIVENCE("Nível de Convivência", "73da3857-e8a1-446e-9609-b8f228875898"),
     ASPECTS_PRIVACY("Privacidade", "3bc5152c-81a2-41dc-bf4e-19c3ec82594e"),
 
-    EQUIPMENTS_TO_ADD("Indique quais desses equipamentos você gostaria que seu edifício possuísse:", "4f8c169a-7ba3-4a5a-bf1a-12ba36b90437"),
+    EQUIPMENTS_TO_ADD("Indique quais desses equipamentos você gostaria que seu edifício possuísse:", "99de50a3-ddd3-478c-a07e-9ae4f9240fdf"),
     EXISTENCE_OF_GREEN_AREA("Existem áreas verdes no seu edifício?", "2aa66471-a14a-4f54-9edb-e24a997de117"),
     MISS_GREEN_AREA("Você sente falta dessas áreas?", "a9761983-a589-4fb4-ae66-47e04bdaf501"),
     GREEN_AREA_SATISFACTION("Qual a sua satisfação em relação à  quantidade dessas áreas verdes?", "85fff6f3-3ec4-4820-9de3-3a078f933c48"),
@@ -53,7 +53,7 @@ public enum HouseGroupAnswer {
     NO_IMPORTANCE("Não significa nada", "070711e7-8fd3-4aa1-b937-62e68ab744ef"),
     OTHER_MOTIVE_IMPORTANCE("Outro Motivo", "5109b75e-7563-4994-b88c-a1e08b3540f9"),
 
-    GREEN_AREA("Existem áreas verdes no seu edifício?", "ca108658-d78f-4253-919b-c77019375f0b"),
+    GREEN_AREA("Existem áreas verdes no seu edifício?", "2aa66471-a14a-4f54-9edb-e24a997de117"),
     NEIGHBORHOOD_DELIMITATION("Existe delimitação entre sua residência e a vizinhança?", "6a1601b4-3a30-4e86-a2d9-e766a2375b4e"),
 
 

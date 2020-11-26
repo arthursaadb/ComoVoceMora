@@ -15,5 +15,6 @@ public class PostContract {
         public static final String COLUMN_NAME_TEXTO = "texto";
         public static final String COLUMN_NAME_EVALUATION_ID = "evaluation_id";
         public static final String COLUMN_NAME_SCREEN = "screen";
+        public static final String COLUMN_NAME_ID = "id";
     }
 }

@@ -27,7 +27,7 @@
             <br.com.como_voce_mora.custom.CustomRadioButton
                 style="@style/CustomRadioButton"
                 android:id="@+id/rbChildrenPool"
-                android:text="Piscina\ninfantil"
+                android:text="Piscina infantil"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
             <br.com.como_voce_mora.custom.CustomRadioButton
                 style="@style/CustomRadioButton"
                 android:id="@+id/rbGourmetSpace"
-                android:text="Espaço\ngourmet"
+                android:text="Espaço gourmet"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="@id/rbChildrenPool"
                 app:layout_constraintTop_toBottomOf="@id/rbChildrenPool" />
@@ -43,7 +43,7 @@
             <br.com.como_voce_mora.custom.CustomRadioButton
                 style="@style/CustomRadioButton"
                 android:id="@+id/rbGameRoom"
-                android:text="Salão de\njogos"
+                android:text="Salão de jogos"
                 android:gravity="center"
                 app:layout_constraintStart_toStartOf="@id/rbGourmetSpace"
                 app:layout_constraintTop_toBottomOf="@id/rbGourmetSpace" />
@@ -67,7 +67,7 @@
             <br.com.como_voce_mora.custom.CustomRadioButton
                 style="@style/CustomRadioButton"
                 android:id="@+id/rbAdultPool"
-                android:text="Piscina\nadulto"
+                android:text="Piscina adulto"
                 android:gravity="center"
                 app:layout_constraintStart_toEndOf="@id/rbGameRoom"
                 app:layout_constraintTop_toTopOf="@id/rbGameRoom" />
@@ -75,7 +75,7 @@
             <br.com.como_voce_mora.custom.CustomRadioButton
                 style="@style/CustomRadioButton"
                 android:id="@+id/rbPartyRoom"
-                android:text="Salão de\nfestas"
+                android:text="Salão de festas"
                 android:gravity="center"
                 app:layout_constraintStart_toEndOf="@id/rbSteamRoom"
                 app:layout_constraintTop_toTopOf="@id/rbSteamRoom" />
@@ -107,7 +107,7 @@
             <br.com.como_voce_mora.custom.CustomRadioButton
                 style="@style/CustomRadioButton"
                 android:id="@+id/rbBarbecue"
-                android:text="Área para\nchurrasco"
+                android:text="Área para churrasco"
                 android:gravity="center"
                 app:layout_constraintStart_toEndOf="@id/rbBlock"
                 app:layout_constraintTop_toTopOf="@id/rbBlock" />

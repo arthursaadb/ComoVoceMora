@@ -50,7 +50,6 @@ public class WhyYouSaveWaterFragment extends BaseFragment implements CustomRadio
     List<AnswerRequest> answerRequestsYes = new ArrayList<>();
     List<AnswerRequest> answerRequestsNo = new ArrayList<>();
     BaseFragment mNextFragment;
-    Boolean anyOptionChecked = false;
 
     public static WhyYouSaveWaterFragment newInstance() {
         return new WhyYouSaveWaterFragment();
@@ -238,7 +237,7 @@ public class WhyYouSaveWaterFragment extends BaseFragment implements CustomRadio
 
     private void setAnswerNo(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestsYes.add(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_WATER.getQuestion(), SustainableHabitsAnswer.WHY_NOT_WATER.getQuestionPartId(), text));
+            answerRequestsNo.add(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_WATER.getQuestion(), SustainableHabitsAnswer.WHY_NOT_WATER.getQuestionPartId(), text));
         }
     }
 

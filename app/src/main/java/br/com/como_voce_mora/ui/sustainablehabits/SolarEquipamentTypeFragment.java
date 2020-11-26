@@ -43,6 +43,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
     private String lazer = "";
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.EQUIPMENT_SOLAR_ENERGY;
     private BaseFragment mNextFrag;
+    private AnswerRequest answerRequest;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private boolean anyOptionChecked = false;
     private BaseFragment nextFragment;
@@ -72,10 +73,11 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
-
+                    csvSobrado.setChecked(false);
+                    csvVila.setChecked(false);
+                    csvTerreo.setChecked(false);
                     saude = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), saude));
+                    answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), saude);
                     break;
                 } else {
                     csv.setChecked(false);
@@ -87,8 +89,10 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                     mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
                     escola = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), escola));
+                    csvCasaGerminada.setChecked(false);
+                    csvVila.setChecked(false);
+                    csvTerreo.setChecked(false);
+                    answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), escola);
                     break;
                 } else {
                     csv.setChecked(false);
@@ -98,10 +102,12 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
+                    csvCasaGerminada.setChecked(false);
+                    csvSobrado.setChecked(false);
+                    csvTerreo.setChecked(false);
                     mNextFrag = DoYouSeparateGarbageFragment.newInstance();
                     cultura = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), cultura));
+                    answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), cultura);
                     break;
                 } else {
                     csv.setChecked(false);
@@ -112,9 +118,11 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
+                    csvCasaGerminada.setChecked(false);
+                    csvSobrado.setChecked(false);
+                    csvVila.setChecked(false);
                     lazer = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), lazer));
+                    answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), lazer);
                     break;
                 } else {
                     csv.setChecked(false);
@@ -155,11 +163,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
     }
 
     private void setAnswer() {
-        AnswerRequest answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), "");
         ResearchFlow.addAnswer(answerRequest, this);
-        for (AnswerRequest r : answerRequests) {
-            ResearchFlow.addAnswer(r, this);
-        }
     }
 
     @OnClick(R.id.btPreviousSession)

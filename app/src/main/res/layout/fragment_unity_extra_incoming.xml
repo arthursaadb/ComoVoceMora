@@ -59,7 +59,7 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Cuidar de pessoas\nextra familiares"
+                android:text="Cuidar de pessoas extra familiares"
                 app:layout_constraintStart_toStartOf="@id/rbEletroPequeno"
                 app:layout_constraintTop_toBottomOf="@id/rbEletroPequeno" />
 
@@ -88,7 +88,7 @@
                 style="@style/CustomRadioButton"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Trabalhos via\ninternet"
+                android:text="Trabalhos via internet"
                 app:layout_constraintStart_toEndOf="@+id/rbEletroPequeno"
                 app:layout_constraintTop_toTopOf="@id/rbEletroPequeno" />
 
@@ -98,7 +98,7 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:padding="0dp"
-                android:text="Lavar/passar\nroupas para fora"
+                android:text="Lavar/passar roupas para fora"
                 app:layout_constraintStart_toStartOf="@id/rbPortas"
                 app:layout_constraintTop_toBottomOf="@id/rbPortas" />
 
