@@ -26,17 +26,26 @@ import butterknife.OnClick;
  * A simple {@link Fragment} subclass.
  */
 public class ConstructionFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
-    @BindView(R.id.rbResiduos) CustomRadioButton rbResiduos;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth)
+    CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes)
+    CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity)
+    CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbQuickShowers)
+    CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbOthers)
+    CustomRadioButton rbOthers;
+    @BindView(R.id.rbResiduos)
+    CustomRadioButton rbResiduos;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.CONSTRUCTION;
     AnswerRequest answerRequest;
+    StringBuilder answer = new StringBuilder();
 
     public static ConstructionFragment newInstance() {
         return new ConstructionFragment();
@@ -50,7 +59,7 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(ElectronicFragment.newInstance());
         }
     }
@@ -133,7 +142,7 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
 
                     updateViews();
                     break;
-                case R.id.rbOthers  :
+                case R.id.rbOthers:
                     rbOthers.setChecked(false);
 
                     updateViews();
@@ -158,7 +167,8 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+        answer.append(text);
+        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)

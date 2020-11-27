@@ -44,6 +44,7 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHAT_YOU_DO_TO_SAVE_WATER;
+    StringBuilder answer = new StringBuilder();
     AnswerRequest answerRequest;
     List<BaseFragment> mNextFragments = new ArrayList<>();
     BaseFragment consumeFragment = DoYouKnowConsumeFragment.newInstance(mNextFragments);
@@ -65,7 +66,9 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
+                            sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
+
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragments.get(0));
         }
     }
@@ -189,7 +192,8 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+        answer.append(text);
+        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)

@@ -35,6 +35,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHYY_NOT_USE_EQUIPMENT;
     AnswerRequest answerRequest;
+    StringBuilder answer = new StringBuilder();
 
     public static WhyReasonEquipamentFragment newInstance() {
         return new WhyReasonEquipamentFragment();
@@ -48,7 +49,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(DoYouSeparateGarbageFragment.newInstance());
         }
     }
@@ -152,7 +153,8 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+        answer.append(text);
+        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)

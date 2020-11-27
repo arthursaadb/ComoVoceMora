@@ -53,7 +53,7 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
     CustomRadioButton mRbExcesso;
 
     private AnswerRequest answerRequest;
-    private List<AnswerRequest> answerRequest2 = new ArrayList<>();
+    private StringBuilder answer = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.KEEP_FURNISHINGS;
     private boolean anyOptionChecked = false;
 
@@ -120,42 +120,50 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
                     break;
                 case R.id.rbEletroPequeno:
                     mRbEletroPequeno.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
+                    answer.append(buttonView.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
                     mRbEletroGrande.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
+                    answer.append(buttonView.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     rbMoveisPequenos.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
+                    answer.append(buttonView.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     rbMoveisGrandes.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
+                    answer.append(buttonView.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     mRbPortas.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
+                    answer.append(buttonView.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     mRbPosicaoRuim.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
+                    answer.append(buttonView.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     mRbMoveisNovos.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
+                    answer.append(buttonView.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbExcesso:
                     mRbExcesso.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
+                    answer.append(buttonView.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
             }
@@ -163,42 +171,34 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
             switch (buttonView.getId()) {
                 case R.id.rbEletroPequeno:
                     mRbEletroPequeno.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
                     mRbEletroGrande.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     rbMoveisPequenos.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     rbMoveisGrandes.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     mRbPortas.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     mRbPosicaoRuim.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     mRbMoveisNovos.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbExcesso:
                     mRbExcesso.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), buttonView.getText().toString()));
                     updateRbs();
                     break;
             }
@@ -223,9 +223,7 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
         if (anyOptionChecked) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(answerRequest, this);
-                for (AnswerRequest r : answerRequest2) {
-                    ResearchFlow.addAnswer(r, this);
-                }
+                ResearchFlow.addAnswer(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), answer.toString()), this);
                 ((AboutYouActivity) getActivity()).addFragment(UnityExtraIncomeFragment.newInstance());
             }
         }

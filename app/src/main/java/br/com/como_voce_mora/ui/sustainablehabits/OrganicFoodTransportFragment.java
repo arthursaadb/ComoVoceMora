@@ -37,7 +37,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
     private String cultura = "";
     private String lazer = "";
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_TRANSPORT;
-
+    private StringBuilder answer = new StringBuilder();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private boolean anyOptionChecked = false;
 
@@ -65,8 +65,8 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     saude = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), saude));
+                    answer.append(saude);
+                    answer.append(";");
                     break;
                 } else {
                     csv.setChecked(false);
@@ -77,8 +77,8 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     escola = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), escola));
+                    answer.append(escola);
+                    answer.append(";");
                     break;
                 } else {
                     csv.setChecked(false);
@@ -89,8 +89,8 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     cultura = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), cultura));
+                    answer.append(cultura);
+                    answer.append(";");
                     break;
                 } else {
                     csv.setChecked(false);
@@ -101,8 +101,8 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     lazer = csv.getText();
-                    answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
-                            sustainableHabitsAnswer.getQuestionPartId(), lazer));
+                    answer.append(lazer);
+                    answer.append(";");
                     break;
                 } else {
                     csv.setChecked(false);
@@ -143,11 +143,8 @@ public class OrganicFoodTransportFragment extends BaseFragment {
     }
 
     private void setAnswer() {
-        AnswerRequest answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), "");
+        AnswerRequest answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString());
         ResearchFlow.addAnswer(answerRequest, this);
-        for (AnswerRequest r : answerRequests) {
-            ResearchFlow.addAnswer(r, this);
-        }
     }
 
     @OnClick(R.id.btPreviousSession)

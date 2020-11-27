@@ -39,6 +39,7 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_TYPE;
     AnswerRequest answerRequest;
+    StringBuilder answer = new StringBuilder();
 
     public static OrganicFoodTypeFragment newInstance() {
         return new OrganicFoodTypeFragment();
@@ -52,7 +53,7 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
         }
     }
@@ -159,7 +160,8 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+        answer.append(text);
+        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)

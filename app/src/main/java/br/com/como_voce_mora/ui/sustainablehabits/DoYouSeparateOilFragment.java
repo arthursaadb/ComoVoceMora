@@ -54,8 +54,8 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_OIL;
     AnswerRequest answerRequest;
-    List<AnswerRequest> answerRequestsYes = new ArrayList<>();
-    List<AnswerRequest> answerRequestsNo = new ArrayList<>();
+    StringBuilder answerRequestYes = new StringBuilder();
+    StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;
     Boolean anyOptionChecked = false;
 
@@ -79,13 +79,15 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        for (AnswerRequest r : answerRequestsYes) {
-            ResearchFlow.addAnswer(r, this);
-        }
+        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_OIL.getQuestion(),
+                SustainableHabitsAnswer.WHY_OIL.getQuestionPartId(),
+                answerRequestYes.toString()), this);
 
-        for (AnswerRequest r : answerRequestsNo) {
-            ResearchFlow.addAnswer(r, this);
-        }
+
+        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_OIL.getQuestion(),
+                        SustainableHabitsAnswer.WHY_NOT_OIL.getQuestionPartId(),
+                        answerRequestNo.toString()),
+                this);
     }
 
     @OnClick(R.id.bt_back)
@@ -239,13 +241,15 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
     private void setAnswerYes(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestsYes.add(new AnswerRequest(SustainableHabitsAnswer.WHY_OIL.getQuestion(), SustainableHabitsAnswer.WHY_OIL.getQuestionPartId(), text));
+            answerRequestYes.append(text);
+            answerRequestYes.append(";");
         }
     }
 
     private void setAnswerNo(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestsYes.add(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_OIL.getQuestion(), SustainableHabitsAnswer.WHY_NOT_OIL.getQuestionPartId(), text));
+            answerRequestNo.append(text);
+            answerRequestNo.append(";");
         }
     }
 

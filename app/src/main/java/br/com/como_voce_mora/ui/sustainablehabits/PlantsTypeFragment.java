@@ -29,6 +29,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.PLANTS_TYPE;
     AnswerRequest answerRequest;
+    StringBuilder answer = new StringBuilder();
 
     public static PlantsTypeFragment newInstance() {
         return new PlantsTypeFragment();
@@ -42,7 +43,8 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
+                    .getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(TransportationFragment.newInstance());
         }
     }
@@ -112,8 +114,8 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
-                .getQuestionPartId(), text);
+        answer.append(text);
+        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)

@@ -1,7 +1,6 @@
 package br.com.como_voce_mora.ui.unity;
 
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
@@ -11,7 +10,6 @@ import java.util.List;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
-import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
@@ -22,7 +20,6 @@ import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static br.com.como_voce_mora.model.UnityAnswer.KEEP_FURNISHINGS_WHY;
 import static br.com.como_voce_mora.model.UnityAnswer.USE_AS_EXTRA_YES;
 
 public class UnityExtraIncomeFragment extends BaseFragment implements View.OnClickListener {
@@ -53,7 +50,7 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
 
     private boolean anyOptionChecked = false;
     private AnswerRequest answerRequest;
-    private List<AnswerRequest> answerRequest2 = new ArrayList<>();
+    private StringBuilder answer = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.USE_AS_EXTRA;
 
     public static UnityExtraIncomeFragment newInstance() {
@@ -116,37 +113,44 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
                     break;
                 case R.id.rbEletroPequeno:
                     mRbEletroGrande.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
+                    answer.append(option.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
                     mRbEletroPequeno.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
+                    answer.append(option.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     rbMoveisPequenos.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
+                    answer.append(option.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     rbMoveisGrandes.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
+                    answer.append(option.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     mRbPortas.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
+                    answer.append(option.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     mRbPosicaoRuim.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
+                    answer.append(option.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     mRbMoveisNovos.setChecked(true);
-                    answerRequest2.add(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
+                    answer.append(option.getText().toString());
+                    answer.append(";");
                     updateRbs();
                     break;
             }
@@ -154,37 +158,30 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
             switch (option.getId()) {
                 case R.id.rbEletroPequeno:
                     mRbEletroGrande.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
                     mRbEletroPequeno.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     rbMoveisPequenos.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     rbMoveisGrandes.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     mRbPortas.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     mRbPosicaoRuim.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     mRbMoveisNovos.setChecked(false);
-                    answerRequest2.remove(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(), USE_AS_EXTRA_YES.getQuestionPartId(), option.getText().toString()));
                     updateRbs();
                     break;
             }
@@ -208,9 +205,10 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
         if (anyOptionChecked) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(answerRequest, this);
-                for (AnswerRequest r : answerRequest2) {
-                    ResearchFlow.addAnswer(r, this);
-                }
+
+                ResearchFlow.addAnswer(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(),
+                        USE_AS_EXTRA_YES.getQuestionPartId(), answer.toString()), this);
+
                 ((AboutYouActivity) getActivity()).addFragment(UnityRateLivingFragment.newInstance());
             }
         }

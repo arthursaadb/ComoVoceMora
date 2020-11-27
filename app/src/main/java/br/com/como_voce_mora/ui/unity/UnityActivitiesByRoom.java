@@ -69,21 +69,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
-    private AnswerRequest answerCsv1;
-    private AnswerRequest answerCsv2;
-    private AnswerRequest answerCsv3;
-    private AnswerRequest answerCsv4;
-    private AnswerRequest answerCsv5;
-    private AnswerRequest answerCsv6;
-    private AnswerRequest answerCsv7;
-    private AnswerRequest answerCsv8;
-    private AnswerRequest answerCsv9;
-    private AnswerRequest answerCsv10;
-    private AnswerRequest answerCsv11;
-    private AnswerRequest answerCsv12;
-
-
-    private ArrayList<AnswerRequest> answerRequests = new ArrayList<>();
+    private StringBuilder answerRequests = new StringBuilder();
     private UnityAnswer roomTypeActivity;
     private UnityAnswer roomType;
     private List<UnityAnswer> listRoomType;
@@ -115,7 +101,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
     public void onBtNextClicked() {
         if (getActivity() != null) {
             setAnswer();
-            if(listRoomType.isEmpty()){
+            if (listRoomType.isEmpty()) {
                 ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsIntroFragment.newInstance());
             } else {
                 ((AboutYouActivity) getActivity()).addFragment(UnityActivitiesByRoom.newInstance(listRoomType));
@@ -345,45 +331,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
 
 
     private void setAnswer() {
-        if (answerCsv1 != null) {
-            answerRequests.add(answerCsv1);
-        }
-        if (answerCsv2 != null) {
-            answerRequests.add(answerCsv2);
-        }
-        if (answerCsv3 != null) {
-            answerRequests.add(answerCsv3);
-        }
-        if (answerCsv4 != null) {
-            answerRequests.add(answerCsv4);
-        }
-        if (answerCsv5 != null) {
-            answerRequests.add(answerCsv5);
-        }
-        if (answerCsv6 != null) {
-            answerRequests.add(answerCsv6);
-        }
-        if (answerCsv7 != null) {
-            answerRequests.add(answerCsv7);
-        }
-        if (answerCsv8 != null) {
-            answerRequests.add(answerCsv8);
-        }
-        if (answerCsv9 != null) {
-            answerRequests.add(answerCsv9);
-        }
-        if (answerCsv10 != null) {
-            answerRequests.add(answerCsv10);
-        }
-        if (answerCsv11 != null) {
-            answerRequests.add(answerCsv11);
-        }
-        if (answerCsv12 != null) {
-            answerRequests.add(answerCsv12);
-        }
-        for (AnswerRequest r : answerRequests) {
-            ResearchFlow.addAnswer(r, this);
-        }
+        ResearchFlow.addAnswer(new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), answerRequests.toString()), this);
     }
 
     @OnClick(R.id.bt_back)
@@ -403,111 +351,111 @@ public class UnityActivitiesByRoom extends BaseFragment {
             case R.id.csv1:
                 if (csv1.isChecked()) {
                     csv1.setChecked(false);
-                    answerCsv1 = null;
                 } else {
-                    answerCsv1 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv1.setChecked(true);
                 }
                 break;
             case R.id.csv2:
                 if (csv2.isChecked()) {
-                    answerCsv2 = null;
                     csv2.setChecked(false);
                 } else {
-                    answerCsv2 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv2.setChecked(true);
                 }
                 break;
             case R.id.csv3:
                 if (csv3.isChecked()) {
-                    answerCsv3 = null;
                     csv3.setChecked(false);
                 } else {
-                    answerCsv3 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv3.setChecked(true);
                 }
                 break;
             case R.id.csv4:
                 if (csv4.isChecked()) {
-                    answerCsv4 = null;
                     csv4.setChecked(false);
                 } else {
-                    answerCsv4 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv4.setChecked(true);
                 }
 
                 break;
             case R.id.csv5:
                 if (csv5.isChecked()) {
-                    answerCsv5 = null;
                     csv5.setChecked(false);
                 } else {
-                    answerCsv5 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv5.setChecked(true);
                 }
 
                 break;
             case R.id.csv6:
                 if (csv6.isChecked()) {
-                    answerCsv6 = null;
                     csv6.setChecked(false);
                 } else {
-                    answerCsv6 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv6.setChecked(true);
                 }
 
                 break;
             case R.id.csv7:
                 if (csv7.isChecked()) {
-                    answerCsv7 = null;
                     csv7.setChecked(false);
                 } else {
-                    answerCsv7 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv7.setChecked(true);
                 }
                 break;
             case R.id.csv8:
                 if (csv8.isChecked()) {
-                    answerCsv8 = null;
                     csv8.setChecked(false);
                 } else {
-                    answerCsv8 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv8.setChecked(true);
                 }
                 break;
             case R.id.csv9:
                 if (csv9.isChecked()) {
-                    answerCsv9 = null;
                     csv9.setChecked(false);
                 } else {
-                    answerCsv9 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv9.setChecked(true);
                 }
                 break;
             case R.id.csv10:
                 if (csv10.isChecked()) {
-                    answerCsv10 = null;
                     csv10.setChecked(false);
                 } else {
-                    answerCsv10 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv10.setChecked(true);
                 }
                 break;
             case R.id.csv11:
                 if (csv11.isChecked()) {
-                    answerCsv11 = null;
                     csv11.setChecked(false);
                 } else {
-                    answerCsv11 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv11.setChecked(true);
                 }
                 break;
             case R.id.csv12:
                 if (csv12.isChecked()) {
-                    answerCsv12 = null;
                     csv12.setChecked(false);
                 } else {
-                    answerCsv12 = new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), text);
+                    answerRequests.append(text);
+                    answerRequests.append(";");
                     csv12.setChecked(true);
                 }
                 break;

@@ -46,7 +46,7 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
     CustomRadioButton mRb8;
 
     private UnityAnswer unityAnswer = UnityAnswer.REFORM_MADE;
-    private List<AnswerRequest> answerRequests = new ArrayList<>();
+    private StringBuilder answer = new StringBuilder();
     private String acabamento = "";
     private String portas = "";
     private String gesso = "";
@@ -55,7 +55,6 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
     private String paredes = "";
     private String rachaduras = "";
     private String nenhuma = "";
-    private String answer = "";
     private Boolean none = false;
 
 
@@ -91,9 +90,9 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
         if (isChecked) {
             compoundButton.setChecked(true);
-            answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), compoundButton.getText().toString()));
+            answer.append(compoundButton.getText().toString());
+            answer.append(";");
         } else {
-            answerRequests.remove(new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), compoundButton.getText().toString()));
             compoundButton.setChecked(false);
         }
 
@@ -124,9 +123,7 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
     }
 
     private void setAnswer() {
-        for (AnswerRequest r : answerRequests) {
-            ResearchFlow.addAnswer(r, this);
-        }
+        ResearchFlow.addAnswer(new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), answer.toString()), this);
     }
 
     @OnClick(R.id.bt_back)

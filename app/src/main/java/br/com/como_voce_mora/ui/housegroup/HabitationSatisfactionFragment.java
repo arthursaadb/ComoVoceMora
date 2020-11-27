@@ -51,7 +51,7 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
     @BindView(R.id.rbOther)
     CustomRadioButton mRbOther;
 
-    private List<AnswerRequest> answerRequests = new ArrayList<>();
+    private StringBuilder answer = new StringBuilder();
     HouseGroupAnswer houseGroupAnswer = HouseGroupAnswer.EQUIPMENTS_TO_ADD;
     private boolean anyOptionChecked = false;
 
@@ -89,10 +89,11 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
 
     @Override
     public void onClick(View v) {
-        CustomRadioButton  option = (CustomRadioButton) v;
+        CustomRadioButton option = (CustomRadioButton) v;
         anyOptionChecked = true;
         if (v.isPressed()) {
-            answerRequests.add(new AnswerRequest(houseGroupAnswer.getQuestion(), houseGroupAnswer.getQuestionPartId(), option.getText().toString()));
+            answer.append(option.getText().toString());
+            answer.append(";");
             updateRbs();
         }
     }
@@ -116,10 +117,7 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             if (getActivity() != null) {
-                for(AnswerRequest answerRequest: answerRequests){
-                    ResearchFlow.addAnswer(answerRequest, this);
-                }
-
+                ResearchFlow.addAnswer(new AnswerRequest(houseGroupAnswer.getQuestion(), houseGroupAnswer.getQuestionPartId(), answer.toString()), this);
                 ((AboutYouActivity) getActivity()).addFragment(HabitationEquipmentsMeaningFragment.newInstance());
             }
         }

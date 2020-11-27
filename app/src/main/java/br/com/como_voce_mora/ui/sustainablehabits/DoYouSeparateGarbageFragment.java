@@ -52,8 +52,8 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_GARBAGE;
     AnswerRequest answerRequest;
-    List<AnswerRequest> answerRequestsYes = new ArrayList<>();
-    List<AnswerRequest> answerRequestsNo = new ArrayList<>();
+    StringBuilder answerRequestYes = new StringBuilder();
+    StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;
     Boolean anyOptionChecked = false;
 
@@ -77,13 +77,16 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        for (AnswerRequest r : answerRequestsYes) {
-            ResearchFlow.addAnswer(r, this);
-        }
+        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestion(),
+                SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestionPartId(),
+                answerRequestYes.toString()), this);
 
-        for (AnswerRequest r : answerRequestsNo) {
-            ResearchFlow.addAnswer(r, this);
-        }
+
+        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestion(),
+                        SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestionPartId(),
+                        answerRequestNo.toString()),
+                this);
+
     }
 
     @OnClick(R.id.bt_back)
@@ -237,13 +240,15 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
     private void setAnswerYes(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestsYes.add(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestion(), SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestionPartId(), text));
+            answerRequestYes.append(text);
+            answerRequestYes.append(";");
         }
     }
 
     private void setAnswerNo(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestsYes.add(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestion(), SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestionPartId(), text));
+            answerRequestNo.append(text);
+            answerRequestNo.append(";");
         }
     }
 

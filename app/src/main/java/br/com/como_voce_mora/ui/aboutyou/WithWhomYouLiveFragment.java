@@ -49,8 +49,7 @@ public class WithWhomYouLiveFragment extends BaseFragment {
     CustomSelectedView csv13;
 
     private AboutYouAnswer aboutYouAnswer = AboutYouAnswer.NUMBER_OF_PERSON;
-    private List<AnswerRequest> answerRequests = new ArrayList<>();
-
+    private StringBuilder answer = new StringBuilder();
 
     public static WithWhomYouLiveFragment newInstance() {
         return new WithWhomYouLiveFragment();
@@ -70,10 +69,7 @@ public class WithWhomYouLiveFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            for (AnswerRequest r : answerRequests) {
-                ResearchFlow.addAnswer(r, this);
-            }
-
+            ResearchFlow.addAnswer(new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) getActivity()).addFragment(FamilyIncomeFragment.newInstance());
         }
     }
@@ -91,132 +87,119 @@ public class WithWhomYouLiveFragment extends BaseFragment {
     public void onClickViews(View view) {
         switch (view.getId()) {
             case R.id.csv1:
-                AnswerRequest answerRequest1 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv1.getText());
                 if (!csv1.isChecked()) {
-                    answerRequests.add(answerRequest1);
+                    answer.append(csv1.getText());
+                    answer.append(";");
                     csv1.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest1);
                     csv1.setChecked(false);
                 }
                 break;
             case R.id.csv2:
-                AnswerRequest answerRequest2 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv2.getText());
                 if (!csv2.isChecked()) {
-                    answerRequests.add(answerRequest2);
+                    answer.append(csv2.getText());
+                    answer.append(";");
                     csv2.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest2);
                     csv2.setChecked(false);
                 }
                 break;
             case R.id.csv3:
-                AnswerRequest answerRequest3 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv3.getText());
                 if (!csv3.isChecked()) {
-                    answerRequests.add(answerRequest3);
+                    answer.append(csv3.getText());
+                    answer.append(";");
                     csv3.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest3);
                     csv3.setChecked(false);
                 }
                 break;
             case R.id.csv4:
-                AnswerRequest answerRequest4 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv4.getText());
                 if (!csv4.isChecked()) {
-                    answerRequests.add(answerRequest4);
+                    answer.append(csv4.getText());
+                    answer.append(";");
                     csv4.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest4);
                     csv4.setChecked(false);
                 }
                 break;
             case R.id.csv5:
-                AnswerRequest answerRequest5 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv5.getText());
                 if (!csv5.isChecked()) {
-                    answerRequests.add(answerRequest5);
+                    answer.append(csv5.getText());
+                    answer.append(";");
                     csv5.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest5);
                     csv5.setChecked(false);
                 }
                 break;
             case R.id.csv6:
-                AnswerRequest answerRequest6 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv6.getText());
                 if (!csv6.isChecked()) {
-                    answerRequests.add(answerRequest6);
+                    answer.append(csv6.getText());
+                    answer.append(";");
                     csv6.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest6);
                     csv6.setChecked(false);
                 }
                 break;
             case R.id.csv7:
-                AnswerRequest answerRequest7 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv7.getText());
                 if (!csv7.isChecked()) {
-                    answerRequests.add(answerRequest7);
+                    answer.append(csv7.getText());
+                    answer.append(";");
                     csv7.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest7);
                     csv7.setChecked(false);
                 }
                 break;
             case R.id.csv8:
-                AnswerRequest answerRequest8 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv8.getText());
                 if (!csv8.isChecked()) {
-                    answerRequests.add(answerRequest8);
+                    answer.append(csv8.getText());
+                    answer.append(";");
                     csv8.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest8);
                     csv8.setChecked(false);
                 }
                 break;
             case R.id.csv9:
-                AnswerRequest answerRequest9 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv9.getText());
                 if (!csv9.isChecked()) {
-                    answerRequests.add(answerRequest9);
+                    answer.append(csv9.getText());
+                    answer.append(";");
                     csv9.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest9);
                     csv9.setChecked(false);
                 }
                 break;
             case R.id.csv10:
-                AnswerRequest answerRequest10 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv10.getText());
                 if (!csv10.isChecked()) {
-                    answerRequests.add(answerRequest10);
+                    answer.append(csv10.getText());
+                    answer.append(";");
                     csv10.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest10);
                     csv10.setChecked(false);
                 }
                 break;
             case R.id.csv11:
-                AnswerRequest answerRequest11 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv11.getText());
                 if (!csv11.isChecked()) {
-                    answerRequests.add(answerRequest11);
+                    answer.append(csv11.getText());
+                    answer.append(";");
                     csv11.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest11);
                     csv11.setChecked(false);
                 }
                 break;
             case R.id.csv12:
-                AnswerRequest answerRequest12 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv12.getText());
                 if (!csv12.isChecked()) {
-                    answerRequests.add(answerRequest12);
+                    answer.append(csv12.getText());
+                    answer.append(";");
                     csv12.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest12);
                     csv12.setChecked(false);
                 }
                 break;
             case R.id.csv13:
-                AnswerRequest answerRequest13 = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), csv1.getText());
                 if (!csv13.isChecked()) {
-                    answerRequests.add(answerRequest13);
+                    answer.append(csv13.getText());
+                    answer.append(";");
                     csv13.setChecked(true);
                 } else {
-                    answerRequests.remove(answerRequest13);
                     csv13.setChecked(false);
                 }
                 break;

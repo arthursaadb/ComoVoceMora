@@ -51,7 +51,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.TRANSPORTATION_REASON;
-    List<AnswerRequest> answerRequests = new ArrayList<>();
+    StringBuilder answer = new StringBuilder();
 
     public static TransportationReasonFragment newInstance() {
         return new TransportationReasonFragment();
@@ -65,9 +65,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            for (AnswerRequest r : answerRequests) {
-                ResearchFlow.addAnswer(r, this);
-            }
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsEndFragment.newInstance());
         }
     }
@@ -200,11 +198,12 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     }
 
     private void setAnswer(String text) {
-        answerRequests.add(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text));
+        answer.append(text);
+        answer.append(";");
     }
 
     private void removeAnswer(String text) {
-        answerRequests.remove(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text));
+
     }
 
     @OnClick(R.id.btPreviousSession)

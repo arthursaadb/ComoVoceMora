@@ -59,8 +59,8 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
     private boolean anyOptionChecked = false;
     boolean isYesOption = false;
     private AnswerRequest answerRequest;
-    private List<AnswerRequest> answerRequestYes = new ArrayList<>();
-    private List<AnswerRequest> answerRequestNo = new ArrayList<>();
+    private StringBuilder answerRequestYes = new StringBuilder();
+    private StringBuilder answerRequestNo = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.MADE_LIST_CHANGES;
 
     public static UnityMadeChanges newInstance(List<UnityAnswer> room) {
@@ -196,23 +196,19 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
     private void setAnswers(String textYes, String textNo, boolean isChecked, boolean isYesOption) {
         if (isChecked) {
             if (isYesOption) {
-                answerRequestYes.add(new AnswerRequest(MADE_LIST_CHANGES_YES.getQuestion(), MADE_LIST_CHANGES_YES.getQuestionPartId(), textYes));
+                answerRequestYes.append(textYes);
+                answerRequestYes.append(";");
             } else {
-                answerRequestNo.add(new AnswerRequest(MADE_LIST_CHANGES_NO.getQuestion(), MADE_LIST_CHANGES_NO.getQuestionPartId(), textNo));
+                answerRequestNo.append(textNo);
+                answerRequestNo.append(";");
             }
         }
     }
 
     private void setAnswer() {
         ResearchFlow.addAnswer(answerRequest, this);
-
-        for (AnswerRequest r : answerRequestNo) {
-            ResearchFlow.addAnswer(r, this);
-        }
-
-        for (AnswerRequest b : answerRequestYes) {
-            ResearchFlow.addAnswer(b, this);
-        }
+        ResearchFlow.addAnswer(new AnswerRequest(MADE_LIST_CHANGES_YES.getQuestion(), MADE_LIST_CHANGES_YES.getQuestionPartId(), answerRequestYes.toString()), this);
+        ResearchFlow.addAnswer(new AnswerRequest(MADE_LIST_CHANGES_NO.getQuestion(), MADE_LIST_CHANGES_NO.getQuestionPartId(), answerRequestNo.toString()), this);
     }
 
     private void updateRbs() {

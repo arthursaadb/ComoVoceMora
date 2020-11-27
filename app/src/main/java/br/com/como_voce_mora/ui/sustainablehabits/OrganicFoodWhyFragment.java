@@ -38,6 +38,7 @@ public class OrganicFoodWhyFragment extends BaseFragment implements CustomRadioB
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_WHY;
     AnswerRequest answerRequest;
+    StringBuilder answer = new StringBuilder();
 
     public static OrganicFoodWhyFragment newInstance() {
         return new OrganicFoodWhyFragment();
@@ -51,7 +52,7 @@ public class OrganicFoodWhyFragment extends BaseFragment implements CustomRadioB
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTypeFragment.newInstance());
         }
     }
@@ -134,7 +135,8 @@ public class OrganicFoodWhyFragment extends BaseFragment implements CustomRadioB
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
+        answer.append(text);
+        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)

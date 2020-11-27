@@ -12,21 +12,20 @@ public class PostDbHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_TABLE_APO =
             "CREATE TABLE IF NOT EXISTS " +
                     PostContract.PostEntry.TABLE_NAME_APO + " (" +
-                    PostContract.PostEntry.COLUMN_NAME_ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
-                    PostContract.PostEntry.COLUMN_NAME_QUESTION_PART_ID + TEXT_TYPE + COMMA_SEP +
+                    PostContract.PostEntry.COLUMN_NAME_QUESTION_PART_ID + TEXT_TYPE + " PRIMARY KEY," +
                     PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + INTEGER_TYPE + COMMA_SEP +
                     PostContract.PostEntry.COLUMN_NAME_DWELLER_ID + TEXT_TYPE + COMMA_SEP +
                     PostContract.PostEntry.COLUMN_NAME_SCREEN + TEXT_TYPE + COMMA_SEP +
                     PostContract.PostEntry.COLUMN_NAME_TEXTO + TEXT_TYPE + COMMA_SEP +
                     PostContract.PostEntry.COLUMN_NAME_EVALUATION_ID + TEXT_TYPE + COMMA_SEP +
                     " FOREIGN KEY " + " (" + PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + ") " +
-                    " REFERENCES " + PostContract.PostEntry.TABLE_NAME_MORADOR + " (" + PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + ") " +
+                    " REFERENCES "  + PostContract.PostEntry.TABLE_NAME_MORADOR +" (" +  PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + ") " +
                     " )";
 
     private static final String SQL_CREATE_TABLE_MORADOR =
             "CREATE TABLE IF NOT EXISTS " +
                     PostContract.PostEntry.TABLE_NAME_MORADOR + " (" +
-                    PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT)";
+                    PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + INTEGER_TYPE +" PRIMARY KEY AUTOINCREMENT)";
 
     private static final String SQL_DELETE_APO = "DROP TABLE IF EXISTS " + PostContract.PostEntry.TABLE_NAME_APO;
     private static final String SQL_DELETE_MORADOR = "DROP TABLE IF EXISTS " + PostContract.PostEntry.TABLE_NAME_MORADOR;

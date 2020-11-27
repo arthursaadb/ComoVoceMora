@@ -32,8 +32,8 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHAT_YOU_DO_TO_SAVE_ELECTRICITY;
-    AnswerRequest answerRequest;
     BaseFragment mNextFragment;
+    StringBuilder answer = new StringBuilder();
 
     public static WhatYouDoToSaveElectricity newInstance() {
         return new WhatYouDoToSaveElectricity();
@@ -47,7 +47,8 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null && mNextFragment != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
+                    .getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }
     }
@@ -74,6 +75,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             setAnswer(buttonView.getText().toString());
+
             mNextFragment = DoYouKnowEquipamentLifecycleFragment.newInstance();
 
             switch (buttonView.getId()) {
@@ -145,8 +147,8 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     }
 
     private void setAnswer(String text) {
-        answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
-                .getQuestionPartId(), text);
+        answer.append(text);
+        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)
