@@ -207,8 +207,14 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
 
     private void setAnswer() {
         ResearchFlow.addAnswer(answerRequest, this);
-        ResearchFlow.addAnswer(new AnswerRequest(MADE_LIST_CHANGES_YES.getQuestion(), MADE_LIST_CHANGES_YES.getQuestionPartId(), answerRequestYes.toString()), this);
-        ResearchFlow.addAnswer(new AnswerRequest(MADE_LIST_CHANGES_NO.getQuestion(), MADE_LIST_CHANGES_NO.getQuestionPartId(), answerRequestNo.toString()), this);
+
+        if (answerRequestYes.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(MADE_LIST_CHANGES_YES.getQuestion(), MADE_LIST_CHANGES_YES.getQuestionPartId(), answerRequestYes.toString()), this);
+        }
+
+        if (answerRequestNo.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(MADE_LIST_CHANGES_NO.getQuestion(), MADE_LIST_CHANGES_NO.getQuestionPartId(), answerRequestNo.toString()), this);
+        }
     }
 
     private void updateRbs() {

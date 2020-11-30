@@ -77,15 +77,18 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_ENERGY.getQuestion(),
-                SustainableHabitsAnswer.WHY_ENERGY.getQuestionPartId(),
-                answerRequestYes.toString()), this);
+        if (answerRequestYes.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_ENERGY.getQuestion(),
+                    SustainableHabitsAnswer.WHY_ENERGY.getQuestionPartId(),
+                    answerRequestYes.toString()), this);
+        }
 
-
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestion(),
-                        SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestionPartId(),
-                        answerRequestNo.toString()),
-                this);
+        if (answerRequestNo.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestion(),
+                            SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestionPartId(),
+                            answerRequestNo.toString()),
+                    this);
+        }
     }
 
     @OnClick(R.id.bt_back)

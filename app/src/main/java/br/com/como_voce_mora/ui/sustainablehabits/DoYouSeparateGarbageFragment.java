@@ -77,16 +77,18 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestion(),
-                SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestionPartId(),
-                answerRequestYes.toString()), this);
+        if (answerRequestYes.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestion(),
+                    SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestionPartId(),
+                    answerRequestYes.toString()), this);
+        }
 
-
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestion(),
-                        SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestionPartId(),
-                        answerRequestNo.toString()),
-                this);
-
+        if (answerRequestNo.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestion(),
+                            SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestionPartId(),
+                            answerRequestNo.toString()),
+                    this);
+        }
     }
 
     @OnClick(R.id.bt_back)

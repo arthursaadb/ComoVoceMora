@@ -77,15 +77,18 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.PLANTS_WHY.getQuestion(),
-                SustainableHabitsAnswer.PLANTS_WHY.getQuestionPartId(),
-                answerRequestYes.toString()), this);
+        if (answerRequestYes.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.PLANTS_WHY.getQuestion(),
+                    SustainableHabitsAnswer.PLANTS_WHY.getQuestionPartId(),
+                    answerRequestYes.toString()), this);
+        }
 
-
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.PLANTS_WHY_NOT.getQuestion(),
-                        SustainableHabitsAnswer.PLANTS_WHY_NOT.getQuestionPartId(),
-                        answerRequestNo.toString()),
-                this);
+        if (answerRequestNo.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.PLANTS_WHY_NOT.getQuestion(),
+                            SustainableHabitsAnswer.PLANTS_WHY_NOT.getQuestionPartId(),
+                            answerRequestNo.toString()),
+                    this);
+        }
     }
 
     @OnClick(R.id.bt_back)

@@ -6,9 +6,6 @@ import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;

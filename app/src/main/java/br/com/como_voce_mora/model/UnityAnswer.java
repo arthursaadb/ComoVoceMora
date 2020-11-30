@@ -21,7 +21,7 @@ public enum UnityAnswer implements Serializable {
     OUTRO("Outro", "5f06efa4-7612-483a-9e07-78097e405240"),
 
     KEEP_FURNISHINGS("Na sua moradia, foi possível acomodar seus antigos móveis e eletrodomésticos?", "c0bbed6d-0847-4c4c-b6d4-c6b3e5d435e9"),
-    KEEP_FURNISHINGS_WHY("Por que não houve dificuldade em acomodar os antigos móveis e eletrodomésticos?", "045ab70a-dbd8-4a21-b01a-85416b56eb42"),
+    KEEP_FURNISHINGS_WHY("Por que não houve dificuldade em acomodar os antigos móveis e eletrodomésticos?", "eabb1f63-ff85-4269-8823-7e4a910af7c8"),
 
     DIFFICULTY_KEEP_FURNISHINGS("Informe o grau de dificuldade para a acomodação dos móveis e eletrodomésticos.", "cfca5271-bf24-4a5a-9491-dfe618587474"),
 

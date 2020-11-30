@@ -127,7 +127,7 @@ public class UnityRoomsFragment extends BaseFragment {
                 case R.id.csvCozinha:
                     roomList.add(CHARACTERISTICS_SATISFACTION_KITCHEN);
                     answerRequests.remove(cozinhaNao);
-                    answerRequests.add(new AnswerRequest(UnityAnswer.COZINHA.getQuestion(), UnityAnswer.AREA_SERVICO.getQuestionPartId(), "Sim"));
+                    answerRequests.add(new AnswerRequest(UnityAnswer.COZINHA.getQuestion(), UnityAnswer.COZINHA.getQuestionPartId(), "Sim"));
                     break;
             }
         } else {

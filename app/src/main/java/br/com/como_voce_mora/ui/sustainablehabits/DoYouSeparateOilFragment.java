@@ -79,15 +79,18 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_OIL.getQuestion(),
-                SustainableHabitsAnswer.WHY_OIL.getQuestionPartId(),
-                answerRequestYes.toString()), this);
+        if (answerRequestYes.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_OIL.getQuestion(),
+                    SustainableHabitsAnswer.WHY_OIL.getQuestionPartId(),
+                    answerRequestYes.toString()), this);
+        }
 
-
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_OIL.getQuestion(),
-                        SustainableHabitsAnswer.WHY_NOT_OIL.getQuestionPartId(),
-                        answerRequestNo.toString()),
-                this);
+        if (answerRequestNo.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_OIL.getQuestion(),
+                            SustainableHabitsAnswer.WHY_NOT_OIL.getQuestionPartId(),
+                            answerRequestNo.toString()),
+                    this);
+        }
     }
 
     @OnClick(R.id.bt_back)

@@ -71,15 +71,19 @@ public class WhyYouSaveWaterFragment extends BaseFragment implements CustomRadio
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_WATER.getQuestion(),
-                SustainableHabitsAnswer.WHY_WATER.getQuestionPartId(),
-                answerRequestYes.toString()), this);
+        if (answerRequestYes.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_WATER.getQuestion(),
+                    SustainableHabitsAnswer.WHY_WATER.getQuestionPartId(),
+                    answerRequestYes.toString()), this);
+        }
 
 
-        ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_WATER.getQuestion(),
-                        SustainableHabitsAnswer.WHY_NOT_WATER.getQuestionPartId(),
-                        answerRequestNo.toString()),
-                this);
+        if (answerRequestNo.length() != 0) {
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_WATER.getQuestion(),
+                            SustainableHabitsAnswer.WHY_NOT_WATER.getQuestionPartId(),
+                            answerRequestNo.toString()),
+                    this);
+        }
     }
 
     @OnClick(R.id.bt_back)

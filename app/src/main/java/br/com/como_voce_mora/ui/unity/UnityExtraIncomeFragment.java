@@ -1,6 +1,7 @@
 package br.com.como_voce_mora.ui.unity;
 
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
@@ -22,7 +23,7 @@ import butterknife.OnClick;
 
 import static br.com.como_voce_mora.model.UnityAnswer.USE_AS_EXTRA_YES;
 
-public class UnityExtraIncomeFragment extends BaseFragment implements View.OnClickListener {
+public class UnityExtraIncomeFragment extends BaseFragment implements CompoundButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
     @BindView(R.id.rbYes)
@@ -66,23 +67,22 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
     public void init() {
         tvQuestion.setText(unityAnswer.getQuestion());
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
-        mRb1.setOnClickListener(this);
-        mRb2.setOnClickListener(this);
-        mRbEletroPequeno.setOnClickListener(this);
-        mRbEletroGrande.setOnClickListener(this);
-        rbMoveisPequenos.setOnClickListener(this);
-        rbMoveisGrandes.setOnClickListener(this);
-        mRbPortas.setOnClickListener(this);
-        mRbPosicaoRuim.setOnClickListener(this);
-        mRbMoveisNovos.setOnClickListener(this);
+        mRb1.setOnCheckedChangeListener(this);
+        mRb2.setOnCheckedChangeListener(this);
+        mRbEletroPequeno.setOnCheckedChangeListener(this);
+        mRbEletroGrande.setOnCheckedChangeListener(this);
+        rbMoveisPequenos.setOnCheckedChangeListener(this);
+        rbMoveisGrandes.setOnCheckedChangeListener(this);
+        mRbPortas.setOnCheckedChangeListener(this);
+        mRbPosicaoRuim.setOnCheckedChangeListener(this);
+        mRbMoveisNovos.setOnCheckedChangeListener(this);
     }
 
     @Override
-    public void onClick(View v) {
-        CustomRadioButton  option = (CustomRadioButton) v;
-        if (v.isPressed()) {
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
             anyOptionChecked = true;
-            switch (option.getId()) {
+            switch (buttonView.getId()) {
                 case R.id.rbYes:
                     mRb1.setChecked(true);
                     mRb2.setChecked(false);
@@ -94,7 +94,7 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
                     mRbPortas.setChecked(false);
                     mRbPosicaoRuim.setChecked(false);
                     mRbMoveisNovos.setChecked(false);
-                    answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), option.getText().toString());
+                    answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbNo:
@@ -108,60 +108,60 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
                     mRbPosicaoRuim.setChecked(false);
                     mRbMoveisNovos.setChecked(false);
                     mScrollView.setVisibility(View.GONE);
-                    answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), option.getText().toString());
+                    answerRequest = new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbEletroPequeno:
-                    mRbEletroGrande.setChecked(true);
-                    answer.append(option.getText().toString());
+                    mRbEletroPequeno.setChecked(true);
+                    answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
-                    mRbEletroPequeno.setChecked(true);
-                    answer.append(option.getText().toString());
+                    mRbEletroGrande.setChecked(true);
+                    answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     rbMoveisPequenos.setChecked(true);
-                    answer.append(option.getText().toString());
+                    answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     rbMoveisGrandes.setChecked(true);
-                    answer.append(option.getText().toString());
+                    answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     mRbPortas.setChecked(true);
-                    answer.append(option.getText().toString());
+                    answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     mRbPosicaoRuim.setChecked(true);
-                    answer.append(option.getText().toString());
+                    answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     mRbMoveisNovos.setChecked(true);
-                    answer.append(option.getText().toString());
+                    answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
             }
         } else {
-            switch (option.getId()) {
+            switch (buttonView.getId()) {
                 case R.id.rbEletroPequeno:
-                    mRbEletroGrande.setChecked(false);
+                    mRbEletroPequeno.setChecked(false);
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
-                    mRbEletroPequeno.setChecked(false);
+                    mRbEletroGrande.setChecked(false);
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
@@ -187,6 +187,7 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
             }
         }
     }
+
 
     private void updateRbs() {
         mRb1.updateView();
@@ -227,5 +228,4 @@ public class UnityExtraIncomeFragment extends BaseFragment implements View.OnCli
             ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
         }
     }
-
 }
