@@ -37,7 +37,7 @@ public enum BuildingAnswer {
 
     NUMBER_OF_FLOORS("Quantos andares tem em média cada edifício?", "4c39839d-cbf5-4a58-8eb8-6e933d7dc858"),
 
-    APARTAMENTS_BY_FLOOR("Qual o número de apartamentos por andar existem no seu edifício?", "ad51fef3-fb4f-4467-b3fe-69a9c436a211"),
+    APARTAMENTS_BY_FLOOR("Quantos apartamentos por andar existem no seu edifício?", "ad51fef3-fb4f-4467-b3fe-69a9c436a211"),
 
     //VOLUME HORIZONTAL QUESTION
     LOT_REVIEW("Qual a sua satisfação em relação ao seu lote?", "affe770a-0464-4e31-b47c-8953ac33fc48"),

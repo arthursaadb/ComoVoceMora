@@ -90,7 +90,7 @@
                 android:layout_marginStart="@dimen/small_margin"
                 android:layout_marginLeft="@dimen/small_margin"
                 android:layout_marginTop="10dp"
-                app:textName="Nivel de Ruido" />
+                app:textName="Nível de Ruído" />
 
         </LinearLayout>
 

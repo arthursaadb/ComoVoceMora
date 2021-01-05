@@ -26,7 +26,7 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         style="@style/CustomRadioButton"
         android:id="@+id/rbNo"
-        android:text="Nao"
+        android:text="Não"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/rbYes"
         app:layout_constraintEnd_toStartOf="@id/bt_next"
@@ -36,7 +36,7 @@
         style="@style/CustomRadioButton"
         android:id="@+id/rbOther"
         android:layout_marginTop="@dimen/default_margin"
-        android:text="Nao sei"
+        android:text="Não sei"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="@id/rbYes"
         app:layout_constraintTop_toBottomOf="@id/rbYes" />

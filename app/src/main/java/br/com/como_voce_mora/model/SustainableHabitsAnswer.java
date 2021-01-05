@@ -23,7 +23,7 @@ public enum SustainableHabitsAnswer {
 
     WHAT_YOU_DO_TO_SAVE_ELECTRICITY("O que você faz para economizar energia elétrica?", "629e7294-7825-4625-830b-8d85dbc24e49"),
 
-    DIFFERENCE_TARIFF_FLAGS("Você sabe qual é a diferença entre as bandeiras tarifáricas na conta de energia elétrica", "dde24fec-73d8-4340-9b29-f5abf9ce1c40"),
+    DIFFERENCE_TARIFF_FLAGS("Você sabe qual é a diferença entre as bandeiras tarifárias na conta de energia elétrica", "dde24fec-73d8-4340-9b29-f5abf9ce1c40"),
 
     EQUIPMENT_SOLAR_ENERGY("Na sua habitação, há algum equipamento que usa energia solar?", "71180a9f-13ca-4081-abe7-6a0704f5fa47"),
 

@@ -44,7 +44,7 @@
                 app:layout_constraintEnd_toEndOf="@id/tv_question"
                 app:layout_constraintStart_toEndOf="@id/bt_back"
                 app:layout_constraintTop_toBottomOf="@id/volumeAcesso"
-                app:textName="Relação de Convivio" />
+                app:textName="Relação de Convívio" />
 
             <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volumeAcessibilidade"

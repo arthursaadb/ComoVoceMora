@@ -19,7 +19,7 @@
         android:id="@+id/rbNo"
         style="@style/CustomRadioButton"
         android:gravity="center"
-        android:text="Nao"
+        android:text="Não"
         app:layout_constraintBottom_toTopOf="@id/btPreviousSession"
         app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard" />
 

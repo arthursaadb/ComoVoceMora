@@ -72,7 +72,6 @@
         android:button="@color/colorTransparent"
         android:text="Desconheço"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbFewDevices"
         app:layout_constraintTop_toTopOf="@id/rbDishes" />
@@ -84,7 +83,6 @@
         android:button="@color/colorTransparent"
         android:text="Não gero resíduos"
         android:textAlignment="center"
-        android:textSize="@dimen/micro_text_size"
         app:layout_constraintEnd_toEndOf="@id/rbQuickShowers"
         app:layout_constraintStart_toStartOf="@+id/rbFewDevices"
         app:layout_constraintTop_toTopOf="@id/rbWashMachineCapacity" />

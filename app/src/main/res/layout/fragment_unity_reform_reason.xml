@@ -39,7 +39,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Ampliar Comodo"
+                    android:text="Ampliar Cômodo"
                     android:visibility="visible"
                     tools:visibility="visible" />
 
@@ -49,7 +49,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Diminuir Comodo"
+                    android:text="Diminuir Cômodo"
                     android:visibility="visible"
                     tools:visibility="visible" />
 
@@ -89,7 +89,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Problema Tecnico"
+                    android:text="Problema Técnico"
                     android:visibility="visible"
                     tools:visibility="visible" />
 
@@ -99,7 +99,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Eliminar Comodo "
+                    android:text="Eliminar Cômodo"
                     android:visibility="visible"
                     tools:visibility="visible" />
 
@@ -109,7 +109,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Função do Comodo"
+                    android:text="Função do Cômodo"
                     android:visibility="visible"
                     tools:visibility="visible" />
 

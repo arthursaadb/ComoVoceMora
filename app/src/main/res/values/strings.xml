@@ -28,7 +28,7 @@
     <string name="name_default">name</string>
     <string name="wife">Esposa/Parceira</string>
     <string name="daughter">Filha</string>
-    <string name="mother">Mae</string>
+    <string name="mother">Mãe</string>
     <string name="grandmother">Avó</string>
     <string name="sister">Irmã</string>
     <string name="friends">Amigo(a)/colega</string>
@@ -74,7 +74,7 @@
     <string name="sobrado">Sobrado</string>
     <string name="vila">Casa de vila</string>
     <string name="terrea">Casa térrea</string>
-    <string name="fundo">Casa fundo</string>
+    <string name="fundo">Casa de fundo</string>
     <string name="duplex">Duplex</string>
     <string name="triplex">Triplex</string>
     <string name="quitinete">Quitinete</string>
@@ -97,8 +97,8 @@
     <string name="resident_other">Outro</string>
     <string name="area_servico">Área de serviço</string>
     <string name="banheiro">Banheiro</string>
-    <string name="decasal">D. Casal</string>
-    <string name="desolteiro">D. Solteiro</string>
+    <string name="decasal">Dorm. Casal</string>
+    <string name="desolteiro">Dorm. Solteiro</string>
     <string name="estar">Sala de Estar</string>
     <string name="jantar">Sala de Jantar</string>
     <string name="varanda">Varanda</string>

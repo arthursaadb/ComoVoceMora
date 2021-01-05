@@ -22,7 +22,7 @@
         style="@style/CustomRadioButton"
         android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:text="Nao"
+        android:text="Não"
         app:layout_constraintBottom_toTopOf="@id/btPreviousSession"
         app:layout_constraintStart_toStartOf="@id/iv_mr_clipboard" />
 

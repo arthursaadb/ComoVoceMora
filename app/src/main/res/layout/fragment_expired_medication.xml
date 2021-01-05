@@ -16,7 +16,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="@dimen/default_margin"
-        android:src="@drawable/medicamentovencido"
+        android:src="@drawable/residuos"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintStart_toEndOf="@id/bt_back"
         app:layout_constraintTop_toBottomOf="@+id/iv_mr_clipboard" />
