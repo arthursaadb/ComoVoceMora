@@ -38,6 +38,7 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WATER_SAVE_NO_EQUIPMENT;
     AnswerRequest answerRequest;
+    private boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
 
     public static WhyYouNotUseEquipamentFragment newInstance() {
@@ -51,9 +52,11 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
-            ((AboutYouActivity) requireActivity()).addFragment(WhyYouSaveElectricityFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
+                ((AboutYouActivity) requireActivity()).addFragment(WhyYouSaveElectricityFragment.newInstance());
+            }
         }
     }
 
@@ -78,6 +81,7 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:

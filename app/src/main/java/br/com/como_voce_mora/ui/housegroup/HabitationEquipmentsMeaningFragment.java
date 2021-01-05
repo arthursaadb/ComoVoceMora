@@ -67,7 +67,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
 
     @Override
     public void init() {
-        tvQuestion.setText("Para você, o que significa a presença de equipamentos de uso comum em um edifcio?");
+        tvQuestion.setText("Para você, o que significa a presença de equipamentos de uso comum em um edifício?");
         mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.BUILDING);
         customPodium.setOnPodiumListener(xqdl -> {
             for (Button b : mButtons) {

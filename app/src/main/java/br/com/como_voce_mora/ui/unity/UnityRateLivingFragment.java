@@ -48,7 +48,13 @@ public class UnityRateLivingFragment extends BaseFragment {
     private UnityAnswer adaptation = UnityAnswer.ADAPTATION;
     private UnityAnswer privacy = UnityAnswer.PRIVACY;
     private List<String> texts = new ArrayList<>();
-    private boolean anyOptionChecked = false;
+
+    private boolean anyOptionChecked1 = false;
+    private boolean anyOptionChecked2 = false;
+    private boolean anyOptionChecked3 = false;
+    private boolean anyOptionChecked4 = false;
+    private boolean anyOptionChecked5 = false;
+    private boolean anyOptionChecked6 = false;
 
     public static UnityRateLivingFragment newInstance() {
 
@@ -85,32 +91,37 @@ public class UnityRateLivingFragment extends BaseFragment {
 
     private void initVolumes() {
         vhSize.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked1 = true;
             vhSize.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.apartamento);
             answerRequests.add(new AnswerRequest(size.getQuestion(), size.getQuestionPartId(), texts.get(position)));
         });
         vhDivision.setListener(position -> {
+            anyOptionChecked2 = true;
             ivPhoto.setImageResource(R.drawable.apartamento);
             vhDivision.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(division.getQuestion(), division.getQuestionPartId(), texts.get(position)));
         });
         vhQuality.setListener(position -> {
+            anyOptionChecked3 = true;
             ivPhoto.setImageResource(R.drawable.apartamento);
             vhQuality.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(quality.getQuestion(), quality.getQuestionPartId(), texts.get(position)));
         });
         vhClean.setListener(position -> {
+            anyOptionChecked4 = true;
             ivPhoto.setImageResource(R.drawable.apartamento);
             vhClean.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(clean.getQuestion(), clean.getQuestionPartId(), texts.get(position)));
         });
         vhAdaptation.setListener(position -> {
+            anyOptionChecked5 = true;
             ivPhoto.setImageResource(R.drawable.apartamento);
             vhAdaptation.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(adaptation.getQuestion(), adaptation.getQuestionPartId(), texts.get(position)));
         });
         vhPrivacy.setListener(position -> {
+            anyOptionChecked6 = true;
             ivPhoto.setImageResource(R.drawable.apartamento);
             vhPrivacy.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(privacy.getQuestion(), privacy.getQuestionPartId(), texts.get(position)));
@@ -119,7 +130,7 @@ public class UnityRateLivingFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3 && anyOptionChecked4 && anyOptionChecked5 && anyOptionChecked6) {
             if (getActivity() != null) {
                 setAnswers();
                 ((AboutYouActivity) getActivity()).addFragment(UnityUtilAreaFragment.newInstance());

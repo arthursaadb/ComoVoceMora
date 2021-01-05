@@ -36,6 +36,7 @@ public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRad
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_WHY_NOT;
     AnswerRequest answerRequest;
+    private boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
 
     public static OrganicFoodWhyNotFragment newInstance() {
@@ -49,9 +50,11 @@ public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRad
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
-            ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
+                ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
+            }
         }
     }
 
@@ -76,7 +79,7 @@ public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRad
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             setAnswer(buttonView.getText().toString());
-
+            anyOptionChecked = true;
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);

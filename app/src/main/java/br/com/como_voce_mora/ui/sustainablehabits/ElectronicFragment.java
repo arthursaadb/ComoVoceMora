@@ -16,16 +16,23 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class ElectronicFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbUnknow) CustomRadioButton rbUnknown;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth)
+    CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes)
+    CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity)
+    CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbUnknow)
+    CustomRadioButton rbUnknown;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ELETRONIC;
     AnswerRequest answerRequest;
     BaseFragment mNextFrag;
+    private boolean anyOptionChecked = false;
 
     public static ElectronicFragment newInstance() {
         return new ElectronicFragment();
@@ -38,9 +45,11 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
+            }
         }
     }
 
@@ -64,6 +73,7 @@ public class ElectronicFragment extends BaseFragment implements CustomRadioButto
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:

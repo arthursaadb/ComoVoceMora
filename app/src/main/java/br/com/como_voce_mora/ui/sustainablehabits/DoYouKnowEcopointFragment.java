@@ -16,13 +16,18 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class DoYouKnowEcopointFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.optionYes) CustomRadioButton optionYes;
-    @BindView(R.id.optionNo) CustomRadioButton optionNo;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.optionYes)
+    CustomRadioButton optionYes;
+    @BindView(R.id.optionNo)
+    CustomRadioButton optionNo;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ECOPOINT;
     AnswerRequest answerRequest;
+    boolean anyOptionChecked = false;
 
     public static DoYouKnowEcopointFragment newInstance() {
         return new DoYouKnowEcopointFragment();
@@ -35,9 +40,11 @@ public class DoYouKnowEcopointFragment extends BaseFragment implements CustomRad
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouSeparateOilFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) requireActivity()).addFragment(DoYouSeparateOilFragment.newInstance());
+            }
         }
     }
 
@@ -59,6 +66,7 @@ public class DoYouKnowEcopointFragment extends BaseFragment implements CustomRad
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
 
             switch (buttonView.getId()) {

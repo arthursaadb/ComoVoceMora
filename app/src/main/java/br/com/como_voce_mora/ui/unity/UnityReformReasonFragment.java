@@ -80,10 +80,10 @@ public class UnityReformReasonFragment extends BaseFragment {
                 String pos = podiumSelected[i];
                 String position = positions[i];
                 switch (pos) {
-                    case "Ampliar Comodo":
+                    case "Ampliar Cômodo":
                         answerRequests.add(new AnswerRequest(ampliarComodo.getQuestion(), ampliarComodo.getQuestionPartId(), position));
                         break;
-                    case "Diminuir Comodo":
+                    case "Diminuir Cômodo":
                         answerRequests.add(new AnswerRequest(diminuirComodo.getQuestion(), diminuirComodo.getQuestionPartId(), position));
                         break;
                     case "Melhorar Acabamento":
@@ -92,13 +92,13 @@ public class UnityReformReasonFragment extends BaseFragment {
                     case "Melhorar Conforto":
                         answerRequests.add(new AnswerRequest(melhorarConforto.getQuestion(), melhorarConforto.getQuestionPartId(), position));
                         break;
-                    case "Problema Tecnico":
+                    case "Problema Técnico":
                         answerRequests.add(new AnswerRequest(resolverProblema.getQuestion(), resolverProblema.getQuestionPartId(), position));
                         break;
-                    case "Eliminar Comodo":
+                    case "Eliminar Cômodo":
                         answerRequests.add(new AnswerRequest(eliminar.getQuestion(), eliminar.getQuestionPartId(), position));
                         break;
-                    case "Função do Comodo":
+                    case "Função do Cômodo":
                         answerRequests.add(new AnswerRequest(funcaoCondicao.getQuestion(), funcaoCondicao.getQuestionPartId(), position));
                         break;
                     case "Outros":

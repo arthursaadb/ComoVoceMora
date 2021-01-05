@@ -48,6 +48,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
 
     StringBuilder answerRequests = new StringBuilder();
     UnityAnswer unityAnswer = UnityAnswer.BETTER_SUN;
+    private boolean anyOptionChecked = false;
 
     @Override
     public int getResLayout() {
@@ -75,6 +76,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.csvServico:
                 if (!csvServico.isChecked()) {
+                    anyOptionChecked = true;
                     csvServico.setChecked(true);
                     answerRequests.append(csvServico.getText());
                     answerRequests.append(";");
@@ -85,6 +87,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                 }
             case R.id.csvBanheiro:
                 if (!csvBanheiro.isChecked()) {
+                    anyOptionChecked = true;
                     csvBanheiro.setChecked(true);
                     answerRequests.append(csvBanheiro.getText());
                     answerRequests.append(";");
@@ -95,6 +98,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                 }
             case R.id.csvCasal:
                 if (!csvCasal.isChecked()) {
+                    anyOptionChecked = true;
                     csvCasal.setChecked(true);
                     answerRequests.append(csvCasal.getText());
                     answerRequests.append(";");
@@ -105,6 +109,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                 }
             case R.id.csvSolteiro:
                 if (!csvSolteiro.isChecked()) {
+                    anyOptionChecked = true;
                     csvSolteiro.setChecked(true);
                     answerRequests.append(csvSolteiro.getText());
                     answerRequests.append(";");
@@ -116,6 +121,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
 
             case R.id.csvSala:
                 if (!csvSala.isChecked()) {
+                    anyOptionChecked = true;
                     csvSala.setChecked(true);
                     answerRequests.append(csvSala.getText());
                     answerRequests.append(";");
@@ -127,6 +133,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
 
             case R.id.csvCopa:
                 if (!csvCopa.isChecked()) {
+                    anyOptionChecked = true;
                     csvCopa.setChecked(true);
                     answerRequests.append(csvCopa.getText());
                     answerRequests.append(";");
@@ -138,6 +145,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
 
             case R.id.csvVaranda:
                 if (!csvVaranda.isChecked()) {
+                    anyOptionChecked = true;
                     csvVaranda.setChecked(true);
                     answerRequests.append(csvVaranda.getText());
                     answerRequests.append(";");
@@ -148,6 +156,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                 }
             case R.id.csvCozinha:
                 if (!csvCozinha.isChecked()) {
+                    anyOptionChecked = true;
                     csvCozinha.setChecked(true);
                     answerRequests.append(csvCozinha.getText());
                     answerRequests.append(";");
@@ -160,8 +169,10 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        setAnswer();
-        ((AboutYouActivity) requireActivity()).addFragment(UnityActivitiesByRoom.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
+        if (anyOptionChecked) {
+            setAnswer();
+            ((AboutYouActivity) requireActivity()).addFragment(UnityActivitiesByRoom.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
+        }
     }
 
     private void setAnswer() {

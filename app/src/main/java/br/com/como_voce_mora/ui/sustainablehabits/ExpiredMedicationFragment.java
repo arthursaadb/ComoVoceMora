@@ -37,6 +37,7 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.MEDICAMENT_EXPIRED;
     AnswerRequest answerRequest;
     BaseFragment mNextFrag;
+    private boolean anyOptionChecked = false;
 
     public static ExpiredMedicationFragment newInstance() {
         return new ExpiredMedicationFragment();
@@ -49,9 +50,11 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
+            }
         }
     }
 
@@ -74,6 +77,7 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:

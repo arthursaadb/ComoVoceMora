@@ -84,16 +84,16 @@ public class BuildingApartmentNegativePointsFragment extends BaseFragment {
                 String pos = podiumSelected[i];
                 String position = positions[i];
                 switch (pos) {
-                    case "Convivio social coletivo  ":
+                    case "Convívio social coletivo":
                         answerRequests.add(new AnswerRequest(faltaSeguranca.getQuestion(), faltaSeguranca.getQuestionPartId(), position));
                         break;
                     case "Espaço Reduzido":
                         answerRequests.add(new AnswerRequest(faltaEspaco.getQuestion(), faltaEspaco.getQuestionPartId(), position));
                         break;
-                    case "Limitação a reformas":
+                    case "Limitação à reformas":
                         answerRequests.add(new AnswerRequest(dificuldadeReforma.getQuestion(), dificuldadeReforma.getQuestionPartId(), position));
                         break;
-                    case "Ausencia de Quintal":
+                    case "Ausência de Quintal":
                         answerRequests.add(new AnswerRequest(jardim.getQuestion(), jardim.getQuestionPartId(), position));
                         break;
                     case "Falta de Privacidade":

@@ -57,7 +57,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Limitação a reformas"
+                    android:text="Limitação à reformas"
                     android:visibility="visible"
                     tools:visibility="visible" />
 
@@ -87,7 +87,7 @@
                     android:layout_width="@dimen/custom_podium_button_width"
                     android:layout_height="@dimen/custom_podium_button_heigth"
                     android:layout_marginTop="5dp"
-                    android:text="Convivencia com vizinhos"
+                    android:text="Convivência com vizinhos"
                     android:visibility="visible"
                     tools:visibility="visible" />
 

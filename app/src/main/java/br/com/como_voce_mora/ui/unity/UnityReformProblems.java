@@ -44,7 +44,11 @@ public class UnityReformProblems extends BaseFragment {
     private UnityAnswer naturalPlants = UnityAnswer.PLASTER;
     private UnityAnswer personalDecoration = UnityAnswer.INNCREASE_POWER_PLUG;
     private List<String> texts = new ArrayList<>();
-    private boolean anyOptionChecked = false;
+
+    private boolean anyOptionChecked1 = false;
+    private boolean anyOptionChecked2 = false;
+    private boolean anyOptionChecked3 = false;
+    private boolean anyOptionChecked4 = false;
 
     public static UnityReformProblems newInstance(List<UnityAnswer> room) {
 
@@ -79,22 +83,25 @@ public class UnityReformProblems extends BaseFragment {
 
     private void initVolumes() {
         vhFurnishingsPosition.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked1 = true;
             ivPhoto.setImageResource(R.drawable.pintar);
             vhFurnishingsPosition.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(furnishingsPosition.getQuestion(), furnishingsPosition.getQuestionPartId(), texts.get(position)));
         });
         vhEletronicsPositions.setListener(position -> {
+            anyOptionChecked2 = true;
             vhEletronicsPositions.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.vao);
             answerRequests.add(new AnswerRequest(eletronicsPositions.getQuestion(), eletronicsPositions.getQuestionPartId(), texts.get(position)));
         });
         vhNaturalPlants.setListener(position -> {
+            anyOptionChecked3 = true;
             ivPhoto.setImageResource(R.drawable.forro);
             vhNaturalPlants.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(naturalPlants.getQuestion(), naturalPlants.getQuestionPartId(), texts.get(position)));
         });
         vhPersonalDecoration.setListener(position -> {
+            anyOptionChecked4 = true;
             ivPhoto.setImageResource(R.drawable.tomadailuminacao);
             vhPersonalDecoration.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(personalDecoration.getQuestion(), personalDecoration.getQuestionPartId(), texts.get(position)));
@@ -103,7 +110,7 @@ public class UnityReformProblems extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3 && anyOptionChecked4) {
             if (getActivity() != null) {
                 setAnswers();
                 ((AboutYouActivity) getActivity()).addFragment(UnityMadeChanges.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));

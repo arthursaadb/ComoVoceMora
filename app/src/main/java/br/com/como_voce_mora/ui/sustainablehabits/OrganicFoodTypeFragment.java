@@ -39,6 +39,7 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_TYPE;
     AnswerRequest answerRequest;
+    boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
 
     public static OrganicFoodTypeFragment newInstance() {
@@ -81,7 +82,7 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             setAnswer(buttonView.getText().toString());
-
+            anyOptionChecked = true;
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);

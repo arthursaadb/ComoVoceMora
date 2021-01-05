@@ -43,7 +43,11 @@ public class HabitationHowYouThinkAboutAspectsFragment extends BaseFragment {
     HouseGroupAnswer aspectConvivence = HouseGroupAnswer.ASPECTS_CONVIVENCE;
     HouseGroupAnswer aspectPrivece = HouseGroupAnswer.ASPECTS_PRIVACY;
     private List<String> texts = new ArrayList<>();
-    private boolean anyOptionChecked = false;
+
+    private boolean anyOptionChecked1 = false;
+    private boolean anyOptionChecked2 = false;
+    private boolean anyOptionChecked3 = false;
+    private boolean anyOptionChecked4 = false;
 
     public static HabitationHowYouThinkAboutAspectsFragment newInstance() {
 
@@ -78,25 +82,25 @@ public class HabitationHowYouThinkAboutAspectsFragment extends BaseFragment {
 
     private void initVolumes() {
         vhAcessibilidade.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked1 = true;
             vhAcessibilidade.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.cost_benefit);
             answerRequests.add(new AnswerRequest(aspectSecurity.getQuestion(), aspectSecurity.getQuestionPartId(), texts.get(position)));
         });
         vhAparencia.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked2 = true;
             vhAparencia.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.street_privacy);
             answerRequests.add(new AnswerRequest(aspectStreet.getQuestion(), aspectStreet.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked3 = true;
             vhConstrucao.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.security);
             answerRequests.add(new AnswerRequest(aspectConvivence.getQuestion(), aspectConvivence.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked4 = true;
             vhLimpeza.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.coexistence);
             answerRequests.add(new AnswerRequest(aspectPrivece.getQuestion(), aspectPrivece.getQuestionPartId(), texts.get(position)));
@@ -106,7 +110,7 @@ public class HabitationHowYouThinkAboutAspectsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3 && anyOptionChecked4) {
             if (getActivity() != null) {
                 setAnswers();
                 ((AboutYouActivity) getActivity()).addFragment(HabitationSatisfactionFragment.newInstance());

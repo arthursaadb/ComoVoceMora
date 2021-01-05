@@ -40,7 +40,12 @@ public class PreviousSatisfactionRateFragment extends BaseFragment {
     ImageView ivPhoto;
     private List<String> texts = new ArrayList<>();
 
-    private boolean anyOptionChecked = false;
+    private boolean anyOptionChecked1 = false;
+    private boolean anyOptionChecked2 = false;
+    private boolean anyOptionChecked3 = false;
+    private boolean anyOptionChecked4 = false;
+    private boolean anyOptionChecked5 = false;
+
     private PreviousHouseAnswer previous = PreviousHouseAnswer.PREVIUS_HOUSE_SATISFACTION;
     private PreviousHouseAnswer generalAspects = PreviousHouseAnswer.GENERAL_ASPECTS;
     private PreviousHouseAnswer costBenefit = PreviousHouseAnswer.COST_BENEFIT;
@@ -73,31 +78,31 @@ public class PreviousSatisfactionRateFragment extends BaseFragment {
     private void initVolumes() {
         vhAcessibilidade.setListener(position -> {
             ivPhoto.setImageResource(R.drawable.rate_aspecto_geral);
-            anyOptionChecked = true;
+            anyOptionChecked1 = true;
             vhAcessibilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(generalAspects.getQuestion(), generalAspects.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
             ivPhoto.setImageResource(R.drawable.rate_gasto);
-            anyOptionChecked = true;
+            anyOptionChecked2 = true;
             vhConstrucao.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(costBenefit.getQuestion(), costBenefit.getQuestionPartId(), texts.get(position)));
         });
         vhAparencia.setListener(position -> {
             ivPhoto.setImageResource(R.drawable.rate_acabamento);
-            anyOptionChecked = true;
+            anyOptionChecked3 = true;
             vhAparencia.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(finishhing.getQuestion(), finishhing.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
             ivPhoto.setImageResource(R.drawable.rate_localizacao);
-            anyOptionChecked = true;
+            anyOptionChecked4 = true;
             vhLimpeza.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(location.getQuestion(), location.getQuestionPartId(), texts.get(position)));
         });
         vhTamanho.setListener(position -> {
             ivPhoto.setImageResource(R.drawable.rate_tamanho);
-            anyOptionChecked = true;
+            anyOptionChecked5 = true;
             vhTamanho.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(size.getQuestion(), size.getQuestionPartId(), texts.get(position)));
         });
@@ -111,7 +116,7 @@ public class PreviousSatisfactionRateFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3 && anyOptionChecked4 && anyOptionChecked5) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(PreviousHouseTimeFragment.newInstance());
         }

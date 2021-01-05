@@ -34,6 +34,7 @@ public class FamilyIncomeFragment extends BaseFragment implements VolumeVertical
     private List<Integer> images;
     private List<String> texts;
 
+    private boolean anyOptionChecked = false;
     AboutYouAnswer aboutYouAnswer = AboutYouAnswer.FAMILY_INCOME;
     AnswerRequest answerRequest;
 
@@ -100,6 +101,7 @@ public class FamilyIncomeFragment extends BaseFragment implements VolumeVertical
 
     @Override
     public void positionVolume(int position) {
+        anyOptionChecked = true;
         mIvAge.setImageResource(images.get(position));
         mTvAge.setText(texts.get(position));
         mTvAge.setVisibility(View.VISIBLE);
@@ -108,8 +110,10 @@ public class FamilyIncomeFragment extends BaseFragment implements VolumeVertical
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        ResearchFlow.addAnswer(answerRequest, this);
-        ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
+        if (anyOptionChecked) {
+            ResearchFlow.addAnswer(answerRequest, this);
+            ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)

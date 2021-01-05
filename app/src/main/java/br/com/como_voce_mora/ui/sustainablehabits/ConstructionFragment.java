@@ -45,6 +45,7 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.CONSTRUCTION;
     AnswerRequest answerRequest;
+    private boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
 
     public static ConstructionFragment newInstance() {
@@ -58,9 +59,11 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
-            ((AboutYouActivity) requireActivity()).addFragment(ElectronicFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
+                ((AboutYouActivity) requireActivity()).addFragment(ElectronicFragment.newInstance());
+            }
         }
     }
 
@@ -86,6 +89,7 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:

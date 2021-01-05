@@ -35,6 +35,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHYY_NOT_USE_EQUIPMENT;
     AnswerRequest answerRequest;
+    private boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
 
     public static WhyReasonEquipamentFragment newInstance() {
@@ -48,11 +49,14 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
-            ((AboutYouActivity) requireActivity()).addFragment(DoYouSeparateGarbageFragment.newInstance());
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
+                ((AboutYouActivity) requireActivity()).addFragment(DoYouSeparateGarbageFragment.newInstance());
+            }
         }
     }
+
 
     @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
@@ -76,6 +80,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:

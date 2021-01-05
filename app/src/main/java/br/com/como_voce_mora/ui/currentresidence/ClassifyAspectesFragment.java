@@ -31,7 +31,10 @@ public class ClassifyAspectesFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
-    private boolean anyOptionChecked = false;
+    private boolean anyOptionChecked1 = false;
+    private boolean anyOptionChecked2 = false;
+    private boolean anyOptionChecked3 = false;
+
     private List<String> texts = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.NEIGHBORHOOD_ASPECTS;
@@ -72,17 +75,17 @@ public class ClassifyAspectesFragment extends BaseFragment {
 
     private void initVolumes() {
         volumeAgradabilidade.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked1 = true;
             volumeAgradabilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(agradabilidadeCurrentResidenceAnswer.getQuestion(), agradabilidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeConvivio.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked2 = true;
             volumeConvivio.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(convivioCurrentResidenceAnswer.getQuestion(), convivioCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeAcessibilidade.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked3 = true;
             volumeAcessibilidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(acessibildadeCurrentResidenceAnswer.getQuestion(), acessibildadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
@@ -91,7 +94,7 @@ public class ClassifyAspectesFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(OrganizationFragment.newInstance());
         }

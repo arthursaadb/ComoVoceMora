@@ -38,6 +38,7 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
     HowYouLiveProgressBar progressBar;
     private AnswerRequest answerRequest;
     private UnityAnswer unityAnswer = UnityAnswer.SATISFACTION_FOR_ROOMS;
+    private boolean anyOptionChecked = false;
 
     private List<UnityAnswer> roomsList;
     private List<Integer> images;
@@ -87,6 +88,7 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
 
     @Override
     public void positionVolume(int position) {
+        anyOptionChecked = true;
         mIvAge.setImageResource(images.get(position));
         mTvAge.setText(texts.get(position));
         mTvAge.setVisibility(View.VISIBLE);
@@ -96,8 +98,10 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
-            ResearchFlow.addAnswer(answerRequest, this);
-            ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(roomsList, 0));
+            if (anyOptionChecked) {
+                ResearchFlow.addAnswer(answerRequest, this);
+                ((AboutYouActivity) getActivity()).addFragment(UnitySatisfactionRoom.newInstance(roomsList, 0));
+            }
         }
     }
 

@@ -33,6 +33,11 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    private boolean anyOptionChecked1 = false;
+    private boolean anyOptionChecked2 = false;
+    private boolean anyOptionChecked3 = false;
+    private boolean anyOptionChecked4 = false;
+
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.PUBLIC_SPACE_SATISFACTION;
     private CurrentResidenceAnswer segurancaCurrentResidenceAnswer = CurrentResidenceAnswer.SECURITY;
     private CurrentResidenceAnswer qualidadeCurrentResidenceAnswer = CurrentResidenceAnswer.EQUIPMENTS_QUALITY;
@@ -40,7 +45,6 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
     private CurrentResidenceAnswer acessoCurrentResidenceAnswer = CurrentResidenceAnswer.ACCESSIBILITY;
     private List<String> texts = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
-    private boolean anyOptionChecked = false;
 
     public static WhatsYourSatisfactionFragment newInstance() {
 
@@ -75,22 +79,22 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
 
     private void initVolumes() {
         volumeAcesso.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked1 = true;
             volumeAcesso.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(acessoCurrentResidenceAnswer.getQuestion(), acessoCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeQuantidade.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked2 = true;
             volumeQuantidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(quantidadeCurrentResidenceAnswer.getQuestion(), quantidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeQualidade.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked3 = true;
             volumeQualidade.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(qualidadeCurrentResidenceAnswer.getQuestion(), qualidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volumeSegurana.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked4 = true;
             volumeSegurana.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
@@ -98,7 +102,7 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3 && anyOptionChecked4) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
         }

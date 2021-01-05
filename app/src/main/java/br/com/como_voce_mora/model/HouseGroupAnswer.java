@@ -30,7 +30,7 @@ public enum HouseGroupAnswer {
     ASPECTS_SECURITY("Relação de custo benefício", "594b0e04-2c5c-41bf-9efc-900bdcac07cc"),
     ASPECTS_STREET_SECURITY("Segurança em relação à rua", "a226341e-e98f-4fa2-85d4-825d795aff92"),
     ASPECTS_CONVIVENCE("Nível de Convivência", "73da3857-e8a1-446e-9609-b8f228875898"),
-    ASPECTS_PRIVACY("Privacidade", "3bc5152c-81a2-41dc-bf4e-19c3ec82594e"),
+    ASPECTS_PRIVACY("Privacidade em relação à rua", "3bc5152c-81a2-41dc-bf4e-19c3ec82594e"),
 
     EQUIPMENTS_TO_ADD("Indique quais desses equipamentos você gostaria que seu edifício possuísse:", "99de50a3-ddd3-478c-a07e-9ae4f9240fdf"),
     EXISTENCE_OF_GREEN_AREA("Existem áreas verdes no seu edifício?", "2aa66471-a14a-4f54-9edb-e24a997de117"),
@@ -53,7 +53,7 @@ public enum HouseGroupAnswer {
     NO_IMPORTANCE("Não significa nada", "070711e7-8fd3-4aa1-b937-62e68ab744ef"),
     OTHER_MOTIVE_IMPORTANCE("Outro Motivo", "5109b75e-7563-4994-b88c-a1e08b3540f9"),
 
-    GREEN_AREA("Existem áreas verdes no seu edifício?", "2aa66471-a14a-4f54-9edb-e24a997de117"),
+    GREEN_AREA("Existem áreas verdes no seu condomínio?", "2aa66471-a14a-4f54-9edb-e24a997de117"),
     NEIGHBORHOOD_DELIMITATION("Existe delimitação entre sua residência e a vizinhança?", "6a1601b4-3a30-4e86-a2d9-e766a2375b4e"),
 
 

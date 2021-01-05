@@ -46,6 +46,7 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
     CustomRadioButton mRb8;
 
     private UnityAnswer unityAnswer = UnityAnswer.REFORM_MADE;
+    private boolean anyOptionChecked = false;
     private StringBuilder answer = new StringBuilder();
     private String acabamento = "";
     private String portas = "";
@@ -89,6 +90,7 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             compoundButton.setChecked(true);
             answer.append(compoundButton.getText().toString());
             answer.append(";");
@@ -112,12 +114,14 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
-            setAnswer();
-            if (none) {
-                ((AboutYouActivity) requireActivity()).addFragment(UnityReformssNeeds.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
-            } else {
-                ((AboutYouActivity) getActivity()).addFragment(UnityReformReasonFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
+        if (anyOptionChecked) {
+            if (getActivity() != null) {
+                setAnswer();
+                if (none) {
+                    ((AboutYouActivity) requireActivity()).addFragment(UnityReformssNeeds.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
+                } else {
+                    ((AboutYouActivity) getActivity()).addFragment(UnityReformReasonFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
+                }
             }
         }
     }

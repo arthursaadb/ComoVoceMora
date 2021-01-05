@@ -56,7 +56,7 @@
                 app:layout_constraintEnd_toEndOf="@id/tv_question"
                 app:layout_constraintStart_toEndOf="@id/ivImage"
                 app:layout_constraintTop_toBottomOf="@id/llVolume1"
-                app:textName="Segurança em  relação á rua" />
+                app:textName="Segurança em relação à rua" />
 
             <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume3"
@@ -68,7 +68,7 @@
                 app:layout_constraintEnd_toEndOf="@id/tv_question"
                 app:layout_constraintStart_toEndOf="@id/ivImage"
                 app:layout_constraintTop_toBottomOf="@id/llVolume2"
-                app:textName="Privacidade em relação á rua" />
+                app:textName="Privacidade em relação à rua" />
 
             <br.com.como_voce_mora.custom.VolumeHorizontal
                 android:id="@+id/volume4"

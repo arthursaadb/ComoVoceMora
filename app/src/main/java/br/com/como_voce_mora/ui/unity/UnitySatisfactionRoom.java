@@ -52,7 +52,6 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private List<String> texts = new ArrayList<>();
-    private boolean anyOptionChecked = false;
     private UnityAnswer roomType;
     private UnityAnswer mobiliar;
     private UnityAnswer temperatura;
@@ -64,6 +63,14 @@ public class UnitySatisfactionRoom extends BaseFragment {
     private List<UnityAnswer> listRoomType;
     private int index;
     private UnityRoomsImages images;
+
+    private boolean anyOptionChecked1 = false;
+    private boolean anyOptionChecked2 = false;
+    private boolean anyOptionChecked3 = false;
+    private boolean anyOptionChecked4 = false;
+    private boolean anyOptionChecked5 = false;
+    private boolean anyOptionChecked6 = false;
+
 
     public static UnitySatisfactionRoom newInstance(List<UnityAnswer> room, int index) {
 
@@ -179,32 +186,37 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
     private void initVolumes() {
         vhSize.setListener(position -> {
-            anyOptionChecked = true;
+            anyOptionChecked1 = true;
             vhSize.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getTamanho());
             answerRequests.add(new AnswerRequest(tamanho.getQuestion(), tamanho.getQuestionPartId(), texts.get(position)));
         });
         vhDivision.setListener(position -> {
+            anyOptionChecked2 = true;
             vhDivision.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getMobiliar());
             answerRequests.add(new AnswerRequest(mobiliar.getQuestion(), mobiliar.getQuestionPartId(), texts.get(position)));
         });
         vhQuality.setListener(position -> {
+            anyOptionChecked3 = true;
             vhQuality.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getVentilacao());
             answerRequests.add(new AnswerRequest(temperatura.getQuestion(), temperatura.getQuestionPartId(), texts.get(position)));
         });
         vhClean.setListener(position -> {
+            anyOptionChecked4 = true;
             vhClean.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getIluminacao());
             answerRequests.add(new AnswerRequest(convivencia.getQuestion(), convivencia.getQuestionPartId(), texts.get(position)));
         });
         vhAdaptation.setListener(position -> {
+            anyOptionChecked5 = true;
             vhAdaptation.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getTemperatura());
             answerRequests.add(new AnswerRequest(iluminacao.getQuestion(), iluminacao.getQuestionPartId(), texts.get(position)));
         });
         vhPrivacy.setListener(position -> {
+            anyOptionChecked6 = true;
             vhPrivacy.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getRuido());
             answerRequests.add(new AnswerRequest(ruido.getQuestion(), ruido.getQuestionPartId(), texts.get(position)));
@@ -213,7 +225,7 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3 && anyOptionChecked4 && anyOptionChecked5 && anyOptionChecked6) {
             if (getActivity() != null) {
                 setAnswers();
                 if (index == listRoomType.size()) {

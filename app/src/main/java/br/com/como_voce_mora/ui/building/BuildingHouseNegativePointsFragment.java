@@ -89,10 +89,10 @@ public class BuildingHouseNegativePointsFragment extends BaseFragment {
                     case "Espaço Reduzido":
                         answerRequests.add(new AnswerRequest(faltaEspaco.getQuestion(), faltaEspaco.getQuestionPartId(), position));
                         break;
-                    case "Limitação a reformas":
+                    case "Limitação à reformas":
                         answerRequests.add(new AnswerRequest(dificuldadeReforma.getQuestion(), dificuldadeReforma.getQuestionPartId(), position));
                         break;
-                    case "Convivencia com vizinhos":
+                    case "Convivência com vizinhos":
                         answerRequests.add(new AnswerRequest(vizinhos.getQuestion(), vizinhos.getQuestionPartId(), position));
                         break;
                     case "Falta de Privacidade":
