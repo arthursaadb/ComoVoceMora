@@ -52,7 +52,9 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
     private AnswerRequest answerRequest;
     private StringBuilder answer = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.KEEP_FURNISHINGS;
-    private boolean anyOptionChecked = false;
+    private boolean anyOptionCheckedNo = false;
+    private boolean anyOptionCheckedYes = false;
+    private boolean anyOptionCheckedNoDetails = false;
 
     public static UnityActualHouseLivingFragment newInstance() {
         return new UnityActualHouseLivingFragment();
@@ -82,10 +84,11 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        anyOptionChecked = true;
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbYes:
+                    anyOptionCheckedYes = true;
+                    anyOptionCheckedNo = false;
                     mRb1.setChecked(true);
                     mRb2.setChecked(false);
                     mScrollView.setVisibility(View.GONE);
@@ -101,6 +104,8 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
                     updateRbs();
                     break;
                 case R.id.rbNo:
+                    anyOptionCheckedYes = false;
+                    anyOptionCheckedNo = true;
                     mRb1.setChecked(false);
                     mRb2.setChecked(true);
                     mRbEletroPequeno.setChecked(false);
@@ -116,48 +121,56 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
                     updateRbs();
                     break;
                 case R.id.rbEletroPequeno:
+                    anyOptionCheckedNoDetails = true;
                     mRbEletroPequeno.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
+                    anyOptionCheckedNoDetails = true;
                     mRbEletroGrande.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
+                    anyOptionCheckedNoDetails = true;
                     rbMoveisPequenos.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
+                    anyOptionCheckedNoDetails = true;
                     rbMoveisGrandes.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPortas:
+                    anyOptionCheckedNoDetails = true;
                     mRbPortas.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
+                    anyOptionCheckedNoDetails = true;
                     mRbPosicaoRuim.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
+                    anyOptionCheckedNoDetails = true;
                     mRbMoveisNovos.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbExcesso:
+                    anyOptionCheckedNoDetails = true;
                     mRbExcesso.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
@@ -217,11 +230,19 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionCheckedYes) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(answerRequest, this);
                 ResearchFlow.addAnswer(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), answer.toString()), this);
                 ((AboutYouActivity) getActivity()).addFragment(UnityExtraIncomeFragment.newInstance());
+            }
+        } else {
+            if (anyOptionCheckedNo && anyOptionCheckedNoDetails) {
+                if (getActivity() != null) {
+                    ResearchFlow.addAnswer(answerRequest, this);
+                    ResearchFlow.addAnswer(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), answer.toString()), this);
+                    ((AboutYouActivity) getActivity()).addFragment(UnityExtraIncomeFragment.newInstance());
+                }
             }
         }
     }

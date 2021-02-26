@@ -49,7 +49,9 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
     @BindView(R.id.rbMoveisNovos)
     CustomRadioButton mRbMoveisNovos;
 
-    private boolean anyOptionChecked = false;
+    private boolean anyOptionCheckedYes = false;
+    private boolean anyOptionCheckedYesDetails = false;
+    private boolean anyOptionCheckedNo = false;
     private AnswerRequest answerRequest;
     private StringBuilder answer = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.USE_AS_EXTRA;
@@ -81,9 +83,10 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
-            anyOptionChecked = true;
             switch (buttonView.getId()) {
                 case R.id.rbYes:
+                    anyOptionCheckedYes = true;
+                    anyOptionCheckedNo = false;
                     mRb1.setChecked(true);
                     mRb2.setChecked(false);
                     mScrollView.setVisibility(View.VISIBLE);
@@ -98,6 +101,8 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
                     updateRbs();
                     break;
                 case R.id.rbNo:
+                    anyOptionCheckedYes = false;
+                    anyOptionCheckedNo = true;
                     mRb1.setChecked(false);
                     mRb2.setChecked(true);
                     mRbEletroPequeno.setChecked(false);
@@ -112,42 +117,49 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
                     updateRbs();
                     break;
                 case R.id.rbEletroPequeno:
+                    anyOptionCheckedYesDetails = true;
                     mRbEletroPequeno.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
+                    anyOptionCheckedYesDetails = true;
                     mRbEletroGrande.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
+                    anyOptionCheckedYesDetails = true;
                     rbMoveisPequenos.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
+                    anyOptionCheckedYesDetails = true;
                     rbMoveisGrandes.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPortas:
+                    anyOptionCheckedYesDetails = true;
                     mRbPortas.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
+                    anyOptionCheckedYesDetails = true;
                     mRbPosicaoRuim.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
+                    anyOptionCheckedYesDetails = true;
                     mRbMoveisNovos.setChecked(true);
                     answer.append(buttonView.getText().toString());
                     answer.append(";");
@@ -203,7 +215,7 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionCheckedNo) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(answerRequest, this);
 
@@ -211,6 +223,17 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
                         USE_AS_EXTRA_YES.getQuestionPartId(), answer.toString()), this);
 
                 ((AboutYouActivity) getActivity()).addFragment(UnityRateLivingFragment.newInstance());
+            }
+        } else {
+            if (anyOptionCheckedYes && anyOptionCheckedYesDetails) {
+                if (getActivity() != null) {
+                    ResearchFlow.addAnswer(answerRequest, this);
+
+                    ResearchFlow.addAnswer(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(),
+                            USE_AS_EXTRA_YES.getQuestionPartId(), answer.toString()), this);
+
+                    ((AboutYouActivity) getActivity()).addFragment(UnityRateLivingFragment.newInstance());
+                }
             }
         }
     }

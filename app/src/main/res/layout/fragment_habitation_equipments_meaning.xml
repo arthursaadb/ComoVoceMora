@@ -71,6 +71,17 @@
                     android:visibility="visible"
                     tools:visibility="visible" />
 
+                <Button
+                    android:id="@+id/btTenOption"
+                    style="@style/PodiumOptionButton"
+                    android:layout_width="@dimen/custom_podium_button_width"
+                    android:layout_height="@dimen/custom_podium_button_heigth"
+                    android:layout_marginTop="5dp"
+                    android:text="Outros"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+
+
             </LinearLayout>
 
             <LinearLayout

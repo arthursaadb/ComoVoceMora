@@ -94,6 +94,12 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
             compoundButton.setChecked(true);
             answer.append(compoundButton.getText().toString());
             answer.append(";");
+
+            if (compoundButton.getId() == R.id.rbNenhuma) {
+                none = true;
+            } else {
+                none = false;
+            }
         } else {
             compoundButton.setChecked(false);
         }

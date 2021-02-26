@@ -53,7 +53,6 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
 
     private StringBuilder answer = new StringBuilder();
     HouseGroupAnswer houseGroupAnswer = HouseGroupAnswer.EQUIPMENTS_TO_ADD;
-    private boolean anyOptionChecked = false;
 
     public static HabitationSatisfactionFragment newInstance() {
 
@@ -90,7 +89,6 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
     @Override
     public void onClick(View v) {
         CustomRadioButton option = (CustomRadioButton) v;
-        anyOptionChecked = true;
         if (v.isPressed()) {
             answer.append(option.getText().toString());
             answer.append(";");
@@ -115,12 +113,10 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(new AnswerRequest(houseGroupAnswer.getQuestion(), houseGroupAnswer.getQuestionPartId(), answer.toString()), this);
                 ((AboutYouActivity) getActivity()).addFragment(HabitationEquipmentsMeaningFragment.newInstance());
             }
-        }
     }
 
     @OnClick(R.id.bt_back)

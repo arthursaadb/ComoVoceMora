@@ -45,6 +45,7 @@ public class UnityReformReasonFragment extends BaseFragment {
     private UnityAnswer funcaoCondicao = UnityAnswer.CHANGE_ROOM_FUNCTION;
     private UnityAnswer outraRasao = UnityAnswer.OTHER_REASON;
     private UnityAnswer eliminar = UnityAnswer.ELIMINATE_ROOM;
+    private boolean anyOptionChecked = false;
 
     public static UnityReformReasonFragment newInstance(List<UnityAnswer> room) {
 
@@ -121,7 +122,7 @@ public class UnityReformReasonFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && anyOptionChecked) {
             setAnswers();
             ((AboutYouActivity) getActivity()).addFragment(UnityReformssNeeds.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
         }
@@ -130,6 +131,7 @@ public class UnityReformReasonFragment extends BaseFragment {
     @OnClick({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
             R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption})
     public void onClickOptions(View view) {
+        anyOptionChecked = true;
         Button textView = (Button) view;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);

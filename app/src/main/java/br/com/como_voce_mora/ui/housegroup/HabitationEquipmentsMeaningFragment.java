@@ -25,6 +25,7 @@ import static br.com.como_voce_mora.model.HouseGroupAnswer.FACILITY_IMPORTANCE;
 import static br.com.como_voce_mora.model.HouseGroupAnswer.LIFE_QUALITY_IMPORTANCE;
 import static br.com.como_voce_mora.model.HouseGroupAnswer.MONEY_IMPORTANCE;
 import static br.com.como_voce_mora.model.HouseGroupAnswer.NO_IMPORTANCE;
+import static br.com.como_voce_mora.model.HouseGroupAnswer.OTHER_MOTIVE_IMPORTANCE;
 import static br.com.como_voce_mora.model.HouseGroupAnswer.PRIVACY_IMPORTANCE;
 import static br.com.como_voce_mora.model.HouseGroupAnswer.SECURITY_IMPORTANCE;
 import static br.com.como_voce_mora.model.HouseGroupAnswer.SOCIAL_STATUS_IMPORTANCE;
@@ -116,6 +117,9 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
                     case "Segurança":
                         answerRequests.add(new AnswerRequest(SECURITY_IMPORTANCE.getQuestion(), SECURITY_IMPORTANCE.getQuestionPartId(), position));
                         break;
+                    case "Outros":
+                        answerRequests.add(new AnswerRequest(OTHER_MOTIVE_IMPORTANCE.getQuestion(), OTHER_MOTIVE_IMPORTANCE.getQuestionPartId(), position));
+                        break;
                 }
             }
             for (AnswerRequest r : answerRequests) {
@@ -132,7 +136,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
     }
 
     @OnClick({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
-            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption})
+            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption, R.id.btTenOption})
     public void onClickOptions(View view) {
         anyOptionChecked = true;
         Button textView = (Button) view;

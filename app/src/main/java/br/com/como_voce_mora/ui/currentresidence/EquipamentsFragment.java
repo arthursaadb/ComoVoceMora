@@ -32,7 +32,6 @@ public class EquipamentsFragment extends BaseFragment {
     private String esporte = "";
     private String seguranca = "";
     private Boolean recreation = false;
-    boolean anyOneSelected = false;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.URBAN_EQUIPMENT;
@@ -83,7 +82,6 @@ public class EquipamentsFragment extends BaseFragment {
             R.id.csvLazer, R.id.csvEsporte, R.id.csvSeguranca})
     void onClickViews(View view) {
         CustomSelectedView csv = (CustomSelectedView) view;
-        anyOneSelected = true;
         switch (view.getId()) {
             case R.id.csvSaude:
                 if (!csv.isChecked()) {
@@ -187,14 +185,12 @@ public class EquipamentsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOneSelected) {
             setAnswer();
             if (recreation) {
                 ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());
             } else {
                 ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
             }
-        }
     }
 
     @OnClick(R.id.bt_back)
