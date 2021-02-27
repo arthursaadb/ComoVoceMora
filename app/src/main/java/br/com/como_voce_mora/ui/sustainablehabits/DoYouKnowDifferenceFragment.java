@@ -75,7 +75,7 @@ public class DoYouKnowDifferenceFragment extends BaseFragment implements CustomR
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
-                    mNextFrag = SolarEquipamentTypeFragment.newInstance();
+                    mNextFrag = DoYouKnowProcelFragment.newInstance();
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);

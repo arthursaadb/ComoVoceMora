@@ -36,6 +36,7 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_WHY_NOT;
     AnswerRequest answerRequest;
+    private boolean anyOptionChecked = false;
 
     public static OrganicFoodWhyNot newInstance() {
         return new OrganicFoodWhyNot();
@@ -48,7 +49,7 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && anyOptionChecked) {
             ResearchFlow.addAnswer(answerRequest, this);
             ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
         }
@@ -74,6 +75,7 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
 
             switch (buttonView.getId()) {

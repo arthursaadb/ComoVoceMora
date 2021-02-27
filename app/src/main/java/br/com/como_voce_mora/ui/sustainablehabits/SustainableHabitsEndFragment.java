@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,8 +32,8 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
     HowYouLiveProgressBar mProgress;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
-    @BindView(R.id.multiStateLayout)
-    ConstraintLayout multiStateLayout;
+    @BindView(R.id.layout_loading_end)
+    FrameLayout layoutLoadingEnd;
 
     private ServicesPresenter mPresenter = new ServicesPresenter(this);
 
@@ -61,12 +62,13 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
 
     @Override
     public void showLoad() {
-//        multiStateLayout.setState(MultiStateLayout.State.LOADING);
+        layoutLoadingEnd.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showId(String dwellerId) {
-
+        Intent intent = new Intent(getActivity(), IntroActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -81,6 +83,6 @@ public class SustainableHabitsEndFragment extends BaseFragment implements Servic
 
     @Override
     public void stopLoad() {
-//        multiStateLayout.setState(MultiStateLayout.State.CONTENT);
+        layoutLoadingEnd.setVisibility(View.GONE);
     }
 }

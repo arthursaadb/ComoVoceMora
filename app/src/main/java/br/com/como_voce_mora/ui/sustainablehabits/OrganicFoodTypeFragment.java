@@ -53,7 +53,7 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && anyOptionChecked) {
             ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
         }

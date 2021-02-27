@@ -29,6 +29,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.PLANTS_TYPE;
     AnswerRequest answerRequest;
+    boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
 
     public static PlantsTypeFragment newInstance() {
@@ -51,7 +52,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
 
     @OnClick(R.id.bt_back)
     public void onBtBackClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && anyOptionChecked) {
             getActivity().onBackPressed();
         }
     }
@@ -68,6 +69,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:

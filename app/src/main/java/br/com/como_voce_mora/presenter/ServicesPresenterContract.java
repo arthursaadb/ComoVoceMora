@@ -4,7 +4,7 @@ public class ServicesPresenterContract {
 
     public interface Presenter {
         void callService();
-
+        void getServiceStatus();
         void postAnswers(String dwellerId);
     }
 

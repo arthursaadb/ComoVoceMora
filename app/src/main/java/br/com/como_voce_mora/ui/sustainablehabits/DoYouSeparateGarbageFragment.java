@@ -55,7 +55,9 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
     StringBuilder answerRequestYes = new StringBuilder();
     StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;
-    Boolean anyOptionChecked = false;
+    private boolean anyOptionChecked = false;
+    private boolean optionYesChecked = false;
+    private boolean optionNoChecked = false;
 
     public static DoYouSeparateGarbageFragment newInstance() {
         return new DoYouSeparateGarbageFragment();
@@ -68,7 +70,7 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && mNextFragment != null) {
+        if (getActivity() != null && mNextFragment != null && anyOptionChecked && (optionYesChecked || optionNoChecked)) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }
@@ -148,6 +150,8 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
         switch (buttonView.getId()) {
             case R.id.optionYes:
                 if (isChecked) {
+                    anyOptionChecked = true;
+                    optionNoChecked = false;
                     mNextFragment = DoYouKnowWhereGarbageGo.newInstance();
                     showYesItems();
                     hideNoItems();
@@ -163,6 +167,8 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
                 break;
             case R.id.optionNo:
                 if (isChecked) {
+                    anyOptionChecked = true;
+                    optionYesChecked = false;
                     mNextFragment = DoYouKnowWhereGarbageGo.newInstance();
                     hideYesItems();
                     showNoItems();
@@ -177,45 +183,53 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
                 updateViews();
                 break;
             case R.id.rbBillsPrice:
+                optionYesChecked = true;
                 rbBillsPrice.setChecked(isChecked);
                 setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
             case R.id.rbLessAmbientalDamage:
+                optionYesChecked = true;
                 rbLessAmbientalDamage.setChecked(isChecked);
                 setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
             case R.id.rbDry:
+                optionYesChecked = true;
                 rbDry.setChecked(isChecked);
                 setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
             case R.id.rbOthers:
+                optionYesChecked = true;
                 rbOthers.setChecked(isChecked);
                 setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
 
             case R.id.rbAbundantResource:
+                optionNoChecked = true;
                 rbAbundantResource.setChecked(isChecked);
                 setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
 
             case R.id.rbOthersNo:
+                optionNoChecked = true;
                 rbOthersNo.setChecked(isChecked);
                 setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
 
             case R.id.rbNoNeed:
+                optionNoChecked = true;
                 rbNoNeed.setChecked(isChecked);
                 setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
 
             case R.id.rbLowCost:
+                optionNoChecked = true;
                 rbLowCost.setChecked(isChecked);
                 setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();

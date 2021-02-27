@@ -55,6 +55,10 @@ public class TransportationFragment extends BaseFragment {
     private SustainableHabitsAnswer acessoCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_4;
     private List<String> texts = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
+    private boolean anyOptionChecked1 = false;
+    private boolean anyOptionChecked2 = false;
+    private boolean anyOptionChecked3 = false;
+    private boolean anyOptionChecked4 = false;
 
     public static TransportationFragment newInstance() {
 
@@ -85,18 +89,22 @@ public class TransportationFragment extends BaseFragment {
 
     private void initVolumes() {
         volume1.setListener(position -> {
+            anyOptionChecked1 = true;
             volume1.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(acessoCurrentResidenceAnswer.getQuestion(), acessoCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volume2.setListener(position -> {
+            anyOptionChecked2 = true;
             volume2.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(quantidadeCurrentResidenceAnswer.getQuestion(), quantidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volume3.setListener(position -> {
+            anyOptionChecked3 = true;
             volume3.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(qualidadeCurrentResidenceAnswer.getQuestion(), qualidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volume4.setListener(position -> {
+            anyOptionChecked4 = true;
             volume4.setInfo(texts.get(position));
             answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
@@ -104,8 +112,10 @@ public class TransportationFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        setAnswers();
-        ((AboutYouActivity) requireActivity()).addFragment(TransportationReasonFragment.newInstance());
+        if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3 && anyOptionChecked4) {
+            setAnswers();
+            ((AboutYouActivity) requireActivity()).addFragment(TransportationReasonFragment.newInstance());
+        }
     }
 
     private void setAnswers() {

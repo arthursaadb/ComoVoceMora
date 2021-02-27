@@ -15,6 +15,8 @@ import br.com.como_voce_mora.db.PostContract;
 import br.com.como_voce_mora.db.SingletonCurrentResident;
 
 import static android.database.sqlite.SQLiteDatabase.CONFLICT_REPLACE;
+import static br.com.como_voce_mora.db.PostContract.PostEntry.TABLE_NAME_APO;
+import static br.com.como_voce_mora.db.PostContract.PostEntry.TABLE_NAME_MORADOR;
 
 public class ResearchFlow {
     private static final ResearchFlow ourInstance = new ResearchFlow();
@@ -42,8 +44,8 @@ public class ResearchFlow {
 
         SQLiteDatabase db = AppController.getInstance().getDbHelper().getWritableDatabase();
         try {
-            db.insertWithOnConflict(PostContract.PostEntry.TABLE_NAME_MORADOR, null, valuesMorador, CONFLICT_REPLACE);
-            db.insertWithOnConflict(PostContract.PostEntry.TABLE_NAME_APO, null, values, CONFLICT_REPLACE);
+            db.insertWithOnConflict(TABLE_NAME_MORADOR, null, valuesMorador, CONFLICT_REPLACE);
+            db.insertWithOnConflict(TABLE_NAME_APO, null, values, CONFLICT_REPLACE);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -57,7 +59,7 @@ public class ResearchFlow {
         SQLiteDatabase db = AppController.getInstance().getDbHelper().getReadableDatabase();
         try {
             String currentResident = String.valueOf(SingletonCurrentResident.getInstance().getCurrentResident());
-            Cursor cursor = db.rawQuery("SELECT * FROM " + PostContract.PostEntry.TABLE_NAME_APO + " WHERE " + PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + " = ?", new String[]{currentResident});
+            Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME_APO + " WHERE " + PostContract.PostEntry.COLUMN_NAME_MORADOR_ID + " = ?", new String[]{currentResident});
 
             if (cursor.moveToFirst()) {
                 do {
@@ -83,7 +85,7 @@ public class ResearchFlow {
     public static ScreenAndMoradorId getQuestionLast() {
         SQLiteDatabase db = AppController.getInstance().getDbHelper().getReadableDatabase();
         try {
-            Cursor cursor = db.rawQuery("SELECT * FROM " + PostContract.PostEntry.TABLE_NAME_APO, null);
+            Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME_APO, null);
 
             cursor.moveToLast();
 
@@ -98,6 +100,12 @@ public class ResearchFlow {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static void resetDabase() {
+        SQLiteDatabase db = AppController.getInstance().getDbHelper().getWritableDatabase();
+        db.delete(TABLE_NAME_MORADOR, null, null);
+        db.delete(TABLE_NAME_APO, null, null);
     }
 
     public static void setHouse(boolean houseChecked) {
