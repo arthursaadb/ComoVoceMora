@@ -89,7 +89,7 @@
                 android:layout_marginStart="@dimen/small_margin"
                 android:layout_marginLeft="@dimen/small_margin"
                 android:layout_marginTop="10dp"
-                app:textName="Privacidade" />
+                app:textName="Privacidade de todos os membros da casa" />
 
         </LinearLayout>
 

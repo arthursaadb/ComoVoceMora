@@ -28,7 +28,6 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.PLANTS_TYPE;
-    AnswerRequest answerRequest;
     boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
 
@@ -43,7 +42,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && anyOptionChecked) {
             ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
                     .getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(TransportationFragment.newInstance());

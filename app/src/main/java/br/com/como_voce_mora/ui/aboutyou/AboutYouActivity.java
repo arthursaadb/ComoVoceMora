@@ -2,8 +2,21 @@ package br.com.como_voce_mora.ui.aboutyou;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.Collections;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
+import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateGarbageFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateOilFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.ExpiredMedicationFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.PlantsFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.PlantsTypeFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.TransportationReasonFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.WhatYouDoToSaveElectricity;
+import br.com.como_voce_mora.ui.unity.UnityActualHouseLivingFragment;
+import br.com.como_voce_mora.ui.unity.UnityMadeChanges;
+import br.com.como_voce_mora.ui.unity.UnityRateRoomsFragment;
+import br.com.como_voce_mora.ui.unity.UnityUtilAreaFragment;
 
 public class AboutYouActivity extends BaseActivity {
     public static final String SCREEN_FRAGMENT = "screen-fragment";
@@ -19,7 +32,7 @@ public class AboutYouActivity extends BaseActivity {
         String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
 
         if (screen == null) {
-            replaceFragment(WhatYourGenderFragment.newInstance());
+            replaceFragment(UnityMadeChanges.newInstance(Collections.emptyList()));
             return;
         }
 

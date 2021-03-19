@@ -115,6 +115,34 @@
         app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"
         app:layout_constraintTop_toBottomOf="@id/rbLessAmbientalDamage" />
 
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbConsumoProprio"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
+        android:layout_marginTop="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Consumo próprio"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintStart_toStartOf="@id/rbLessAmbientalDamage"
+        app:layout_constraintTop_toBottomOf="@id/rbOthers" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbColetaSeletiva"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Não tenho tempo"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/rbAbundantResource"
+        app:layout_constraintEnd_toStartOf="@id/rbOthersNo"
+        app:layout_constraintStart_toEndOf="@id/optionNo" />
+
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbAbundantResource"
         android:layout_width="0dp"

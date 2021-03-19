@@ -71,11 +71,11 @@ public class UnityRateRoomsFragment extends BaseFragment implements VolumeVertic
         images.add(R.drawable.ic_suave);
         images.add(R.drawable.ic_supersuave);
 
-        texts.add("Muito Ruim");
-        texts.add("Ruim");
+        texts.add("Muito difícil");
+        texts.add("Difícil");
         texts.add("Regular");
-        texts.add("Bom");
-        texts.add("Muito Bom");
+        texts.add("Fácil");
+        texts.add("Muito fácil");
 
 
         Collections.reverse(images);

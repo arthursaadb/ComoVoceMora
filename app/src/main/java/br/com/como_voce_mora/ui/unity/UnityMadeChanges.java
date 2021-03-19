@@ -242,7 +242,7 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && (answerRequestYes.length() != 0 || answerRequestNo.length() != 0)) {
             if (getActivity() != null) {
                 setAnswer();
                 ((AboutYouActivity) getActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));

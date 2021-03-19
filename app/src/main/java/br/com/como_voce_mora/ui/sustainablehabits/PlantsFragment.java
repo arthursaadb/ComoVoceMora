@@ -47,6 +47,10 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
     CustomRadioButton rbNoNeed;
     @BindView(R.id.rbLowCost)
     CustomRadioButton rbLowCost;
+    @BindView(R.id.rbColetaSeletiva)
+    CustomRadioButton rbColetaSeletiva;
+    @BindView(R.id.rbConsumoProprio)
+    CustomRadioButton rbConsumoProprio;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
@@ -113,6 +117,8 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
         rbOthersNo.setOnCheckedChangeListener(this);
         rbNoNeed.setOnCheckedChangeListener(this);
         rbLowCost.setOnCheckedChangeListener(this);
+        rbColetaSeletiva.setOnCheckedChangeListener(this);
+        rbConsumoProprio.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -121,6 +127,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
         rbLessAmbientalDamage.setVisibility(View.INVISIBLE);
         rbDry.setVisibility(View.INVISIBLE);
         rbOthers.setVisibility(View.INVISIBLE);
+        rbConsumoProprio.setVisibility(View.INVISIBLE);
     }
 
     private void showYesItems() {
@@ -128,6 +135,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
         rbLessAmbientalDamage.setVisibility(View.VISIBLE);
         rbDry.setVisibility(View.VISIBLE);
         rbOthers.setVisibility(View.VISIBLE);
+        rbConsumoProprio.setVisibility(View.VISIBLE);
     }
 
     private void hideNoItems() {
@@ -135,6 +143,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
         rbOthersNo.setVisibility(View.INVISIBLE);
         rbNoNeed.setVisibility(View.INVISIBLE);
         rbLowCost.setVisibility(View.INVISIBLE);
+        rbColetaSeletiva.setVisibility(View.INVISIBLE);
     }
 
     private void showNoItems() {
@@ -142,6 +151,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
         rbOthersNo.setVisibility(View.VISIBLE);
         rbNoNeed.setVisibility(View.VISIBLE);
         rbLowCost.setVisibility(View.VISIBLE);
+        rbColetaSeletiva.setVisibility(View.VISIBLE);
     }
 
 
@@ -161,6 +171,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
+                    rbColetaSeletiva.setChecked(false);
                     setAnswer(buttonView.getText().toString());
                 }
                 updateViews();
@@ -178,6 +189,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
+                    rbConsumoProprio.setChecked(false);
                     setAnswer(buttonView.getText().toString());
                 }
                 updateViews();
@@ -203,6 +215,12 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
             case R.id.rbOthers:
                 optionYesChecked = true;
                 rbOthers.setChecked(isChecked);
+                setAnswerYes(buttonView.getText().toString(), isChecked);
+                updateViews();
+                break;
+            case R.id.rbConsumoProprio:
+                optionYesChecked = true;
+                rbConsumoProprio.setChecked(isChecked);
                 setAnswerYes(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
@@ -234,6 +252,13 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
                 setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
+
+            case R.id.rbColetaSeletiva:
+                optionNoChecked = true;
+                rbColetaSeletiva.setChecked(isChecked);
+                setAnswerNo(buttonView.getText().toString(), isChecked);
+                updateViews();
+                break;
         }
     }
 
@@ -248,6 +273,8 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
         rbOthersNo.updateView();
         rbNoNeed.updateView();
         rbLowCost.updateView();
+        rbConsumoProprio.updateView();
+        rbColetaSeletiva.updateView();
     }
 
     private void setAnswer(String text) {

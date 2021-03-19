@@ -52,6 +52,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.TRANSPORTATION_REASON;
     StringBuilder answer = new StringBuilder();
+    boolean anyOptionChecked = false;
 
     public static TransportationReasonFragment newInstance() {
         return new TransportationReasonFragment();
@@ -64,7 +65,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && anyOptionChecked) {
             ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsEndFragment.newInstance());
         }
@@ -94,6 +95,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
+            anyOptionChecked = true;
             setAnswer(buttonView.getText().toString());
 
             switch (buttonView.getId()) {

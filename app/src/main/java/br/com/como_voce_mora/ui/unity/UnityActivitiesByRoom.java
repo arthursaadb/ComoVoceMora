@@ -456,6 +456,17 @@ public class UnityActivitiesByRoom extends BaseFragment {
                 } else {
                     answerRequests.append(text);
                     answerRequests.append(";");
+                    csv1.setChecked(false);
+                    csv2.setChecked(false);
+                    csv3.setChecked(false);
+                    csv4.setChecked(false);
+                    csv5.setChecked(false);
+                    csv6.setChecked(false);
+                    csv7.setChecked(false);
+                    csv8.setChecked(false);
+                    csv9.setChecked(false);
+                    csv10.setChecked(false);
+                    csv11.setChecked(false);
                     csv12.setChecked(true);
                 }
                 break;
