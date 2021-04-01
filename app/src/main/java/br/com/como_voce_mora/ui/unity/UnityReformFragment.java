@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -47,17 +48,9 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
 
     private UnityAnswer unityAnswer = UnityAnswer.REFORM_MADE;
     private boolean anyOptionChecked = false;
+    private List<String> answerList = Collections.emptyList();
     private StringBuilder answer = new StringBuilder();
-    private String acabamento = "";
-    private String portas = "";
-    private String gesso = "";
-    private String pintura = "";
-    private String armario = "";
-    private String paredes = "";
-    private String rachaduras = "";
-    private String nenhuma = "";
     private Boolean none = false;
-
 
     public static UnityReformFragment newInstance(List<UnityAnswer> room) {
 
@@ -92,8 +85,7 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
         if (isChecked) {
             anyOptionChecked = true;
             compoundButton.setChecked(true);
-            answer.append(compoundButton.getText().toString());
-            answer.append(";");
+            answerList.add(compoundButton.getText().toString());
 
             if (compoundButton.getId() == R.id.rbNenhuma) {
                 none = true;
@@ -101,6 +93,7 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
                 none = false;
             }
         } else {
+            answerList.remove(compoundButton.getText().toString());
             compoundButton.setChecked(false);
         }
 
@@ -133,6 +126,13 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
     }
 
     private void setAnswer() {
+        if (answerList.size() > 0) {
+            for (String value : answerList) {
+                answer.append(value);
+                answer.append(";");
+            }
+        }
+
         ResearchFlow.addAnswer(new AnswerRequest(unityAnswer.getQuestion(), unityAnswer.getQuestionPartId(), answer.toString()), this);
     }
 

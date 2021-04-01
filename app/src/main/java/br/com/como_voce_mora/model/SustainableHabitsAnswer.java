@@ -65,13 +65,13 @@ public enum SustainableHabitsAnswer {
 
     TRANSPORTATION("Qual meio de transporte você utiliza nos casos abaixo?", "78dc7b91-0acc-4e59-ac9e-32a1624f34a3"),
 
-    TRANSPORTATION_1("Até 500 metros (cinco quarteirões)", "93709e9b-c937-41be-b1d0-27fe1b1d655f"),
+    TRANSPORTATION_1("Até 500 metros (cinco quarteirões)", "000bc7cb-c90a-4f9e-99bc-7e98575796d5"),
 
-    TRANSPORTATION_2("De 500 até 1000 metros (cinco a dez quarteirões)", "a446b6e4-9a33-4e07-9e55-3fd1681d6db8"),
+    TRANSPORTATION_2("De 500 até 1000 metros (cinco a dez quarteirões)", "d86ba71a-f5bb-4606-a2f6-b4f7762b4b46"),
 
-    TRANSPORTATION_3("Acima de 1000 metros (acima de 10 quarteirões)", "4c0ed869-3ae8-458c-8346-285d2b3bf9d9"),
+    TRANSPORTATION_3("Acima de 1000 metros (acima de 10 quarteirões)", "3ff0abcf-0935-4b4c-92f9-1f4dd3047414"),
 
-    TRANSPORTATION_4("Meio de transporte mais utilizado no geral", "635e9d61-78d5-4d5a-8def-c1bfd1e3fc78"),
+    TRANSPORTATION_4("Meio de transporte mais utilizado no geral", "2b0ebff5-fb1e-4b5b-a4c2-2a070705b267"),
 
     TRANSPORTATION_REASON("Em relação ao meio de transporte que você mais utiliza, explique sua escolha. Pode marcar mais de uma resposta", "4e140ddb-98ed-4006-9ecc-1f7f5e39b8cf");
 

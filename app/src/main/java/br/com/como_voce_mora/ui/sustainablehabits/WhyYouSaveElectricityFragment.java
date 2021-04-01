@@ -7,6 +7,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -52,6 +53,8 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHY_YOU_SAVE_ELECTRICITY;
     AnswerRequest answerRequest;
+    List<String> answerRequestYesList = Collections.emptyList();
+    List<String> answerRequestNoList = Collections.emptyList();
     StringBuilder answerRequestYes = new StringBuilder();
     StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;
@@ -71,23 +74,6 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
         if (getActivity() != null && mNextFragment != null) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
-        }
-    }
-
-    private void setAnswers() {
-        ResearchFlow.addAnswer(answerRequest, this);
-
-        if (answerRequestYes.length() != 0) {
-            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_ENERGY.getQuestion(),
-                    SustainableHabitsAnswer.WHY_ENERGY.getQuestionPartId(),
-                    answerRequestYes.toString()), this);
-        }
-
-        if (answerRequestNo.length() != 0) {
-            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestion(),
-                            SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestionPartId(),
-                            answerRequestNo.toString()),
-                    this);
         }
     }
 
@@ -242,15 +228,17 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
 
     private void setAnswerYes(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestYes.append(text);
-            answerRequestYes.append(";");
+            answerRequestYesList.add(text);
+        } else {
+            answerRequestYesList.remove(text);
         }
     }
 
     private void setAnswerNo(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestNo.append(text);
-            answerRequestNo.append(";");
+            answerRequestNoList.add(text);
+        } else {
+            answerRequestNoList.remove(text);
         }
     }
 
@@ -258,6 +246,33 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
     public void onBtPreviouSessionClicked() {
         if (getActivity() != null) {
             ((AboutYouActivity) requireActivity()).addFragment(UnitySplashFragment.newInstance());
+        }
+    }
+
+    private void setAnswers() {
+        ResearchFlow.addAnswer(answerRequest, this);
+
+        if (answerRequestYesList.size() > 0) {
+            for (String values : answerRequestYesList) {
+                answerRequestYes.append(values);
+                answerRequestYes.append(";");
+            }
+
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_ENERGY.getQuestion(),
+                    SustainableHabitsAnswer.WHY_ENERGY.getQuestionPartId(),
+                    answerRequestYes.toString()), this);
+        }
+
+        if (answerRequestNoList.size() > 0) {
+            for (String values : answerRequestNoList) {
+                answerRequestNo.append(values);
+                answerRequestNo.append(";");
+            }
+
+            ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestion(),
+                            SustainableHabitsAnswer.WHY_NOT_ENERGY.getQuestionPartId(),
+                            answerRequestNo.toString()),
+                    this);
         }
     }
 }

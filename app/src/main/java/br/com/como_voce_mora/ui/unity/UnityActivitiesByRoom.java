@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -69,6 +70,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
+    private List<String> answerRequestsList = Collections.emptyList();
     private StringBuilder answerRequests = new StringBuilder();
     private UnityAnswer roomTypeActivity;
     private UnityAnswer roomType;
@@ -331,6 +333,13 @@ public class UnityActivitiesByRoom extends BaseFragment {
 
 
     private void setAnswer() {
+        if(answerRequestsList.size() > 0){
+            for(String value: answerRequestsList){
+                answerRequests.append(value);
+                answerRequests.append(";");
+            }
+        }
+
         ResearchFlow.addAnswer(new AnswerRequest(roomTypeActivity.getQuestion(), roomTypeActivity.getQuestionPartId(), answerRequests.toString()), this);
     }
 
@@ -341,7 +350,6 @@ public class UnityActivitiesByRoom extends BaseFragment {
         }
     }
 
-
     @OnClick({R.id.csv1, R.id.csv2, R.id.csv3, R.id.csv4, R.id.csv5,
             R.id.csv6, R.id.csv7, R.id.csv8, R.id.csv9, R.id.csv10,
             R.id.csv11, R.id.csv12})
@@ -350,112 +358,112 @@ public class UnityActivitiesByRoom extends BaseFragment {
         switch (view.getId()) {
             case R.id.csv1:
                 if (csv1.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv1.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                   answerRequestsList.add(text);
                     csv1.setChecked(true);
                 }
                 break;
             case R.id.csv2:
                 if (csv2.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv2.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv2.setChecked(true);
                 }
                 break;
             case R.id.csv3:
                 if (csv3.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv3.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv3.setChecked(true);
                 }
                 break;
             case R.id.csv4:
                 if (csv4.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv4.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv4.setChecked(true);
                 }
 
                 break;
             case R.id.csv5:
                 if (csv5.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv5.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv5.setChecked(true);
                 }
 
                 break;
             case R.id.csv6:
                 if (csv6.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv6.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv6.setChecked(true);
                 }
 
                 break;
             case R.id.csv7:
                 if (csv7.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv7.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv7.setChecked(true);
                 }
                 break;
             case R.id.csv8:
                 if (csv8.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv8.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv8.setChecked(true);
                 }
                 break;
             case R.id.csv9:
                 if (csv9.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv9.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv9.setChecked(true);
                 }
                 break;
             case R.id.csv10:
                 if (csv10.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv10.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv10.setChecked(true);
                 }
                 break;
             case R.id.csv11:
                 if (csv11.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv11.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv11.setChecked(true);
                 }
                 break;
             case R.id.csv12:
                 if (csv12.isChecked()) {
+                    answerRequestsList.remove(text);
                     csv12.setChecked(false);
                 } else {
-                    answerRequests.append(text);
-                    answerRequests.append(";");
+                    answerRequestsList.add(text);
                     csv12.setChecked(true);
                 }
                 break;

@@ -7,6 +7,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -54,10 +55,11 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_OIL;
     AnswerRequest answerRequest;
+    List<String> answerRequestYesList = Collections.emptyList();
+    List<String> answerRequestNoList = Collections.emptyList();
     StringBuilder answerRequestYes = new StringBuilder();
     StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;
-    Boolean anyOptionChecked = false;
 
     public static DoYouSeparateOilFragment newInstance() {
         return new DoYouSeparateOilFragment();
@@ -79,13 +81,23 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        if (answerRequestYes.length() != 0) {
+        if (answerRequestYesList.size() > 0) {
+            for (String values : answerRequestYesList) {
+                answerRequestYes.append(values);
+                answerRequestYes.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_OIL.getQuestion(),
                     SustainableHabitsAnswer.WHY_OIL.getQuestionPartId(),
                     answerRequestYes.toString()), this);
         }
 
-        if (answerRequestNo.length() != 0) {
+        if (answerRequestNoList.size() > 0) {
+            for (String values : answerRequestNoList) {
+                answerRequestNo.append(values);
+                answerRequestNo.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.WHY_NOT_OIL.getQuestion(),
                             SustainableHabitsAnswer.WHY_NOT_OIL.getQuestionPartId(),
                             answerRequestNo.toString()),
@@ -242,17 +254,20 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
         answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text);
     }
 
+
     private void setAnswerYes(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestYes.append(text);
-            answerRequestYes.append(";");
+            answerRequestYesList.add(text);
+        } else {
+            answerRequestYesList.remove(text);
         }
     }
 
     private void setAnswerNo(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestNo.append(text);
-            answerRequestNo.append(";");
+            answerRequestNoList.add(text);
+        } else {
+            answerRequestNoList.remove(text);
         }
     }
 

@@ -36,17 +36,17 @@ public class UnitySatisfactionRoom extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
     @BindView(R.id.volume1)
-    VolumeHorizontal vhSize;
+    VolumeHorizontal volume1;
     @BindView(R.id.volume2)
-    VolumeHorizontal vhDivision;
+    VolumeHorizontal volume2;
     @BindView(R.id.volume3)
-    VolumeHorizontal vhQuality;
+    VolumeHorizontal volume3;
     @BindView(R.id.volume4)
-    VolumeHorizontal vhClean;
+    VolumeHorizontal volume4;
     @BindView(R.id.volume5)
-    VolumeHorizontal vhAdaptation;
+    VolumeHorizontal volume5;
     @BindView(R.id.volume6)
-    VolumeHorizontal vhPrivacy;
+    VolumeHorizontal volume6;
     @BindView(R.id.ivImage)
     ImageView ivPhoto;
 
@@ -101,12 +101,12 @@ public class UnitySatisfactionRoom extends BaseFragment {
         texts.add("Bom");
         texts.add("Muito Bom");
 
-        vhSize.setMax(texts.size() - 1);
-        vhDivision.setMax(texts.size() - 1);
-        vhQuality.setMax(texts.size() - 1);
-        vhClean.setMax(texts.size() - 1);
-        vhAdaptation.setMax(texts.size() - 1);
-        vhPrivacy.setMax(texts.size() - 1);
+        volume1.setMax(texts.size() - 1);
+        volume2.setMax(texts.size() - 1);
+        volume3.setMax(texts.size() - 1);
+        volume4.setMax(texts.size() - 1);
+        volume5.setMax(texts.size() - 1);
+        volume6.setMax(texts.size() - 1);
         initVolumes();
 
         if (roomType == CHARACTERISTICS_SATISFACTION_BATHROOM) {
@@ -185,39 +185,39 @@ public class UnitySatisfactionRoom extends BaseFragment {
     }
 
     private void initVolumes() {
-        vhSize.setListener(position -> {
+        volume1.setListener(position -> {
             anyOptionChecked1 = true;
-            vhSize.setInfo(texts.get(position));
+            volume1.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getTamanho());
             answerRequests.add(new AnswerRequest(tamanho.getQuestion(), tamanho.getQuestionPartId(), texts.get(position)));
         });
-        vhDivision.setListener(position -> {
+        volume2.setListener(position -> {
             anyOptionChecked2 = true;
-            vhDivision.setInfo(texts.get(position));
+            volume2.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getMobiliar());
             answerRequests.add(new AnswerRequest(mobiliar.getQuestion(), mobiliar.getQuestionPartId(), texts.get(position)));
         });
-        vhQuality.setListener(position -> {
+        volume3.setListener(position -> {
             anyOptionChecked3 = true;
-            vhQuality.setInfo(texts.get(position));
+            volume3.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getVentilacao());
-            answerRequests.add(new AnswerRequest(temperatura.getQuestion(), temperatura.getQuestionPartId(), texts.get(position)));
-        });
-        vhClean.setListener(position -> {
-            anyOptionChecked4 = true;
-            vhClean.setInfo(texts.get(position));
-            ivPhoto.setImageResource(images.getIluminacao());
             answerRequests.add(new AnswerRequest(convivencia.getQuestion(), convivencia.getQuestionPartId(), texts.get(position)));
         });
-        vhAdaptation.setListener(position -> {
-            anyOptionChecked5 = true;
-            vhAdaptation.setInfo(texts.get(position));
-            ivPhoto.setImageResource(images.getTemperatura());
+        volume4.setListener(position -> {
+            anyOptionChecked4 = true;
+            volume4.setInfo(texts.get(position));
+            ivPhoto.setImageResource(images.getIluminacao());
             answerRequests.add(new AnswerRequest(iluminacao.getQuestion(), iluminacao.getQuestionPartId(), texts.get(position)));
         });
-        vhPrivacy.setListener(position -> {
+        volume5.setListener(position -> {
+            anyOptionChecked5 = true;
+            volume5.setInfo(texts.get(position));
+            ivPhoto.setImageResource(images.getTemperatura());
+            answerRequests.add(new AnswerRequest(temperatura.getQuestion(), temperatura.getQuestionPartId(), texts.get(position)));
+        });
+        volume6.setListener(position -> {
             anyOptionChecked6 = true;
-            vhPrivacy.setInfo(texts.get(position));
+            volume6.setInfo(texts.get(position));
             ivPhoto.setImageResource(images.getRuido());
             answerRequests.add(new AnswerRequest(ruido.getQuestion(), ruido.getQuestionPartId(), texts.get(position)));
         });

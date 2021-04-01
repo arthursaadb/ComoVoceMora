@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
 
+import java.util.Collections;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -50,6 +53,7 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
     CustomRadioButton mRbExcesso;
 
     private AnswerRequest answerRequest;
+    private List<String> answerList = Collections.emptyList();
     private StringBuilder answer = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.KEEP_FURNISHINGS;
     private boolean anyOptionCheckedNo = false;
@@ -123,57 +127,49 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
                 case R.id.rbEletroPequeno:
                     anyOptionCheckedNoDetails = true;
                     mRbEletroPequeno.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
                     anyOptionCheckedNoDetails = true;
                     mRbEletroGrande.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     anyOptionCheckedNoDetails = true;
                     rbMoveisPequenos.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     anyOptionCheckedNoDetails = true;
                     rbMoveisGrandes.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     anyOptionCheckedNoDetails = true;
                     mRbPortas.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     anyOptionCheckedNoDetails = true;
                     mRbPosicaoRuim.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     anyOptionCheckedNoDetails = true;
                     mRbMoveisNovos.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbExcesso:
                     anyOptionCheckedNoDetails = true;
                     mRbExcesso.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
             }
@@ -181,34 +177,42 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
             switch (buttonView.getId()) {
                 case R.id.rbEletroPequeno:
                     mRbEletroPequeno.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
                     mRbEletroGrande.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     rbMoveisPequenos.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     rbMoveisGrandes.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     mRbPortas.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     mRbPosicaoRuim.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     mRbMoveisNovos.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbExcesso:
                     mRbExcesso.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
             }
@@ -230,6 +234,13 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
+        if(answerList.size() > 0){
+            for(String value: answerList){
+                answer.append(value);
+                answer.append(";");
+            }
+        }
+
         if (anyOptionCheckedYes) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(answerRequest, this);

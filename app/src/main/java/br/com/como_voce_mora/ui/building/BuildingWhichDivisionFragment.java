@@ -6,6 +6,8 @@ import android.widget.TextView;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomSelectedView;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.ResearchFlow;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
@@ -13,6 +15,8 @@ import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import br.com.como_voce_mora.ui.unity.UnityAcquisitionFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static br.com.como_voce_mora.model.UnityAnswer.NEIGHBORHOOD_DELIMITATION_TYPE;
 
 public class BuildingWhichDivisionFragment extends BaseFragment {
     @BindView(R.id.tv_question)
@@ -28,7 +32,8 @@ public class BuildingWhichDivisionFragment extends BaseFragment {
     @BindView(R.id.csvNone)
     CustomSelectedView csvNone;
 
-    private UnityAnswer unityAnswer = UnityAnswer.NEIGHBORHOOD_DELIMITATION_TYPE;
+    private UnityAnswer unityAnswer = NEIGHBORHOOD_DELIMITATION_TYPE;
+    private String answer = "";
     private boolean anyOneSelected = false;
 
 
@@ -51,24 +56,28 @@ public class BuildingWhichDivisionFragment extends BaseFragment {
                 csvViva.setChecked(true);
                 csvGrade.setChecked(false);
                 csvNone.setChecked(false);
+                answer = csvViva.getText();
                 break;
             case R.id.csvMuro:
                 csvMuro.setChecked(true);
                 csvViva.setChecked(false);
                 csvGrade.setChecked(false);
                 csvNone.setChecked(false);
+                answer = csvMuro.getText();
                 break;
             case R.id.csvGrade:
                 csvMuro.setChecked(false);
                 csvViva.setChecked(false);
                 csvGrade.setChecked(true);
                 csvNone.setChecked(false);
+                answer = csvGrade.getText();
                 break;
             case R.id.csvNone:
                 csvMuro.setChecked(false);
                 csvViva.setChecked(false);
                 csvGrade.setChecked(false);
                 csvNone.setChecked(true);
+                answer = csvNone.getText();
                 break;
 
         }
@@ -83,6 +92,7 @@ public class BuildingWhichDivisionFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (anyOneSelected) {
+            ResearchFlow.addAnswer(new AnswerRequest(NEIGHBORHOOD_DELIMITATION_TYPE.getQuestion(), NEIGHBORHOOD_DELIMITATION_TYPE.getQuestionPartId(), answer), this);
             if (getActivity() != null) {
                 ((AboutYouActivity) getActivity()).addFragment(UnityAcquisitionFragment.newInstance());
             }

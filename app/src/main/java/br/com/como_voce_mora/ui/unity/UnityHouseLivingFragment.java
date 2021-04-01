@@ -90,28 +90,28 @@ public class UnityHouseLivingFragment extends BaseFragment {
                         answerRequests.add(new AnswerRequest(LOCAL_PESSOAS_INTERESSAM.getQuestion(), LOCAL_PESSOAS_INTERESSAM.getQuestionPartId(), position));
                         break;
                     case "Local onde durmo":
-                        answerRequests.add(new AnswerRequest(LOCAL_SEGURO.getQuestion(), LOCAL_SEGURO.getQuestionPartId(), position));
-                        break;
-                    case "Passo mais tempo":
                         answerRequests.add(new AnswerRequest(LOCAL_DURMO.getQuestion(), LOCAL_DURMO.getQuestionPartId(), position));
                         break;
-                    case "Local com que identifico":
-                        answerRequests.add(new AnswerRequest(LOCAL_PERTENCES.getQuestion(), LOCAL_PERTENCES.getQuestionPartId(), position));
-                        break;
-                    case "Investimento material":
+                    case "Passo mais tempo":
                         answerRequests.add(new AnswerRequest(LOCAL_EM_QUE_PASSO_MAIS_TEMPO.getQuestion(), LOCAL_EM_QUE_PASSO_MAIS_TEMPO.getQuestionPartId(), position));
                         break;
-                    case"Local seguro":
-                        answerRequests.add(new AnswerRequest(LOCAL_ATIVIDADES.getQuestion(), LOCAL_ATIVIDADES.getQuestionPartId(),position));
-                        break;
-                    case "Onde estão pertences":
+                    case "Local com que identifico":
                         answerRequests.add(new AnswerRequest(LOCAL_COM_O_QUE_MAIS_ME_IDENTIFICO.getQuestion(), LOCAL_COM_O_QUE_MAIS_ME_IDENTIFICO.getQuestionPartId(), position));
                         break;
+                    case "Investimento material":
+                        answerRequests.add(new AnswerRequest(INVESTIMENTO.getQuestion(), INVESTIMENTO.getQuestionPartId(), position));
+                        break;
+                    case"Local seguro":
+                        answerRequests.add(new AnswerRequest(LOCAL_SEGURO.getQuestion(), LOCAL_SEGURO.getQuestionPartId(),position));
+                        break;
+                    case "Onde estão pertences":
+                        answerRequests.add(new AnswerRequest(LOCAL_PERTENCES.getQuestion(), LOCAL_PERTENCES.getQuestionPartId(), position));
+                        break;
                     case "Onde realizo atividades":
-                        answerRequests.add(new AnswerRequest(OUTRO.getQuestion(), OUTRO.getQuestionPartId(), position));
+                        answerRequests.add(new AnswerRequest(LOCAL_ATIVIDADES.getQuestion(), LOCAL_ATIVIDADES.getQuestionPartId(), position));
                         break;
                     case "Outros":
-                        answerRequests.add(new AnswerRequest(INVESTIMENTO.getQuestion(), INVESTIMENTO.getQuestionPartId(),position));
+                        answerRequests.add(new AnswerRequest(OUTRO.getQuestion(), OUTRO.getQuestionPartId(),position));
                         break;
                 }
             }
