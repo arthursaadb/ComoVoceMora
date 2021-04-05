@@ -25,6 +25,7 @@
         android:fontFamily="@font/mkm232"
         android:paddingStart="40dp"
         android:paddingEnd="0dp"
+        android:justificationMode="inter_word"
         android:text="@string/description_what_is_this_research"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/small_text_size"

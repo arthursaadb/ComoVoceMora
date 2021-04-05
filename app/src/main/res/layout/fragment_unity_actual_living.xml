@@ -43,7 +43,7 @@
                 android:id="@+id/rbEletroPequeno"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
-                android:text="Eletrodomésticos pequenos"
+                android:text="Ambientes pequenos"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +51,7 @@
                 android:id="@+id/rbEletroGrande"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
-                android:text="Eletrodomésticos grandes"
+                android:text="Portas muito estreitas"
                 app:layout_constraintStart_toStartOf="@id/rbEletroPequeno"
                 app:layout_constraintTop_toBottomOf="@id/rbEletroPequeno" />
 
@@ -59,7 +59,7 @@
                 android:id="@+id/rbMoveisPequeno"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
-                android:text="Móveis pequenos"
+                android:text="Ambientes grandes"
                 app:layout_constraintStart_toStartOf="@id/rbEletroGrande"
                 app:layout_constraintTop_toBottomOf="@id/rbEletroGrande" />
 
@@ -67,7 +67,7 @@
                 android:id="@+id/rbMoveisGrandes"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
-                android:text="Móveis grandes"
+                android:text="Posição ruim de portas e janelas”"
                 app:layout_constraintStart_toEndOf="@id/rbEletroPequeno"
                 app:layout_constraintTop_toTopOf="@id/rbEletroPequeno" />
 
@@ -75,7 +75,7 @@
                 android:id="@+id/rbPortas"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
-                android:text="Portas muito estreitas"
+                android:text="Móveis e eletrodomésticos pequenos"
                 app:layout_constraintStart_toEndOf="@id/rbEletroGrande"
                 app:layout_constraintTop_toTopOf="@id/rbEletroGrande" />
 
@@ -83,7 +83,7 @@
                 android:id="@+id/rbPosicaoRuim"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
-                android:text="Posição ruim de portas e janelas"
+                android:text="Móveis novos"
                 app:layout_constraintStart_toEndOf="@id/rbMoveisPequeno"
                 app:layout_constraintTop_toTopOf="@id/rbMoveisPequeno" />
 
@@ -91,7 +91,7 @@
                 android:id="@+id/rbMoveisNovos"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
-                android:text="Móveis novos"
+                android:text="Móveis e eletrodomésticos grandes"
                 app:layout_constraintStart_toEndOf="@id/rbMoveisGrandes"
                 app:layout_constraintTop_toTopOf="@id/rbMoveisGrandes" />
 

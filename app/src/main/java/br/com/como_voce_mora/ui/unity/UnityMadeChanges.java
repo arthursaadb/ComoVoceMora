@@ -57,6 +57,7 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
 
 
     private boolean anyOptionChecked = false;
+    private boolean anyOptionDetailsChecked = false;
     boolean isYesOption = false;
     private AnswerRequest answerRequest;
     List<String> answerRequestYesList = new ArrayList<>();
@@ -100,6 +101,7 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
         switch (compoundButton.getId()) {
             case R.id.rbYes:
                 if (isChecked) {
+                    anyOptionDetailsChecked = false;
                     anyOptionChecked = true;
                     mRb1.setChecked(true);
                     mRb2.setChecked(false);
@@ -126,6 +128,7 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
                 break;
             case R.id.rbNo:
                 if (isChecked) {
+                    anyOptionDetailsChecked = false;
                     anyOptionChecked = true;
                     mRb1.setChecked(false);
                     mRb2.setChecked(true);
@@ -152,46 +155,53 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
                 updateRbs();
                 break;
             case R.id.rbEletroPequeno:
+                anyOptionDetailsChecked = true;
                 mRbEletroPequeno.setChecked(isChecked);
                 setAnswers("Variar posição dos móveis", "Limitações financeiras", isChecked, isYesOption);
                 updateRbs();
                 break;
             case R.id.rbEletroGrande:
+                anyOptionDetailsChecked = true;
                 mRbEletroGrande.setChecked(isChecked);
                 setAnswers("Variar posição dos eletrodomésticos", "Já estou satisfeita(o)", isChecked, isYesOption);
                 updateRbs();
                 break;
             case R.id.rbMoveisPequeno:
+                anyOptionDetailsChecked = true;
                 rbMoveisPequenos.setChecked(isChecked);
                 setAnswers("Inserir flores e plantas naturais", "Falta de assistência profissional", isChecked, isYesOption);
                 updateRbs();
                 break;
             case R.id.rbPortas:
+                anyOptionDetailsChecked = true;
                 mRbPortas.setChecked(isChecked);
                 setAnswers("Pintar e/ou usar papel de parede", "Não tenho esses objetos", isChecked, isYesOption);
                 updateRbs();
                 break;
             case R.id.rbPosicaoRuim:
+                anyOptionDetailsChecked = true;
                 mRbPosicaoRuim.setChecked(isChecked);
                 setAnswers("Abrir vãos e/ou derrubar paredes", "Vou me mudar em breve", isChecked, isYesOption);
                 updateRbs();
                 break;
             case R.id.rbMoveisNovos:
+                anyOptionDetailsChecked = true;
                 mRbMoveisNovos.setChecked(isChecked);
                 setAnswers("Colocar forro de gesso", "Moro de aluguel", isChecked, isYesOption);
                 updateRbs();
                 break;
             case R.id.rbMoveisGrandes:
+                anyOptionDetailsChecked = true;
                 rbMoveisGrandes.setChecked(isChecked);
                 setAnswers("Inserir objetos decorativos", "Não gosto desses objetos", isChecked, isYesOption);
                 updateRbs();
                 break;
             case R.id.rbIlumination:
+                anyOptionDetailsChecked = true;
                 mRbIlumination.setChecked(isChecked);
                 setAnswers("Acrescentar iluminação", "Mudei recentemente", isChecked, isYesOption);
                 updateRbs();
                 break;
-
         }
     }
 
@@ -249,7 +259,7 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && (answerRequestYes.length() != 0 || answerRequestNo.length() != 0)) {
             if (getActivity() != null) {
                 setAnswer();
                 ((AboutYouActivity) getActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));

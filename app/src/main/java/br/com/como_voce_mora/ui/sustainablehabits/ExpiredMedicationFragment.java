@@ -31,6 +31,10 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
     CustomRadioButton rbDishes;
     @BindView(R.id.rbWashMachineCapacity)
     CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbDoacao)
+    CustomRadioButton rbDoacao;
+    @BindView(R.id.rbNaoUtilizo)
+    CustomRadioButton rbNaoUtilizo;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
@@ -71,6 +75,8 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
         rbBrushMyTeeth.setOnCheckedChangeListener(this);
         rbDishes.setOnCheckedChangeListener(this);
         rbWashMachineCapacity.setOnCheckedChangeListener(this);
+        rbDoacao.setOnCheckedChangeListener(this);
+        rbNaoUtilizo.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -85,6 +91,8 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
                     rbBrushMyTeeth.setChecked(true);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(false);
+                    rbDoacao.setChecked(false);
+                    rbNaoUtilizo.setChecked(false);
 
                     updateViews();
                     break;
@@ -93,6 +101,8 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(true);
                     rbWashMachineCapacity.setChecked(false);
+                    rbDoacao.setChecked(false);
+                    rbNaoUtilizo.setChecked(false);
 
                     updateViews();
                     break;
@@ -101,6 +111,29 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
                     rbBrushMyTeeth.setChecked(false);
                     rbDishes.setChecked(false);
                     rbWashMachineCapacity.setChecked(true);
+                    rbDoacao.setChecked(false);
+                    rbNaoUtilizo.setChecked(false);
+
+                    updateViews();
+                    break;
+                case R.id.rbDoacao:
+                    mNextFrag = OrganicFoodFragment.newInstance();
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbDoacao.setChecked(true);
+                    rbNaoUtilizo.setChecked(false);
+
+                    updateViews();
+                    break;
+
+                case R.id.rbNaoUtilizo:
+                    mNextFrag = OrganicFoodFragment.newInstance();
+                    rbBrushMyTeeth.setChecked(false);
+                    rbDishes.setChecked(false);
+                    rbWashMachineCapacity.setChecked(false);
+                    rbDoacao.setChecked(false);
+                    rbNaoUtilizo.setChecked(true);
 
                     updateViews();
                     break;
@@ -112,6 +145,8 @@ public class ExpiredMedicationFragment extends BaseFragment implements CustomRad
         rbBrushMyTeeth.updateView();
         rbDishes.updateView();
         rbWashMachineCapacity.updateView();
+        rbDoacao.updateView();
+        rbNaoUtilizo.updateView();
     }
 
     private void setAnswer(String text) {

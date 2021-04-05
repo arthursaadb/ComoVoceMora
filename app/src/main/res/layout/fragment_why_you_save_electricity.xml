@@ -67,7 +67,7 @@
         android:layout_height="@dimen/custom_radio_button_height"
         android:layout_marginEnd="@dimen/small_margin"
         android:button="@color/colorTransparent"
-        android:text="Causa menos problemas à natureza"
+        android:text="Causa menos danos ambientais"
         android:textAlignment="center"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@id/bt_next"

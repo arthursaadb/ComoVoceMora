@@ -17,6 +17,9 @@
             android:id="@+id/mrClipboardLayout"
             layout="@layout/fragment_mr_clipboard_full" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/layout_loading_end"
+        layout="@layout/layout_loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>

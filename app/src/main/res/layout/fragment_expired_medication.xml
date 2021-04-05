@@ -29,7 +29,6 @@
         android:gravity="center"
         android:text="Junto ao lixo doméstico"
         app:layout_constraintBottom_toTopOf="@id/rbDishes"
-        app:layout_constraintEnd_toStartOf="@+id/bt_next"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@id/water_iv"
         app:layout_constraintTop_toBottomOf="@id/tv_question" />
@@ -55,5 +54,27 @@
         app:layout_constraintEnd_toEndOf="@id/rbDishes"
         app:layout_constraintStart_toStartOf="@id/rbDishes"
         app:layout_constraintTop_toBottomOf="@id/rbDishes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbDoacao"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Doação antes do vencimento"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@id/rbBrushMyTeeth"
+        app:layout_constraintTop_toTopOf="@id/rbBrushMyTeeth" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbNaoUtilizo"
+        style="@style/CustomRadioButton"
+        android:layout_marginStart="@dimen/default_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Não utilizo"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@id/rbBrushMyTeeth"
+        app:layout_constraintTop_toBottomOf="@id/rbDoacao" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
