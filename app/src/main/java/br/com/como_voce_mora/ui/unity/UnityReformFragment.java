@@ -48,7 +48,7 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
 
     private UnityAnswer unityAnswer = UnityAnswer.REFORM_MADE;
     private boolean anyOptionChecked = false;
-    private List<String> answerList = Collections.emptyList();
+    private List<String> answerList = new ArrayList<>();
     private StringBuilder answer = new StringBuilder();
     private Boolean none = false;
 

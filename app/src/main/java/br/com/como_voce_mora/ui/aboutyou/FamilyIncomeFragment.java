@@ -95,7 +95,6 @@ public class FamilyIncomeFragment extends BaseFragment implements VolumeVertical
 
         mVolume.setListener(this);
         mVolume.setMax(images.size() - 1);
-        answerRequest = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), texts.get(0));
     }
 
     @Override

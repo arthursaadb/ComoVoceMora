@@ -70,7 +70,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
     @BindView(R.id.tv_question)
     TextView tvQuestion;
 
-    private List<String> answerRequestsList = Collections.emptyList();
+    private List<String> answerRequestsList = new ArrayList<>();
     private StringBuilder answerRequests = new StringBuilder();
     private UnityAnswer roomTypeActivity;
     private UnityAnswer roomType;

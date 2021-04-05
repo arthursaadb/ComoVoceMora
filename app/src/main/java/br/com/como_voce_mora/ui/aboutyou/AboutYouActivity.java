@@ -9,9 +9,11 @@ import br.com.como_voce_mora.ui.BaseActivity;
 import br.com.como_voce_mora.ui.building.BuildingApartmentNegativePointsFragment;
 import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import br.com.como_voce_mora.ui.currentresidence.EstablishmentThatYouMissFragment;
+import br.com.como_voce_mora.ui.currentresidence.WhatsYourSatisfactionFragment;
 import br.com.como_voce_mora.ui.housegroup.HabitationEquipmentsMeaningFragment;
 import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.OrganicFoodWhyNot;
 import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
 import br.com.como_voce_mora.ui.unity.UnityActualHouseLivingFragment;
 import br.com.como_voce_mora.ui.unity.UnityReformFragment;
@@ -32,7 +34,7 @@ public class AboutYouActivity extends BaseActivity {
         String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
 
         if (screen == null) {
-            replaceFragment(UnityReformFragment.newInstance(Collections.emptyList()));
+            replaceFragment(WhatsYourSatisfactionFragment.newInstance());
             return;
         }
 

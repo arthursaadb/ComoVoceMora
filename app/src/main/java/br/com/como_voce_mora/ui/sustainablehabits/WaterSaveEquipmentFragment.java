@@ -43,8 +43,9 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
     private String five = "";
     private String six = "";
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WATHER_SAVE_EQUIPMENT;
-
-    private List<AnswerRequest> answerRequests = new ArrayList<>();
+    AnswerRequest answerRequest;
+    private List<String> answerList = new ArrayList<>();
+    StringBuilder answer = new StringBuilder();
     private boolean anyOptionChecked = false;
 
     public static WaterSaveEquipmentFragment newInstance() {
@@ -68,76 +69,68 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
         anyOptionChecked = true;
         switch (view.getId()) {
             case R.id.cvsSolarPlates:
+                saude = csv.getText();
+
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    saude = csv.getText();
-                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.MAQUINA_LAVAR_REUSO.getQuestion(),
-                            SustainableHabitsAnswer.MAQUINA_LAVAR_REUSO.getQuestionPartId(), saude));
-                    break;
+                    answerList.add(saude);
                 } else {
                     csv.setChecked(false);
-                    removeItem(SustainableHabitsAnswer.MAQUINA_LAVAR_REUSO.getQuestion());
-                    break;
+                    answerList.remove(saude);
                 }
+                break;
             case R.id.csvPhotovoltaicPanels:
+                escola = csv.getText();
+
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    escola = csv.getText();
-                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.CAIXA_DE_AGUA.getQuestion(),
-                            SustainableHabitsAnswer.CAIXA_DE_AGUA.getQuestionPartId(), escola));
-                    break;
+                    answerList.add(escola);
                 } else {
                     csv.setChecked(false);
-                    removeItem(SustainableHabitsAnswer.CAIXA_DE_AGUA.getQuestion());
-                    break;
+                    answerList.remove(escola);
                 }
+                break;
             case R.id.csv5:
+                cultura = csv.getText();
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    cultura = csv.getText();
-                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.DESCARGA_DUPLO_FLUXO.getQuestion(),
-                            SustainableHabitsAnswer.DESCARGA_DUPLO_FLUXO.getQuestionPartId(), cultura));
-                    break;
+                    answerList.add(cultura);
                 } else {
                     csv.setChecked(false);
-                    removeItem(SustainableHabitsAnswer.DESCARGA_DUPLO_FLUXO.getQuestion());
-                    break;
+                    answerList.remove(cultura);
                 }
+                break;
             case R.id.csvSystems:
+                lazer = csv.getText();
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    lazer = csv.getText();
-                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.VASO_CAIXA_ACOPLADA.getQuestion(),
-                            SustainableHabitsAnswer.VASO_CAIXA_ACOPLADA.getQuestionPartId(), lazer));
-                    break;
+                    answerList.add(lazer);
                 } else {
                     csv.setChecked(false);
-                    removeItem(SustainableHabitsAnswer.VASO_CAIXA_ACOPLADA.getQuestion());
-                    break;
+                    answerList.remove(lazer);
                 }
+                break;
             case R.id.cvsNone:
+                five = csv.getText();
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    five = csv.getText();
-                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.TORNEIRA_ECONOMICA.getQuestion(),
-                            SustainableHabitsAnswer.TORNEIRA_ECONOMICA.getQuestionPartId(), five));
+                    answerList.add(five);
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(SustainableHabitsAnswer.TORNEIRA_ECONOMICA.getQuestion());
+                    answerList.remove(lazer);
                     break;
                 }
 
             case R.id.others:
+                six = csv.getText();
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    six = csv.getText();
-                    answerRequests.add(new AnswerRequest(SustainableHabitsAnswer.OUTRO.getQuestion(),
-                            SustainableHabitsAnswer.OUTRO.getQuestionPartId(), six));
+                    answerList.add(six);
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(SustainableHabitsAnswer.OUTRO.getQuestion());
+                    answerList.remove(six);
                     break;
                 }
         }
@@ -147,7 +140,16 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (anyOptionChecked) {
-            setAnswer();
+            for (String value : answerList) {
+                answer.append(value);
+                answer.append(";");
+            }
+
+            answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
+                    .getQuestionPartId(), answer.toString());
+
+            ResearchFlow.addAnswer(answerRequest, this);
+
             ((AboutYouActivity) requireActivity()).addFragment(WhyYouSaveElectricityFragment.newInstance());
         }
     }
@@ -156,26 +158,6 @@ public class WaterSaveEquipmentFragment extends BaseFragment {
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
-        }
-    }
-
-    private void removeItem(String question) {
-        int cont = 0;
-        int pos = cont;
-        if (!answerRequests.isEmpty()) {
-            for (AnswerRequest r : answerRequests) {
-                if (r.getDwellerId().equals(question)) {
-                    pos = cont;
-                }
-                cont++;
-            }
-            answerRequests.remove(pos);
-        }
-    }
-
-    private void setAnswer() {
-        for (AnswerRequest r : answerRequests) {
-            ResearchFlow.addAnswer(r, this);
         }
     }
 

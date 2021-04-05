@@ -44,7 +44,10 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
     private CurrentResidenceAnswer quantidadeCurrentResidenceAnswer = CurrentResidenceAnswer.EQUIPMENTS_QUANTITY;
     private CurrentResidenceAnswer acessoCurrentResidenceAnswer = CurrentResidenceAnswer.ACCESSIBILITY;
     private List<String> texts = new ArrayList<>();
-    private List<AnswerRequest> answerRequests = new ArrayList<>();
+    private AnswerRequest answerRequests1;
+    private AnswerRequest answerRequests2;
+    private AnswerRequest answerRequests3;
+    private AnswerRequest answerRequests4;
 
     public static WhatsYourSatisfactionFragment newInstance() {
 
@@ -81,22 +84,24 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
         volumeAcesso.setListener(position -> {
             anyOptionChecked1 = true;
             volumeAcesso.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(acessoCurrentResidenceAnswer.getQuestion(), acessoCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
+            answerRequests1 = new AnswerRequest(acessoCurrentResidenceAnswer.getQuestion(), acessoCurrentResidenceAnswer.getQuestionPartId(), texts.get(position));
         });
         volumeQuantidade.setListener(position -> {
             anyOptionChecked2 = true;
             volumeQuantidade.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(quantidadeCurrentResidenceAnswer.getQuestion(), quantidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
+            answerRequests2 = new AnswerRequest(quantidadeCurrentResidenceAnswer.getQuestion(), quantidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position));
+            ;
         });
         volumeQualidade.setListener(position -> {
             anyOptionChecked3 = true;
             volumeQualidade.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(qualidadeCurrentResidenceAnswer.getQuestion(), qualidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
+            answerRequests3 = new AnswerRequest(qualidadeCurrentResidenceAnswer.getQuestion(), qualidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position));
+            ;
         });
         volumeSegurana.setListener(position -> {
             anyOptionChecked4 = true;
             volumeSegurana.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
+            answerRequests4 = new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), texts.get(position));
         });
     }
 
@@ -109,9 +114,10 @@ public class WhatsYourSatisfactionFragment extends BaseFragment {
     }
 
     private void setAnswers() {
-        for (AnswerRequest r : answerRequests) {
-            ResearchFlow.addAnswer(r, this);
-        }
+        ResearchFlow.addAnswer(answerRequests1, this);
+        ResearchFlow.addAnswer(answerRequests2, this);
+        ResearchFlow.addAnswer(answerRequests3, this);
+        ResearchFlow.addAnswer(answerRequests4, this);
     }
 
     @OnClick(R.id.bt_back)

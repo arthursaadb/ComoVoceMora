@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
     CustomRadioButton mRbExcesso;
 
     private AnswerRequest answerRequest;
-    private List<String> answerList = Collections.emptyList();
+    private List<String> answerList = new ArrayList<>();
     private StringBuilder answer = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.KEEP_FURNISHINGS;
     private boolean anyOptionCheckedNo = false;

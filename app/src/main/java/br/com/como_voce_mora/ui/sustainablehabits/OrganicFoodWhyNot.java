@@ -5,6 +5,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -35,6 +39,8 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_WHY_NOT;
+    List<String> answerList = new ArrayList<>();
+    StringBuilder answer = new StringBuilder();
     AnswerRequest answerRequest;
 
     public static OrganicFoodWhyNot newInstance() {
@@ -49,6 +55,7 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         if (getActivity() != null) {
+            setAnswer();
             ResearchFlow.addAnswer(answerRequest, this);
             ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
         }
@@ -74,7 +81,7 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
-            setAnswer(buttonView.getText().toString());
+            answerList.add(buttonView.getText().toString());
 
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
@@ -99,6 +106,8 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
                     break;
             }
         } else {
+            answerList.remove(buttonView.getText().toString());
+
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -131,9 +140,14 @@ public class OrganicFoodWhyNot extends BaseFragment implements CustomRadioButton
         rbFewDevices.updateView();
     }
 
-    private void setAnswer(String text) {
+    private void setAnswer() {
+        for (String value : answerList) {
+            answer.append(value);
+            answer.append(";");
+        }
+
         answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
-                .getQuestionPartId(), text);
+                .getQuestionPartId(), answer.toString());
     }
 
     @OnClick(R.id.btPreviousSession)

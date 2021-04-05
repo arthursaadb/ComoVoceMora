@@ -92,13 +92,13 @@ public class HabitationAspectsFragment extends BaseFragment {
             anyOptionChecked2 = true;
             ivPhoto.setImageResource(R.drawable.appearance);
             vhAparencia.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(construction.getQuestion(), construction.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(general.getQuestion(), general.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
             anyOptionChecked3 = true;
             ivPhoto.setImageResource(R.drawable.quality_construction);
             vhConstrucao.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(general.getQuestion(), general.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(construction.getQuestion(), construction.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
             anyOptionChecked4 = true;

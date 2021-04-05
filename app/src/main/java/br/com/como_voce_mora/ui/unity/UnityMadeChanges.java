@@ -9,6 +9,7 @@ import androidx.core.widget.NestedScrollView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -16,7 +17,6 @@ import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.ResearchFlow;
-import br.com.como_voce_mora.model.SustainableHabitsAnswer;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseFragment;
 import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
@@ -59,6 +59,8 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
     private boolean anyOptionChecked = false;
     boolean isYesOption = false;
     private AnswerRequest answerRequest;
+    List<String> answerRequestYesList = new ArrayList<>();
+    List<String> answerRequestNoList = new ArrayList<>();
     private StringBuilder answerRequestYes = new StringBuilder();
     private StringBuilder answerRequestNo = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.MADE_LIST_CHANGES;
@@ -196,11 +198,15 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
     private void setAnswers(String textYes, String textNo, boolean isChecked, boolean isYesOption) {
         if (isChecked) {
             if (isYesOption) {
-                answerRequestYes.append(textYes);
-                answerRequestYes.append(";");
+                answerRequestYesList.add(textYes);
             } else {
-                answerRequestNo.append(textNo);
-                answerRequestNo.append(";");
+                answerRequestNoList.add(textNo);
+            }
+        } else {
+            if (isYesOption) {
+                answerRequestYesList.remove(textYes);
+            } else {
+                answerRequestNoList.remove(textNo);
             }
         }
     }
@@ -208,11 +214,22 @@ public class UnityMadeChanges extends BaseFragment implements CustomRadioButton.
     private void setAnswer() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        if (answerRequestYes.length() != 0) {
+
+        if (answerRequestYesList.size() > 0) {
+            for (String values : answerRequestYesList) {
+                answerRequestYes.append(values);
+                answerRequestYes.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(MADE_LIST_CHANGES_YES.getQuestion(), MADE_LIST_CHANGES_YES.getQuestionPartId(), answerRequestYes.toString()), this);
         }
 
-        if (answerRequestNo.length() != 0) {
+        if (answerRequestNoList.size() > 0) {
+            for (String values : answerRequestNoList) {
+                answerRequestNo.append(values);
+                answerRequestNo.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(MADE_LIST_CHANGES_NO.getQuestion(), MADE_LIST_CHANGES_NO.getQuestionPartId(), answerRequestNo.toString()), this);
         }
     }

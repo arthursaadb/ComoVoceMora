@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -44,8 +48,8 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.CONSTRUCTION;
-    AnswerRequest answerRequest;
     private boolean anyOptionChecked = false;
+    List<String> answerList = new ArrayList<>();
     StringBuilder answer = new StringBuilder();
 
     public static ConstructionFragment newInstance() {
@@ -61,6 +65,11 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     public void onBtNextClicked() {
         if (anyOptionChecked) {
             if (getActivity() != null) {
+                for(String value: answerList){
+                    answer.append(value);
+                    answer.append(";");
+                }
+
                 ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
                 ((AboutYouActivity) requireActivity()).addFragment(ElectronicFragment.newInstance());
             }
@@ -90,7 +99,7 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             anyOptionChecked = true;
-            setAnswer(buttonView.getText().toString());
+            answerList.add(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
@@ -125,6 +134,8 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
                     break;
             }
         } else {
+            answerList.remove(buttonView.getText().toString());
+
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -168,11 +179,6 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
         rbQuickShowers.updateView();
         rbOthers.updateView();
         rbResiduos.updateView();
-    }
-
-    private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)

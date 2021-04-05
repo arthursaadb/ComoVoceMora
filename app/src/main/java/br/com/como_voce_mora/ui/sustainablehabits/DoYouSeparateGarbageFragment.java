@@ -52,10 +52,11 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_GARBAGE;
     AnswerRequest answerRequest;
+    List<String> answerRequestYesList = new ArrayList<>();
+    List<String> answerRequestNoList = new ArrayList<>();
     StringBuilder answerRequestYes = new StringBuilder();
     StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;
-    Boolean anyOptionChecked = false;
 
     public static DoYouSeparateGarbageFragment newInstance() {
         return new DoYouSeparateGarbageFragment();
@@ -77,13 +78,23 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        if (answerRequestYes.length() != 0) {
+        if (answerRequestYesList.size() > 0) {
+            for (String values : answerRequestYesList) {
+                answerRequestYes.append(values);
+                answerRequestYes.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestion(),
                     SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY.getQuestionPartId(),
                     answerRequestYes.toString()), this);
         }
 
-        if (answerRequestNo.length() != 0) {
+        if (answerRequestNoList.size() > 0) {
+            for (String values : answerRequestNoList) {
+                answerRequestNo.append(values);
+                answerRequestNo.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestion(),
                             SustainableHabitsAnswer.SEPARATE_GARBAGE_WHY_NOT.getQuestionPartId(),
                             answerRequestNo.toString()),
@@ -242,15 +253,17 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
     private void setAnswerYes(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestYes.append(text);
-            answerRequestYes.append(";");
+            answerRequestYesList.add(text);
+        } else {
+            answerRequestYesList.remove(text);
         }
     }
 
     private void setAnswerNo(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestNo.append(text);
-            answerRequestNo.append(";");
+            answerRequestNoList.add(text);
+        } else {
+            answerRequestNoList.remove(text);
         }
     }
 

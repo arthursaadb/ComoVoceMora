@@ -55,8 +55,8 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_OIL;
     AnswerRequest answerRequest;
-    List<String> answerRequestYesList = Collections.emptyList();
-    List<String> answerRequestNoList = Collections.emptyList();
+    List<String> answerRequestYesList = new ArrayList<>();
+    List<String> answerRequestNoList = new ArrayList<>();
     StringBuilder answerRequestYes = new StringBuilder();
     StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;

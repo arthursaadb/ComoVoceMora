@@ -53,8 +53,8 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHY_YOU_SAVE_ELECTRICITY;
     AnswerRequest answerRequest;
-    List<String> answerRequestYesList = Collections.emptyList();
-    List<String> answerRequestNoList = Collections.emptyList();
+    List<String> answerRequestYesList = new ArrayList<>();
+    List<String> answerRequestNoList = new ArrayList<>();
     StringBuilder answerRequestYes = new StringBuilder();
     StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;

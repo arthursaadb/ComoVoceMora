@@ -85,7 +85,7 @@ public class BuildingApartmentNegativePointsFragment extends BaseFragment {
                 String position = positions[i];
                 switch (pos) {
                     case "Convívio social coletivo":
-                        answerRequests.add(new AnswerRequest(faltaSeguranca.getQuestion(), faltaSeguranca.getQuestionPartId(), position));
+                        answerRequests.add(new AnswerRequest(vidaSocial.getQuestion(), vidaSocial.getQuestionPartId(), position));
                         break;
                     case "Espaço Reduzido":
                         answerRequests.add(new AnswerRequest(faltaEspaco.getQuestion(), faltaEspaco.getQuestionPartId(), position));
@@ -100,7 +100,7 @@ public class BuildingApartmentNegativePointsFragment extends BaseFragment {
                         answerRequests.add(new AnswerRequest(privacidade.getQuestion(), privacidade.getQuestionPartId(), position));
                         break;
                     case "Vida social controlada":
-                        answerRequests.add(new AnswerRequest(vidaSocial.getQuestion(), vidaSocial.getQuestionPartId(), position));
+                        answerRequests.add(new AnswerRequest(faltaSeguranca.getQuestion(), faltaSeguranca.getQuestionPartId(), position));
                         break;
                     case "Outros":
                         answerRequests.add(new AnswerRequest(outros.getQuestion(), outros.getQuestionPartId(), position));

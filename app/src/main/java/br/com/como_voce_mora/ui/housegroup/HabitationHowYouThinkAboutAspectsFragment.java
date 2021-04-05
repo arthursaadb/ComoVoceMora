@@ -91,19 +91,19 @@ public class HabitationHowYouThinkAboutAspectsFragment extends BaseFragment {
             anyOptionChecked2 = true;
             vhAparencia.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.street_privacy);
-            answerRequests.add(new AnswerRequest(aspectStreet.getQuestion(), aspectStreet.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(aspectPrivece.getQuestion(), aspectPrivece.getQuestionPartId(), texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
             anyOptionChecked3 = true;
             vhConstrucao.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.security);
-            answerRequests.add(new AnswerRequest(aspectConvivence.getQuestion(), aspectConvivence.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(aspectStreet.getQuestion(), aspectStreet.getQuestionPartId(), texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
             anyOptionChecked4 = true;
             vhLimpeza.setInfo(texts.get(position));
             ivPhoto.setImageResource(R.drawable.coexistence);
-            answerRequests.add(new AnswerRequest(aspectPrivece.getQuestion(), aspectPrivece.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(aspectConvivence.getQuestion(), aspectConvivence.getQuestionPartId(), texts.get(position)));
         });
 
     }
