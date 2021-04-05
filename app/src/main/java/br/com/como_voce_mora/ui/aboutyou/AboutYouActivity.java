@@ -11,6 +11,7 @@ import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
 import br.com.como_voce_mora.ui.currentresidence.EstablishmentThatYouMissFragment;
 import br.com.como_voce_mora.ui.currentresidence.WhatsYourSatisfactionFragment;
 import br.com.como_voce_mora.ui.housegroup.HabitationEquipmentsMeaningFragment;
+import br.com.como_voce_mora.ui.housegroup.HabitationSatisfactionFragment;
 import br.com.como_voce_mora.ui.housegroup.HouseGroupFragment;
 import br.com.como_voce_mora.ui.previoushouse.PreviousHomeSplashFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.OrganicFoodWhyNot;

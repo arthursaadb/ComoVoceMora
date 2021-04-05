@@ -45,7 +45,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
     @BindView(R.id.cpPodium)
     CustomPodium customPodium;
     @BindViews({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
-            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
+            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btTenOption})
     List<Button> mButtons;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
@@ -53,6 +53,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
     private boolean anyOptionChecked = false;
     String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
     private List<AnswerRequest> answerRequests = new ArrayList<>();
+
     public static HabitationEquipmentsMeaningFragment newInstance() {
         Bundle args = new Bundle();
         HabitationEquipmentsMeaningFragment fragment = new HabitationEquipmentsMeaningFragment();
@@ -111,8 +112,8 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
                     case "Valor Comercial":
                         answerRequests.add(new AnswerRequest(MONEY_IMPORTANCE.getQuestion(), MONEY_IMPORTANCE.getQuestionPartId(), position));
                         break;
-                    case"Praticidade de vida":
-                        answerRequests.add(new AnswerRequest(FACILITY_IMPORTANCE.getQuestion(), FACILITY_IMPORTANCE.getQuestionPartId(),position));
+                    case "Praticidade de vida":
+                        answerRequests.add(new AnswerRequest(FACILITY_IMPORTANCE.getQuestion(), FACILITY_IMPORTANCE.getQuestionPartId(), position));
                         break;
                     case "Segurança":
                         answerRequests.add(new AnswerRequest(SECURITY_IMPORTANCE.getQuestion(), SECURITY_IMPORTANCE.getQuestionPartId(), position));
@@ -136,7 +137,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
     }
 
     @OnClick({R.id.btFirstOption, R.id.btSecondOption, R.id.btThirdOption, R.id.btForthOption,
-            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btEightOption, R.id.btTenOption})
+            R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption, R.id.btTenOption})
     public void onClickOptions(View view) {
         anyOptionChecked = true;
         Button textView = (Button) view;
