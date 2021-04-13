@@ -76,9 +76,6 @@ public class ServicesPresenter implements ServicesPresenterContract.Presenter {
             mRepository.saveAnswers(answerRequest, new BaseCallBack<AnswerRequest>() {
                 @Override
                 public void onSuccess(AnswerRequest response) {
-                    ResearchFlow.resetDabase();
-                    mView.stopLoad();
-                    mView.advice();
                 }
 
                 @Override
@@ -89,5 +86,8 @@ public class ServicesPresenter implements ServicesPresenterContract.Presenter {
             });
         }
 
+        ResearchFlow.resetDabase();
+        mView.stopLoad();
+        mView.advice();
     }
 }
