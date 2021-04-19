@@ -73,21 +73,21 @@ public class ServicesPresenter implements ServicesPresenterContract.Presenter {
 
         for (AnswerRequest answerRequest : list) {
             answerRequest.setDwellerId(dwellerId);
-            mRepository.saveAnswers(answerRequest, new BaseCallBack<AnswerRequest>() {
-                @Override
-                public void onSuccess(AnswerRequest response) {
-                }
-
-                @Override
-                public void onError(ResponseError error) {
-                    mView.stopLoad();
-                    mView.showError("Erro ao carregar as respostas");
-                }
-            });
         }
 
-        ResearchFlow.resetDabase();
-        mView.stopLoad();
-        mView.advice();
+        mRepository.saveAnswers(list, new BaseCallBack<Void>() {
+            @Override
+            public void onSuccess(Void response) {
+                ResearchFlow.resetDabase();
+                mView.stopLoad();
+                mView.advice();
+            }
+
+            @Override
+            public void onError(ResponseError error) {
+                mView.stopLoad();
+                mView.showError("Erro ao carregar as respostas");
+            }
+        });
     }
 }

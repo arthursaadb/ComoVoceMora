@@ -1,5 +1,8 @@
 package br.com.como_voce_mora.api;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.model.AnswerRequest;
 import br.com.como_voce_mora.model.DwellerId;
 import retrofit2.Call;
@@ -15,6 +18,6 @@ public interface ServiceApi {
     @POST("postdwellerId")
     Call<DwellerId> getUserData();
 
-    @POST("save")
-    Call<AnswerRequest> saveAnswer(@Body AnswerRequest answerRequest);
+    @POST("saveListResponse")
+    Call<Void> saveAnswer(@Body List<AnswerRequest> answerRequest);
 }

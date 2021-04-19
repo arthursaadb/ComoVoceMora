@@ -1,6 +1,8 @@
 package br.com.como_voce_mora.repository;
 
 import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.como_voce_mora.api.ApiCreator;
 import br.com.como_voce_mora.api.BaseCallBack;
@@ -20,7 +22,7 @@ public class CallServicesRetrofitRepository implements CallServices {
     }
 
     @Override
-    public void saveAnswers(AnswerRequest answerRequest, BaseCallBack<AnswerRequest> answerRequestBaseCallBack) {
+    public void saveAnswers(List<AnswerRequest> answerRequest, BaseCallBack<Void> answerRequestBaseCallBack) {
         ApiCreator.createService(ServiceApi.class).saveAnswer(answerRequest).enqueue(answerRequestBaseCallBack);
     }
 }
