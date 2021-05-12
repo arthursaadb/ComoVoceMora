@@ -117,6 +117,20 @@
         app:layout_constraintStart_toEndOf="@id/optionNo" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbLevar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/custom_radio_button_height"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:button="@color/colorTransparent"
+        android:gravity="center"
+        android:text="Não tem coleta seletiva no bairro"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/rbAbundantResource"
+        app:layout_constraintEnd_toStartOf="@id/rbOthersNo"
+        app:layout_constraintStart_toEndOf="@id/optionNo" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbAbundantResource"
         android:layout_width="0dp"
         android:layout_height="@dimen/custom_radio_button_height"

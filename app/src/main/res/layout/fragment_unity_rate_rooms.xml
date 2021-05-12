@@ -16,7 +16,6 @@
         android:background="@drawable/bg_ballon_normal_type_1"
         android:gravity="center"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/micro_text_size"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/iv_school"
         app:layout_constraintEnd_toStartOf="@id/volume"

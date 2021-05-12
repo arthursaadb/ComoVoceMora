@@ -75,6 +75,6 @@
         android:text="Não utilizo"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@id/rbBrushMyTeeth"
-        app:layout_constraintTop_toBottomOf="@id/rbDoacao" />
+        app:layout_constraintTop_toTopOf="@id/rbDishes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -107,7 +107,9 @@ public class IntroActivity extends BaseActivity implements ServicesPresenterCont
     }
 
     private void checkService(){
-        mPresenter.getServiceStatus();
+        createNewTable();
+        Intent intent = new Intent(this, InfoSaveDataActivity.class);
+        startActivity(intent);
     }
 
     @Override

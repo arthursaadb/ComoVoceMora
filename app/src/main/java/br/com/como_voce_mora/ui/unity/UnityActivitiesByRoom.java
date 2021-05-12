@@ -355,6 +355,10 @@ public class UnityActivitiesByRoom extends BaseFragment {
             R.id.csv11, R.id.csv12})
     public void onClickViews(View view) {
         String text = ((CustomSelectedView) view).getText();
+        if(view.getId() != R.id.csv12){
+            csv12.setChecked(false);
+        }
+
         switch (view.getId()) {
             case R.id.csv1:
                 if (csv1.isChecked()) {
@@ -463,7 +467,19 @@ public class UnityActivitiesByRoom extends BaseFragment {
                     answerRequestsList.remove(text);
                     csv12.setChecked(false);
                 } else {
+                    answerRequestsList.clear();
                     answerRequestsList.add(text);
+                    csv1.setChecked(false);
+                    csv2.setChecked(false);
+                    csv3.setChecked(false);
+                    csv4.setChecked(false);
+                    csv5.setChecked(false);
+                    csv6.setChecked(false);
+                    csv7.setChecked(false);
+                    csv8.setChecked(false);
+                    csv9.setChecked(false);
+                    csv10.setChecked(false);
+                    csv11.setChecked(false);
                     csv12.setChecked(true);
                 }
                 break;

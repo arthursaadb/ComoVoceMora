@@ -50,6 +50,8 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
     CustomRadioButton rbNoNeed;
     @BindView(R.id.rbLowCost)
     CustomRadioButton rbLowCost;
+    @BindView(R.id.rbLevar)
+    CustomRadioButton rbLevar;
     @BindView(R.id.tv_question)
     TextView mTvQuestion;
 
@@ -125,6 +127,7 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
         rbOthersNo.setOnCheckedChangeListener(this);
         rbNoNeed.setOnCheckedChangeListener(this);
         rbLowCost.setOnCheckedChangeListener(this);
+        rbLevar.setOnCheckedChangeListener(this);
         mTvQuestion.setText(sustainableHabitsAnswer.getQuestion());
     }
 
@@ -147,6 +150,7 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
         rbOthersNo.setVisibility(View.INVISIBLE);
         rbNoNeed.setVisibility(View.INVISIBLE);
         rbLowCost.setVisibility(View.INVISIBLE);
+        rbLevar.setVisibility(View.INVISIBLE);
     }
 
     private void showNoItems() {
@@ -154,6 +158,7 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
         rbOthersNo.setVisibility(View.VISIBLE);
         rbNoNeed.setVisibility(View.VISIBLE);
         rbLowCost.setVisibility(View.VISIBLE);
+        rbLevar.setVisibility(View.VISIBLE);
     }
 
 
@@ -171,6 +176,11 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
+                    rbAbundantResource.setChecked(false);
+                    rbOthersNo.setChecked(false);
+                    rbNoNeed.setChecked(false);
+                    rbLowCost.setChecked(false);
+                    rbLevar.setChecked(false);
                     setAnswer(buttonView.getText().toString());
                 }
                 updateViews();
@@ -186,6 +196,11 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
                     rbLessAmbientalDamage.setChecked(false);
                     rbDry.setChecked(false);
                     rbOthers.setChecked(false);
+                    rbAbundantResource.setChecked(false);
+                    rbOthersNo.setChecked(false);
+                    rbNoNeed.setChecked(false);
+                    rbLowCost.setChecked(false);
+                    rbLevar.setChecked(false);
                     setAnswer(buttonView.getText().toString());
                 }
                 updateViews();
@@ -234,6 +249,12 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
                 setAnswerNo(buttonView.getText().toString(), isChecked);
                 updateViews();
                 break;
+
+            case R.id.rbLevar:
+                rbLevar.setChecked(isChecked);
+                setAnswerNo(buttonView.getText().toString(), isChecked);
+                updateViews();
+                break;
         }
     }
 
@@ -248,6 +269,7 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
         rbOthersNo.updateView();
         rbNoNeed.updateView();
         rbLowCost.updateView();
+        rbLevar.updateView();
     }
 
     private void setAnswer(String text) {

@@ -107,6 +107,10 @@ public class FamilyIncomeFragment extends BaseFragment implements VolumeVertical
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
+            if(answerRequest == null){
+                answerRequest = new AnswerRequest(aboutYouAnswer.getQuestion(), aboutYouAnswer.getQuestionPartId(), "");
+            }
+
             ResearchFlow.addAnswer(answerRequest, this);
             ((AboutYouActivity) requireActivity()).addFragment(PreviousHomeSplashFragment.newInstance());
     }

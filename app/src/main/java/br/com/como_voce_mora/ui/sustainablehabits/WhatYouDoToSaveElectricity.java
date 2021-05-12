@@ -32,7 +32,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHAT_YOU_DO_TO_SAVE_ELECTRICITY;
-    BaseFragment mNextFragment;
+    BaseFragment mNextFragment = DoYouKnowEquipamentLifecycleFragment.newInstance();
     StringBuilder answer = new StringBuilder();
 
     public static WhatYouDoToSaveElectricity newInstance() {
@@ -75,9 +75,6 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             setAnswer(buttonView.getText().toString());
-
-            mNextFragment = DoYouKnowEquipamentLifecycleFragment.newInstance();
-
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
