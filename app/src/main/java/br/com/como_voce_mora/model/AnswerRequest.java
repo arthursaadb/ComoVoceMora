@@ -1,6 +1,9 @@
 package br.com.como_voce_mora.model;
 
-public class AnswerRequest {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class AnswerRequest implements Parcelable {
     private String dwellerId;
     private String questionPartId;
     private String texto;
@@ -54,4 +57,43 @@ public class AnswerRequest {
     public void setEvaluationId(String evaluationId) {
         this.evaluationId = evaluationId;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.dwellerId);
+        dest.writeString(this.questionPartId);
+        dest.writeString(this.texto);
+        dest.writeString(this.evaluationId);
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.dwellerId = source.readString();
+        this.questionPartId = source.readString();
+        this.texto = source.readString();
+        this.evaluationId = source.readString();
+    }
+
+    protected AnswerRequest(Parcel in) {
+        this.dwellerId = in.readString();
+        this.questionPartId = in.readString();
+        this.texto = in.readString();
+        this.evaluationId = in.readString();
+    }
+
+    public static final Parcelable.Creator<AnswerRequest> CREATOR = new Parcelable.Creator<AnswerRequest>() {
+        @Override
+        public AnswerRequest createFromParcel(Parcel source) {
+            return new AnswerRequest(source);
+        }
+
+        @Override
+        public AnswerRequest[] newArray(int size) {
+            return new AnswerRequest[size];
+        }
+    };
 }

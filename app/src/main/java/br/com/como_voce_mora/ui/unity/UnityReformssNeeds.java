@@ -61,7 +61,7 @@ import butterknife.OnClick;
             if (yesChecked) {
                 ((AboutYouActivity) requireActivity()).addFragment(UnityReformDificult.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             } else {
-                ((AboutYouActivity) requireActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
+                ((AboutYouActivity) requireActivity()).addFragment(UnityReformsNoNeedFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
             }
         }
     }

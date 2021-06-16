@@ -12,6 +12,8 @@
         style="@style/CustomRadioButton"
         android:gravity="center"
         android:text="Limitações estruturais"
+        app:layout_constraintEnd_toStartOf="@id/rbNo"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintBottom_toBottomOf="@id/bt_next"
         android:layout_marginStart="@dimen/default_margin"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
@@ -22,6 +24,7 @@
         style="@style/CustomRadioButton"
         android:gravity="center"
         android:layout_marginStart="@dimen/default_margin"
+        app:layout_constraintEnd_toStartOf="@id/rbParedes"
         android:text="Limitações de área"
         app:layout_constraintBottom_toBottomOf="@id/rbYes"
         app:layout_constraintStart_toEndOf="@id/rbYes" />
@@ -31,6 +34,7 @@
         style="@style/CustomRadioButton"
         android:gravity="center"
         android:layout_marginStart="@dimen/default_margin"
+        app:layout_constraintEnd_toEndOf="@+id/bt_next"
         android:text="Poucas paredes livres"
         app:layout_constraintBottom_toBottomOf="@id/rbYes"
         app:layout_constraintStart_toEndOf="@id/rbNo" />

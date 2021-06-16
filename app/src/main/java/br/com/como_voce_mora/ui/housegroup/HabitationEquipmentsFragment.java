@@ -41,6 +41,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
     TextView tvQuestion;
 
     private ArrayList<AnswerRequest> answerRequests = new ArrayList<>();
+    private ArrayList<AnswerRequest> answerRequestsYes = new ArrayList<>();
     private HouseGroupAnswer houseGroupAnser = HouseGroupAnswer.CONDOMINIUM_PUBLIC_EQUIPMENT;
     private AnswerRequest academiaNao = new AnswerRequest(HouseGroupAnswer.ACADEMIA.getQuestion(), HouseGroupAnswer.ACADEMIA.getQuestionPartId(), "Não");
     private AnswerRequest salaoFestasNao = new AnswerRequest(HouseGroupAnswer.SALAO_DE_FESTAS.getQuestion(), HouseGroupAnswer.SALAO_DE_FESTAS.getQuestionPartId(), "Não");
@@ -81,7 +82,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
         setAnswer();
-        ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
+        ((AboutYouActivity) getActivity()).addFragment(HabitationEquipmentsSatisfactionFragment.newInstance(answerRequestsYes));
     }
 
     private void setAnswer() {
@@ -110,6 +111,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerRequests.remove(salaJogosNao);
                     answerRequests.add(new AnswerRequest(HouseGroupAnswer.SALAO_DE_JOGOS.getQuestion(), HouseGroupAnswer.SALAO_DE_JOGOS.getQuestionPartId(), "Sim"));
                     csvGamesRoom.setChecked(true);
+                    answerRequestsYes.add(new AnswerRequest(HouseGroupAnswer.SALAO_DE_JOGOS.getQuestion(), HouseGroupAnswer.SALAO_DE_JOGOS.getQuestionPartId(), "Sim"));
+                    csvGamesRoom.setChecked(true);
                 }
                 break;
             case R.id.csvGym:
@@ -120,6 +123,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerRequests.remove(academiaNao);
                     answerRequests.add(new AnswerRequest(HouseGroupAnswer.ACADEMIA.getQuestion(), HouseGroupAnswer.ACADEMIA.getQuestionPartId(), "Sim"));
                     csvGymRoom.setChecked(true);
+                    answerRequestsYes.add(new AnswerRequest(HouseGroupAnswer.ACADEMIA.getQuestion(), HouseGroupAnswer.ACADEMIA.getQuestionPartId(), "Sim"));
+                    csvGamesRoom.setChecked(true);
                 }
                 break;
             case R.id.csvPartyRoom:
@@ -130,6 +135,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerRequests.remove(salaoFestasNao);
                     answerRequests.add(new AnswerRequest(HouseGroupAnswer.SALAO_DE_FESTAS.getQuestion(), HouseGroupAnswer.SALAO_DE_FESTAS.getQuestionPartId(), "Sim"));
                     csvPartyRoom.setChecked(true);
+                    answerRequestsYes.add(new AnswerRequest(HouseGroupAnswer.SALAO_DE_FESTAS.getQuestion(), HouseGroupAnswer.SALAO_DE_FESTAS.getQuestionPartId(), "Sim"));
+
                 }
                 break;
             case R.id.csvPoolPlusEighteen:
@@ -140,6 +147,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerRequests.remove(piscinaAdultoNao);
                     answerRequests.add(new AnswerRequest(HouseGroupAnswer.PISCINA_ADULTO.getQuestion(), HouseGroupAnswer.PISCINA_ADULTO.getQuestionPartId(), "Sim"));
                     csvPoolPlusEighteen.setChecked(true);
+                    answerRequestsYes.add(new AnswerRequest(HouseGroupAnswer.PISCINA_ADULTO.getQuestion(), HouseGroupAnswer.PISCINA_ADULTO.getQuestionPartId(), "Sim"));
+
                 }
 
                 break;
@@ -151,6 +160,7 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerRequests.remove(gourmetNao);
                     answerRequests.add(new AnswerRequest(HouseGroupAnswer.ESPACO_GOURMET.getQuestion(), HouseGroupAnswer.ESPACO_GOURMET.getQuestionPartId(), "Sim"));
                     csvGourmet.setChecked(true);
+                    answerRequestsYes.add(new AnswerRequest(HouseGroupAnswer.ESPACO_GOURMET.getQuestion(), HouseGroupAnswer.ESPACO_GOURMET.getQuestionPartId(), "Sim"));
                 }
 
                 break;
@@ -162,6 +172,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerRequests.remove(playgroundNao);
                     answerRequests.add(new AnswerRequest(HouseGroupAnswer.PLAYGROUND.getQuestion(), HouseGroupAnswer.PLAYGROUND.getQuestionPartId(), "Sim"));
                     csvPlayGround.setChecked(true);
+                    answerRequestsYes.add(new AnswerRequest(HouseGroupAnswer.PLAYGROUND.getQuestion(), HouseGroupAnswer.PLAYGROUND.getQuestionPartId(), "Sim"));
+
                 }
 
                 break;
@@ -173,6 +185,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerRequests.remove(quadraNao);
                     answerRequests.add(new AnswerRequest(HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestion(), HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestionPartId(), "Sim"));
                     csvSquare.setChecked(true);
+                    answerRequestsYes.add(new AnswerRequest(HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestion(), HouseGroupAnswer.QUADRA_DE_ESPORTES.getQuestionPartId(), "Sim"));
+
                 }
                 break;
             case R.id.csvChildPool:
@@ -183,6 +197,8 @@ public class HabitationEquipmentsFragment extends BaseFragment {
                     answerRequests.remove(piscinaInfantilNao);
                     answerRequests.add(new AnswerRequest(HouseGroupAnswer.PISCINA_INFANTIL.getQuestion(), HouseGroupAnswer.PISCINA_INFANTIL.getQuestionPartId(), "Sim"));
                     csvChildPool.setChecked(true);
+                    answerRequestsYes.add(new AnswerRequest(HouseGroupAnswer.PISCINA_INFANTIL.getQuestion(), HouseGroupAnswer.PISCINA_INFANTIL.getQuestionPartId(), "Sim"));
+
                 }
                 break;
         }

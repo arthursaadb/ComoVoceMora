@@ -9,6 +9,7 @@ import java.util.List;
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseActivity;
+import br.com.como_voce_mora.ui.housegroup.HabitationEquipmentsFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.DoYouKnowMedicamentExpiredFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateGarbageFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateOilFragment;
@@ -16,6 +17,8 @@ import br.com.como_voce_mora.ui.sustainablehabits.ExpiredMedicationFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.WhatYouDoToSaveElectricity;
 import br.com.como_voce_mora.ui.sustainablehabits.WhatYouDoToSaveWater;
 import br.com.como_voce_mora.ui.unity.UnityRateRoomsFragment;
+import br.com.como_voce_mora.ui.unity.UnityReformsNoNeedFragment;
+import br.com.como_voce_mora.ui.unity.UnityReformssNeeds;
 import br.com.como_voce_mora.ui.unity.UnitySatisfactionRoom;
 
 public class AboutYouActivity extends BaseActivity {

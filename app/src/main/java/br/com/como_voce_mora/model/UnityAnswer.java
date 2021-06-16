@@ -50,7 +50,7 @@ public enum UnityAnswer implements Serializable {
 
     CHANGE_TO_BETTER_ATEMPTEMENT("A sua moradia permite fazer alterações para atender melhor sua necessidade ou seu gosto?", "2db6b9e3-7374-47eb-b2ba-9b584b094876"),
 
-    WHY_DONT_REFORM("Se não foram feitas alterações, quais os motivos?", "14a28215-bfa0-4887-a533-7baac8819afa"),
+    WHY_DONT_REFORM("Por que a moradia não permite fazer alterações?", "14a28215-bfa0-4887-a533-7baac8819afa"),
 
     SUN_RECEIVE("Em que período do dia sua moradia recebe mais sol?", "44ad4fc1-aa86-4a45-9839-f46ff68b67bd"),
 

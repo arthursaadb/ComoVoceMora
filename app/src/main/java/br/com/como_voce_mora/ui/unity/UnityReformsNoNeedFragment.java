@@ -7,60 +7,117 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.TextView;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.custom.CustomRadioButton;
+import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
+import br.com.como_voce_mora.model.AnswerRequest;
+import br.com.como_voce_mora.model.ResearchFlow;
+import br.com.como_voce_mora.model.UnityAnswer;
+import br.com.como_voce_mora.ui.BaseFragment;
+import br.com.como_voce_mora.ui.aboutyou.AboutYouActivity;
+import br.com.como_voce_mora.ui.building.BuildingSplashFragment;
+import butterknife.BindView;
+import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link UnityReformsNoNeedFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class UnityReformsNoNeedFragment extends Fragment {
+public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.tv_question)
+    TextView tvQuestion;
+    @BindView(R.id.rbYes)
+    CustomRadioButton rb1;
+    @BindView(R.id.rbNo)
+    CustomRadioButton rb2;
+    @BindView(R.id.rbParedes)
+    CustomRadioButton rb3;
+    @BindView(R.id.rbPortas)
+    CustomRadioButton rb4;
+    @BindView(R.id.rbJanelas)
+    CustomRadioButton rb5;
+    @BindView(R.id.rbSacada)
+    CustomRadioButton rb6;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private final UnityAnswer unityAnswer = UnityAnswer.WHY_DONT_REFORM;
+    private final List<AnswerRequest> answerRequests = new ArrayList<>();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public UnityReformsNoNeedFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment UnityReformsNoNeedFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static UnityReformsNoNeedFragment newInstance(String param1, String param2) {
-        UnityReformsNoNeedFragment fragment = new UnityReformsNoNeedFragment();
+    public static UnityReformsNoNeedFragment newInstance(List<UnityAnswer> room) {
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable("list", (Serializable) room);
+        UnityReformsNoNeedFragment fragment = new UnityReformsNoNeedFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public int getResLayout() {
+        return R.layout.fragment_unity_reforms_no_need;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_unity_reforms_no_need, container, false);
+    public void init() {
+        tvQuestion.setText(unityAnswer.getQuestion());
+        mProgress.setProgress(HowYouLiveProgressBar.HowYouLive.UNITY);
+        rb1.setOnCheckedChangeListener(this);
+        rb2.setOnCheckedChangeListener(this);
+        rb3.setOnCheckedChangeListener(this);
+        rb4.setOnCheckedChangeListener(this);
+        rb5.setOnCheckedChangeListener(this);
+        rb6.setOnCheckedChangeListener(this);
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            buttonView.setChecked(true);
+            answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
+                    unityAnswer.getQuestionPartId(), buttonView.getText().toString()));
+        } else {
+            buttonView.setChecked(false);
+            answerRequests.removeIf(i -> i.getTexto().equals(buttonView.getText().toString()));
+        }
+
+        updateRbs();
+    }
+
+    private void updateRbs() {
+        rb1.updateView();
+        rb2.updateView();
+        rb3.updateView();
+        rb4.updateView();
+        rb5.updateView();
+        rb6.updateView();
+    }
+
+
+    @OnClick(R.id.bt_next)
+    public void onBtNextClicked() {
+        if (!answerRequests.isEmpty()) {
+            for (AnswerRequest r : answerRequests) {
+                ResearchFlow.addAnswer(r, this);
+            }
+
+            ((AboutYouActivity) requireActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
+        }
+    }
+
+    @OnClick(R.id.bt_back)
+    public void onBtBackClicked() {
+        if (getActivity() != null) {
+            getActivity().onBackPressed();
+        }
+    }
+
+    @OnClick(R.id.btPreviousSession)
+    public void onBtPreviouSessionClicked() {
+        if (getActivity() != null) {
+            ((AboutYouActivity) requireActivity()).addFragment(BuildingSplashFragment.newInstance());
+        }
     }
 }
