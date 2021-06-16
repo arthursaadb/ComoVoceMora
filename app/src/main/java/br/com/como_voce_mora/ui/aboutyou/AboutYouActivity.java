@@ -2,16 +2,21 @@ package br.com.como_voce_mora.ui.aboutyou;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import br.com.como_voce_mora.R;
+import br.com.como_voce_mora.model.UnityAnswer;
 import br.com.como_voce_mora.ui.BaseActivity;
 import br.com.como_voce_mora.ui.sustainablehabits.DoYouKnowMedicamentExpiredFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateGarbageFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateOilFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.ExpiredMedicationFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.WhatYouDoToSaveElectricity;
+import br.com.como_voce_mora.ui.sustainablehabits.WhatYouDoToSaveWater;
 import br.com.como_voce_mora.ui.unity.UnityRateRoomsFragment;
+import br.com.como_voce_mora.ui.unity.UnitySatisfactionRoom;
 
 public class AboutYouActivity extends BaseActivity {
     public static final String SCREEN_FRAGMENT = "screen-fragment";
@@ -27,7 +32,10 @@ public class AboutYouActivity extends BaseActivity {
         String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
 
         if (screen == null) {
-            replaceFragment(UnityRateRoomsFragment.newInstance(Collections.emptyList()));
+            List<UnityAnswer> unityAnswers = new ArrayList<>();
+            unityAnswers.add(UnityAnswer.CHARACTERISTICS_SATISFACTION_ROOM);
+            unityAnswers.add(UnityAnswer.CHARACTERISTICS_SATISFACTION_BALCONY);
+            replaceFragment(UnityRateRoomsFragment.newInstance(unityAnswers));
             return;
         }
 

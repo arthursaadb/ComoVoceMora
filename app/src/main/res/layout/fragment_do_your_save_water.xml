@@ -52,6 +52,7 @@
         style="@style/CustomRadioButton"
         android:button="@color/colorTransparent"
         android:gravity="center"
+        android:textSize="11sp"
         android:text="Uso a máquina de lavar na capacidade máxima"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@id/progress_bar"

@@ -89,6 +89,7 @@ public class UnitySatisfactionRoom extends BaseFragment {
 
     @Override
     public void init() {
+        texts.clear();
         listRoomType = (List<UnityAnswer>) getArguments().getSerializable("list");
         index = getArguments().getInt("index");
         roomType = listRoomType.get(index);

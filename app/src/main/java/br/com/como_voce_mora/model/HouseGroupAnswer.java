@@ -35,7 +35,7 @@ public enum HouseGroupAnswer {
     EQUIPMENTS_TO_ADD("Indique quais desses equipamentos você gostaria que seu edifício possuísse:", "99de50a3-ddd3-478c-a07e-9ae4f9240fdf"),
     EXISTENCE_OF_GREEN_AREA("Existem áreas verdes no seu edifício?", "2aa66471-a14a-4f54-9edb-e24a997de117"),
     MISS_GREEN_AREA("Você sente falta dessas áreas?", "a9761983-a589-4fb4-ae66-47e04bdaf501"),
-    GREEN_AREA_SATISFACTION("Qual a sua satisfação em relação à  quantidade dessas áreas verdes?", "85fff6f3-3ec4-4820-9de3-3a078f933c48"),
+    GREEN_AREA_SATISFACTION("Qual a sua satisfação em relação à quantidade dessas áreas verdes?", "85fff6f3-3ec4-4820-9de3-3a078f933c48"),
     DELIMITATION("Existe delimitação entre sua residência e a vizinhança?", "6a1601b4-3a30-4e86-a2d9-e766a2375b4e"),
     DELIMITATION_TYPE("Que delimitação existem entre sua residência e a vizinhança?", "f0ce08bf-d19e-4946-bf47-bb63329c37a0"),
     BLOCK_TYPE("Existe algum elemento de identificação no espaço do seu conjunto? (Em que seu bloco se diferencia dos demais)", "e7268e97-77fc-4e01-a29b-5454a3d67acc"),

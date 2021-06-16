@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPink">
+
+    <include layout="@layout/fragment_mr_clipboard_full" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbYes"
+        style="@style/CustomRadioButton"
+        android:gravity="center"
+        android:text="Limitações estruturais"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next"
+        android:layout_marginStart="@dimen/default_margin"
+        app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
+        app:layout_constraintTop_toTopOf="@id/bt_next" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbNo"
+        style="@style/CustomRadioButton"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/default_margin"
+        android:text="Limitações de área"
+        app:layout_constraintBottom_toBottomOf="@id/rbYes"
+        app:layout_constraintStart_toEndOf="@id/rbYes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbParedes"
+        style="@style/CustomRadioButton"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/default_margin"
+        android:text="Poucas paredes livres"
+        app:layout_constraintBottom_toBottomOf="@id/rbYes"
+        app:layout_constraintStart_toEndOf="@id/rbNo" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbPortas"
+        style="@style/CustomRadioButton"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
+        android:text="Disposição ruim de portas"
+        app:layout_constraintStart_toStartOf="@id/rbYes"
+        app:layout_constraintTop_toBottomOf="@id/rbYes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbJanelas"
+        style="@style/CustomRadioButton"
+        android:layout_marginTop="@dimen/default_margin"
+        android:gravity="center"
+        android:text="Disposição ruim das janelas"
+        app:layout_constraintStart_toStartOf="@id/rbNo"
+        app:layout_constraintTop_toBottomOf="@id/rbNo" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbSacada"
+        style="@style/CustomRadioButton"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        android:gravity="center"
+        android:text="Ausência de sacada"
+        app:layout_constraintStart_toEndOf="@id/rbJanelas"
+        app:layout_constraintTop_toBottomOf="@id/rbNo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
