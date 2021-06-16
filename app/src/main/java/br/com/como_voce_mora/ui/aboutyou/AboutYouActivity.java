@@ -32,10 +32,10 @@ public class AboutYouActivity extends BaseActivity {
         String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
 
         if (screen == null) {
-            List<UnityAnswer> unityAnswers = new ArrayList<>();
-            unityAnswers.add(UnityAnswer.CHARACTERISTICS_SATISFACTION_ROOM);
-            unityAnswers.add(UnityAnswer.CHARACTERISTICS_SATISFACTION_BALCONY);
-            replaceFragment(UnityRateRoomsFragment.newInstance(unityAnswers));
+//            List<UnityAnswer> unityAnswers = new ArrayList<>();
+//            unityAnswers.add(UnityAnswer.CHARACTERISTICS_SATISFACTION_ROOM);
+//            unityAnswers.add(UnityAnswer.CHARACTERISTICS_SATISFACTION_BALCONY);
+            replaceFragment(WhatYourGenderFragment.newInstance());
             return;
         }
 
