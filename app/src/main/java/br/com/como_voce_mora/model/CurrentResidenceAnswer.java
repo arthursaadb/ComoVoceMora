@@ -14,7 +14,7 @@ public enum CurrentResidenceAnswer {
 
     URBAN_EQUIPMENT("Você conhece os seguintes equipamentos urbanos no seu bairro?", "4efbf667-9637-4ffa-b269-11900d67e91a"),
     SAUDE("Saude", "66fa297e-fa52-4611-8df1-4bc0a64222cd"),
-    ESCOLA("Escola", "9873761b-013a-457b-a90e-eaf1ed94b62e"),
+    ESCOLA("Educação", "9873761b-013a-457b-a90e-eaf1ed94b62e"),
     CULTURA("Cultura", "fb80739d-49a9-4886-b6f2-91098e548466"),
     LAZER("Lazer", "fe44b7bd-dc82-4551-85a1-31e903fef421"),
     ESPORTE("Esporte", "13ecaa1c-a950-4308-8fee-ee4094644e5e"),

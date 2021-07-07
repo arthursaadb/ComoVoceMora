@@ -156,6 +156,12 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
             R.id.csvAcougue, R.id.csvRestaurante, R.id.csvOutros, R.id.csvNenhum})
     void onClickViews(View view) {
         anyOneSelected = true;
+
+        if (view.getId() != R.id.csvNenhum && answerRequests.contains(nenhumSim)) {
+            answerRequests.remove(nenhumSim);
+            answerRequests.add(nenhumNao);
+        }
+
         switch (view.getId()) {
             case R.id.csvBanco:
                 if (!csvBanco.isChecked()) {
@@ -319,12 +325,11 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
 
             case R.id.csvNenhum:
                 if (!csvNenhum.isChecked()) {
-                    csvNenhum.setChecked(true);
                     disableAll();
+                    csvNenhum.setChecked(true);
                     nenhum = csvNenhum.getText();
-                    answerRequests.remove(nenhumNao);
-                    answerRequests.add(nenhumSim);
 
+                    answerRequests.add(nenhumSim);
                     answerRequests.add(bancoNao);
                     answerRequests.add(lotericaNao);
                     answerRequests.add(mercadoNao);
@@ -336,18 +341,6 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     answerRequests.add(acougueNao);
                     answerRequests.add(restauranteNao);
                     answerRequests.add(outrosNao);
-
-                    answerRequests.remove(bancoSim);
-                    answerRequests.remove(lotericaSim);
-                    answerRequests.remove(mercadoSim);
-                    answerRequests.remove(lojaSim);
-                    answerRequests.remove(farmaciaSim);
-                    answerRequests.remove(postoSim);
-                    answerRequests.remove(academiaSim);
-                    answerRequests.remove(padariaSim);
-                    answerRequests.remove(acougueSim);
-                    answerRequests.remove(restauranteSim);
-                    answerRequests.remove(outrosSim);
                     break;
                 } else {
                     csvNenhum.setChecked(false);
@@ -359,28 +352,18 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
     }
 
     private void disableAll() {
+        answerRequests.clear();
         csvBanco.setChecked(false);
-        answerRequests.add(bancoNao);
         csvLoterica.setChecked(false);
-        answerRequests.add(lotericaNao);
         csvMercado.setChecked(false);
-        answerRequests.add(mercadoNao);
         csvLoja.setChecked(false);
-        answerRequests.add(lojaNao);
         csvFarmacia.setChecked(false);
-        answerRequests.add(farmaciaNao);
         csvPosto.setChecked(false);
-        answerRequests.add(postoNao);
         csvAcademia.setChecked(false);
-        answerRequests.add(academiaNao);
         csvPadaria.setChecked(false);
-        answerRequests.add(padariaNao);
         csvAcougue.setChecked(false);
-        answerRequests.add(acougueNao);
         csvRestaurante.setChecked(false);
-        answerRequests.add(restauranteNao);
         csvOutros.setChecked(false);
-        answerRequests.add(outrosNao);
     }
 
     @OnClick(R.id.bt_next)

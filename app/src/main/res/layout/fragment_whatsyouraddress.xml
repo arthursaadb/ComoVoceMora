@@ -44,6 +44,7 @@
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginEnd="@dimen/default_margin"
                 android:background="@color/colorWhite"
+                android:imeOptions="flagNoFullscreen"
                 android:inputType="number"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -72,6 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="@color/colorWhite"
+                android:imeOptions="flagNoFullscreen"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="@dimen/default_text_size"
@@ -99,6 +101,7 @@
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginLeft="@dimen/default_margin"
                 android:background="@color/colorWhite"
+                android:imeOptions="flagNoFullscreen"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="@dimen/default_text_size"
@@ -126,6 +129,7 @@
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginLeft="@dimen/default_margin"
                 android:background="@color/colorWhite"
+                android:imeOptions="flagNoFullscreen"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="@dimen/default_text_size"
@@ -153,6 +157,7 @@
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginLeft="@dimen/default_margin"
                 android:background="@color/colorWhite"
+                android:imeOptions="flagNoFullscreen"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="@dimen/default_text_size"
@@ -160,7 +165,6 @@
                 app:layout_constraintEnd_toEndOf="@id/etAp"
                 app:layout_constraintStart_toEndOf="@id/tvBairro"
                 app:layout_constraintTop_toTopOf="@id/tvBairro" />
-
 
             <TextView
                 android:id="@+id/tvSince"
@@ -181,6 +185,7 @@
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginLeft="@dimen/default_margin"
                 android:background="@color/colorWhite"
+                android:imeOptions="flagNoFullscreen"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="@dimen/default_text_size"

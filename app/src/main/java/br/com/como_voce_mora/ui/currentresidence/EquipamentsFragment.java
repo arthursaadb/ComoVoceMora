@@ -34,19 +34,29 @@ public class EquipamentsFragment extends BaseFragment {
     private Boolean recreation = false;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
+
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.URBAN_EQUIPMENT;
+
     private CurrentResidenceAnswer saudeCurrentResidenceAnswer = CurrentResidenceAnswer.SAUDE;
     private CurrentResidenceAnswer escolaCurrentResidenceAnswer = CurrentResidenceAnswer.ESCOLA;
     private CurrentResidenceAnswer culturaCurrentResidenceAnswer = CurrentResidenceAnswer.CULTURA;
     private CurrentResidenceAnswer lazerCurrentResidenceAnswer = CurrentResidenceAnswer.LAZER;
     private CurrentResidenceAnswer esporteCurrentResidenceAnswer = CurrentResidenceAnswer.ESPORTE;
     private CurrentResidenceAnswer segurancaCurrentResidenceAnswer = CurrentResidenceAnswer.SEGURANCA;
+
     private AnswerRequest saudeNao = new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(), saudeCurrentResidenceAnswer.getQuestionPartId(), "Não");
     private AnswerRequest escolaNao = new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(), escolaCurrentResidenceAnswer.getQuestionPartId(), "Não");
     private AnswerRequest culturaNao = new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(), culturaCurrentResidenceAnswer.getQuestionPartId(), "Não");
     private AnswerRequest lazerNao = new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(), lazerCurrentResidenceAnswer.getQuestionPartId(), "Não");
     private AnswerRequest esporteNao = new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(), esporteCurrentResidenceAnswer.getQuestionPartId(), "Não");
     private AnswerRequest segurancaNao = new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), "Não");
+
+    private AnswerRequest saudeSim = new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(), saudeCurrentResidenceAnswer.getQuestionPartId(), "Sim");
+    private AnswerRequest escolaSim = new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(), escolaCurrentResidenceAnswer.getQuestionPartId(), "Sim");
+    private AnswerRequest culturaSim = new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(), culturaCurrentResidenceAnswer.getQuestionPartId(), "Sim");
+    private AnswerRequest lazerSim = new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(), lazerCurrentResidenceAnswer.getQuestionPartId(), "Sim");
+    private AnswerRequest esporteSim = new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(), esporteCurrentResidenceAnswer.getQuestionPartId(), "Sim");
+    private AnswerRequest segurancaSim = new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), "Sim");
 
     public static EquipamentsFragment newInstance() {
 
@@ -88,12 +98,12 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     saude = csv.getText();
                     answerRequests.remove(saudeNao);
-                    answerRequests.add(new AnswerRequest(saudeCurrentResidenceAnswer.getQuestion(),
-                            saudeCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
+                    answerRequests.add(saudeSim);
                     break;
                 } else {
                     csv.setChecked(false);
                     answerRequests.add(saudeNao);
+                    answerRequests.remove(saudeSim);
                     break;
                 }
             case R.id.csvEscola:
@@ -101,11 +111,11 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     escola = csv.getText();
                     answerRequests.remove(escolaNao);
-                    answerRequests.add(new AnswerRequest(escolaCurrentResidenceAnswer.getQuestion(),
-                            escolaCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
+                    answerRequests.add(escolaSim);
                     break;
                 } else {
                     csv.setChecked(false);
+                    answerRequests.remove(escolaSim);
                     answerRequests.add(escolaNao);
                     break;
                 }
@@ -114,12 +124,12 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     cultura = csv.getText();
                     answerRequests.remove(culturaNao);
-                    answerRequests.add(new AnswerRequest(culturaCurrentResidenceAnswer.getQuestion(),
-                            culturaCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
+                    answerRequests.add(culturaSim);
                     break;
                 } else {
                     csv.setChecked(false);
                     answerRequests.add(culturaNao);
+                    answerRequests.remove(culturaSim);
                     break;
                 }
             case R.id.csvLazer:
@@ -128,13 +138,13 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     lazer = csv.getText();
                     answerRequests.remove(lazerNao);
-                    answerRequests.add(new AnswerRequest(lazerCurrentResidenceAnswer.getQuestion(),
-                            lazerCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
+                    answerRequests.add(lazerSim);
                     break;
                 } else {
                     recreation = false;
                     csv.setChecked(false);
                     answerRequests.add(lazerNao);
+                    answerRequests.remove(lazerSim);
                     break;
                 }
             case R.id.csvEsporte:
@@ -143,12 +153,12 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     esporte = csv.getText();
                     answerRequests.remove(esporteNao);
-                    answerRequests.add(new AnswerRequest(esporteCurrentResidenceAnswer.getQuestion(),
-                            esporteCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
+                    answerRequests.add(esporteSim);
                     break;
                 } else {
                     recreation = false;
                     answerRequests.add(esporteNao);
+                    answerRequests.remove(esporteSim);
                     csv.setChecked(false);
                     break;
                 }
@@ -157,40 +167,26 @@ public class EquipamentsFragment extends BaseFragment {
                     csv.setChecked(true);
                     seguranca = csv.getText();
                     answerRequests.remove(segurancaNao);
-                    answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(),
-                            segurancaCurrentResidenceAnswer.getQuestionPartId(), "Sim"));
+                    answerRequests.add(segurancaSim);
                     break;
                 } else {
                     csv.setChecked(false);
                     answerRequests.add(segurancaNao);
+                    answerRequests.remove(segurancaSim);
                     break;
                 }
-        }
-    }
-
-    private void removeItem(String question) {
-        int cont = 0;
-        int pos = cont;
-        if (!answerRequests.isEmpty()) {
-            for (AnswerRequest r : answerRequests) {
-                if (r.getDwellerId().equals(question)) {
-                    pos = cont;
-                }
-                cont++;
-            }
-            answerRequests.remove(pos);
         }
     }
 
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-            setAnswer();
-            if (recreation) {
-                ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());
-            } else {
-                ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
-            }
+        setAnswer();
+        if (recreation) {
+            ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());
+        } else {
+            ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)

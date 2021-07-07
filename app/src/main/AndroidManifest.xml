@@ -20,11 +20,13 @@
 
         <activity
             android:name=".ui.aboutyou.AboutYouActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan"/>
 
         <activity
             android:name=".ui.PlayGroundActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan">
 
             <!--            <intent-filter>-->
             <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -35,7 +37,8 @@
 
         <activity
             android:name=".ui.MainActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,17 +48,20 @@
 
         <activity
             android:name=".ui.intro.IntroActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".ui.intro.InfoSaveDataActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".ui.intro.WhatIsThisResearchActivty"
-            android:screenOrientation="landscape" />
-
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".ui.aboutyou.SplashAboutYouActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

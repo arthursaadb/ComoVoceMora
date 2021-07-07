@@ -52,6 +52,7 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
     CustomRadioButton mRbOther;
 
     private StringBuilder answer = new StringBuilder();
+    private List<String> answerList = new ArrayList<>();
     HouseGroupAnswer houseGroupAnswer = HouseGroupAnswer.EQUIPMENTS_TO_ADD;
 
     public static HabitationSatisfactionFragment newInstance() {
@@ -72,6 +73,7 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
     public void init() {
         progressBar.setProgress(HowYouLiveProgressBar.HowYouLive.GROUP);
         tvQuestion.setText(houseGroupAnswer.getQuestion());
+
         mRbChildrenPool.setOnClickListener(this);
         mRbGourmetSpace.setOnClickListener(this);
         mRbGameRoom.setOnClickListener(this);
@@ -89,9 +91,12 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
     @Override
     public void onClick(View v) {
         CustomRadioButton option = (CustomRadioButton) v;
-        if (v.isPressed()) {
-            answer.append(option.getText().toString());
-            answer.append(";");
+        if (option.isPressed()) {
+            if (answerList.contains(option.getText().toString())) {
+                answerList.remove(option.getText().toString());
+            } else {
+                answerList.add(option.getText().toString());
+            }
             updateRbs();
         }
     }
@@ -113,10 +118,15 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-            if (getActivity() != null) {
-                ResearchFlow.addAnswer(new AnswerRequest(houseGroupAnswer.getQuestion(), houseGroupAnswer.getQuestionPartId(), answer.toString()), this);
-                ((AboutYouActivity) getActivity()).addFragment(HabitationEquipmentsMeaningFragment.newInstance());
+        if (getActivity() != null) {
+            for (String text : answerList) {
+                answer.append(text);
+                answer.append(";");
             }
+
+            ResearchFlow.addAnswer(new AnswerRequest(houseGroupAnswer.getQuestion(), houseGroupAnswer.getQuestionPartId(), answer.toString()), this);
+            ((AboutYouActivity) getActivity()).addFragment(HabitationEquipmentsMeaningFragment.newInstance());
+        }
     }
 
     @OnClick(R.id.bt_back)
