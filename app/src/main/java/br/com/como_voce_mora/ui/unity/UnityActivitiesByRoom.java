@@ -101,7 +101,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && !answerRequestsList.isEmpty()) {
             setAnswer();
             if (listRoomType.isEmpty()) {
                 ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsIntroFragment.newInstance());
@@ -357,6 +357,7 @@ public class UnityActivitiesByRoom extends BaseFragment {
         String text = ((CustomSelectedView) view).getText();
         if(view.getId() != R.id.csv12){
             csv12.setChecked(false);
+            answerRequestsList.remove(csv12.getText());
         }
 
         switch (view.getId()) {

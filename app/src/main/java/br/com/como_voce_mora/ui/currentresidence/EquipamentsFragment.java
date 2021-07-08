@@ -181,11 +181,13 @@ public class EquipamentsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        setAnswer();
-        if (recreation) {
-            ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());
-        } else {
-            ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
+        if (!answerRequests.isEmpty()) {
+            setAnswer();
+            if (recreation) {
+                ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());
+            } else {
+                ((AboutYouActivity) requireActivity()).addFragment(ComercialFragment.newInstance());
+            }
         }
     }
 

@@ -4,7 +4,8 @@ import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
-import br.com.como_voce_mora.ui.housegroup.HabitationSatisfactionFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
+import br.com.como_voce_mora.ui.unity.UnityRoomsFragment;
 
 public class AboutYouActivity extends BaseActivity {
     public static final String SCREEN_FRAGMENT = "screen-fragment";
@@ -20,7 +21,7 @@ public class AboutYouActivity extends BaseActivity {
         String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
 
         if (screen == null) {
-            replaceFragment(HabitationSatisfactionFragment.newInstance());
+            replaceFragment(SustainableHabitsIntroFragment.newInstance());
             return;
         }
 

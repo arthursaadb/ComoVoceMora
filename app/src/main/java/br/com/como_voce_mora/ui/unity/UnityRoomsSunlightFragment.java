@@ -47,6 +47,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
 
 
     StringBuilder answerRequests = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
     UnityAnswer unityAnswer = UnityAnswer.BETTER_SUN;
     private boolean anyOptionChecked = false;
 
@@ -78,44 +79,44 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                 if (!csvServico.isChecked()) {
                     anyOptionChecked = true;
                     csvServico.setChecked(true);
-                    answerRequests.append(csvServico.getText());
-                    answerRequests.append(";");
+                    answerList.add(csvServico.getText());
                     break;
                 } else {
                     csvServico.setChecked(false);
+                    answerList.remove(csvServico.getText());
                     break;
                 }
             case R.id.csvBanheiro:
                 if (!csvBanheiro.isChecked()) {
                     anyOptionChecked = true;
                     csvBanheiro.setChecked(true);
-                    answerRequests.append(csvBanheiro.getText());
-                    answerRequests.append(";");
+                    answerList.add(csvBanheiro.getText());
                     break;
                 } else {
                     csvBanheiro.setChecked(false);
+                    answerList.remove(csvBanheiro.getText());
                     break;
                 }
             case R.id.csvCasal:
                 if (!csvCasal.isChecked()) {
                     anyOptionChecked = true;
                     csvCasal.setChecked(true);
-                    answerRequests.append(csvCasal.getText());
-                    answerRequests.append(";");
+                    answerList.add(csvCasal.getText());
                     break;
                 } else {
                     csvCasal.setChecked(false);
+                    answerList.remove(csvBanheiro.getText());
                     break;
                 }
             case R.id.csvSolteiro:
                 if (!csvSolteiro.isChecked()) {
                     anyOptionChecked = true;
                     csvSolteiro.setChecked(true);
-                    answerRequests.append(csvSolteiro.getText());
-                    answerRequests.append(";");
+                    answerList.add(csvSolteiro.getText());
                     break;
                 } else {
                     csvSolteiro.setChecked(false);
+                    answerList.remove(csvSolteiro.getText());
                     break;
                 }
 
@@ -123,11 +124,11 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                 if (!csvSala.isChecked()) {
                     anyOptionChecked = true;
                     csvSala.setChecked(true);
-                    answerRequests.append(csvSala.getText());
-                    answerRequests.append(";");
+                    answerList.add(csvSala.getText());
                     break;
                 } else {
                     csvSala.setChecked(false);
+                    answerList.remove(csvSala.getText());
                     break;
                 }
 
@@ -135,11 +136,11 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                 if (!csvCopa.isChecked()) {
                     anyOptionChecked = true;
                     csvCopa.setChecked(true);
-                    answerRequests.append(csvCopa.getText());
-                    answerRequests.append(";");
+                    answerList.add(csvCopa.getText());
                     break;
                 } else {
                     csvCopa.setChecked(false);
+                    answerList.remove(csvCopa.getText());
                     break;
                 }
 
@@ -147,35 +148,40 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                 if (!csvVaranda.isChecked()) {
                     anyOptionChecked = true;
                     csvVaranda.setChecked(true);
-                    answerRequests.append(csvVaranda.getText());
-                    answerRequests.append(";");
+                    answerList.add(csvVaranda.getText());
                     break;
                 } else {
                     csvVaranda.setChecked(false);
+                    answerList.remove(csvVaranda.getText());
                     break;
                 }
             case R.id.csvCozinha:
                 if (!csvCozinha.isChecked()) {
                     anyOptionChecked = true;
                     csvCozinha.setChecked(true);
-                    answerRequests.append(csvCozinha.getText());
-                    answerRequests.append(";");
+                    answerList.add(csvCozinha.getText());
                     break;
                 } else {
                     csvCozinha.setChecked(false);
+                    answerList.remove(csvCozinha.getText());
                 }
         }
     }
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (!answerList.isEmpty()) {
             setAnswer();
             ((AboutYouActivity) requireActivity()).addFragment(UnityActivitiesByRoom.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
         }
     }
 
     private void setAnswer() {
+        for (String text : answerList) {
+            answerRequests.append(text);
+            answerRequests.append(";");
+        }
+
         ResearchFlow.addAnswer(new AnswerRequest(unityAnswer.getQuestion(),
                 unityAnswer.getQuestionPartId(), answerRequests.toString()), this);
     }

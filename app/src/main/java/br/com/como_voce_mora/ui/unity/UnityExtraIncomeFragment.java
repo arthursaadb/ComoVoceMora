@@ -23,7 +23,7 @@ import butterknife.OnClick;
 
 import static br.com.como_voce_mora.model.UnityAnswer.USE_AS_EXTRA_YES;
 
-public class UnityExtraIncomeFragment extends BaseFragment implements CompoundButton.OnCheckedChangeListener {
+    public class UnityExtraIncomeFragment extends BaseFragment implements CompoundButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar progressBar;
     @BindView(R.id.rbYes)
@@ -54,6 +54,7 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
     private boolean anyOptionCheckedNo = false;
     private AnswerRequest answerRequest;
     private StringBuilder answer = new StringBuilder();
+    private List<String> answerList = new ArrayList<>();
     private UnityAnswer unityAnswer = UnityAnswer.USE_AS_EXTRA;
 
     public static UnityExtraIncomeFragment newInstance() {
@@ -119,50 +120,43 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
                 case R.id.rbEletroPequeno:
                     anyOptionCheckedYesDetails = true;
                     mRbEletroPequeno.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
                     anyOptionCheckedYesDetails = true;
                     mRbEletroGrande.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     anyOptionCheckedYesDetails = true;
                     rbMoveisPequenos.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     anyOptionCheckedYesDetails = true;
                     rbMoveisGrandes.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     anyOptionCheckedYesDetails = true;
                     mRbPortas.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     anyOptionCheckedYesDetails = true;
                     mRbPosicaoRuim.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     anyOptionCheckedYesDetails = true;
                     mRbMoveisNovos.setChecked(true);
-                    answer.append(buttonView.getText().toString());
-                    answer.append(";");
+                    answerList.add(buttonView.getText().toString());
                     updateRbs();
                     break;
             }
@@ -170,30 +164,37 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
             switch (buttonView.getId()) {
                 case R.id.rbEletroPequeno:
                     mRbEletroPequeno.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbEletroGrande:
                     mRbEletroGrande.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisPequeno:
                     rbMoveisPequenos.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisGrandes:
                     rbMoveisGrandes.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbPortas:
                     mRbPortas.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbPosicaoRuim:
                     mRbPosicaoRuim.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
                 case R.id.rbMoveisNovos:
                     mRbMoveisNovos.setChecked(false);
+                    answerList.remove(buttonView.getText().toString());
                     updateRbs();
                     break;
             }
@@ -218,20 +219,19 @@ public class UnityExtraIncomeFragment extends BaseFragment implements CompoundBu
         if (anyOptionCheckedNo) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(answerRequest, this);
-
-                ResearchFlow.addAnswer(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(),
-                        USE_AS_EXTRA_YES.getQuestionPartId(), answer.toString()), this);
-
                 ((AboutYouActivity) getActivity()).addFragment(UnityRateLivingFragment.newInstance());
             }
         } else {
+            for (String value : answerList) {
+                answer.append(value);
+                answer.append(";");
+            }
+
             if (anyOptionCheckedYes && anyOptionCheckedYesDetails) {
                 if (getActivity() != null) {
                     ResearchFlow.addAnswer(answerRequest, this);
-
                     ResearchFlow.addAnswer(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(),
                             USE_AS_EXTRA_YES.getQuestionPartId(), answer.toString()), this);
-
                     ((AboutYouActivity) getActivity()).addFragment(UnityRateLivingFragment.newInstance());
                 }
             }

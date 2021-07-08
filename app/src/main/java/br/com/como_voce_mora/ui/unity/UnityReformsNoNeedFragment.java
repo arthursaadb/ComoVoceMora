@@ -46,6 +46,7 @@ public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRa
 
     private final UnityAnswer unityAnswer = UnityAnswer.WHY_DONT_REFORM;
     private final List<AnswerRequest> answerRequests = new ArrayList<>();
+    private List<String> answerList = new ArrayList<>();
 
     public static UnityReformsNoNeedFragment newInstance(List<UnityAnswer> room) {
         Bundle args = new Bundle();
@@ -76,11 +77,10 @@ public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRa
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             buttonView.setChecked(true);
-            answerRequests.add(new AnswerRequest(unityAnswer.getQuestion(),
-                    unityAnswer.getQuestionPartId(), buttonView.getText().toString()));
+            answerList.add(buttonView.getText().toString());
         } else {
             buttonView.setChecked(false);
-            answerRequests.removeIf(i -> i.getTexto().equals(buttonView.getText().toString()));
+            answerList.remove(buttonView.getText().toString());
         }
 
         updateRbs();
@@ -98,9 +98,12 @@ public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRa
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (!answerRequests.isEmpty()) {
-            for (AnswerRequest r : answerRequests) {
-                ResearchFlow.addAnswer(r, this);
+        if (!answerList.isEmpty()) {
+            for (String r : answerList) {
+                AnswerRequest answer = new AnswerRequest(unityAnswer.getQuestion(),
+                        unityAnswer.getQuestionPartId(), r);
+
+                ResearchFlow.addAnswer(answer, this);
             }
 
             ((AboutYouActivity) requireActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));

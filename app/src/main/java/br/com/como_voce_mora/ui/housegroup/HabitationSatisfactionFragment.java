@@ -118,7 +118,7 @@ public class HabitationSatisfactionFragment extends BaseFragment implements View
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null) {
+        if (getActivity() != null && !answerList.isEmpty()) {
             for (String text : answerList) {
                 answer.append(text);
                 answer.append(";");

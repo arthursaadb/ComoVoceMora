@@ -235,20 +235,17 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if(answerList.size() > 0){
-            for(String value: answerList){
-                answer.append(value);
-                answer.append(";");
-            }
-        }
-
         if (anyOptionCheckedYes) {
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(answerRequest, this);
-                ResearchFlow.addAnswer(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), answer.toString()), this);
                 ((AboutYouActivity) getActivity()).addFragment(UnityExtraIncomeFragment.newInstance());
             }
         } else {
+            for (String value : answerList) {
+                answer.append(value);
+                answer.append(";");
+            }
+
             if (anyOptionCheckedNo && anyOptionCheckedNoDetails) {
                 if (getActivity() != null) {
                     ResearchFlow.addAnswer(answerRequest, this);
