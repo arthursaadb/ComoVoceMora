@@ -105,7 +105,7 @@ public class UnityRoomsSunlightFragment extends BaseFragment {
                     break;
                 } else {
                     csvCasal.setChecked(false);
-                    answerList.remove(csvBanheiro.getText());
+                    answerList.remove(csvCasal.getText());
                     break;
                 }
             case R.id.csvSolteiro:

@@ -4,7 +4,13 @@ import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
+import br.com.como_voce_mora.ui.currentresidence.EquipamentsFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateOilFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.PlantsFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
+import br.com.como_voce_mora.ui.sustainablehabits.WhatYouDoToSaveElectricity;
+import br.com.como_voce_mora.ui.sustainablehabits.WhyYouSaveWaterFragment;
+import br.com.como_voce_mora.ui.unity.UnityActualHouseLivingFragment;
 import br.com.como_voce_mora.ui.unity.UnityRoomsFragment;
 
 public class AboutYouActivity extends BaseActivity {
@@ -21,7 +27,7 @@ public class AboutYouActivity extends BaseActivity {
         String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
 
         if (screen == null) {
-            replaceFragment(WhatYourGenderFragment.newInstance());
+            replaceFragment(PlantsFragment.newInstance());
             return;
         }
 

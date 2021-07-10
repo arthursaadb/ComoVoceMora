@@ -57,6 +57,7 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
     private List<String> answerList = new ArrayList<>();
     private StringBuilder answer = new StringBuilder();
     private UnityAnswer unityAnswer = UnityAnswer.KEEP_FURNISHINGS;
+
     private boolean anyOptionCheckedNo = false;
     private boolean anyOptionCheckedYes = false;
     private boolean anyOptionCheckedNoDetails = false;
@@ -246,7 +247,7 @@ public class UnityActualHouseLivingFragment extends BaseFragment implements Cust
                 answer.append(";");
             }
 
-            if (anyOptionCheckedNo && anyOptionCheckedNoDetails) {
+            if (anyOptionCheckedNo && anyOptionCheckedNoDetails && answerList.size() > 0) {
                 if (getActivity() != null) {
                     ResearchFlow.addAnswer(answerRequest, this);
                     ResearchFlow.addAnswer(new AnswerRequest(KEEP_FURNISHINGS_WHY.getQuestion(), KEEP_FURNISHINGS_WHY.getQuestionPartId(), answer.toString()), this);

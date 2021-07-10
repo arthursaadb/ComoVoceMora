@@ -3,6 +3,9 @@ package br.com.como_voce_mora.ui.sustainablehabits;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -30,6 +33,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.PLANTS_TYPE;
     boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
 
     public static PlantsTypeFragment newInstance() {
         return new PlantsTypeFragment();
@@ -42,7 +46,12 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && anyOptionChecked) {
+        if (getActivity() != null && anyOptionChecked && answerList.size() > 0) {
+            for (String text : answerList) {
+                answer.append(text);
+                answer.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
                     .getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(TransportationFragment.newInstance());
@@ -88,6 +97,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
                     break;
             }
         } else {
+            answerList.remove(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -115,8 +125,7 @@ public class PlantsTypeFragment extends BaseFragment implements CustomRadioButto
     }
 
     private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
+        answerList.add(text);
     }
 
     @OnClick(R.id.btPreviousSession)

@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -28,19 +31,28 @@ import butterknife.OnClick;
  * create an instance of this fragment.
  */
 public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.rbBrushMyTeeth) CustomRadioButton rbBrushMyTeeth;
-    @BindView(R.id.rbDishes) CustomRadioButton rbDishes;
-    @BindView(R.id.rbWashMachineCapacity) CustomRadioButton rbWashMachineCapacity;
-    @BindView(R.id.rbQuickShowers) CustomRadioButton rbQuickShowers;
-    @BindView(R.id.rbFewDevices) CustomRadioButton rbFewDevices;
-    @BindView(R.id.rbOthers) CustomRadioButton rbOthers;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.rbBrushMyTeeth)
+    CustomRadioButton rbBrushMyTeeth;
+    @BindView(R.id.rbDishes)
+    CustomRadioButton rbDishes;
+    @BindView(R.id.rbWashMachineCapacity)
+    CustomRadioButton rbWashMachineCapacity;
+    @BindView(R.id.rbQuickShowers)
+    CustomRadioButton rbQuickShowers;
+    @BindView(R.id.rbFewDevices)
+    CustomRadioButton rbFewDevices;
+    @BindView(R.id.rbOthers)
+    CustomRadioButton rbOthers;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_TYPE;
     AnswerRequest answerRequest;
     boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
 
     public static OrganicFoodTypeFragment newInstance() {
         return new OrganicFoodTypeFragment();
@@ -53,7 +65,12 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && anyOptionChecked) {
+        if (getActivity() != null && anyOptionChecked && answerList.size() > 0) {
+            for (String text : answerList) {
+                answer.append(text);
+                answer.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
         }
@@ -116,6 +133,7 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
                     break;
             }
         } else {
+            answerList.remove(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -161,8 +179,7 @@ public class OrganicFoodTypeFragment extends BaseFragment implements CustomRadio
     }
 
     private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
+        answerList.add(text);
     }
 
     @OnClick(R.id.btPreviousSession)

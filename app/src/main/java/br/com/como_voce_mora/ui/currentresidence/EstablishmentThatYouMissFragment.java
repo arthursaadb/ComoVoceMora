@@ -64,6 +64,8 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
     boolean anyOneSelected = false;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
+    private List<AnswerRequest> answerRequestsYes = new ArrayList<>();
+
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.COMMERCE_TYPE_MISSING;
     private AnswerRequest bancoNao = new AnswerRequest(CurrentResidenceAnswer.BANCO.getQuestion(),
             CurrentResidenceAnswer.BANCO.getQuestionPartId(), "Não");
@@ -169,12 +171,14 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     banco = csvBanco.getText();
                     answerRequests.remove(bancoNao);
                     answerRequests.add(bancoSim);
+                    answerRequestsYes.add(bancoSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvBanco.setChecked(false);
                     answerRequests.add(bancoNao);
                     answerRequests.remove(bancoSim);
+                    answerRequestsYes.remove(bancoSim);
                     break;
                 }
             case R.id.csvLoterica:
@@ -183,12 +187,14 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     loterica = csvLoterica.getText();
                     answerRequests.remove(lotericaNao);
                     answerRequests.add(lotericaSim);
+                    answerRequestsYes.add(lotericaSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvLoterica.setChecked(false);
                     answerRequests.add(lotericaNao);
                     answerRequests.remove(lotericaSim);
+                    answerRequestsYes.remove(lotericaSim);
                     break;
                 }
             case R.id.csvMercado:
@@ -197,12 +203,14 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     mercado = csvMercado.getText();
                     answerRequests.remove(mercadoNao);
                     answerRequests.add(mercadoSim);
+                    answerRequestsYes.add(mercadoSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvMercado.setChecked(false);
                     answerRequests.add(mercadoNao);
                     answerRequests.remove(mercadoSim);
+                    answerRequestsYes.remove(mercadoSim);
                     break;
                 }
             case R.id.csvLoja:
@@ -211,12 +219,14 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     loja = csvLoja.getText();
                     answerRequests.remove(lojaNao);
                     answerRequests.add(lojaSim);
+                    answerRequestsYes.add(lojaSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvLoja.setChecked(false);
                     answerRequests.add(lojaNao);
                     answerRequests.remove(lojaSim);
+                    answerRequestsYes.remove(lojaSim);
                     break;
                 }
             case R.id.csvFarmacia:
@@ -225,12 +235,14 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     farmacia = csvFarmacia.getText();
                     answerRequests.remove(farmaciaNao);
                     answerRequests.add(farmaciaSim);
+                    answerRequestsYes.add(farmaciaSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvFarmacia.setChecked(false);
                     answerRequests.add(farmaciaNao);
                     answerRequests.remove(farmaciaSim);
+                    answerRequestsYes.remove(farmaciaSim);
                     break;
                 }
             case R.id.csvPosto:
@@ -239,12 +251,14 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     posto = csvPosto.getText();
                     answerRequests.remove(postoNao);
                     answerRequests.add(postoSim);
+                    answerRequestsYes.add(postoSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvPosto.setChecked(false);
                     answerRequests.add(postoNao);
                     answerRequests.remove(postoSim);
+                    answerRequestsYes.remove(postoSim);
                     break;
                 }
 
@@ -254,11 +268,13 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     academia = csvAcademia.getText();
                     answerRequests.remove(academiaNao);
                     answerRequests.add(academiaSim);
+                    answerRequestsYes.add(academiaSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvAcademia.setChecked(false);
                     answerRequests.remove(academiaSim);
+                    answerRequestsYes.remove(academiaSim);
                     answerRequests.add(academiaNao);
                     break;
                 }
@@ -269,11 +285,13 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     padaria = csvPadaria.getText();
                     answerRequests.remove(padariaNao);
                     answerRequests.add(padariaSim);
+                    answerRequestsYes.add(padariaSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvPadaria.setChecked(false);
                     answerRequests.remove(padariaSim);
+                    answerRequestsYes.remove(padariaSim);
                     answerRequests.add(padariaNao);
                     break;
                 }
@@ -284,11 +302,13 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     acougue = csvAcougue.getText();
                     answerRequests.remove(acougueNao);
                     answerRequests.add(acougueSim);
+                    answerRequestsYes.add(acougueSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvAcougue.setChecked(false);
                     answerRequests.remove(acougueSim);
+                    answerRequestsYes.remove(acougueSim);
                     answerRequests.add(acougueNao);
                     break;
                 }
@@ -299,11 +319,13 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     restaurante = csvRestaurante.getText();
                     answerRequests.remove(restauranteNao);
                     answerRequests.add(restauranteSim);
+                    answerRequestsYes.add(restauranteSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvRestaurante.setChecked(false);
                     answerRequests.remove(restauranteSim);
+                    answerRequestsYes.remove(restauranteSim);
                     answerRequests.add(restauranteNao);
                     break;
                 }
@@ -314,11 +336,13 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     outros = csvOutros.getText();
                     answerRequests.remove(outrosNao);
                     answerRequests.add(outrosSim);
+                    answerRequestsYes.add(outrosSim);
                     csvNenhum.setChecked(false);
                     break;
                 } else {
                     csvOutros.setChecked(false);
                     answerRequests.remove(outrosSim);
+                    answerRequestsYes.remove(outrosSim);
                     answerRequests.add(outrosNao);
                     break;
                 }
@@ -330,6 +354,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     nenhum = csvNenhum.getText();
 
                     answerRequests.add(nenhumSim);
+                    answerRequestsYes.add(nenhumSim);
                     answerRequests.add(bancoNao);
                     answerRequests.add(lotericaNao);
                     answerRequests.add(mercadoNao);
@@ -346,6 +371,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
                     csvNenhum.setChecked(false);
                     answerRequests.add(nenhumNao);
                     answerRequests.remove(nenhumSim);
+                    answerRequestsYes.remove(nenhumSim);
                     break;
                 }
         }
@@ -368,7 +394,7 @@ public class EstablishmentThatYouMissFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOneSelected) {
+        if (anyOneSelected && answerRequestsYes.size() > 0) {
             setAnswer();
             ((AboutYouActivity) requireActivity()).addFragment(ClassifyAspectesFragment.newInstance());
         }

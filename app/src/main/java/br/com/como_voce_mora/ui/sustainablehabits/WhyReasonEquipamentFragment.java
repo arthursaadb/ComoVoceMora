@@ -3,6 +3,9 @@ package br.com.como_voce_mora.ui.sustainablehabits;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -37,6 +40,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
     AnswerRequest answerRequest;
     private boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
 
     public static WhyReasonEquipamentFragment newInstance() {
         return new WhyReasonEquipamentFragment();
@@ -49,11 +53,14 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
-            if (getActivity() != null) {
-                ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
-                ((AboutYouActivity) requireActivity()).addFragment(DoYouSeparateGarbageFragment.newInstance());
+        if (anyOptionChecked && answerList.size() > 0 && getActivity() != null) {
+            for (String text : answerList) {
+                answer.append(text);
+                answer.append(";");
             }
+
+            ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
+            ((AboutYouActivity) requireActivity()).addFragment(DoYouSeparateGarbageFragment.newInstance());
         }
     }
 
@@ -114,6 +121,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
                     break;
             }
         } else {
+            answerList.remove(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -158,8 +166,7 @@ public class WhyReasonEquipamentFragment extends BaseFragment implements CustomR
     }
 
     private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
+        answerList.add(text);
     }
 
     @OnClick(R.id.btPreviousSession)

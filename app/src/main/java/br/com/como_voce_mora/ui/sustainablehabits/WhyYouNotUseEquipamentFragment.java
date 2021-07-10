@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -40,6 +43,7 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
     AnswerRequest answerRequest;
     private boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
 
     public static WhyYouNotUseEquipamentFragment newInstance() {
         return new WhyYouNotUseEquipamentFragment();
@@ -52,8 +56,12 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && answerList.size() > 0) {
             if (getActivity() != null) {
+                for (String text : answerList) {
+                    answer.append(text);
+                    answer.append(";");
+                }
                 ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
                 ((AboutYouActivity) requireActivity()).addFragment(WhyYouSaveElectricityFragment.newInstance());
             }
@@ -113,10 +121,10 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
                     break;
             }
         } else {
+            answerList.add(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
-
 
                     updateViews();
                     break;
@@ -155,8 +163,7 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
 
 
     private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
+        answerList.add(text);
     }
 
     @OnClick(R.id.btPreviousSession)

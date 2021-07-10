@@ -58,6 +58,8 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
     AnswerRequest answerRequest;
     StringBuilder answerRequestYes = new StringBuilder();
     StringBuilder answerRequestNo = new StringBuilder();
+    List<String> answerRequestYesList = new ArrayList<>();
+    List<String>  answerRequestNoList = new ArrayList<>();
     BaseFragment mNextFragment;
     private boolean anyOptionChecked = false;
     private boolean optionYesChecked = false;
@@ -74,7 +76,7 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && mNextFragment != null && anyOptionChecked && (optionYesChecked || optionNoChecked)) {
+        if (getActivity() != null && mNextFragment != null && anyOptionChecked && (answerRequestYesList.size() > 0 || answerRequestNoList.size() > 0)) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }
@@ -83,13 +85,22 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
     private void setAnswers() {
         ResearchFlow.addAnswer(answerRequest, this);
 
-        if (answerRequestYes.length() != 0) {
+        if (answerRequestYesList.size() != 0) {
+            for(String text: answerRequestYesList){
+                answerRequestYes.append(text);
+                answerRequestYes.append(";");
+            }
             ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.PLANTS_WHY.getQuestion(),
                     SustainableHabitsAnswer.PLANTS_WHY.getQuestionPartId(),
                     answerRequestYes.toString()), this);
         }
 
-        if (answerRequestNo.length() != 0) {
+        if (answerRequestNoList.size() != 0) {
+            for(String text: answerRequestNoList){
+                answerRequestNo.append(text);
+                answerRequestNo.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(SustainableHabitsAnswer.PLANTS_WHY_NOT.getQuestion(),
                             SustainableHabitsAnswer.PLANTS_WHY_NOT.getQuestionPartId(),
                             answerRequestNo.toString()),
@@ -283,15 +294,17 @@ public class PlantsFragment extends BaseFragment implements CustomRadioButton.On
 
     private void setAnswerYes(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestYes.append(text);
-            answerRequestYes.append(";");
+            answerRequestYesList.add(text);
+        } else {
+            answerRequestYesList.remove(text);
         }
     }
 
     private void setAnswerNo(String text, boolean isChecked) {
         if (isChecked) {
-            answerRequestNo.append(text);
-            answerRequestNo.append(";");
+            answerRequestNoList.add(text);
+        } else {
+            answerRequestNoList.remove(text);
         }
     }
 

@@ -34,7 +34,7 @@ public class EquipamentsFragment extends BaseFragment {
     private Boolean recreation = false;
 
     private List<AnswerRequest> answerRequests = new ArrayList<>();
-
+    private List<AnswerRequest> answerRequestsYes = new ArrayList<>();
     private CurrentResidenceAnswer currentResidenceAnswer = CurrentResidenceAnswer.URBAN_EQUIPMENT;
 
     private CurrentResidenceAnswer saudeCurrentResidenceAnswer = CurrentResidenceAnswer.SAUDE;
@@ -99,11 +99,13 @@ public class EquipamentsFragment extends BaseFragment {
                     saude = csv.getText();
                     answerRequests.remove(saudeNao);
                     answerRequests.add(saudeSim);
+                    answerRequestsYes.add(saudeSim);
                     break;
                 } else {
                     csv.setChecked(false);
                     answerRequests.add(saudeNao);
                     answerRequests.remove(saudeSim);
+                    answerRequestsYes.remove(saudeSim);
                     break;
                 }
             case R.id.csvEscola:
@@ -112,11 +114,13 @@ public class EquipamentsFragment extends BaseFragment {
                     escola = csv.getText();
                     answerRequests.remove(escolaNao);
                     answerRequests.add(escolaSim);
+                    answerRequestsYes.add(escolaSim);
                     break;
                 } else {
                     csv.setChecked(false);
                     answerRequests.remove(escolaSim);
                     answerRequests.add(escolaNao);
+                    answerRequestsYes.remove(escolaSim);
                     break;
                 }
             case R.id.csvCultura:
@@ -125,11 +129,13 @@ public class EquipamentsFragment extends BaseFragment {
                     cultura = csv.getText();
                     answerRequests.remove(culturaNao);
                     answerRequests.add(culturaSim);
+                    answerRequestsYes.add(culturaSim);
                     break;
                 } else {
                     csv.setChecked(false);
                     answerRequests.add(culturaNao);
                     answerRequests.remove(culturaSim);
+                    answerRequestsYes.remove(culturaSim);
                     break;
                 }
             case R.id.csvLazer:
@@ -139,12 +145,14 @@ public class EquipamentsFragment extends BaseFragment {
                     lazer = csv.getText();
                     answerRequests.remove(lazerNao);
                     answerRequests.add(lazerSim);
+                    answerRequestsYes.add(lazerSim);
                     break;
                 } else {
                     recreation = false;
                     csv.setChecked(false);
                     answerRequests.add(lazerNao);
                     answerRequests.remove(lazerSim);
+                    answerRequestsYes.remove(lazerSim);
                     break;
                 }
             case R.id.csvEsporte:
@@ -154,11 +162,13 @@ public class EquipamentsFragment extends BaseFragment {
                     esporte = csv.getText();
                     answerRequests.remove(esporteNao);
                     answerRequests.add(esporteSim);
+                    answerRequestsYes.add(esporteSim);
                     break;
                 } else {
                     recreation = false;
                     answerRequests.add(esporteNao);
                     answerRequests.remove(esporteSim);
+                    answerRequestsYes.remove(esporteSim);
                     csv.setChecked(false);
                     break;
                 }
@@ -168,11 +178,13 @@ public class EquipamentsFragment extends BaseFragment {
                     seguranca = csv.getText();
                     answerRequests.remove(segurancaNao);
                     answerRequests.add(segurancaSim);
+                    answerRequestsYes.add(segurancaSim);
                     break;
                 } else {
                     csv.setChecked(false);
                     answerRequests.add(segurancaNao);
                     answerRequests.remove(segurancaSim);
+                    answerRequestsYes.remove(segurancaSim);
                     break;
                 }
         }
@@ -181,7 +193,7 @@ public class EquipamentsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (!answerRequests.isEmpty()) {
+        if (!answerRequestsYes.isEmpty() ) {
             setAnswer();
             if (recreation) {
                 ((AboutYouActivity) requireActivity()).addFragment(WhatsYourSatisfactionFragment.newInstance());

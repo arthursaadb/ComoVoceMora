@@ -38,6 +38,7 @@ public class UnityRoomsFragment extends BaseFragment {
 
     List<UnityAnswer> roomList = new ArrayList<>();
     List<AnswerRequest> answerRequests = new ArrayList<>();
+    List<AnswerRequest> answerRequestsYes = new ArrayList<>();
     UnityAnswer question = UnityAnswer.EXISTING_ROOMS;
     private boolean anyOptionChecked = false;
 
@@ -104,41 +105,49 @@ public class UnityRoomsFragment extends BaseFragment {
                     roomList.add(CHARACTERISTICS_SATISFACTION_SERVICE_AREA);
                     answerRequests.remove(areaServicoNao);
                     answerRequests.add(areaServicoSim);
+                    answerRequestsYes.add(areaServicoSim);
                     break;
                 case R.id.csvBanheiro:
                     roomList.add(CHARACTERISTICS_SATISFACTION_BATHROOM);
                     answerRequests.remove(banheirosNao);
                     answerRequests.add(banheirosSim);
+                    answerRequestsYes.add(banheirosSim);
                     break;
                 case R.id.csvCasal:
                     roomList.add(CHARACTERISTICS_SATISFACTION_BIGROOM);
                     answerRequests.remove(quartoCasalNao);
                     answerRequests.add(quartoCasalSim);
+                    answerRequestsYes.add(quartoCasalSim);
                     break;
                 case R.id.csvSolteiro:
                     roomList.add(CHARACTERISTICS_SATISFACTION_SINGLEROMM);
                     answerRequests.remove(quartoSolteiroNao);
                     answerRequests.add(quartoSolteiroSim);
+                    answerRequestsYes.add(quartoSolteiroSim);
                     break;
                 case R.id.csvSala:
                     roomList.add(CHARACTERISTICS_SATISFACTION_ROOM);
                     answerRequests.remove(salaTvNao);
                     answerRequests.add(salaTvSim);
+                    answerRequestsYes.add(salaTvSim);
                     break;
                 case R.id.csvCopa:
                     roomList.add(CHARACTERISTICS_SATISFACTION_DINNERROOM);
                     answerRequests.remove(salaJantarNao);
                     answerRequests.add(salaJantarSim);
+                    answerRequestsYes.add(salaJantarSim);
                     break;
                 case R.id.csvVaranda:
                     roomList.add(CHARACTERISTICS_SATISFACTION_BALCONY);
                     answerRequests.remove(varandaNao);
                     answerRequests.add(varandaSim);
+                    answerRequestsYes.add(varandaSim);
                     break;
                 case R.id.csvCozinha:
                     roomList.add(CHARACTERISTICS_SATISFACTION_KITCHEN);
                     answerRequests.remove(cozinhaNao);
                     answerRequests.add(cozinhaSim);
+                    answerRequestsYes.add(cozinhaSim);
                     break;
             }
         } else {
@@ -149,41 +158,49 @@ public class UnityRoomsFragment extends BaseFragment {
                     roomList.remove(CHARACTERISTICS_SATISFACTION_SERVICE_AREA);
                     answerRequests.add(areaServicoNao);
                     answerRequests.remove(areaServicoSim);
+                    answerRequestsYes.remove(areaServicoSim);
                     break;
                 case R.id.csvBanheiro:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_BATHROOM);
                     answerRequests.add(banheirosNao);
                     answerRequests.remove(banheirosSim);
+                    answerRequestsYes.remove(banheirosSim);
                     break;
                 case R.id.csvCasal:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_BIGROOM);
                     answerRequests.add(quartoCasalNao);
                     answerRequests.remove(quartoCasalSim);
+                    answerRequestsYes.remove(quartoCasalSim);
                     break;
                 case R.id.csvSolteiro:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_SINGLEROMM);
                     answerRequests.add(quartoSolteiroNao);
                     answerRequests.remove(quartoSolteiroSim);
+                    answerRequestsYes.remove(quartoSolteiroSim);
                     break;
                 case R.id.csvSala:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_ROOM);
                     answerRequests.add(salaTvNao);
                     answerRequests.remove(salaTvSim);
+                    answerRequestsYes.remove(salaTvSim);
                     break;
                 case R.id.csvCopa:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_DINNERROOM);
                     answerRequests.add(salaJantarNao);
                     answerRequests.remove(salaJantarSim);
+                    answerRequestsYes.remove(salaJantarSim);
                     break;
                 case R.id.csvVaranda:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_BALCONY);
                     answerRequests.add(varandaNao);
                     answerRequests.remove(varandaSim);
+                    answerRequestsYes.remove(varandaSim);
                     break;
                 case R.id.csvCozinha:
                     roomList.remove(CHARACTERISTICS_SATISFACTION_KITCHEN);
                     answerRequests.add(cozinhaNao);
                     answerRequests.remove(cozinhaSim);
+                    answerRequestsYes.remove(cozinhaSim);
                     break;
             }
         }
@@ -192,7 +209,7 @@ public class UnityRoomsFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (!answerRequests.isEmpty()) {
+        if (!answerRequests.isEmpty() && answerRequestsYes.size() > 0) {
             setAnswer();
             ((AboutYouActivity) requireActivity()).addFragment(UnityRateRoomsFragment.newInstance(roomList));
         }

@@ -1,13 +1,10 @@
 package br.com.como_voce_mora.ui.sustainablehabits;
 
-import androidx.fragment.app.Fragment;
-
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import br.com.como_voce_mora.R;
@@ -22,11 +19,6 @@ import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DoYouSeparateOilFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -57,8 +49,10 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.SEPARATE_OIL;
     AnswerRequest answerRequest;
+
     List<String> answerRequestYesList = new ArrayList<>();
     List<String> answerRequestNoList = new ArrayList<>();
+
     StringBuilder answerRequestYes = new StringBuilder();
     StringBuilder answerRequestNo = new StringBuilder();
     BaseFragment mNextFragment;
@@ -74,7 +68,7 @@ public class DoYouSeparateOilFragment extends BaseFragment implements CustomRadi
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && mNextFragment != null) {
+        if (getActivity() != null && mNextFragment != null && answerRequest != null && answerRequestYesList.size() > 0 || answerRequestNoList.size() > 0) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }

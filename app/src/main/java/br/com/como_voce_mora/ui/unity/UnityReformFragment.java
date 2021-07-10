@@ -123,7 +123,7 @@ public class UnityReformFragment extends BaseFragment implements CompoundButton.
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && answerList.size() > 0) {
             if (getActivity() != null) {
                 setAnswer();
                 if (none) {

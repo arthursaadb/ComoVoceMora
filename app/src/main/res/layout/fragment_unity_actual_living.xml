@@ -67,7 +67,7 @@
                 android:id="@+id/rbMoveisGrandes"
                 style="@style/CustomRadioButton"
                 android:gravity="center"
-                android:text="Posição ruim de portas e janelas”"
+                android:text="Posição ruim de portas e janelas"
                 app:layout_constraintStart_toEndOf="@id/rbEletroPequeno"
                 app:layout_constraintTop_toTopOf="@id/rbEletroPequeno" />
 

@@ -5,6 +5,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -38,6 +41,7 @@ public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRad
     AnswerRequest answerRequest;
     private boolean anyOptionChecked = false;
     StringBuilder answer = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
 
     public static OrganicFoodWhyNotFragment newInstance() {
         return new OrganicFoodWhyNotFragment();
@@ -50,8 +54,12 @@ public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRad
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && answerList.size() > 0) {
             if (getActivity() != null) {
+                for (String text : answerList) {
+                    answer.append(text);
+                    answer.append(";");
+                }
                 ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
                 ((AboutYouActivity) requireActivity()).addFragment(OrganicFoodTransportFragment.newInstance());
             }
@@ -103,6 +111,7 @@ public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRad
                     break;
             }
         } else {
+            answerList.remove(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -136,8 +145,7 @@ public class OrganicFoodWhyNotFragment extends BaseFragment implements CustomRad
     }
 
     private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
+        answerList.add(text);
     }
 
     @OnClick(R.id.btPreviousSession)

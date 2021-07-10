@@ -63,9 +63,9 @@ public class ConstructionFragment extends BaseFragment implements CustomRadioBut
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && answerList.size() > 0) {
             if (getActivity() != null) {
-                for(String value: answerList){
+                for (String value : answerList) {
                     answer.append(value);
                     answer.append(";");
                 }

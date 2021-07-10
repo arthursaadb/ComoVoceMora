@@ -45,6 +45,7 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHAT_YOU_DO_TO_SAVE_WATER;
     StringBuilder answer = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
     private boolean anyOptionChecked = false;
     AnswerRequest answerRequest;
     List<BaseFragment> mNextFragments = new ArrayList<>();
@@ -66,7 +67,12 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && answerList.size() > 0) {
+            for (String text : answerList) {
+                answer.append(text);
+                answer.append(";");
+            }
+
             if (getActivity() != null) {
                 ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(),
                         sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
@@ -145,6 +151,8 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
                     break;
             }
         } else {
+            answerList.remove(buttonView.getText().toString());
+
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -196,8 +204,7 @@ public class WhatYouDoToSaveWater extends BaseFragment implements CustomRadioBut
     }
 
     private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
+        answerList.add(text);
     }
 
     @OnClick(R.id.btPreviousSession)

@@ -227,7 +227,7 @@ import static br.com.como_voce_mora.model.UnityAnswer.USE_AS_EXTRA_YES;
                 answer.append(";");
             }
 
-            if (anyOptionCheckedYes && anyOptionCheckedYesDetails) {
+            if (anyOptionCheckedYes && anyOptionCheckedYesDetails && answerList.size() > 0) {
                 if (getActivity() != null) {
                     ResearchFlow.addAnswer(answerRequest, this);
                     ResearchFlow.addAnswer(new AnswerRequest(USE_AS_EXTRA_YES.getQuestion(),

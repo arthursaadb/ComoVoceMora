@@ -71,7 +71,7 @@ public class WhyYouSaveWaterFragment extends BaseFragment implements CustomRadio
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && mNextFragment != null && anyOptionChecked && (optionYesChecked || optionNoChecked)) {
+        if (getActivity() != null && mNextFragment != null && anyOptionChecked && (answerListYes.size() > 0 || answerListNo.size() > 0)) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }

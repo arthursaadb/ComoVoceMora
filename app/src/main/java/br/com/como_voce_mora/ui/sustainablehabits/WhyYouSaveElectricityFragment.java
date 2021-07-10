@@ -77,7 +77,7 @@ public class WhyYouSaveElectricityFragment extends BaseFragment implements Custo
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && mNextFragment != null && anyOptionChecked && (optionYesChecked || optionNoChecked)) {
+        if (getActivity() != null && mNextFragment != null && anyOptionChecked && (answerRequestYesList.size() > 0 || answerRequestNoList.size() > 0)) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }

@@ -71,7 +71,7 @@ public class DoYouSeparateGarbageFragment extends BaseFragment implements Custom
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && mNextFragment != null) {
+        if (getActivity() != null && mNextFragment != null && answerRequest != null && answerRequestYesList.size() > 0 || answerRequestNoList.size() > 0) {
             setAnswers();
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
         }

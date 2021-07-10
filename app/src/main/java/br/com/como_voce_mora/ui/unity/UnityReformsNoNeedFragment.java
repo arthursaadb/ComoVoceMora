@@ -43,6 +43,10 @@ public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRa
     CustomRadioButton rb5;
     @BindView(R.id.rbSacada)
     CustomRadioButton rb6;
+    @BindView(R.id.rbNew1)
+    CustomRadioButton rb7;
+    @BindView(R.id.rbNew2)
+    CustomRadioButton rb8;
 
     private final UnityAnswer unityAnswer = UnityAnswer.WHY_DONT_REFORM;
     private final List<AnswerRequest> answerRequests = new ArrayList<>();
@@ -71,6 +75,8 @@ public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRa
         rb4.setOnCheckedChangeListener(this);
         rb5.setOnCheckedChangeListener(this);
         rb6.setOnCheckedChangeListener(this);
+        rb7.setOnCheckedChangeListener(this);
+        rb8.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -93,6 +99,8 @@ public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRa
         rb4.updateView();
         rb5.updateView();
         rb6.updateView();
+        rb7.updateView();
+        rb8.updateView();
     }
 
 

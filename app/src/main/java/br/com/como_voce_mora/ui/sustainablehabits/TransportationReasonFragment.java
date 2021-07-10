@@ -52,6 +52,7 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
 
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.TRANSPORTATION_REASON;
     StringBuilder answer = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
     boolean anyOptionChecked = false;
 
     public static TransportationReasonFragment newInstance() {
@@ -65,7 +66,11 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && anyOptionChecked) {
+        if (getActivity() != null && anyOptionChecked && answerList.size() > 0) {
+            for (String text : answerList) {
+                answer.append(text);
+                answer.append(";");
+            }
             ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(SustainableHabitsEndFragment.newInstance());
         }
@@ -200,12 +205,11 @@ public class TransportationReasonFragment extends BaseFragment implements Custom
     }
 
     private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
+        answerList.add(text);
     }
 
     private void removeAnswer(String text) {
-
+        answerList.remove(text);
     }
 
     @OnClick(R.id.btPreviousSession)

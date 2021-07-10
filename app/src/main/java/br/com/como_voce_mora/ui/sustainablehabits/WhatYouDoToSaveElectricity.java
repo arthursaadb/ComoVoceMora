@@ -3,6 +3,9 @@ package br.com.como_voce_mora.ui.sustainablehabits;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.custom.CustomRadioButton;
 import br.com.como_voce_mora.custom.HowYouLiveProgressBar;
@@ -34,6 +37,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.WHAT_YOU_DO_TO_SAVE_ELECTRICITY;
     BaseFragment mNextFragment = DoYouKnowEquipamentLifecycleFragment.newInstance();
     StringBuilder answer = new StringBuilder();
+    List<String> answerList = new ArrayList<>();
 
     public static WhatYouDoToSaveElectricity newInstance() {
         return new WhatYouDoToSaveElectricity();
@@ -46,7 +50,12 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && mNextFragment != null) {
+        if (getActivity() != null && mNextFragment != null && answerList.size() > 0) {
+            for (String text : answerList) {
+                answer.append(text);
+                answer.append(";");
+            }
+
             ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer
                     .getQuestionPartId(), answer.toString()), this);
             ((AboutYouActivity) requireActivity()).addFragment(mNextFragment);
@@ -104,6 +113,7 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
                     break;
             }
         } else {
+            removeAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);
@@ -135,17 +145,21 @@ public class WhatYouDoToSaveElectricity extends BaseFragment implements CustomRa
         }
     }
 
+    private void removeAnswer(String toString) {
+        answerList.remove(toString);
+    }
+
+
+    private void setAnswer(String text) {
+        answerList.add(text);
+    }
+
     private void updateViews() {
         rbBrushMyTeeth.updateView();
         rbDishes.updateView();
         rbWashMachineCapacity.updateView();
         rbQuickShowers.updateView();
         rbOthers.updateView();
-    }
-
-    private void setAnswer(String text) {
-        answer.append(text);
-        answer.append(";");
     }
 
     @OnClick(R.id.btPreviousSession)

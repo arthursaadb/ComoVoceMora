@@ -10,33 +10,33 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbYes"
         style="@style/CustomRadioButton"
+        android:layout_marginStart="@dimen/default_margin"
         android:gravity="center"
         android:text="Limitações estruturais"
+        app:layout_constraintBottom_toBottomOf="@id/bt_next"
         app:layout_constraintEnd_toStartOf="@id/rbNo"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintBottom_toBottomOf="@id/bt_next"
-        android:layout_marginStart="@dimen/default_margin"
         app:layout_constraintStart_toEndOf="@id/iv_mr_clipboard"
-        app:layout_constraintTop_toTopOf="@id/bt_next" />
+        app:layout_constraintTop_toBottomOf="@id/tv_question" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbNo"
         style="@style/CustomRadioButton"
-        android:gravity="center"
         android:layout_marginStart="@dimen/default_margin"
-        app:layout_constraintEnd_toStartOf="@id/rbParedes"
+        android:gravity="center"
         android:text="Limitações de área"
         app:layout_constraintBottom_toBottomOf="@id/rbYes"
+        app:layout_constraintEnd_toStartOf="@id/rbParedes"
         app:layout_constraintStart_toEndOf="@id/rbYes" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbParedes"
         style="@style/CustomRadioButton"
-        android:gravity="center"
         android:layout_marginStart="@dimen/default_margin"
-        app:layout_constraintEnd_toEndOf="@+id/bt_next"
+        android:gravity="center"
         android:text="Poucas paredes livres"
         app:layout_constraintBottom_toBottomOf="@id/rbYes"
+        app:layout_constraintEnd_toEndOf="@+id/bt_next"
         app:layout_constraintStart_toEndOf="@id/rbNo" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
@@ -47,6 +47,23 @@
         android:text="Disposição ruim de portas"
         app:layout_constraintStart_toStartOf="@id/rbYes"
         app:layout_constraintTop_toBottomOf="@id/rbYes" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbNew1"
+        style="@style/CustomRadioButton"
+        android:gravity="center"
+        android:text="Limitações financeiras"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+        app:layout_constraintStart_toStartOf="@id/rbYes"
+        app:layout_constraintTop_toBottomOf="@id/rbPortas" />
+
+    <br.com.como_voce_mora.custom.CustomRadioButton
+        android:id="@+id/rbNew2"
+        style="@style/CustomRadioButton"
+        android:gravity="center"
+        android:text="Limitações financeiras"
+        app:layout_constraintStart_toStartOf="@id/rbJanelas"
+        app:layout_constraintTop_toTopOf="@id/rbNew1" />
 
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbJanelas"
@@ -60,8 +77,8 @@
     <br.com.como_voce_mora.custom.CustomRadioButton
         android:id="@+id/rbSacada"
         style="@style/CustomRadioButton"
-        android:layout_marginTop="@dimen/default_margin"
         android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
         android:gravity="center"
         android:text="Ausência de sacada"
         app:layout_constraintStart_toEndOf="@id/rbJanelas"
