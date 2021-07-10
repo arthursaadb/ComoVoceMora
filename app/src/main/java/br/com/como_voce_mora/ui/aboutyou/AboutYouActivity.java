@@ -27,7 +27,7 @@ public class AboutYouActivity extends BaseActivity {
         String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
 
         if (screen == null) {
-            replaceFragment(PlantsFragment.newInstance());
+            replaceFragment(WhatYourGenderFragment.newInstance());
             return;
         }
 
