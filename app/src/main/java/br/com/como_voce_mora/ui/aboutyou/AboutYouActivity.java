@@ -30,7 +30,7 @@ public class AboutYouActivity extends BaseActivity {
         String screen = getIntent().getStringExtra(SCREEN_FRAGMENT);
 
         if (screen == null) {
-            replaceFragment(HabitationEquipmentsMeaningFragment.newInstance());
+            replaceFragment(WhatYourGenderFragment.newInstance());
             return;
         }
 
