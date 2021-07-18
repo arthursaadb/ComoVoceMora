@@ -41,7 +41,7 @@ public class UnityHouseLivingFragment extends BaseFragment {
     List<Button> mButtons;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
-
+    List<Integer> list = new ArrayList<>();
     String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
     private UnityAnswer unityAnswer = UnityAnswer.HOME_TYPE;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
@@ -64,6 +64,12 @@ public class UnityHouseLivingFragment extends BaseFragment {
             for (Button b : mButtons) {
                 if (b.getText().equals(xqdl)) {
                     b.setVisibility(View.VISIBLE);
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i) == b.getId()) {
+                            list.remove(i);
+                            break;
+                        }
+                    }
                 }
             }
         });
@@ -71,7 +77,7 @@ public class UnityHouseLivingFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && list.size() == 4) {
             if (getActivity() != null) {
                 setAnswers();
                 ((AboutYouActivity) getActivity()).addFragment(UnityAdaptFragment.newInstance());
@@ -136,6 +142,14 @@ public class UnityHouseLivingFragment extends BaseFragment {
         anyOptionChecked = true;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
+
+        if (list.size() == 4) {
+            TextView myTextView = (TextView) getView().findViewById(list.get(3));
+            myTextView.setVisibility(View.VISIBLE);
+            list.remove(3);
+        }
+
+        list.add(textView.getId());
     }
 
     @OnClick(R.id.btPreviousSession)

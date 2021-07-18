@@ -61,7 +61,7 @@
         android:id="@+id/rbNew2"
         style="@style/CustomRadioButton"
         android:gravity="center"
-        android:text="Limitações financeiras"
+        android:text="Outro"
         app:layout_constraintStart_toStartOf="@id/rbJanelas"
         app:layout_constraintTop_toTopOf="@id/rbNew1" />
 

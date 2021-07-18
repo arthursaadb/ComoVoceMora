@@ -25,12 +25,18 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class OrganicFoodTransportFragment extends BaseFragment {
-    @BindView(R.id.progress_bar) HowYouLiveProgressBar mProgress;
-    @BindView(R.id.cvsSolarPlates) CustomSelectedView cvsSolarPlates;
-    @BindView(R.id.csvPhotovoltaicPanels) CustomSelectedView csvPhotovoltaicPanels;
-    @BindView(R.id.csvSystems) CustomSelectedView csvSystems;
-    @BindView(R.id.cvsNone) CustomSelectedView cvsNone;
-    @BindView(R.id.tv_question) TextView mTvQuestion;
+    @BindView(R.id.progress_bar)
+    HowYouLiveProgressBar mProgress;
+    @BindView(R.id.cvsSolarPlates)
+    CustomSelectedView cvsSolarPlates;
+    @BindView(R.id.csvPhotovoltaicPanels)
+    CustomSelectedView csvPhotovoltaicPanels;
+    @BindView(R.id.csvSystems)
+    CustomSelectedView csvSystems;
+    @BindView(R.id.cvsNone)
+    CustomSelectedView cvsNone;
+    @BindView(R.id.tv_question)
+    TextView mTvQuestion;
 
     private String saude = "";
     private String escola = "";
@@ -38,6 +44,7 @@ public class OrganicFoodTransportFragment extends BaseFragment {
     private String lazer = "";
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.ORGANIC_FOOD_TRANSPORT;
     private StringBuilder answer = new StringBuilder();
+    private List<String> answerList = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private boolean anyOptionChecked = false;
 
@@ -65,48 +72,44 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     saude = csv.getText();
-                    answer.append(saude);
-                    answer.append(";");
+                    answerList.add(csv.getText());
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    answerList.remove(csv.getText());
                     break;
                 }
             case R.id.csvPhotovoltaicPanels:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     escola = csv.getText();
-                    answer.append(escola);
-                    answer.append(";");
+                    answerList.add(csv.getText());
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    answerList.remove(csv.getText());
                     break;
                 }
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     cultura = csv.getText();
-                    answer.append(cultura);
-                    answer.append(";");
+                    answerList.add(csv.getText());
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    answerList.remove(csv.getText());
                     break;
                 }
             case R.id.cvsNone:
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
-                    lazer = csv.getText();
-                    answer.append(lazer);
+                    answerList.add(csv.getText());
                     answer.append(";");
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    answerList.remove(csv.getText());
                     break;
                 }
         }
@@ -115,7 +118,12 @@ public class OrganicFoodTransportFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && answerList.size() > 0) {
+            for (String text : answerList) {
+                answer.append(text);
+                answer.append(";");
+            }
+
             setAnswer();
             ((AboutYouActivity) requireActivity()).addFragment(PlantsFragment.newInstance());
         }
@@ -125,20 +133,6 @@ public class OrganicFoodTransportFragment extends BaseFragment {
     public void onBtBackClicked() {
         if (getActivity() != null) {
             getActivity().onBackPressed();
-        }
-    }
-
-    private void removeItem(String question) {
-        int cont = 0;
-        int pos = cont;
-        if (!answerRequests.isEmpty()) {
-            for (AnswerRequest r : answerRequests) {
-                if (r.getDwellerId().equals(question)) {
-                    pos = cont;
-                }
-                cont++;
-            }
-            answerRequests.remove(pos);
         }
     }
 

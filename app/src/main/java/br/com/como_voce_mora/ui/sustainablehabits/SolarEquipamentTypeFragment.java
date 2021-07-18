@@ -43,8 +43,7 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
     private String lazer = "";
     SustainableHabitsAnswer sustainableHabitsAnswer = SustainableHabitsAnswer.EQUIPMENT_SOLAR_ENERGY;
     private BaseFragment mNextFrag;
-    private AnswerRequest answerRequest;
-    private List<AnswerRequest> answerRequests = new ArrayList<>();
+    private List<String> answerList = new ArrayList<>();
     private boolean anyOptionChecked = false;
     private BaseFragment nextFragment;
 
@@ -71,62 +70,63 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.cvsSolarPlates:
                 if (!csv.isChecked()) {
+                    answerList.clear();
                     mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
                     csvSobrado.setChecked(false);
                     csvVila.setChecked(false);
                     csvTerreo.setChecked(false);
-                    saude = csv.getText();
-                    answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), saude);
+                    answerList.add(csv.getText());
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    answerList.remove(csv.getText());
                     break;
                 }
             case R.id.csvPhotovoltaicPanels:
                 if (!csv.isChecked()) {
+                    answerList.clear();
                     mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
                     escola = csv.getText();
                     csvCasaGerminada.setChecked(false);
                     csvVila.setChecked(false);
                     csvTerreo.setChecked(false);
-                    answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), escola);
+                    answerList.add(csv.getText());
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    answerList.remove(csv.getText());
                     break;
                 }
             case R.id.csvSystems:
                 if (!csv.isChecked()) {
+                    answerList.clear();
                     csv.setChecked(true);
                     csvCasaGerminada.setChecked(false);
                     csvSobrado.setChecked(false);
                     csvTerreo.setChecked(false);
                     mNextFrag = DoYouSeparateGarbageFragment.newInstance();
-                    cultura = csv.getText();
-                    answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), cultura);
+                    answerList.add(csv.getText());
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    answerList.remove(csv.getText());
                     break;
                 }
             case R.id.cvsNone:
                 if (!csv.isChecked()) {
+                    answerList.clear();
                     mNextFrag = WhyReasonEquipamentFragment.newInstance();
                     csv.setChecked(true);
                     csvCasaGerminada.setChecked(false);
                     csvSobrado.setChecked(false);
                     csvVila.setChecked(false);
-                    lazer = csv.getText();
-                    answerRequest = new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), lazer);
+                    answerList.add(csv.getText());
                     break;
                 } else {
                     csv.setChecked(false);
-                    removeItem(sustainableHabitsAnswer.getQuestion());
+                    answerList.remove(csv.getText());
                     break;
                 }
         }
@@ -135,8 +135,8 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
-            setAnswer();
+        if (anyOptionChecked && !answerList.isEmpty()) {
+            setAnswer(answerList.get(0));
             ((AboutYouActivity) requireActivity()).addFragment(mNextFrag);
         }
     }
@@ -148,22 +148,8 @@ public class SolarEquipamentTypeFragment extends BaseFragment {
         }
     }
 
-    private void removeItem(String question) {
-        int cont = 0;
-        int pos = cont;
-        if (!answerRequests.isEmpty()) {
-            for (AnswerRequest r : answerRequests) {
-                if (r.getDwellerId().equals(question)) {
-                    pos = cont;
-                }
-                cont++;
-            }
-            answerRequests.remove(pos);
-        }
-    }
-
-    private void setAnswer() {
-        ResearchFlow.addAnswer(answerRequest, this);
+    private void setAnswer(String text) {
+        ResearchFlow.addAnswer(new AnswerRequest(sustainableHabitsAnswer.getQuestion(), sustainableHabitsAnswer.getQuestionPartId(), text), this);
     }
 
     @OnClick(R.id.btPreviousSession)

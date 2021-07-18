@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +54,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
 
     private boolean anyOptionChecked = false;
     String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
+    List<Integer> list = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
 
     public static HabitationEquipmentsMeaningFragment newInstance() {
@@ -75,6 +78,12 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
             for (Button b : mButtons) {
                 if (b.getText().equals(xqdl)) {
                     b.setVisibility(View.VISIBLE);
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i) == b.getId()) {
+                            list.remove(i);
+                            break;
+                        }
+                    }
                 }
             }
         });
@@ -82,7 +91,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked) {
+        if (anyOptionChecked && list.size() == 4) {
             if (getActivity() != null) {
                 setAnswers();
                 ((AboutYouActivity) getActivity()).addFragment(HabitationGreenAreaFragment.newInstance());
@@ -143,6 +152,14 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
         Button textView = (Button) view;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
+
+        if (list.size() == 4) {
+            TextView myTextView = (TextView) getView().findViewById(list.get(3));
+            myTextView.setVisibility(View.VISIBLE);
+            list.remove(3);
+        }
+
+        list.add(textView.getId());
     }
 
     @OnClick(R.id.btPreviousSession)

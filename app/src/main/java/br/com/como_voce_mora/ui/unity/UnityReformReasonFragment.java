@@ -33,7 +33,7 @@ public class UnityReformReasonFragment extends BaseFragment {
     List<Button> mButtons;
     @BindView(R.id.tv_question)
     TextView tvQuestion;
-
+    List<Integer> list = new ArrayList<>();
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
     private UnityAnswer unityAnswer = UnityAnswer.REFORM_REASON;
@@ -69,6 +69,12 @@ public class UnityReformReasonFragment extends BaseFragment {
             for (Button b : mButtons) {
                 if (b.getText().equals(xqdl)) {
                     b.setVisibility(View.VISIBLE);
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i) == b.getId()) {
+                            list.remove(i);
+                            break;
+                        }
+                    }
                 }
             }
         });
@@ -122,7 +128,7 @@ public class UnityReformReasonFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && anyOptionChecked) {
+        if (getActivity() != null && anyOptionChecked && list.size() == 4) {
             setAnswers();
             ((AboutYouActivity) getActivity()).addFragment(UnityReformssNeeds.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
         }
@@ -135,6 +141,14 @@ public class UnityReformReasonFragment extends BaseFragment {
         Button textView = (Button) view;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
+
+        if (list.size() == 4) {
+            TextView myTextView = (TextView) getView().findViewById(list.get(3));
+            myTextView.setVisibility(View.VISIBLE);
+            list.remove(3);
+        }
+
+        list.add(textView.getId());
     }
 
     @OnClick(R.id.btPreviousSession)

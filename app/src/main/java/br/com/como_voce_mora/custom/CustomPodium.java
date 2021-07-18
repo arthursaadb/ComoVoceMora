@@ -12,7 +12,6 @@ import butterknife.ButterKnife;
 
 public class CustomPodium extends RelativeLayout {
 
-
     @BindView(R.id.btFirstPlace)
     Button btFirstPlace;
     @BindView(R.id.btSecondPlace)
@@ -24,7 +23,7 @@ public class CustomPodium extends RelativeLayout {
 
     String[] podium = new String[4];
     OnPodiumListener onPodiumListener;
-
+    Boolean[] availablePosition = new Boolean[4];
 
     public CustomPodium(Context context) {
         super(context);
@@ -63,8 +62,19 @@ public class CustomPodium extends RelativeLayout {
             putOnPosition(1, xqdl);
         } else if (podium[2].equals("")) {
             putOnPosition(2, xqdl);
-        } else {
+        } else if (podium[3].equals("")) {
             putOnPosition(3, xqdl);
+        } else {
+            String[] temp = new String[3];
+            temp[0] = podium[0];
+            temp[1] = podium[1];
+            temp[2] = podium[2];
+
+            putOnPosition(0, xqdl);
+            putOnPosition(1, temp[0]);
+            putOnPosition(2, temp[1]);
+            putOnPosition(3, temp[2]);
+
         }
     }
 

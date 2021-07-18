@@ -32,7 +32,7 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
             R.id.btFifthOption, R.id.btSixOption, R.id.btSevenOption})
     List<Button> mButtons;
     String positions[] = new String[]{"1o Lugar", "2 Lugar", "3 Lugar", "4 Lugar"};
-
+    List<Integer> list = new ArrayList<>();
     private boolean anyOneSelected = false;
     private List<AnswerRequest> answerRequests = new ArrayList<>();
     private BuildingAnswer houseGroupAnswer = BuildingAnswer.LIVED_IN_SAME_PLACE;
@@ -62,6 +62,12 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
             for (Button b : mButtons) {
                 if (b.getText().equals(xqdl)) {
                     b.setVisibility(View.VISIBLE);
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i) == b.getId()) {
+                            list.remove(i);
+                            break;
+                        }
+                    }
                 }
             }
         });
@@ -69,7 +75,7 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOneSelected) {
+        if (anyOneSelected && list.size() == 4) {
             if (getActivity() != null) {
                 setAnswers();
                 if (ResearchFlow.getHouse()) {
@@ -129,6 +135,14 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
         Button textView = (Button) view;
         customPodium.putOnPodium(textView.getText().toString());
         textView.setVisibility(View.INVISIBLE);
+
+        if (list.size() == 4) {
+            TextView myTextView = (TextView) getView().findViewById(list.get(3));
+            myTextView.setVisibility(View.VISIBLE);
+            list.remove(3);
+        }
+
+        list.add(textView.getId());
     }
 
     @OnClick(R.id.btPreviousSession)
