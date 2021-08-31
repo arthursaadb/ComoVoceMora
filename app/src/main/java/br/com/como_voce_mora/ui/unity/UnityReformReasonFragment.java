@@ -128,7 +128,7 @@ public class UnityReformReasonFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (getActivity() != null && anyOptionChecked && list.size() == 4) {
+        if (getActivity() != null && anyOptionChecked && list.size() > 0) {
             setAnswers();
             ((AboutYouActivity) getActivity()).addFragment(UnityReformssNeeds.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
         }

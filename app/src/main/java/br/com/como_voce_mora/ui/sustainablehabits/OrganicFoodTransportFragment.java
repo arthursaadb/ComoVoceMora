@@ -105,7 +105,6 @@ public class OrganicFoodTransportFragment extends BaseFragment {
                 if (!csv.isChecked()) {
                     csv.setChecked(true);
                     answerList.add(csv.getText());
-                    answer.append(";");
                     break;
                 } else {
                     csv.setChecked(false);

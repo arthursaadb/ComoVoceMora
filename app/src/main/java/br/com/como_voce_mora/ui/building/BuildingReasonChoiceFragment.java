@@ -75,7 +75,7 @@ public class BuildingReasonChoiceFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOneSelected && list.size() == 4) {
+        if (anyOneSelected && list.size() > 0) {
             if (getActivity() != null) {
                 setAnswers();
                 if (ResearchFlow.getHouse()) {

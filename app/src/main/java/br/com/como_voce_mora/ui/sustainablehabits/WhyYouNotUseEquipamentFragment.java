@@ -20,9 +20,6 @@ import br.com.como_voce_mora.ui.unity.UnitySplashFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class WhyYouNotUseEquipamentFragment extends BaseFragment implements CustomRadioButton.OnCheckedChangeListener {
     @BindView(R.id.progress_bar)
     HowYouLiveProgressBar mProgress;
@@ -95,7 +92,6 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(true);
 
-
                     updateViews();
                     break;
                 case R.id.rbDishes:
@@ -121,7 +117,7 @@ public class WhyYouNotUseEquipamentFragment extends BaseFragment implements Cust
                     break;
             }
         } else {
-            answerList.add(buttonView.getText().toString());
+            answerList.remove(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbBrushMyTeeth:
                     rbBrushMyTeeth.setChecked(false);

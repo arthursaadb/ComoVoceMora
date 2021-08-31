@@ -4,14 +4,17 @@ import androidx.fragment.app.Fragment;
 
 import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
+import br.com.como_voce_mora.ui.building.BuildingHouseNegativePointsFragment;
 import br.com.como_voce_mora.ui.currentresidence.EquipamentsFragment;
 import br.com.como_voce_mora.ui.housegroup.HabitationEquipmentsMeaningFragment;
+import br.com.como_voce_mora.ui.housegroup.HabitationSatisfactionFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateOilFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.OrganicFoodTransportFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.PlantsFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.SolarEquipamentTypeFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.SustainableHabitsIntroFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.WhatYouDoToSaveElectricity;
+import br.com.como_voce_mora.ui.sustainablehabits.WhyYouNotUseEquipamentFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.WhyYouSaveWaterFragment;
 import br.com.como_voce_mora.ui.unity.UnityActualHouseLivingFragment;
 import br.com.como_voce_mora.ui.unity.UnityRoomsFragment;

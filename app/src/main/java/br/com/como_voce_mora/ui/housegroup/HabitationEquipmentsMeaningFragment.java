@@ -91,7 +91,7 @@ public class HabitationEquipmentsMeaningFragment extends BaseFragment {
 
     @OnClick(R.id.bt_next)
     public void onBtNextClicked() {
-        if (anyOptionChecked && list.size() == 4) {
+        if (anyOptionChecked && list.size() > 0) {
             if (getActivity() != null) {
                 setAnswers();
                 ((AboutYouActivity) getActivity()).addFragment(HabitationGreenAreaFragment.newInstance());
