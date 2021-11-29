@@ -49,7 +49,7 @@ public class TransportationFragment extends BaseFragment {
     TextView tvQuestion;
 
     private SustainableHabitsAnswer currentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION;
-    private SustainableHabitsAnswer segurancaCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_1;
+    private SustainableHabitsAnswer segurancaCurrentResidenceAnswer = SustainableHabitsAnswer.  TRANSPORTATION_1;
     private SustainableHabitsAnswer qualidadeCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_2;
     private SustainableHabitsAnswer quantidadeCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_3;
     private SustainableHabitsAnswer acessoCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_4;

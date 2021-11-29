@@ -51,7 +51,6 @@ public class WhatYourGenderFragment extends BaseFragment implements CustomRadioB
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         anyOptionChecked = true;
-        setAnswer(buttonView.getText().toString());
         if (isChecked) {
             switch (buttonView.getId()) {
                 case R.id.rbFemale:
@@ -59,20 +58,21 @@ public class WhatYourGenderFragment extends BaseFragment implements CustomRadioB
                     mRbMale.setChecked(false);
                     mRbOther.setChecked(false);
                     updateRbs();
+                    setAnswer(buttonView.getText().toString());
                     break;
                 case R.id.rbMale:
                     mRbFemale.setChecked(false);
                     mRbMale.setChecked(true);
                     mRbOther.setChecked(false);
-
                     updateRbs();
+                    setAnswer(buttonView.getText().toString());
                     break;
                 case R.id.rbOther:
                     mRbFemale.setChecked(false);
                     mRbMale.setChecked(false);
                     mRbOther.setChecked(true);
-
                     updateRbs();
+                    setAnswer(buttonView.getText().toString());
                     break;
             }
         }

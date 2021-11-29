@@ -49,8 +49,8 @@ public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRa
     CustomRadioButton rb8;
 
     private final UnityAnswer unityAnswer = UnityAnswer.WHY_DONT_REFORM;
-    private final List<AnswerRequest> answerRequests = new ArrayList<>();
     private List<String> answerList = new ArrayList<>();
+    StringBuilder answerResponse = new StringBuilder();
 
     public static UnityReformsNoNeedFragment newInstance(List<UnityAnswer> room) {
         Bundle args = new Bundle();
@@ -108,14 +108,17 @@ public class UnityReformsNoNeedFragment extends BaseFragment implements CustomRa
     public void onBtNextClicked() {
         if (!answerList.isEmpty()) {
             for (String r : answerList) {
-                AnswerRequest answer = new AnswerRequest(unityAnswer.getQuestion(),
-                        unityAnswer.getQuestionPartId(), r);
-
-                ResearchFlow.addAnswer(answer, this);
+                answerResponse.append(r);
+                answerResponse.append(";");
             }
-
-            ((AboutYouActivity) requireActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
         }
+
+        AnswerRequest answer = new AnswerRequest(unityAnswer.getQuestion(),
+                unityAnswer.getQuestionPartId(), answerResponse.toString());
+
+        ResearchFlow.addAnswer(answer, this);
+
+        ((AboutYouActivity) requireActivity()).addFragment(UnitySunLightFragment.newInstance((List<UnityAnswer>) getArguments().getSerializable("list")));
     }
 
     @OnClick(R.id.bt_back)

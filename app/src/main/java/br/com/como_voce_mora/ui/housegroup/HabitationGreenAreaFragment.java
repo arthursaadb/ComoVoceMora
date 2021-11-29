@@ -70,9 +70,10 @@ public class HabitationGreenAreaFragment extends BaseFragment implements CustomR
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        setAnswer(buttonView.getText().toString());
-        anyOptionChecked = true;
         if (isChecked) {
+            anyOptionChecked = true;
+            setAnswer(buttonView.getText().toString());
+
             switch (buttonView.getId()) {
                 case R.id.rbYes:
                     yesChecked = true;

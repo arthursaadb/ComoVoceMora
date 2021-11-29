@@ -58,9 +58,10 @@ public class UnitySunLightFragment extends BaseFragment implements CustomRadioBu
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        anyOptionChecked = true;
-        setAnswer(buttonView.getText().toString());
         if (isChecked) {
+            anyOptionChecked = true;
+            setAnswer(buttonView.getText().toString());
+
             switch (buttonView.getId()) {
                 case R.id.rbManha:
                     rbManha.setChecked(true);

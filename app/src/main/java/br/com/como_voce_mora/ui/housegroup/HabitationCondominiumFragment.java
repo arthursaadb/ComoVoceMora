@@ -74,9 +74,10 @@ public class HabitationCondominiumFragment extends BaseFragment implements Custo
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        setAnswer(buttonView.getText().toString());
-        anyOneSelected = true;
         if (isChecked) {
+            anyOneSelected = true;
+            setAnswer(buttonView.getText().toString());
+
             switch (buttonView.getId()) {
                 case R.id.rbYes:
                     yesChecked = true;

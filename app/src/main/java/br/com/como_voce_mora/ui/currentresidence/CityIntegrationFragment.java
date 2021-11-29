@@ -74,9 +74,9 @@ public class CityIntegrationFragment extends BaseFragment implements CustomRadio
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        anyOptionChecked = true;
-        setAnswer(buttonView.getText().toString());
         if (isChecked) {
+            anyOptionChecked = true;
+            setAnswer(buttonView.getText().toString());
             switch (buttonView.getId()) {
                 case R.id.rbYes:
                     rbYes.setChecked(true);
