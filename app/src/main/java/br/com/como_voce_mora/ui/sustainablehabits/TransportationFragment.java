@@ -49,7 +49,7 @@ public class TransportationFragment extends BaseFragment {
     TextView tvQuestion;
 
     private SustainableHabitsAnswer currentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION;
-    private SustainableHabitsAnswer segurancaCurrentResidenceAnswer = SustainableHabitsAnswer.  TRANSPORTATION_1;
+    private SustainableHabitsAnswer segurancaCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_1;
     private SustainableHabitsAnswer qualidadeCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_2;
     private SustainableHabitsAnswer quantidadeCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_3;
     private SustainableHabitsAnswer acessoCurrentResidenceAnswer = SustainableHabitsAnswer.TRANSPORTATION_4;
@@ -91,22 +91,22 @@ public class TransportationFragment extends BaseFragment {
         volume1.setListener(position -> {
             anyOptionChecked1 = true;
             volume1.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(acessoCurrentResidenceAnswer.getQuestion(), acessoCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volume2.setListener(position -> {
             anyOptionChecked2 = true;
             volume2.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(quantidadeCurrentResidenceAnswer.getQuestion(), quantidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(qualidadeCurrentResidenceAnswer.getQuestion(), qualidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volume3.setListener(position -> {
             anyOptionChecked3 = true;
             volume3.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(qualidadeCurrentResidenceAnswer.getQuestion(), qualidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(quantidadeCurrentResidenceAnswer.getQuestion(), quantidadeCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
         volume4.setListener(position -> {
             anyOptionChecked4 = true;
             volume4.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(segurancaCurrentResidenceAnswer.getQuestion(), segurancaCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(acessoCurrentResidenceAnswer.getQuestion(), acessoCurrentResidenceAnswer.getQuestionPartId(), texts.get(position)));
         });
     }
 
