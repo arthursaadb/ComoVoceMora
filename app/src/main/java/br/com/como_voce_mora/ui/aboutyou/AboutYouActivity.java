@@ -6,6 +6,7 @@ import br.com.como_voce_mora.R;
 import br.com.como_voce_mora.ui.BaseActivity;
 import br.com.como_voce_mora.ui.building.BuildingHouseNegativePointsFragment;
 import br.com.como_voce_mora.ui.currentresidence.EquipamentsFragment;
+import br.com.como_voce_mora.ui.housegroup.HabitationEquipmentsFragment;
 import br.com.como_voce_mora.ui.housegroup.HabitationEquipmentsMeaningFragment;
 import br.com.como_voce_mora.ui.housegroup.HabitationSatisfactionFragment;
 import br.com.como_voce_mora.ui.sustainablehabits.DoYouSeparateOilFragment;

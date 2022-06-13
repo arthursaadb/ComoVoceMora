@@ -50,6 +50,7 @@ public class HabitationEquipmentsSatisfactionFragment extends BaseFragment {
     private boolean anyOptionChecked2 = false;
     private boolean anyOptionChecked3 = false;
     private boolean anyOptionChecked4 = false;
+    private String responseId = "";
 
     public static HabitationEquipmentsSatisfactionFragment newInstance(ArrayList<AnswerRequest> answerRequests) {
 
@@ -79,6 +80,33 @@ public class HabitationEquipmentsSatisfactionFragment extends BaseFragment {
         texts.add("Bom");
         texts.add("Muito Bom");
 
+        switch (answerRequest.getDwellerId()) {
+            case "Academia":
+                responseId = "207360bb-ec62-4331-b063-c9a887b83a10";
+                break;
+            case "Salão de festas":
+                responseId = "c982decc-8e32-42a1-ac7f-dbfcf8b6afa1";
+                break;
+            case "Playground":
+                responseId = "8414daca-9549-449c-ba3e-7ad123eac8cd";
+                break;
+            case "Quadra de esportes":
+                responseId = "67a078aa-9111-4938-ba66-9ea4f58751c9";
+                break;
+            case "Salão de jogos":
+                responseId = "bb70091d-63dc-465d-a3b2-fd5b871ec727";
+                break;
+            case "Espaço gourmet":
+                responseId = "f1731ebb-840f-438a-a837-afda6da0f3dc";
+                break;
+            case "Piscina adulto":
+                responseId = "60b5aff7-0211-4cb7-94f6-b20e3fc1a5a2";
+                break;
+            case "Piscina infantil":
+                responseId = "8761fe12-eb75-4c8d-b308-0b4ee09f5988";
+                break;
+        }
+
         vhAcessibilidade.setMax(texts.size() - 1);
         vhAparencia.setMax(texts.size() - 1);
         vhConstrucao.setMax(texts.size() - 1);
@@ -90,22 +118,22 @@ public class HabitationEquipmentsSatisfactionFragment extends BaseFragment {
         vhAcessibilidade.setListener(position -> {
             anyOptionChecked1 = true;
             vhAcessibilidade.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(acessibilidade.getQuestion(), acessibilidade.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(acessibilidade.getQuestion(), responseId, texts.get(position)));
         });
         vhAparencia.setListener(position -> {
             anyOptionChecked2 = true;
             vhAparencia.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(general.getQuestion(), general.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(general.getQuestion(), responseId, texts.get(position)));
         });
         vhConstrucao.setListener(position -> {
             anyOptionChecked3 = true;
             vhConstrucao.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(construction.getQuestion(), construction.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(construction.getQuestion(), responseId, texts.get(position)));
         });
         vhLimpeza.setListener(position -> {
             anyOptionChecked4 = true;
             vhLimpeza.setInfo(texts.get(position));
-            answerRequests.add(new AnswerRequest(clean.getQuestion(), clean.getQuestionPartId(), texts.get(position)));
+            answerRequests.add(new AnswerRequest(clean.getQuestion(), responseId, texts.get(position)));
         });
     }
 
@@ -114,7 +142,7 @@ public class HabitationEquipmentsSatisfactionFragment extends BaseFragment {
         if (anyOptionChecked1 && anyOptionChecked2 && anyOptionChecked3 && anyOptionChecked4) {
             if (getActivity() != null) {
                 setAnswers();
-                if(equipaments.size() > 0){
+                if (equipaments.size() > 0) {
                     ((AboutYouActivity) getActivity()).addFragment(HabitationEquipmentsSatisfactionFragment.newInstance(equipaments));
                 } else {
                     ((AboutYouActivity) getActivity()).addFragment(HabitationAspectsFragment.newInstance());
